@@ -1,567 +1,554 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>حضري للكتب الإسلامية | مكتبة إسلامية إلكترونية</title>
-
-  <meta name="description" content="حضري للكتب الإسلامية، مكتبة إلكترونية للقرآن الكريم والحديث الشريف والفقه والعقيدة والسيرة النبوية والأذكار والكتب الإسلامية.">
-  <meta name="keywords" content="القرآن الكريم, المصحف, القرآن, كتب إسلامية, مكتبة إسلامية, الحديث الشريف, الفقه, العقيدة">
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:title" content="حضري للكتب الإسلامية">
-  <meta property="og:description" content="مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية.">
-  <meta property="og:type" content="website">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, "Tahoma", sans-serif;
-      background: #f7f8f6;
-      color: #222;
-      line-height: 1.8;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    select {
-      font-family: inherit;
-    }
-
-    header {
-      background: #123b2a;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-    }
-
-    .header-container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .logo span,
-    .hero h1 span,
-    .footer-logo span {
-      color: #d7b56d;
-    }
-
-    nav {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #d7b56d;
-    }
-
-    .theme-btn {
-      border: 1px solid rgba(255,255,255,0.35);
-      background: transparent;
-      color: white;
-      border-radius: 8px;
-      padding: 7px 10px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .hero {
-      background:
-        linear-gradient(rgba(18,59,42,0.94), rgba(18,59,42,0.94)),
-        radial-gradient(circle at top, #2e6a4d, #123b2a);
-      color: white;
-      text-align: center;
-      padding: 75px 20px 65px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 28px;
-      font-size: 18px;
-      color: #e7eee9;
-    }
-
-    .search-box {
-      max-width: 650px;
-      margin: auto;
-      display: flex;
-      background: white;
-      border-radius: 12px;
-      padding: 5px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 14px;
-      font-size: 16px;
-      color: #222;
-      background: transparent;
-    }
-
-    .search-box button {
-      border: none;
-      background: #d7b56d;
-      color: #123b2a;
-      font-weight: bold;
-      padding: 0 22px;
-      border-radius: 9px;
-      cursor: pointer;
-    }
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 55px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-title h2 {
-      color: #123b2a;
-      font-size: 29px;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #666;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 65px;
-    }
-
-    .category {
-      background: white;
-      border: 1px solid #e5e7e5;
-      border-radius: 14px;
-      padding: 25px 15px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .category:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .category-icon {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    .category h3 {
-      color: #123b2a;
-      margin-bottom: 4px;
-    }
-
-    .category p {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .books {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .book {
-      background: white;
-      border-radius: 14px;
-      padding: 22px;
-      border: 1px solid #e5e7e5;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .book:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .book-icon {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #edf4ef;
-      border-radius: 12px;
-      font-size: 25px;
-      margin-bottom: 14px;
-    }
-
-    .book h3 {
-      color: #123b2a;
-      margin-bottom: 7px;
-    }
-
-    .book p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .book-btn {
-      display: inline-block;
-      background: #123b2a;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 7px;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .book-btn:hover {
-      background: #1d5a40;
-    }
-
-    .info {
-      background: #eef3ef;
-      border-radius: 16px;
-      padding: 35px;
-      margin-top: 60px;
-      text-align: center;
-    }
-
-    .info h2 {
-      color: #123b2a;
-      margin-bottom: 12px;
-    }
-
-    .info p {
-      max-width: 800px;
-      margin: auto;
-      color: #555;
-    }
-
-    footer {
-      background: #102f23;
-      color: #dce7e1;
-      margin-top: 20px;
-    }
-
-    .footer-container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 40px 20px 25px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-size: 23px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin: 20px 0;
-    }
-
-    .footer-links a {
-      color: #dce7e1;
-      font-size: 14px;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 18px;
-      color: #aebdb5;
-      font-size: 13px;
-    }
-
-    body.dark {
-      background: #121715;
-      color: #eee;
-    }
-
-    body.dark .category,
-    body.dark .book {
-      background: #1b2420;
-      border-color: #2d3934;
-    }
-
-    body.dark .section-title h2,
-    body.dark .category h3,
-    body.dark .book h3,
-    body.dark .info h2 {
-      color: #d7b56d;
-    }
-
-    body.dark .section-title p,
-    body.dark .category p,
-    body.dark .book p,
-    body.dark .info p {
-      color: #c1c8c4;
-    }
-
-    body.dark .book-icon {
-      background: #26332d;
-    }
-
-    body.dark .info {
-      background: #1b2420;
-    }
-
-    /* ===== Quran ===== */
-
-    #quranSection {
-      display: none;
-      margin-top: 60px;
-    }
-
-    .quran-header {
-      background: #123b2a;
-      color: white;
-      border-radius: 16px;
-      padding: 30px 20px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .quran-header h2 {
-      color: #d7b56d;
-      margin-bottom: 8px;
-      font-size: 30px;
-    }
-
-    .quran-tools {
-      display: flex;
-      gap: 10px;
-      max-width: 800px;
-      margin: 20px auto 0;
-      flex-wrap: wrap;
-    }
-
-    .quran-tools input,
-    .quran-tools select {
-      flex: 1;
-      min-width: 180px;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      font-size: 15px;
-    }
-
-    .quran-tools button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #d7b56d;
-      color: #123b2a;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .quran-status {
-      text-align: center;
-      margin: 20px 0;
-      color: #777;
-    }
-
-    .surah {
-      background: white;
-      border: 1px solid #e5e7e5;
-      border-radius: 16px;
-      margin-bottom: 25px;
-      overflow: hidden;
-    }
-
-    .surah-title {
-      background: #edf4ef;
-      color: #123b2a;
-      padding: 18px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .ayah {
-      padding: 18px 22px;
-      border-top: 1px solid #e8ebe9;
-      font-family: "Amiri Quran", "KFGQPC Uthmanic Script HAFS", "Noto Naskh Arabic", "Amiri", serif;
-      font-size: 24px;
-      line-height: 2.2;
-    }
-
-    .ayah-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 38px;
-      height: 38px;
-      margin-left: 8px;
-      border: 1px solid #d7b56d;
-      border-radius: 50%;
-      color: #123b2a;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      vertical-align: middle;
-    }
-
-    .close-quran {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #d7b56d;
-      color: #123b2a;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    body.dark .surah {
-      background: #1b2420;
-      border-color: #2d3934;
-    }
-
-    body.dark .surah-title {
-      background: #26332d;
-      color: #d7b56d;
-    }
-
-    body.dark .ayah {
-      border-color: #2d3934;
-    }
-
-    body.dark .ayah-number {
-      color: #d7b56d;
-    }
-
-    @media (max-width: 900px) {
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .books {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .header-container {
-        padding: 12px 15px;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .hero {
-        padding: 55px 15px 45px;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .search-box {
-        flex-direction: column;
-        background: transparent;
-        box-shadow: none;
-        gap: 8px;
-      }
-
-      .search-box input {
-        background: white;
-        border-radius: 9px;
-        padding: 13px;
-      }
-
-      .search-box button {
-        padding: 12px;
-        border-radius: 9px;
-      }
-
-      main {
-        padding: 40px 15px;
-      }
-
-      .categories,
-      .books {
-        grid-template-columns: 1fr;
-      }
-
-      .info {
-        padding: 25px 18px;
-      }
-
-      .ayah {
-        font-size: 21px;
-        padding: 15px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حضري للكتب الإسلامية | القرآن الكريم</title>
+
+<meta name="description" content="حضري للكتب الإسلامية - مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية.">
+<meta name="robots" content="index, follow">
+
+<!-- خط القرآن -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  background: #f7f8f6;
+  color: #222;
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  background: #123b2a;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+.header-container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span,
+.hero h1 span,
+.footer-logo span {
+  color: #d7b56d;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+}
+
+nav a:hover {
+  color: #d7b56d;
+}
+
+.theme-btn {
+  border: 1px solid rgba(255,255,255,.4);
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  background:
+    linear-gradient(rgba(18,59,42,.95),rgba(18,59,42,.95));
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: auto auto 28px;
+  font-size: 18px;
+  color: #e7eee9;
+}
+
+.search-box {
+  max-width: 650px;
+  margin: auto;
+  display: flex;
+  background: white;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.search-box button {
+  border: none;
+  background: #d7b56d;
+  color: #123b2a;
+  font-weight: bold;
+  padding: 0 22px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+/* ================= MAIN ================= */
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  color: #123b2a;
+  font-size: 29px;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: #666;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+  margin-bottom: 65px;
+}
+
+.category {
+  background: white;
+  border: 1px solid #e5e7e5;
+  border-radius: 14px;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+.category-icon {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.category h3 {
+  color: #123b2a;
+}
+
+.category p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ================= BOOKS ================= */
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.book {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid #e5e7e5;
+}
+
+.book-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf4ef;
+  border-radius: 12px;
+  font-size: 25px;
+  margin-bottom: 14px;
+}
+
+.book h3 {
+  color: #123b2a;
+  margin-bottom: 7px;
+}
+
+.book p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.book-btn {
+  display: inline-block;
+  background: #123b2a;
+  color: white;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+/* ================= QURAN ================= */
+
+#quranSection {
+  display: none;
+  margin-top: 60px;
+}
+
+.quran-header {
+  background: #123b2a;
+  color: white;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.quran-header h2 {
+  color: #d7b56d;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.quran-tools {
+  max-width: 850px;
+  margin: 20px auto 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quran-tools select,
+.quran-tools input {
+  flex: 1;
+  min-width: 190px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+.quran-tools button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #d7b56d;
+  color: #123b2a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quran-status {
+  text-align: center;
+  color: #777;
+  margin: 20px 0;
+}
+
+/* السورة */
+
+.surah {
+  background: white;
+  border: 1px solid #e5e7e5;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.surah-title {
+  background: #edf4ef;
+  color: #123b2a;
+  text-align: center;
+  padding: 17px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*
+   أهم جزء:
+   خط Amiri Quran مخصص للنص القرآني
+*/
+
+.quran-text {
+  font-family: "Amiri Quran", "Amiri", serif;
+  font-size: 28px;
+  line-height: 2.4;
+  text-align: justify;
+  padding: 30px 28px;
+  direction: rtl;
+  unicode-bidi: plaintext;
+  word-spacing: 2px;
+}
+
+/* رقم الآية */
+
+.ayah-number {
+  font-family: Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  margin: 0 5px;
+  border: 1px solid #c9a65e;
+  border-radius: 50%;
+  color: #123b2a;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+/* إغلاق القرآن */
+
+.close-quran {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #d7b56d;
+  color: #123b2a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= ABOUT ================= */
+
+.info {
+  background: #eef3ef;
+  border-radius: 16px;
+  padding: 35px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.info h2 {
+  color: #123b2a;
+  margin-bottom: 12px;
+}
+
+.info p {
+  max-width: 800px;
+  margin: auto;
+  color: #555;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  background: #102f23;
+  color: #dce7e1;
+  margin-top: 20px;
+}
+
+.footer-container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 40px 20px 25px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.footer-links a {
+  color: #dce7e1;
+}
+
+.copyright {
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 18px;
+  color: #aebdb5;
+  font-size: 13px;
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background: #121715;
+  color: #eee;
+}
+
+body.dark .category,
+body.dark .book,
+body.dark .surah {
+  background: #1b2420;
+  border-color: #2d3934;
+}
+
+body.dark .section-title h2,
+body.dark .category h3,
+body.dark .book h3,
+body.dark .info h2 {
+  color: #d7b56d;
+}
+
+body.dark .section-title p,
+body.dark .category p,
+body.dark .book p,
+body.dark .info p {
+  color: #c1c8c4;
+}
+
+body.dark .info {
+  background: #1b2420;
+}
+
+body.dark .surah-title {
+  background: #26332d;
+  color: #d7b56d;
+}
+
+body.dark .ayah-number {
+  color: #d7b56d;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:900px) {
+
+  nav {
+    display: none;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .books {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width:600px) {
+
+  .header-container {
+    padding: 12px 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    background: transparent;
+  }
+
+  .search-box input {
+    background: white;
+    border-radius: 9px;
+  }
+
+  .search-box button {
+    padding: 12px;
+  }
+
+  main {
+    padding: 40px 15px;
+  }
+
+  .categories,
+  .books {
+    grid-template-columns: 1fr;
+  }
+
+  .quran-text {
+    font-size: 23px;
+    line-height: 2.3;
+    padding: 22px 15px;
+  }
+
+  .surah-title {
+    font-size: 22px;
+  }
+}
+</style>
 </head>
 
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header>
   <div class="header-container">
@@ -577,12 +564,14 @@
       <a href="#about">عن المكتبة</a>
     </nav>
 
-    <button class="theme-btn" id="themeButton" type="button">
+    <button id="themeButton" class="theme-btn" type="button">
       🌙
     </button>
 
   </div>
 </header>
+
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
@@ -591,292 +580,321 @@
   </h1>
 
   <p>
-    مكتبة إلكترونية تهدف إلى تسهيل الوصول إلى القرآن الكريم
-    والحديث الشريف والكتب الإسلامية في مكان واحد.
+    مكتبة إلكترونية للقرآن الكريم والحديث الشريف
+    والكتب الإسلامية.
   </p>
 
   <div class="search-box">
+
     <input
       type="search"
       id="searchInput"
       placeholder="ابحث عن كتاب أو قسم..."
-      aria-label="البحث في المكتبة"
     >
 
-    <button type="button" id="searchButton">
+    <button id="searchButton" type="button">
       بحث
     </button>
+
   </div>
 
 </section>
 
+<!-- ================= MAIN ================= -->
+
 <main>
 
-  <section id="categories">
+<section id="categories">
 
-    <div class="section-title">
-      <h2>أقسام المكتبة</h2>
-      <p>اختر القسم الذي تريد تصفحه</p>
-    </div>
+  <div class="section-title">
+    <h2>أقسام المكتبة</h2>
+    <p>اختر القسم الذي تريد تصفحه</p>
+  </div>
 
-    <div class="categories">
+  <div class="categories">
 
-      <a class="category" href="#quranSection" id="quranCategory">
-        <div class="category-icon">📖</div>
-        <h3>القرآن الكريم</h3>
-        <p>المصحف وعلوم القرآن</p>
-      </a>
+    <a class="category" href="#quranSection" id="quranCategory">
+      <div class="category-icon">📖</div>
+      <h3>القرآن الكريم</h3>
+      <p>المصحف وعلوم القرآن</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">📜</div>
-        <h3>الحديث الشريف</h3>
-        <p>كتب الحديث وشروحه</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">📜</div>
+      <h3>الحديث الشريف</h3>
+      <p>كتب الحديث وشروحه</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">☪️</div>
-        <h3>العقيدة</h3>
-        <p>كتب العقيدة والتوحيد</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">☪️</div>
+      <h3>العقيدة</h3>
+      <p>كتب العقيدة والتوحيد</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">⚖️</div>
-        <h3>الفقه</h3>
-        <p>أحكام العبادات والمعاملات</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">⚖️</div>
+      <h3>الفقه</h3>
+      <p>أحكام العبادات والمعاملات</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">🕌</div>
-        <h3>السيرة النبوية</h3>
-        <p>حياة النبي ﷺ</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">🕌</div>
+      <h3>السيرة النبوية</h3>
+      <p>حياة النبي ﷺ</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">🌙</div>
-        <h3>الأذكار والأدعية</h3>
-        <p>الأذكار والأدعية المأثورة</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">🌙</div>
+      <h3>الأذكار والأدعية</h3>
+      <p>الأذكار والأدعية المأثورة</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">📚</div>
-        <h3>قصص الأنبياء</h3>
-        <p>قصص الأنبياء والرسل</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">📚</div>
+      <h3>قصص الأنبياء</h3>
+      <p>قصص الأنبياء والرسل</p>
+    </a>
 
-      <a class="category" href="#">
-        <div class="category-icon">👨‍👩‍👧‍👦</div>
-        <h3>كتب الأسرة</h3>
-        <p>كتب تربوية وأسرية</p>
-      </a>
+    <a class="category" href="#">
+      <div class="category-icon">👨‍👩‍👧‍👦</div>
+      <h3>كتب الأسرة</h3>
+      <p>كتب تربوية وأسرية</p>
+    </a>
 
-    </div>
+  </div>
 
-  </section>
+</section>
 
-  <section id="books">
+<!-- ================= BOOKS ================= -->
 
-    <div class="section-title">
-      <h2>محتوى المكتبة</h2>
-      <p>القرآن الكريم متاح الآن للتصفح</p>
-    </div>
+<section id="books">
 
-    <div class="books" id="booksContainer">
+  <div class="section-title">
+    <h2>محتوى المكتبة</h2>
+    <p>القرآن الكريم متاح الآن</p>
+  </div>
 
-      <article class="book" data-search="القرآن الكريم القرآن المصحف">
+  <div class="books" id="booksContainer">
 
-        <div class="book-icon">📖</div>
+    <article class="book" data-search="القرآن الكريم القرآن المصحف">
 
-        <h3>القرآن الكريم</h3>
+      <div class="book-icon">📖</div>
 
-        <p>
-          تصفح القرآن الكريم كاملًا مع إمكانية البحث في السور والآيات.
-        </p>
-
-        <button type="button" class="book-btn" id="openQuranButton">
-          تصفح القرآن
-        </button>
-
-      </article>
-
-      <article class="book" data-search="الحديث الشريف حديث">
-        <div class="book-icon">📜</div>
-        <h3>الحديث الشريف</h3>
-        <p>
-          قسم مخصص لكتب الحديث الشريف والمصادر الموثوقة.
-        </p>
-        <button type="button" class="book-btn">
-          قريبًا
-        </button>
-      </article>
-
-      <article class="book" data-search="العقيدة التوحيد">
-        <div class="book-icon">☪️</div>
-        <h3>العقيدة والتوحيد</h3>
-        <p>
-          كتب ومصادر في العقيدة والتوحيد.
-        </p>
-        <button type="button" class="book-btn">
-          قريبًا
-        </button>
-      </article>
-
-      <article class="book" data-search="الفقه الصلاة الصيام الزكاة الحج">
-        <div class="book-icon">⚖️</div>
-        <h3>الفقه الإسلامي</h3>
-        <p>
-          قسم للكتب المتعلقة بالأحكام الفقهية.
-        </p>
-        <button type="button" class="book-btn">
-          قريبًا
-        </button>
-      </article>
-
-      <article class="book" data-search="السيرة النبوية النبي محمد">
-        <div class="book-icon">🕌</div>
-        <h3>السيرة النبوية</h3>
-        <p>
-          كتب ومراجع حول سيرة النبي محمد ﷺ.
-        </p>
-        <button type="button" class="book-btn">
-          قريبًا
-        </button>
-      </article>
-
-      <article class="book" data-search="الأذكار الأدعية الدعاء">
-        <div class="book-icon">🌙</div>
-        <h3>الأذكار والأدعية</h3>
-        <p>
-          قسم للأذكار والأدعية المأثورة.
-        </p>
-        <button type="button" class="book-btn">
-          قريبًا
-        </button>
-      </article>
-
-    </div>
-
-  </section>
-
-  <!-- القرآن الكريم -->
-
-  <section id="quranSection">
-
-    <div class="quran-header">
-
-      <h2>📖 القرآن الكريم</h2>
+      <h3>القرآن الكريم</h3>
 
       <p>
-        القرآن الكريم بالرسم العثماني
+        تصفح القرآن الكريم كاملًا بالرسم العثماني.
       </p>
 
-      <div class="quran-tools">
+      <button
+        type="button"
+        class="book-btn"
+        id="openQuranButton">
+        تصفح القرآن
+      </button>
 
-        <select id="surahSelect" aria-label="اختر السورة">
-          <option value="">اختر السورة</option>
-        </select>
+    </article>
 
-        <input
-          type="search"
-          id="quranSearch"
-          placeholder="ابحث في القرآن..."
-          aria-label="البحث في القرآن"
-        >
+    <article class="book" data-search="الحديث الشريف حديث">
 
-        <button type="button" id="quranSearchButton">
-          بحث
-        </button>
+      <div class="book-icon">📜</div>
 
-      </div>
+      <h3>الحديث الشريف</h3>
 
-      <button type="button" class="close-quran" id="closeQuranButton">
-        إغلاق القرآن
+      <p>قسم الحديث الشريف.</p>
+
+      <button class="book-btn" type="button">
+        قريبًا
+      </button>
+
+    </article>
+
+    <article class="book">
+
+      <div class="book-icon">☪️</div>
+
+      <h3>العقيدة والتوحيد</h3>
+
+      <p>كتب العقيدة والتوحيد.</p>
+
+      <button class="book-btn" type="button">
+        قريبًا
+      </button>
+
+    </article>
+
+    <article class="book">
+
+      <div class="book-icon">⚖️</div>
+
+      <h3>الفقه الإسلامي</h3>
+
+      <p>كتب الأحكام الفقهية.</p>
+
+      <button class="book-btn" type="button">
+        قريبًا
+      </button>
+
+    </article>
+
+    <article class="book">
+
+      <div class="book-icon">🕌</div>
+
+      <h3>السيرة النبوية</h3>
+
+      <p>كتب السيرة النبوية.</p>
+
+      <button class="book-btn" type="button">
+        قريبًا
+      </button>
+
+    </article>
+
+    <article class="book">
+
+      <div class="book-icon">🌙</div>
+
+      <h3>الأذكار والأدعية</h3>
+
+      <p>الأذكار والأدعية المأثورة.</p>
+
+      <button class="book-btn" type="button">
+        قريبًا
+      </button>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ================= QURAN ================= -->
+
+<section id="quranSection">
+
+  <div class="quran-header">
+
+    <h2>📖 القرآن الكريم</h2>
+
+    <p>
+      القرآن الكريم بالرسم العثماني
+    </p>
+
+    <div class="quran-tools">
+
+      <select id="surahSelect">
+        <option value="">كل السور</option>
+      </select>
+
+      <input
+        type="search"
+        id="quranSearch"
+        placeholder="ابحث في القرآن..."
+      >
+
+      <button id="quranSearchButton" type="button">
+        بحث
       </button>
 
     </div>
 
-    <div id="quranStatus" class="quran-status">
-      جاري تحميل القرآن الكريم...
-    </div>
+    <button
+      id="closeQuranButton"
+      class="close-quran"
+      type="button">
+      إغلاق القرآن
+    </button>
 
-    <div id="quranContainer"></div>
+  </div>
 
-  </section>
+  <div id="quranStatus" class="quran-status">
+    جاري تحميل القرآن الكريم...
+  </div>
 
-  <section id="about" class="info">
+  <div id="quranContainer"></div>
 
-    <h2>عن حضري للكتب الإسلامية</h2>
+</section>
 
-    <p>
-      حضري للكتب الإسلامية هو مشروع مكتبة إلكترونية يهدف إلى
-      تنظيم وتسهيل الوصول إلى مصادر المعرفة الإسلامية الموثوقة،
-      مع الاهتمام بسهولة الاستخدام وسرعة الوصول إلى المحتوى.
-    </p>
+<!-- ================= ABOUT ================= -->
 
-  </section>
+<section id="about" class="info">
+
+  <h2>عن حضري للكتب الإسلامية</h2>
+
+  <p>
+    حضري للكتب الإسلامية مشروع مكتبة إلكترونية
+    يهدف إلى تسهيل الوصول إلى مصادر المعرفة الإسلامية.
+  </p>
+
+</section>
 
 </main>
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-  <div class="footer-container">
+<div class="footer-container">
 
-    <div class="footer-logo">
-      حضري <span>للكتب الإسلامية</span>
-    </div>
-
-    <div class="footer-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#categories">الأقسام</a>
-      <a href="#books">الكتب</a>
-      <a href="#about">عن المكتبة</a>
-    </div>
-
-    <div class="copyright">
-      © <span id="year"></span> حضري للكتب الإسلامية — جميع الحقوق محفوظة.
-    </div>
-
+  <div class="footer-logo">
+    حضري <span>للكتب الإسلامية</span>
   </div>
+
+  <div class="footer-links">
+    <a href="#home">الرئيسية</a>
+    <a href="#categories">الأقسام</a>
+    <a href="#books">الكتب</a>
+    <a href="#about">عن المكتبة</a>
+  </div>
+
+  <div class="copyright">
+    © <span id="year"></span>
+    حضري للكتب الإسلامية
+  </div>
+
+</div>
 
 </footer>
 
 <script>
-"use strict";
 
-/* السنة */
+/* ================= YEAR ================= */
+
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-/* الوضع الليلي */
-const themeButton = document.getElementById("themeButton");
+/* ================= DARK MODE ================= */
 
-function updateThemeIcon() {
-  themeButton.textContent =
-    document.body.classList.contains("dark") ? "☀️" : "🌙";
-}
+const themeButton =
+  document.getElementById("themeButton");
 
-const savedTheme = localStorage.getItem("hodari-theme");
-
-if (savedTheme === "dark") {
+if (
+  localStorage.getItem("hodari-theme") === "dark"
+) {
   document.body.classList.add("dark");
+  themeButton.textContent = "☀️";
 }
-
-updateThemeIcon();
 
 themeButton.addEventListener("click", function () {
 
   document.body.classList.toggle("dark");
 
+  const dark =
+    document.body.classList.contains("dark");
+
   localStorage.setItem(
     "hodari-theme",
-    document.body.classList.contains("dark")
-      ? "dark"
-      : "light"
+    dark ? "dark" : "light"
   );
 
-  updateThemeIcon();
+  themeButton.textContent =
+    dark ? "☀️" : "🌙";
+
 });
 
-/* البحث في الكتب */
+/* ================= BOOK SEARCH ================= */
+
 const searchInput =
   document.getElementById("searchInput");
 
@@ -886,7 +904,7 @@ const searchButton =
 const books =
   document.querySelectorAll(".book");
 
-searchButton.addEventListener("click", function () {
+function searchBooks() {
 
   const query =
     searchInput.value.trim().toLowerCase();
@@ -894,18 +912,35 @@ searchButton.addEventListener("click", function () {
   books.forEach(function(book) {
 
     const text =
-      (book.dataset.search + " " + book.textContent)
-      .toLowerCase();
+      book.textContent.toLowerCase();
 
     book.style.display =
       query === "" || text.includes(query)
         ? ""
         : "none";
+
   });
 
-});
+}
 
-/* عناصر القرآن */
+searchButton.addEventListener(
+  "click",
+  searchBooks
+);
+
+searchInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Enter") {
+      searchBooks();
+    }
+
+  }
+);
+
+/* ================= QURAN ================= */
+
 const quranSection =
   document.getElementById("quranSection");
 
@@ -937,124 +972,33 @@ let quranData = [];
 let quranLoaded = false;
 
 /* أسماء السور */
+
 const surahNames = [
-  "الفاتحة",
-  "البقرة",
-  "آل عمران",
-  "النساء",
-  "المائدة",
-  "الأنعام",
-  "الأعراف",
-  "الأنفال",
-  "التوبة",
-  "يونس",
-  "هود",
-  "يوسف",
-  "الرعد",
-  "إبراهيم",
-  "الحجر",
-  "النحل",
-  "الإسراء",
-  "الكهف",
-  "مريم",
-  "طه",
-  "الأنبياء",
-  "الحج",
-  "المؤمنون",
-  "النور",
-  "الفرقان",
-  "الشعراء",
-  "النمل",
-  "القصص",
-  "العنكبوت",
-  "الروم",
-  "لقمان",
-  "السجدة",
-  "الأحزاب",
-  "سبأ",
-  "فاطر",
-  "يس",
-  "الصافات",
-  "ص",
-  "الزمر",
-  "غافر",
-  "فصلت",
-  "الشورى",
-  "الزخرف",
-  "الدخان",
-  "الجاثية",
-  "الأحقاف",
-  "محمد",
-  "الفتح",
-  "الحجرات",
-  "ق",
-  "الذاريات",
-  "الطور",
-  "النجم",
-  "القمر",
-  "الرحمن",
-  "الواقعة",
-  "الحديد",
-  "المجادلة",
-  "الحشر",
-  "الممتحنة",
-  "الصف",
-  "الجمعة",
-  "المنافقون",
-  "التغابن",
-  "الطلاق",
-  "التحريم",
-  "الملك",
-  "القلم",
-  "الحاقة",
-  "المعارج",
-  "نوح",
-  "الجن",
-  "المزمل",
-  "المدثر",
-  "القيامة",
-  "الإنسان",
-  "المرسلات",
-  "النبأ",
-  "النازعات",
-  "عبس",
-  "التكوير",
-  "الانفطار",
-  "المطففين",
-  "الانشقاق",
-  "البروج",
-  "الطارق",
-  "الأعلى",
-  "الغاشية",
-  "الفجر",
-  "البلد",
-  "الشمس",
-  "الليل",
-  "الضحى",
-  "الشرح",
-  "التين",
-  "العلق",
-  "القدر",
-  "البينة",
-  "الزلزلة",
-  "العاديات",
-  "القارعة",
-  "التكاثر",
-  "العصر",
-  "الهمزة",
-  "الفيل",
-  "قريش",
-  "الماعون",
-  "الكوثر",
-  "الكافرون",
-  "النصر",
-  "المسد",
-  "الإخلاص",
-  "الفلق",
-  "الناس"
+"الفاتحة","البقرة","آل عمران","النساء","المائدة",
+"الأنعام","الأعراف","الأنفال","التوبة","يونس",
+"هود","يوسف","الرعد","إبراهيم","الحجر","النحل",
+"الإسراء","الكهف","مريم","طه","الأنبياء","الحج",
+"المؤمنون","النور","الفرقان","الشعراء","النمل",
+"القصص","العنكبوت","الروم","لقمان","السجدة",
+"الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر",
+"غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية",
+"الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات",
+"الطور","النجم","القمر","الرحمن","الواقعة","الحديد",
+"المجادلة","الحشر","الممتحنة","الصف","الجمعة",
+"المنافقون","التغابن","الطلاق","التحريم","الملك",
+"القلم","الحاقة","المعارج","نوح","الجن","المزمل",
+"المدثر","القيامة","الإنسان","المرسلات","النبأ",
+"النازعات","عبس","التكوير","الانفطار","المطففين",
+"الانشقاق","البروج","الطارق","الأعلى","الغاشية",
+"الفجر","البلد","الشمس","الليل","الضحى","الشرح",
+"التين","العلق","القدر","البينة","الزلزلة",
+"العاديات","القارعة","التكاثر","العصر","الهمزة",
+"الفيل","قريش","الماعون","الكوثر","الكافرون",
+"النصر","المسد","الإخلاص","الفلق","الناس"
 ];
 
 /* فتح القرآن */
+
 async function openQuran() {
 
   quranSection.style.display = "block";
@@ -1073,9 +1017,10 @@ async function openQuran() {
   try {
 
     const response =
-      await fetch("quran-uthmani.txt", {
-        cache: "no-cache"
-      });
+      await fetch(
+        "quran-uthmani.txt",
+        { cache: "no-cache" }
+      );
 
     if (!response.ok) {
       throw new Error(
@@ -1090,73 +1035,80 @@ async function openQuran() {
 
     quranLoaded = true;
 
-    quranStatus.textContent =
-      "تم تحميل القرآن الكريم بنجاح.";
-
-    populateSurahSelect();
+    populateSurahs();
 
     renderQuran(quranData);
 
-  } catch (error) {
+  } catch(error) {
 
     console.error(error);
 
-    quranStatus.innerHTML =
-      "تعذر تحميل ملف القرآن الكريم.<br>" +
-      "تأكد من وجود الملف quran-uthmani.txt في المستودع.";
+    quranStatus.textContent =
+      "تعذر تحميل ملف القرآن الكريم.";
 
   }
+
 }
 
-/* تحليل الملف */
+/* تحليل ملف القرآن */
+
 function parseQuran(text) {
+
+  quranData = [];
 
   const lines =
     text.split(/\r?\n/);
 
-  quranData = [];
-
   lines.forEach(function(line) {
 
-    const match =
-      line.match(/^(\d+)\|(\d+)\|(.*)$/);
+    const parts =
+      line.split("|");
 
-    if (!match) {
+    if (parts.length < 3) {
       return;
     }
 
     const surah =
-      Number(match[1]);
+      Number(parts[0]);
 
     const ayah =
-      Number(match[2]);
+      Number(parts[1]);
 
-    const content =
-      match[3];
+    const ayahText =
+      parts.slice(2).join("|").trim();
 
-    quranData.push({
-      surah: surah,
-      ayah: ayah,
-      text: content
-    });
+    if (
+      !Number.isNaN(surah) &&
+      !Number.isNaN(ayah) &&
+      ayahText
+    ) {
+
+      quranData.push({
+        surah: surah,
+        ayah: ayah,
+        text: ayahText
+      });
+
+    }
 
   });
 
 }
 
 /* قائمة السور */
-function populateSurahSelect() {
+
+function populateSurahs() {
 
   surahSelect.innerHTML =
     '<option value="">كل السور</option>';
 
-  surahNames.forEach(function(name, index) {
+  surahNames.forEach(function(name,index) {
 
     const option =
       document.createElement("option");
 
     option.value =
-      String(index + 1);
+      index + 1;
 
     option.textContent =
       (index + 1) + " - " + name;
@@ -1168,11 +1120,12 @@ function populateSurahSelect() {
 }
 
 /* عرض القرآن */
+
 function renderQuran(data) {
 
   quranContainer.innerHTML = "";
 
-  if (data.length === 0) {
+  if (!data.length) {
 
     quranStatus.textContent =
       "لم يتم العثور على نتائج.";
@@ -1181,13 +1134,15 @@ function renderQuran(data) {
   }
 
   quranStatus.textContent =
-    "عدد الآيات المعروضة: " + data.length;
+    "عدد الآيات المعروضة: " +
+    data.length;
+
+  let currentSurah = 0;
+  let currentSurahElement = null;
+  let quranTextElement = null;
 
   const fragment =
     document.createDocumentFragment();
-
-  let currentSurah = 0;
-  let surahElement = null;
 
   data.forEach(function(item) {
 
@@ -1196,10 +1151,10 @@ function renderQuran(data) {
       currentSurah =
         item.surah;
 
-      surahElement =
+      currentSurahElement =
         document.createElement("section");
 
-      surahElement.className =
+      currentSurahElement.className =
         "surah";
 
       const title =
@@ -1210,19 +1165,28 @@ function renderQuran(data) {
 
       title.textContent =
         "سورة " +
-        (surahNames[item.surah - 1] ||
-         "رقم " + item.surah);
+        (
+          surahNames[item.surah - 1] ||
+          "رقم " + item.surah
+        );
 
-      surahElement.appendChild(title);
+      currentSurahElement.appendChild(title);
 
-      fragment.appendChild(surahElement);
+      quranTextElement =
+        document.createElement("div");
+
+      quranTextElement.className =
+        "quran-text";
+
+      currentSurahElement.appendChild(
+        quranTextElement
+      );
+
+      fragment.appendChild(
+        currentSurahElement
+      );
+
     }
-
-    const ayah =
-      document.createElement("div");
-
-    ayah.className =
-      "ayah";
 
     const number =
       document.createElement("span");
@@ -1233,20 +1197,25 @@ function renderQuran(data) {
     number.textContent =
       item.ayah;
 
-    ayah.appendChild(number);
-
-    ayah.appendChild(
-      document.createTextNode(" " + item.text)
+    quranTextElement.appendChild(
+      document.createTextNode(" ")
     );
 
-    surahElement.appendChild(ayah);
+    quranTextElement.appendChild(number);
+
+    quranTextElement.appendChild(
+      document.createTextNode(
+        " " + item.text + " "
+      )
+    );
 
   });
 
   quranContainer.appendChild(fragment);
 }
 
-/* اختيار سورة */
+/* اختيار السورة */
+
 surahSelect.addEventListener(
   "change",
   function() {
@@ -1265,20 +1234,20 @@ surahSelect.addEventListener(
       return;
     }
 
-    const filtered =
+    const result =
       quranData.filter(function(item) {
+
         return item.surah === selected;
+
       });
 
-    renderQuran(filtered);
+    renderQuran(result);
 
-    quranSection.scrollIntoView({
-      behavior: "smooth"
-    });
   }
 );
 
 /* البحث في القرآن */
+
 function searchQuran() {
 
   if (!quranLoaded) {
@@ -1289,7 +1258,7 @@ function searchQuran() {
   const query =
     quranSearch.value.trim();
 
-  if (query === "") {
+  if (!query) {
 
     renderQuran(quranData);
 
@@ -1305,9 +1274,6 @@ function searchQuran() {
 
   renderQuran(results);
 
-  quranSection.scrollIntoView({
-    behavior: "smooth"
-  });
 }
 
 quranSearchButton.addEventListener(
@@ -1326,7 +1292,8 @@ quranSearch.addEventListener(
   }
 );
 
-/* أزرار فتح القرآن */
+/* فتح القرآن */
+
 openQuranButton.addEventListener(
   "click",
   openQuran
@@ -1344,6 +1311,7 @@ quranCategory.addEventListener(
 );
 
 /* إغلاق القرآن */
+
 closeQuranButton.addEventListener(
   "click",
   function() {
@@ -1358,6 +1326,7 @@ closeQuranButton.addEventListener(
 
   }
 );
+
 </script>
 
 </body>
