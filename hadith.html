@@ -1,122 +1,45 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قسم الحديث الشريف - حضري للكتب الإسلامية</title>
-    <style>
-        body {
-            font-family: 'Cairo', Tahoma, sans-serif;
-            background-color: #f4f6f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1b4332;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 4px solid #2d6a4f;
-        }
-        .card h3 {
-            color: #1b4332;
-            margin-bottom: 10px;
-        }
-        .card p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        .btn {
-            background-color: #2d6a4f;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-        }
-        .btn:hover {
-            background-color: #1b4332;
-        }
-        .back-link {
-            display: block;
-            margin-top: 30px;
-            text-align: center;
-            color: #2d6a4f;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>قسم الحديث الشريف</h1>
-        <p>كتب الحديث الشريف وشروحه المعتمدة</p>
-    </header>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <h3>صحيح البخاري</h3>
-                <p>الجامع الصحيح المسمى بـ «المسند الصحيح المختصر من أمور رسول الله صلى الله عليه وسلم وسنته وأيامه».</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
-            
-            <div class="card">
-                <h3>صحيح مسلم</h3>
-                <p>المسند الصحيح المختصر بنقل العدل عن العدل إلى رسول الله صلى الله عليه وسلم.</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
-
-            <div class="card">
-                <h3>سنن أبي داود</h3>
-                <p>كتاب سنن الإمام أبي داود السجستاني في الأحكام والسنن.</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
-
-            <div class="card">
-                <h3>جامع الترمذي</h3>
-                <p>الجامع الكبير المسمى سنن الترمذي.</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
-
-            <div class="card">
-                <h3>سنن النسائي</h3>
-                <p>المجتبى من السنن (السنن الصغرى) للإمام النسائي.</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
-
-            <div class="card">
-                <h3>سنن ابن ماجه</h3>
-                <p>كتاب السنن للإمام أبو عبد الله محمد بن يزيد ابن ماجه القزويني.</p>
-                <a href="#" class="btn">قراءة / تحميل</a>
-            </div>
+  hadith: {
+    title: "📜 الحديث الشريف",
+    desc: "أمهات كتب الحديث الشريف وشروحه المعتمدة",
+    content: `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: right;">
+        
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">صحيح البخاري</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">الجامع المسند الصحيح المختصر من أمور رسول الله ﷺ وسنته وأيامه.</p>
+          <a href="https://shamela.ws/book/1711" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
         </div>
 
-        <a href="index.html" class="back-link">← العودة إلى الرئيسية</a>
-    </div>
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">صحيح مسلم</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">المسند الصحيح المختصر بنقل العدل عن العدل إلى رسول الله ﷺ.</p>
+          <a href="https://shamela.ws/book/1709" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
+        </div>
 
-</body>
-</html>
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">سنن أبي داود</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">كتاب السنن للإمام أبي داود السجستاني في الأحكام والسنن.</p>
+          <a href="https://shamela.ws/book/1722" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
+        </div>
+
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">جامع الترمذي</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">الجامع الكبير المسمى سنن الترمذي للإمام محمد بن عيسى الترمذي.</p>
+          <a href="https://shamela.ws/book/1698" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
+        </div>
+
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">سنن النسائي</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">المجتبى من السنن (السنن الصغرى) للإمام أحمد بن شعيب النسائي.</p>
+          <a href="https://shamela.ws/book/1688" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
+        </div>
+
+        <div style="background: #f7f8f6; padding: 20px; border-radius: 12px; border: 1px solid #e5e7e5;">
+          <h3 style="color: #123b2a; margin-bottom: 8px;">سنن ابن ماجه</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 15px;">كتاب السنن للإمام أبو عبد الله محمد بن يزيد ابن ماجه القزويني.</p>
+          <a href="https://shamela.ws/book/1694" target="_blank" style="background: #123b2a; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 14px;">قراءة / تحميل الكتاب</a>
+        </div>
+
+      </div>
+    `
+  },
