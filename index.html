@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>حضري للكتب الإسلامية | مكتبة إسلامية إلكترونية</title>
+
+  <meta name="description" content="حضري للكتب الإسلامية، مكتبة إلكترونية تضم القرآن الكريم والحديث الشريف والفقه والعقيدة والسيرة النبوية والأذكار والكتب الإسلامية.">
+  <meta name="keywords" content="كتب إسلامية, مكتبة إسلامية, القرآن الكريم, الحديث الشريف, الفقه, العقيدة, السيرة النبوية, الأذكار">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="حضري للكتب الإسلامية">
+  <meta property="og:description" content="مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية.">
+  <meta property="og:type" content="website">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, "Tahoma", sans-serif;
+      background: #f7f8f6;
+      color: #222;
+      line-height: 1.8;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    /* ===== Header ===== */
+
+    header {
+      background: #123b2a;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .header-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #d7b56d;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #d7b56d;
+    }
+
+    .theme-btn {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: transparent;
+      color: white;
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* ===== Hero ===== */
+
+    .hero {
+      background:
+        linear-gradient(rgba(18,59,42,0.94), rgba(18,59,42,0.94)),
+        radial-gradient(circle at top, #2e6a4d, #123b2a);
+      color: white;
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #d7b56d;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+      color: #e7eee9;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      padding: 5px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-size: 16px;
+      color: #222;
+      background: transparent;
+    }
+
+    .search-box button {
+      border: none;
+      background: #d7b56d;
+      color: #123b2a;
+      font-weight: bold;
+      padding: 0 22px;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    /* ===== Main ===== */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      color: #123b2a;
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* ===== Categories ===== */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 65px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #e5e7e5;
+      border-radius: 14px;
+      padding: 25px 15px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .category-icon {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .category h3 {
+      color: #123b2a;
+      margin-bottom: 4px;
+    }
+
+    .category p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* ===== Books ===== */
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .book {
+      background: white;
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid #e5e7e5;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .book:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .book-icon {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #edf4ef;
+      border-radius: 12px;
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .book h3 {
+      color: #123b2a;
+      margin-bottom: 7px;
+    }
+
+    .book p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      background: #123b2a;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .book-btn:hover {
+      background: #1d5a40;
+    }
+
+    /* ===== Info ===== */
+
+    .info {
+      background: #eef3ef;
+      border-radius: 16px;
+      padding: 35px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .info h2 {
+      color: #123b2a;
+      margin-bottom: 12px;
+    }
+
+    .info p {
+      max-width: 800px;
+      margin: auto;
+      color: #555;
+    }
+
+    /* ===== Footer ===== */
+
+    footer {
+      background: #102f23;
+      color: #dce7e1;
+      margin-top: 20px;
+    }
+
+    .footer-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 40px 20px 25px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #d7b56d;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #dce7e1;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #d7b56d;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 18px;
+      color: #aebdb5;
+      font-size: 13px;
+    }
+
+    /* ===== Dark Mode ===== */
+
+    body.dark {
+      background: #121715;
+      color: #eee;
+    }
+
+    body.dark .category,
+    body.dark .book {
+      background: #1b2420;
+      border-color: #2d3934;
+    }
+
+    body.dark .section-title h2,
+    body.dark .category h3,
+    body.dark .book h3,
+    body.dark .info h2 {
+      color: #d7b56d;
+    }
+
+    body.dark .section-title p,
+    body.dark .category p,
+    body.dark .book p,
+    body.dark .info p {
+      color: #c1c8c4;
+    }
+
+    body.dark .book-icon {
+      background: #26332d;
+    }
+
+    body.dark .info {
+      background: #1b2420;
+    }
+
+    /* ===== Search Results ===== */
+
+    #searchMessage {
+      text-align: center;
+      margin: 20px 0;
+      color: #777;
+      display: none;
+    }
+
+    /* ===== Responsive ===== */
+
+    @media (max-width: 900px) {
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .books {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        padding: 12px 15px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding: 55px 15px 45px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        gap: 8px;
+      }
+
+      .search-box input {
+        background: white;
+        border-radius: 9px;
+        padding: 13px;
+      }
+
+      .search-box button {
+        padding: 12px;
+        border-radius: 9px;
+      }
+
+      main {
+        padding: 40px 15px;
+      }
+
+      .categories,
+      .books {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+
+  <header>
+    <div class="header-container">
+
+      <a href="index.html" class="logo">
+        حضري <span>للكتب الإسلامية</span>
+      </a>
+
+      <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#books">الكتب</a>
+        <a href="#about">عن المكتبة</a>
+      </nav>
+
+      <button class="theme-btn" id="themeButton" type="button" aria-label="تغيير الوضع">
+        🌙
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+
+  <section class="hero" id="home">
+
+    <h1>
+      حضري <span>للـكتب الإسلامية</span>
+    </h1>
+
+    <p>
+      مكتبة إلكترونية تهدف إلى تسهيل الوصول إلى القرآن الكريم
+      والحديث الشريف والكتب الإسلامية في مكان واحد.
+    </p>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="ابحث عن كتاب أو قسم..."
+        aria-label="البحث في المكتبة"
+      >
+
+      <button type="button" id="searchButton">
+        بحث
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ===== Main ===== -->
+
+  <main>
+
+    <!-- Categories -->
+
+    <section id="categories">
+
+      <div class="section-title">
+        <h2>أقسام المكتبة</h2>
+        <p>اختر القسم الذي تريد تصفحه</p>
+      </div>
+
+      <div class="categories">
+
+        <a class="category" href="#">
+          <div class="category-icon">📖</div>
+          <h3>القرآن الكريم</h3>
+          <p>المصحف وعلوم القرآن</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">📜</div>
+          <h3>الحديث الشريف</h3>
+          <p>كتب الحديث وشروحه</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">☪️</div>
+          <h3>العقيدة</h3>
+          <p>كتب العقيدة والتوحيد</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">⚖️</div>
+          <h3>الفقه</h3>
+          <p>أحكام العبادات والمعاملات</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">🕌</div>
+          <h3>السيرة النبوية</h3>
+          <p>حياة النبي ﷺ</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">🌙</div>
+          <h3>الأذكار والأدعية</h3>
+          <p>الأذكار والأدعية المأثورة</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">📚</div>
+          <h3>قصص الأنبياء</h3>
+          <p>قصص الأنبياء والرسل</p>
+        </a>
+
+        <a class="category" href="#">
+          <div class="category-icon">👨‍👩‍👧‍👦</div>
+          <h3>كتب الأسرة</h3>
+          <p>كتب تربوية وأسرية</p>
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- Books -->
+
+    <section id="books">
+
+      <div class="section-title">
+        <h2>محتوى المكتبة</h2>
+        <p>سيتم إضافة الكتب والمصادر تدريجيًا</p>
+      </div>
+
+      <div id="searchMessage"></div>
+
+      <div class="books" id="booksContainer">
+
+        <article class="book" data-search="القرآن الكريم القرآن المصحف">
+          <div class="book-icon">📖</div>
+          <h3>القرآن الكريم</h3>
+          <p>
+            الوصول إلى القرآن الكريم وتصفح السور والآيات.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+        <article class="book" data-search="الحديث الشريف حديث">
+          <div class="book-icon">📜</div>
+          <h3>الحديث الشريف</h3>
+          <p>
+            قسم مخصص لكتب الحديث الشريف والمصادر الموثوقة.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+        <article class="book" data-search="العقيدة التوحيد">
+          <div class="book-icon">☪️</div>
+          <h3>العقيدة والتوحيد</h3>
+          <p>
+            كتب ومصادر في العقيدة والتوحيد.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+        <article class="book" data-search="الفقه الصلاة الصيام الزكاة الحج">
+          <div class="book-icon">⚖️</div>
+          <h3>الفقه الإسلامي</h3>
+          <p>
+            قسم للكتب المتعلقة بالأحكام الفقهية.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+        <article class="book" data-search="السيرة النبوية النبي محمد">
+          <div class="book-icon">🕌</div>
+          <h3>السيرة النبوية</h3>
+          <p>
+            كتب ومراجع حول سيرة النبي محمد ﷺ.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+        <article class="book" data-search="الأذكار الأدعية الدعاء">
+          <div class="book-icon">🌙</div>
+          <h3>الأذكار والأدعية</h3>
+          <p>
+            قسم للأذكار والأدعية المأثورة.
+          </p>
+          <a href="#" class="book-btn">تصفح</a>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- About -->
+
+    <section id="about" class="info">
+
+      <h2>عن حضري للكتب الإسلامية</h2>
+
+      <p>
+        حضري للكتب الإسلامية هو مشروع مكتبة إلكترونية يهدف إلى
+        تنظيم وتسهيل الوصول إلى مصادر المعرفة الإسلامية الموثوقة،
+        مع الاهتمام بسهولة الاستخدام وسرعة الوصول إلى المحتوى.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-logo">
+        حضري <span>للـكتب الإسلامية</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#books">الكتب</a>
+        <a href="#about">عن المكتبة</a>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> حضري للكتب الإسلامية — جميع الحقوق محفوظة.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+
+  <script>
+    "use strict";
+
+    // السنة الحالية
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // الوضع الليلي
+    const themeButton = document.getElementById("themeButton");
+
+    function updateThemeIcon() {
+      themeButton.textContent =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
+
+    const savedTheme = localStorage.getItem("hodari-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
+    updateThemeIcon();
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      const theme =
+        document.body.classList.contains("dark") ? "dark" : "light";
+
+      localStorage.setItem("hodari-theme", theme);
+
+      updateThemeIcon();
+    });
+
+    // البحث
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const books = document.querySelectorAll(".book");
+    const searchMessage = document.getElementById("searchMessage");
+
+    function performSearch() {
+
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (query === "") {
+
+        books.forEach(function (book) {
+          book.style.display = "";
+        });
+
+        searchMessage.style.display = "none";
+        searchMessage.textContent = "";
+
+        return;
+      }
+
+      let found = 0;
+
+      books.forEach(function (book) {
+
+        const text =
+          (book.dataset.search + " " + book.textContent).toLowerCase();
+
+        if (text.includes(query)) {
+          book.style.display = "";
+          found++;
+        } else {
+          book.style.display = "none";
+        }
+
+      });
+
+      searchMessage.style.display = "block";
+
+      if (found > 0) {
+        searchMessage.textContent =
+          "تم العثور على " + found + " نتيجة.";
+      } else {
+        searchMessage.textContent =
+          "لم يتم العثور على نتائج مطابقة.";
+      }
+    }
+
+    searchButton.addEventListener("click", performSearch);
+
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        performSearch();
+      }
+    });
+  </script>
+
+</body>
+</html>
