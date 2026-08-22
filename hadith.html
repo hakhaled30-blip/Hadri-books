@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الحديث الشريف | حضري للكتب الإسلامية</title>
+
+  <meta name="description" content="الحديث الشريف - مكتبة حضري للكتب الإسلامية، تضم كتب الحديث وشروحه ومصادر السنة النبوية.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f8f6;
+      color: #222;
+      line-height: 1.8;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #123b2a;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #d7b56d;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #d7b56d;
+    }
+
+    .theme-btn {
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: white;
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(
+        rgba(18,59,42,.96),
+        rgba(18,59,42,.96)
+      );
+      color: white;
+      text-align: center;
+      padding: 70px 20px 60px;
+    }
+
+    .hero-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #d7b56d;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #e5ece8;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 30px;
+      background: #123b2a;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      background: #1d5a40;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      color: #123b2a;
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .book {
+      background: white;
+      border: 1px solid #e4e7e5;
+      border-radius: 15px;
+      padding: 25px;
+      transition: .2s;
+    }
+
+    .book:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+
+    .book-icon {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #edf4ef;
+      border-radius: 12px;
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .book h3 {
+      color: #123b2a;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .book p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      background: #123b2a;
+      color: white;
+      padding: 9px 17px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .book-btn:hover {
+      background: #1d5a40;
+    }
+
+    .coming {
+      opacity: .8;
+    }
+
+    .coming .book-btn {
+      background: #777;
+      cursor: default;
+    }
+
+    .info {
+      background: #eef3ef;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .info h2 {
+      color: #123b2a;
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      max-width: 800px;
+      margin: auto;
+      color: #555;
+    }
+
+    footer {
+      background: #102f23;
+      color: #dce7e1;
+      margin-top: 20px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 20px 22px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      color: #d7b56d;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .footer-links a {
+      color: #dce7e1;
+      font-size: 14px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 16px;
+      color: #aebdb5;
+      font-size: 13px;
+    }
+
+    /* الوضع الليلي */
+
+    body.dark {
+      background: #121715;
+      color: #eee;
+    }
+
+    body.dark .book {
+      background: #1b2420;
+      border-color: #2d3934;
+    }
+
+    body.dark .section-title h2,
+    body.dark .book h3,
+    body.dark .info h2 {
+      color: #d7b56d;
+    }
+
+    body.dark .section-title p,
+    body.dark .book p,
+    body.dark .info p {
+      color: #c1c8c4;
+    }
+
+    body.dark .book-icon {
+      background: #26332d;
+    }
+
+    body.dark .info {
+      background: #1b2420;
+    }
+
+    @media (max-width: 900px) {
+      .books {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        padding: 12px 15px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding: 55px 15px 45px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      main {
+        padding: 40px 15px;
+      }
+
+      .books {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      حضري <span>للكتب الإسلامية</span>
+    </a>
+
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#categories">الأقسام</a>
+      <a href="quran.html">القرآن الكريم</a>
+      <a href="hadith.html">الحديث الشريف</a>
+    </nav>
+
+    <button
+      class="theme-btn"
+      id="themeButton"
+      type="button"
+      aria-label="تغيير الوضع">
+      🌙
+    </button>
+
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-icon">📜</div>
+
+  <h1>
+    <span>الحديث الشريف</span>
+  </h1>
+
+  <p>
+    مكتبة الحديث الشريف ومصادر السنة النبوية،
+    مع إمكانية إضافة الكتب والشروح تدريجيًا.
+  </p>
+
+</section>
+
+
+<main>
+
+  <a href="index.html" class="back">
+    ← العودة إلى المكتبة
+  </a>
+
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>كتب الحديث الشريف</h2>
+
+      <p>
+        اختر الكتاب الذي تريد تصفحه
+      </p>
+
+    </div>
+
+
+    <div class="books">
+
+
+      <!-- صحيح البخاري -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          📜
+        </div>
+
+        <h3>
+          صحيح البخاري
+        </h3>
+
+        <p>
+          صحيح الإمام البخاري، أحد أصح كتب الحديث
+          وأشهر مصادر السنة النبوية.
+        </p>
+
+        <a
+          href="#"
+          class="book-btn"
+          id="bukhariButton">
+          تصفح صحيح البخاري
+        </a>
+
+      </article>
+
+
+      <!-- صحيح مسلم -->
+
+      <article class="book coming">
+
+        <div class="book-icon">
+          📜
+        </div>
+
+        <h3>
+          صحيح مسلم
+        </h3>
+
+        <p>
+          صحيح الإمام مسلم، من أهم كتب الحديث الشريف.
+        </p>
+
+        <span class="book-btn">
+          قريبًا
+        </span>
+
+      </article>
+
+
+      <!-- سنن أبي داود -->
+
+      <article class="book coming">
+
+        <div class="book-icon">
+          📚
+        </div>
+
+        <h3>
+          سنن أبي داود
+        </h3>
+
+        <p>
+          من كتب السنن المشهورة في الحديث النبوي.
+        </p>
+
+        <span class="book-btn">
+          قريبًا
+        </span>
+
+      </article>
+
+
+      <!-- سنن الترمذي -->
+
+      <article class="book coming">
+
+        <div class="book-icon">
+          📚
+        </div>
+
+        <h3>
+          جامع الترمذي
+        </h3>
+
+        <p>
+          من كتب الحديث والسنن المعروفة.
+        </p>
+
+        <span class="book-btn">
+          قريبًا
+        </span>
+
+      </article>
+
+
+      <!-- سنن النسائي -->
+
+      <article class="book coming">
+
+        <div class="book-icon">
+          📚
+        </div>
+
+        <h3>
+          سنن النسائي
+        </h3>
+
+        <p>
+          أحد كتب السنن الستة المشهورة.
+        </p>
+
+        <span class="book-btn">
+          قريبًا
+        </span>
+
+      </article>
+
+
+      <!-- سنن ابن ماجه -->
+
+      <article class="book coming">
+
+        <div class="book-icon">
+          📚
+        </div>
+
+        <h3>
+          سنن ابن ماجه
+        </h3>
+
+        <p>
+          من كتب الحديث المعروفة ضمن كتب السنن.
+        </p>
+
+        <span class="book-btn">
+          قريبًا
+        </span>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <section class="info">
+
+    <h2>
+      عن قسم الحديث الشريف
+    </h2>
+
+    <p>
+      نعمل على بناء قسم حديث منظم يتيح الوصول إلى
+      كتب السنة النبوية بطريقة سهلة وسريعة، مع إضافة
+      الكتب والمصادر تدريجيًا.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      حضري <span>للكتب الإسلامية</span>
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        الرئيسية
+      </a>
+
+      <a href="index.html#categories">
+        الأقسام
+      </a>
+
+      <a href="quran.html">
+        القرآن الكريم
+      </a>
+
+      <a href="hadith.html">
+        الحديث الشريف
+      </a>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span>
+      حضري للكتب الإسلامية — جميع الحقوق محفوظة.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  "use strict";
+
+
+  /* السنة */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+  /* الوضع الليلي */
+
+  const themeButton =
+    document.getElementById("themeButton");
+
+
+  function updateThemeIcon() {
+
+    themeButton.textContent =
+      document.body.classList.contains("dark")
+        ? "☀️"
+        : "🌙";
+
+  }
+
+
+  const savedTheme =
+    localStorage.getItem("hodari-theme");
+
+
+  if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+  }
+
+
+  updateThemeIcon();
+
+
+  themeButton.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark");
+
+
+    const theme =
+      document.body.classList.contains("dark")
+        ? "dark"
+        : "light";
+
+
+    localStorage.setItem(
+      "hodari-theme",
+      theme
+    );
+
+
+    updateThemeIcon();
+
+  });
+
+
+  /*
+    صحيح البخاري سيُربط هنا لاحقًا
+    بعد إضافة ملف البيانات.
+  */
+
+  document
+    .getElementById("bukhariButton")
+    .addEventListener("click", function (event) {
+
+      event.preventDefault();
+
+      alert(
+        "سيتم فتح صحيح البخاري بعد إضافة قاعدة الأحاديث."
+      );
+
+    });
+
+</script>
+
+</body>
+</html>
