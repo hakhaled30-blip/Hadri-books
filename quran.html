@@ -7,19 +7,13 @@
 <title>القرآن الكريم | حضري للكتب الإسلامية</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
     background:#f5f7f6;
     color:#222;
-    font-family:Tahoma, Arial, "Noto Naskh Arabic", sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
 }
 
 header{
@@ -36,7 +30,6 @@ header h1{
 
 header p{
     margin:0;
-    font-size:15px;
     opacity:.9;
 }
 
@@ -72,13 +65,11 @@ header p{
 
 .search input{
     flex:1;
-    min-width:0;
     padding:13px;
     border:1px solid #ccc;
     border-radius:8px;
     font-size:16px;
     font-family:inherit;
-    direction:rtl;
 }
 
 .search button{
@@ -89,7 +80,6 @@ header p{
     border-radius:8px;
     font-weight:bold;
     cursor:pointer;
-    font-family:inherit;
 }
 
 .surah-list{
@@ -108,25 +98,46 @@ header p{
     cursor:pointer;
 }
 
-.surah-item:last-child{
-    border-bottom:0;
-}
-
 .surah-item:hover{
-    background:#f0f5f2;
+    background:#eef5f1;
 }
 
-.surah-number{
-    display:inline-flex;
-    width:30px;
-    height:30px;
-    align-items:center;
-    justify-content:center;
+.resume-box{
+    display:none;
+    background:#fff;
+    border:1px solid #d9e4de;
+    border-radius:14px;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.resume-title{
+    color:#0f5132;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.resume-button{
+    border:0;
     background:#0f5132;
     color:#fff;
-    border-radius:50%;
-    margin-left:8px;
-    font-size:13px;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:bold;
+}
+
+.clear-button{
+    border:0;
+    background:#eee;
+    color:#555;
+    padding:11px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-family:inherit;
+    margin-right:6px;
 }
 
 .surah-card{
@@ -145,32 +156,31 @@ header p{
 
 .surah-header h2{
     margin:0 0 8px;
-    font-size:28px;
+    font-size:29px;
 }
 
 .surah-header p{
     margin:0;
-    font-size:15px;
 }
 
 .bismillah{
     text-align:center;
-    font-size:27px;
-    margin:25px 15px 15px;
+    font-size:28px;
     line-height:2;
-    font-family:"Noto Naskh Arabic", Tahoma, Arial, sans-serif;
+    margin:25px 10px 10px;
+    font-family:"Noto Naskh Arabic",Tahoma,Arial,sans-serif;
 }
 
 .ayahs{
-    padding:10px 22px 25px;
+    padding:10px 22px 30px;
 }
 
 .ayah{
-    font-family:"Noto Naskh Arabic", Tahoma, Arial, sans-serif;
+    position:relative;
+    font-family:"Noto Naskh Arabic",Tahoma,Arial,sans-serif;
     font-size:25px;
-    line-height:2.3;
-    text-align:right;
-    padding:13px 0;
+    line-height:2.35;
+    padding:18px 5px;
     border-bottom:1px solid #eee;
 }
 
@@ -178,25 +188,43 @@ header p{
     border-bottom:0;
 }
 
-.ayah-number{
-    display:inline-flex;
-    width:34px;
-    height:34px;
-    align-items:center;
-    justify-content:center;
-    border:2px solid #0f5132;
+.save-row{
+    text-align:left;
+    margin-top:10px;
+}
+
+.save-button{
+    border:1px solid #0f5132;
+    background:#fff;
     color:#0f5132;
-    border-radius:50%;
-    font-size:15px;
-    margin-right:7px;
-    margin-left:5px;
-    vertical-align:middle;
-    font-family:Tahoma,Arial,sans-serif;
+    border-radius:7px;
+    padding:7px 12px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:13px;
+}
+
+.save-button.saved{
+    background:#0f5132;
+    color:#fff;
+}
+
+.saved-ayah{
+    background:#f1f7f3;
+    border-right:4px solid #0f5132;
+    padding-right:12px;
+    border-radius:6px;
+}
+
+.saved-marker{
+    display:inline-block;
+    color:#0f5132;
+    font-weight:bold;
+    margin-left:7px;
 }
 
 .navigation{
     display:flex;
-    justify-content:space-between;
     gap:10px;
     margin-top:20px;
 }
@@ -206,7 +234,7 @@ header p{
     border:0;
     background:#0f5132;
     color:#fff;
-    padding:14px 10px;
+    padding:14px;
     border-radius:9px;
     font-size:16px;
     font-weight:bold;
@@ -216,12 +244,11 @@ header p{
 
 .navigation button:disabled{
     background:#ccc;
-    cursor:not-allowed;
 }
 
 .current{
     text-align:center;
-    margin-top:12px;
+    margin:12px 0;
     color:#555;
     font-weight:bold;
 }
@@ -241,7 +268,7 @@ header p{
     padding:30px;
     border-radius:14px;
     color:#a00;
-    line-height:1.8;
+    line-height:2;
 }
 
 footer{
@@ -259,10 +286,6 @@ footer{
         font-size:24px;
     }
 
-    .container{
-        width:96%;
-    }
-
     .search{
         flex-direction:column;
     }
@@ -277,11 +300,11 @@ footer{
 
     .ayah{
         font-size:23px;
-        line-height:2.25;
+        line-height:2.3;
     }
 
     .bismillah{
-        font-size:23px;
+        font-size:24px;
     }
 
     .navigation button{
@@ -308,13 +331,33 @@ footer{
             <input
                 id="searchInput"
                 type="search"
-                placeholder="ابحث عن السورة بالاسم أو الرقم..."
+                placeholder="ابحث عن السورة بالاسم أو الرقم"
                 autocomplete="off"
             >
-            <button id="searchButton">بحث</button>
+            <button onclick="searchSurah()">بحث</button>
         </div>
 
         <div id="surahList" class="surah-list"></div>
+
+    </div>
+
+    <div id="resumeBox" class="resume-box">
+
+        <div class="resume-title">
+            🔖 لديك موضع قراءة محفوظ
+        </div>
+
+        <div id="resumeText"></div>
+
+        <br>
+
+        <button class="resume-button" onclick="resumeReading()">
+            ▶ متابعة القراءة
+        </button>
+
+        <button class="clear-button" onclick="clearBookmark()">
+            مسح الموضع
+        </button>
 
     </div>
 
@@ -332,125 +375,26 @@ footer{
 
 <script>
 
-/* أسماء السور بالترتيب الصحيح */
 const surahNames = [
-"الفاتحة",
-"البقرة",
-"آل عمران",
-"النساء",
-"المائدة",
-"الأنعام",
-"الأعراف",
-"الأنفال",
-"التوبة",
-"يونس",
-"هود",
-"يوسف",
-"الرعد",
-"إبراهيم",
-"الحجر",
-"النحل",
-"الإسراء",
-"الكهف",
-"مريم",
-"طه",
-"الأنبياء",
-"الحج",
-"المؤمنون",
-"النور",
-"الفرقان",
-"الشعراء",
-"النمل",
-"القصص",
-"العنكبوت",
-"الروم",
-"لقمان",
-"السجدة",
-"الأحزاب",
-"سبأ",
-"فاطر",
-"يس",
-"الصافات",
-"ص",
-"الزمر",
-"غافر",
-"فصلت",
-"الشورى",
-"الزخرف",
-"الدخان",
-"الجاثية",
-"الأحقاف",
-"محمد",
-"الفتح",
-"الحجرات",
-"ق",
-"الذاريات",
-"الطور",
-"النجم",
-"القمر",
-"الرحمن",
-"الواقعة",
-"الحديد",
-"المجادلة",
-"الحشر",
-"الممتحنة",
-"الصف",
-"الجمعة",
-"المنافقون",
-"التغابن",
-"الطلاق",
-"التحريم",
-"الملك",
-"القلم",
-"الحاقة",
-"المعارج",
-"نوح",
-"الجن",
-"المزمل",
-"المدثر",
-"القيامة",
-"الإنسان",
-"المرسلات",
-"النبأ",
-"النازعات",
-"عبس",
-"التكوير",
-"الانفطار",
-"المطففين",
-"الانشقاق",
-"البروج",
-"الطارق",
-"الأعلى",
-"الغاشية",
-"الفجر",
-"البلد",
-"الشمس",
-"الليل",
-"الضحى",
-"الشرح",
-"التين",
-"العلق",
-"القدر",
-"البينة",
-"الزلزلة",
-"العاديات",
-"القارعة",
-"التكاثر",
-"العصر",
-"الهمزة",
-"الفيل",
-"قريش",
-"الماعون",
-"الكوثر",
-"الكافرون",
-"النصر",
-"المسد",
-"الإخلاص",
-"الفلق",
-"الناس"
+"الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام",
+"الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد",
+"إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
+"الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء",
+"النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب",
+"سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى",
+"الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات",
+"ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة",
+"الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة",
+"المنافقون","التغابن","الطلاق","التحريم","الملك","القلم",
+"الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة",
+"الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير",
+"الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى",
+"الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح",
+"التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة",
+"التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر",
+"الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"
 ];
 
-/* عدد آيات كل سورة */
 const ayahCounts = [
 7,286,200,176,120,165,206,75,129,109,123,111,43,52,99,128,
 111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,
@@ -462,188 +406,366 @@ const ayahCounts = [
 
 let surahs = [];
 let currentSurah = 1;
+let currentAyah = 1;
 
 const content = document.getElementById("content");
-const searchInput = document.getElementById("searchInput");
-const searchButton = document.getElementById("searchButton");
 const surahList = document.getElementById("surahList");
+const searchInput = document.getElementById("searchInput");
+const resumeBox = document.getElementById("resumeBox");
+const resumeText = document.getElementById("resumeText");
 
-/*
-    قراءة ملف القرآن الموجود في نفس مستودع GitHub.
-    اسم الملف يجب أن يكون:
-    quran-uthmani.txt
-*/
 fetch("quran-uthmani.txt")
 .then(response => {
+
     if(!response.ok){
-        throw new Error("لم يتم العثور على ملف quran-uthmani.txt");
+        throw new Error("quran-uthmani.txt غير موجود");
     }
+
     return response.text();
+
 })
 .then(text => {
 
     const lines = text
-        .replace(/\r/g, "")
+        .replace(/\r/g,"")
         .split("\n")
-        .map(line => line.trim())
-        .filter(line => line.length > 0);
+        .map(x => x.trim())
+        .filter(x => x.length);
 
-    let index = 0;
+    let position = 0;
 
-    for(let i = 0; i < 114; i++){
+    for(let i=0;i<114;i++){
 
-        const verses = [];
+        let verses = [];
 
-        for(let j = 1; j <= ayahCounts[i]; j++){
+        for(let j=0;j<ayahCounts[i];j++){
 
-            if(index < lines.length){
-                verses.push(lines[index]);
-                index++;
+            if(position < lines.length){
+                verses.push(lines[position]);
+                position++;
             }
+
         }
 
         surahs.push({
-            number:i + 1,
+            number:i+1,
             name:surahNames[i],
             verses:verses
         });
     }
 
-    showSurah(1);
     buildSurahList();
+
+    showSurah(1,1);
+
+    showSavedPosition();
 
 })
 .catch(error => {
 
-    content.className = "error";
+    content.className="error";
 
     content.innerHTML =
         "تعذر تحميل القرآن الكريم.<br><br>" +
-        "تأكد من أن ملف <b>quran-uthmani.txt</b> موجود في نفس المجلد مع ملف <b>quran.html</b>.";
+        "تأكد من وجود الملف <b>quran-uthmani.txt</b> بجانب <b>quran.html</b>.";
 
     console.error(error);
 });
 
 
-/* عرض السورة */
-function showSurah(number){
+function showSurah(number,ayah=1){
 
-    currentSurah = number;
+    if(!surahs[number-1]) return;
 
-    const surah = surahs[number - 1];
+    currentSurah=number;
+    currentAyah=ayah;
 
-    if(!surah) return;
+    const surah=surahs[number-1];
 
-    let html = "";
+    let html=`
+    <section class="surah-card">
 
-    html += `
-        <section class="surah-card">
-
-            <div class="surah-header">
-                <h2>سورة ${surah.name}</h2>
-                <p>السورة رقم ${surah.number} من 114</p>
-            </div>
+        <div class="surah-header">
+            <h2>سورة ${surah.name}</h2>
+            <p>السورة ${number} من 114</p>
+        </div>
     `;
 
-    if(number !== 9){
+    if(number!==9){
 
-        html += `
-            <div class="bismillah">
-                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-            </div>
+        html+=`
+        <div class="bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
         `;
     }
 
-    html += `<div class="ayahs">`;
+    html+=`<div class="ayahs">`;
 
-    surah.verses.forEach((verse, index) => {
+    surah.verses.forEach((verse,index)=>{
 
-        html += `
-            <div class="ayah">
-                ${escapeHTML(verse)}
-                <span class="ayah-number">${index + 1}</span>
+        const ayahNumber=index+1;
+
+        const saved=isSaved(number,ayahNumber);
+
+        html+=`
+        <div
+            id="ayah-${number}-${ayahNumber}"
+            class="ayah ${saved ? "saved-ayah" : ""}"
+        >
+
+            ${saved ? '<span class="saved-marker">🔖</span>' : ''}
+
+            ${escapeHTML(verse)}
+
+            <div class="save-row">
+
+                <button
+                    class="save-button ${saved ? "saved" : ""}"
+                    onclick="savePosition(${number},${ayahNumber})"
+                >
+                    ${saved ? "✓ موضع القراءة محفوظ" : "🔖 حفظ موضع القراءة هنا"}
+                </button>
+
             </div>
+
+        </div>
         `;
 
     });
 
-    html += `
-            </div>
-        </section>
-
-        <div class="navigation">
-
-            <button
-                onclick="previousSurah()"
-                ${number === 1 ? "disabled" : ""}>
-                ← السورة السابقة
-            </button>
-
-            <button
-                onclick="nextSurah()"
-                ${number === 114 ? "disabled" : ""}>
-                السورة التالية →
-            </button>
-
+    html+=`
         </div>
+    </section>
 
-        <div class="current">
-            السورة ${number} من 114 — سورة ${surah.name}
-        </div>
+    <div class="navigation">
+
+        <button
+            onclick="previousSurah()"
+            ${number===1 ? "disabled":""}>
+            ← السورة السابقة
+        </button>
+
+        <button
+            onclick="nextSurah()"
+            ${number===114 ? "disabled":""}>
+            السورة التالية →
+        </button>
+
+    </div>
+
+    <div class="current">
+        السورة ${number} من 114 — سورة ${surah.name}
+    </div>
     `;
 
-    content.className = "";
-    content.innerHTML = html;
+    content.className="";
+    content.innerHTML=html;
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    if(ayah>1){
+
+        setTimeout(()=>{
+
+            const target=document.getElementById(
+                `ayah-${number}-${ayah}`
+            );
+
+            if(target){
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
+
+            }
+
+        },100);
+
+    }
 }
 
 
-/* السورة السابقة */
+function savePosition(surah,ayah){
+
+    const data={
+        surah:surah,
+        ayah:ayah,
+        name:surahNames[surah-1],
+        savedAt:new Date().toISOString()
+    };
+
+    localStorage.setItem(
+        "hadri_quran_bookmark",
+        JSON.stringify(data)
+    );
+
+    showSavedPosition();
+
+    showSurah(surah,ayah);
+
+    setTimeout(()=>{
+
+        const target=document.getElementById(
+            `ayah-${surah}-${ayah}`
+        );
+
+        if(target){
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        }
+
+    },150);
+}
+
+
+function isSaved(surah,ayah){
+
+    const saved=localStorage.getItem(
+        "hadri_quran_bookmark"
+    );
+
+    if(!saved) return false;
+
+    try{
+
+        const data=JSON.parse(saved);
+
+        return data.surah===surah &&
+               data.ayah===ayah;
+
+    }catch(e){
+
+        return false;
+
+    }
+}
+
+
+function showSavedPosition(){
+
+    const saved=localStorage.getItem(
+        "hadri_quran_bookmark"
+    );
+
+    if(!saved){
+
+        resumeBox.style.display="none";
+        return;
+    }
+
+    try{
+
+        const data=JSON.parse(saved);
+
+        resumeText.innerHTML=
+            `توقفت عند <strong>سورة ${data.name}</strong>،
+             الآية <strong>${data.ayah}</strong>.`;
+
+        resumeBox.style.display="block";
+
+    }catch(e){
+
+        resumeBox.style.display="none";
+
+    }
+}
+
+
+function resumeReading(){
+
+    const saved=localStorage.getItem(
+        "hadri_quran_bookmark"
+    );
+
+    if(!saved) return;
+
+    try{
+
+        const data=JSON.parse(saved);
+
+        showSurah(data.surah,data.ayah);
+
+    }catch(e){
+
+        clearBookmark();
+
+    }
+}
+
+
+function clearBookmark(){
+
+    localStorage.removeItem(
+        "hadri_quran_bookmark"
+    );
+
+    resumeBox.style.display="none";
+
+    showSurah(currentSurah,currentAyah);
+}
+
+
 function previousSurah(){
 
-    if(currentSurah > 1){
-        showSurah(currentSurah - 1);
+    if(currentSurah>1){
+
+        showSurah(currentSurah-1,1);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
     }
 }
 
 
-/* السورة التالية */
 function nextSurah(){
 
-    if(currentSurah < 114){
-        showSurah(currentSurah + 1);
+    if(currentSurah<114){
+
+        showSurah(currentSurah+1,1);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
     }
 }
 
 
-/* إنشاء قائمة السور */
 function buildSurahList(){
 
-    surahList.innerHTML = "";
+    surahList.innerHTML="";
 
-    surahs.forEach(surah => {
+    surahs.forEach(surah=>{
 
-        const item = document.createElement("div");
+        const item=document.createElement("div");
 
-        item.className = "surah-item";
+        item.className="surah-item";
 
-        item.innerHTML =
-            `<span class="surah-number">${surah.number}</span>` +
+        item.textContent=
             `سورة ${surah.name}`;
 
-        item.addEventListener("click", () => {
+        item.onclick=()=>{
 
-            showSurah(surah.number);
+            showSurah(surah.number,1);
 
-            surahList.style.display = "none";
+            surahList.style.display="none";
 
-            searchInput.value =
-                "سورة " + surah.name;
-        });
+            searchInput.value="";
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        };
 
         surahList.appendChild(item);
 
@@ -651,55 +773,50 @@ function buildSurahList(){
 }
 
 
-/* البحث */
 function searchSurah(){
 
-    const value = searchInput.value
-        .trim()
-        .replace(/[أإآ]/g,"ا")
-        .replace(/ة/g,"ه");
+    const value=searchInput.value.trim();
 
     if(!value){
 
-        surahList.style.display =
-            surahList.style.display === "block"
+        surahList.style.display=
+            surahList.style.display==="block"
             ? "none"
             : "block";
 
         return;
     }
 
-    let found = null;
+    const number=parseInt(value,10);
 
-    const number = parseInt(value,10);
+    let found=null;
 
-    if(!isNaN(number) && number >= 1 && number <= 114){
+    if(!isNaN(number) &&
+       number>=1 &&
+       number<=114){
 
-        found = surahs[number - 1];
+        found=surahs[number-1];
 
     }else{
 
-        found = surahs.find(surah => {
-
-            const name = surah.name
-                .replace(/[أإآ]/g,"ا")
-                .replace(/ة/g,"ه");
-
-            return name.includes(value);
-
-        });
+        found=surahs.find(surah=>
+            surah.name.includes(value)
+        );
 
     }
 
     if(found){
 
-        showSurah(found.number);
+        showSurah(found.number,1);
 
-        surahList.style.display = "none";
+        surahList.style.display="none";
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
 
     }else{
-
-        surahList.style.display = "block";
 
         alert("لم يتم العثور على السورة المطلوبة.");
 
@@ -707,30 +824,17 @@ function searchSurah(){
 }
 
 
-searchButton.addEventListener("click", searchSurah);
-
-searchInput.addEventListener("keydown", function(event){
-
-    if(event.key === "Enter"){
-        searchSurah();
-    }
-
-});
-
-
-/* إظهار القائمة عند الضغط داخل مربع البحث */
-searchInput.addEventListener("focus", function(){
+searchInput.addEventListener("focus",()=>{
 
     if(!searchInput.value.trim()){
 
-        surahList.style.display = "block";
+        surahList.style.display="block";
 
     }
 
 });
 
 
-/* حماية النص من تفسير HTML */
 function escapeHTML(text){
 
     return text
