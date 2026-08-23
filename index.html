@@ -6,185 +6,135 @@
 
 <title>حضري للكتب الإسلامية</title>
 
-<meta name="description" content="مكتبة حضري للكتب الإسلامية، القرآن الكريم والحديث الشريف والعقيدة والفقه والسيرة والأذكار وكتب الأسرة.">
-
 <style>
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f5f7f6;
+    color:#222;
 }
 
-body {
-    margin: 0;
-    font-family: "Tahoma", "Arial", sans-serif;
-    background: #f7f5ef;
-    color: #222;
-    line-height: 1.8;
+header{
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:35px 15px;
 }
 
-header {
-    background: #173b2b;
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
+header h1{
+    margin:0 0 10px;
+    font-size:30px;
 }
 
-header h1 {
-    margin: 0 0 10px;
-    font-size: 32px;
+header p{
+    margin:0;
+    font-size:16px;
+    opacity:.9;
 }
 
-header p {
-    margin: 0;
-    font-size: 17px;
-    opacity: 0.9;
+.container{
+    width:94%;
+    max-width:1100px;
+    margin:30px auto;
 }
 
-.container {
-    width: 94%;
-    max-width: 1100px;
-    margin: 35px auto;
+.section-title{
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 25px;
+.section-title h2{
+    margin:0 0 8px;
+    color:#0f5132;
 }
 
-.section-title h2 {
-    color: #173b2b;
-    margin-bottom: 5px;
+.section-title p{
+    margin:0;
+    color:#666;
 }
 
-.section-title p {
-    color: #666;
-    margin-top: 0;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
 }
 
-/* البطاقات */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
+.card{
+    background:white;
+    border-radius:14px;
+    padding:25px 18px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    border:1px solid #e5e5e5;
+    transition:.2s;
 }
 
-.card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-.card {
-    background: white;
-    border: 1px solid #e5e0d5;
-    border-radius: 14px;
-    padding: 25px 18px;
-    text-align: center;
-    min-height: 190px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.icon{
+    font-size:42px;
+    margin-bottom:12px;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 7px 20px rgba(0,0,0,0.10);
+.card h3{
+    margin:8px 0;
+    color:#0f5132;
+    font-size:20px;
 }
 
-.icon {
-    font-size: 42px;
-    margin-bottom: 8px;
+.card p{
+    color:#666;
+    line-height:1.7;
+    min-height:52px;
 }
 
-.card h3 {
-    margin: 5px 0 8px;
-    color: #173b2b;
-    font-size: 21px;
+.button{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 22px;
+    background:#0f5132;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-.card p {
-    margin: 0;
-    color: #666;
-    font-size: 15px;
+.button:hover{
+    background:#0b3d26;
 }
 
-/* حالة قريباً */
-
-.card.disabled {
-    cursor: default;
+.disabled{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 22px;
+    background:#ddd;
+    color:#777;
+    border-radius:8px;
 }
 
-.card.disabled:hover {
-    transform: none;
+footer{
+    margin-top:40px;
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:20px;
+    line-height:1.8;
 }
 
-.coming {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 3px 12px;
-    border-radius: 20px;
-    background: #eee;
-    color: #777;
-    font-size: 13px;
-}
-
-/* قسم المحتوى */
-
-.library {
-    margin-top: 45px;
-}
-
-.book-status {
-    color: #777;
-    font-size: 14px;
-}
-
-/* التذييل */
-
-footer {
-    margin-top: 50px;
-    background: #173b2b;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-}
-
-footer p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-/* الهاتف */
-
-@media (max-width: 600px) {
-
-    header {
-        padding: 35px 15px;
+@media(max-width:600px){
+    header h1{
+        font-size:25px;
     }
 
-    header h1 {
-        font-size: 26px;
-    }
-
-    header p {
-        font-size: 15px;
-    }
-
-    .container {
-        width: 92%;
-        margin-top: 25px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: auto;
-        padding: 22px 15px;
+    .cards{
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -199,119 +149,91 @@ footer p {
 
 <main class="container">
 
-    <section>
-        <div class="section-title">
-            <h2>أقسام المكتبة</h2>
-            <p>اختر القسم الذي تريد تصفحه</p>
+    <div class="section-title">
+        <h2>أقسام المكتبة</h2>
+        <p>اختر القسم الذي تريد تصفحه</p>
+    </div>
+
+    <div class="cards">
+
+        <!-- القرآن الكريم -->
+        <div class="card">
+            <div class="icon">📖</div>
+            <h3>القرآن الكريم</h3>
+            <p>المصحف الشريف وعلوم القرآن</p>
+
+            <a class="button" href="quran.html">
+                تصفح القرآن
+            </a>
         </div>
 
-        <div class="cards">
+        <!-- الحديث الشريف -->
+        <div class="card">
+            <div class="icon">📜</div>
+            <h3>الحديث الشريف</h3>
+            <p>صحيح البخاري وكتب الحديث وشروحه</p>
 
-            <!-- القرآن الكريم -->
-            <a class="card-link" href="quran.html">
-                <div class="card">
-                    <div class="icon">📖</div>
-                    <h3>القرآن الكريم</h3>
-                    <p>المصحف وعلوم القرآن</p>
-                </div>
+            <a class="button" href="bukhari.html">
+                تصفح الحديث
             </a>
-
-            <!-- الحديث الشريف -->
-            <a class="card-link" href="hadith.html">
-                <div class="card">
-                    <div class="icon">📜</div>
-                    <h3>الحديث الشريف</h3>
-                    <p>كتب الحديث وشروحه</p>
-                </div>
-            </a>
-
-            <!-- العقيدة -->
-            <div class="card disabled">
-                <div class="icon">☪️</div>
-                <h3>العقيدة والتوحيد</h3>
-                <p>كتب العقيدة والتوحيد</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-            <!-- الفقه -->
-            <div class="card disabled">
-                <div class="icon">⚖️</div>
-                <h3>الفقه الإسلامي</h3>
-                <p>أحكام العبادات والمعاملات</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-            <!-- السيرة -->
-            <div class="card disabled">
-                <div class="icon">🕌</div>
-                <h3>السيرة النبوية</h3>
-                <p>حياة النبي ﷺ</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-            <!-- الأذكار -->
-            <div class="card disabled">
-                <div class="icon">🌙</div>
-                <h3>الأذكار والأدعية</h3>
-                <p>الأذكار والأدعية المأثورة</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-            <!-- قصص الأنبياء -->
-            <div class="card disabled">
-                <div class="icon">📚</div>
-                <h3>قصص الأنبياء</h3>
-                <p>قصص الأنبياء والرسل</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-            <!-- الأسرة -->
-            <div class="card disabled">
-                <div class="icon">👨‍👩‍👧‍👦</div>
-                <h3>كتب الأسرة</h3>
-                <p>كتب تربوية وأسرية</p>
-                <span class="coming">قريبًا</span>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="library">
-
-        <div class="section-title">
-            <h2>محتوى المكتبة</h2>
-            <p>الكتب المتاحة حاليًا</p>
         </div>
 
-        <div class="cards">
-
-            <!-- القرآن -->
-            <a class="card-link" href="quran.html">
-                <div class="card">
-                    <div class="icon">📖</div>
-                    <h3>القرآن الكريم</h3>
-                    <p>تصفح القرآن الكريم كاملًا بالرسم العثماني.</p>
-                </div>
-            </a>
-
-            <!-- البخاري -->
-            <a class="card-link" href="hadith.html">
-                <div class="card">
-                    <div class="icon">📜</div>
-                    <h3>صحيح البخاري</h3>
-                    <p>الجامع الصحيح للإمام محمد بن إسماعيل البخاري.</p>
-                </div>
-            </a>
-
+        <!-- العقيدة -->
+        <div class="card">
+            <div class="icon">☪️</div>
+            <h3>العقيدة والتوحيد</h3>
+            <p>كتب العقيدة والتوحيد</p>
+            <span class="disabled">قريبًا</span>
         </div>
 
-    </section>
+        <!-- الفقه -->
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>الفقه الإسلامي</h3>
+            <p>كتب الأحكام الفقهية والعبادات والمعاملات</p>
+            <span class="disabled">قريبًا</span>
+        </div>
+
+        <!-- السيرة -->
+        <div class="card">
+            <div class="icon">🕌</div>
+            <h3>السيرة النبوية</h3>
+            <p>كتب السيرة النبوية وحياة النبي ﷺ</p>
+            <span class="disabled">قريبًا</span>
+        </div>
+
+        <!-- الأذكار -->
+        <div class="card">
+            <div class="icon">🌙</div>
+            <h3>الأذكار والأدعية</h3>
+            <p>الأذكار والأدعية المأثورة</p>
+            <span class="disabled">قريبًا</span>
+        </div>
+
+        <!-- قصص الأنبياء -->
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>قصص الأنبياء</h3>
+            <p>قصص الأنبياء والرسل عليهم السلام</p>
+            <span class="disabled">قريبًا</span>
+        </div>
+
+        <!-- كتب الأسرة -->
+        <div class="card">
+            <div class="icon">👨‍👩‍👧‍👦</div>
+            <h3>كتب الأسرة</h3>
+            <p>كتب تربوية وأسرية مفيدة</p>
+            <span class="disabled">قريبًا</span>
+        </div>
+
+    </div>
 
 </main>
 
 <footer>
-    <p>© 2026 حضري للكتب الإسلامية</p>
-    <p>مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية</p>
+    © 2026 حضري للكتب الإسلامية
+    <br>
+    مكتبة إلكترونية إسلامية
 </footer>
 
 </body>
