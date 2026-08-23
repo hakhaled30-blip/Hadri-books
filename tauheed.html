@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كتاب التوحيد كاملاً | مكتبة حضري</title>
+<title>كتاب التوحيد | مكتبة حضري</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
 
   * {
     box-sizing: border-box;
+    scroll-behavior: smooth; /* لتحريك الشاشة بسلاسة عند الضغط على الروابط */
   }
 
   body {
@@ -23,7 +24,7 @@
     background: linear-gradient(135deg, #0f2b1d 0%, #1b3b2b 100%);
     color: #fdf8e2;
     text-align: center;
-    padding: 25px 15px;
+    padding: 30px 15px;
     border-bottom: 4px solid #d4af37;
   }
 
@@ -46,65 +47,84 @@
     padding: 0 20px;
   }
 
-  .nav-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .back, .page-btn {
+  .back {
     display: inline-block;
+    margin-bottom: 20px;
     padding: 8px 16px;
     background: #1b3b2b;
     color: #fdf8e2;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    cursor: pointer;
-    border: none;
-    font-family: 'Cairo', sans-serif;
   }
 
-  .back:hover, .page-btn:hover {
-    background: #27523c;
+  /* تنسيق الفهرس السريع في البداية */
+  .index-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e6dcce;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
   }
 
-  .book-page {
-    display: none;
+  .index-box h3 {
+    font-family: 'Amiri', serif;
+    color: #1b3b2b;
+    margin-top: 0;
+    border-bottom: 2px dashed #d4af37;
+    padding-bottom: 10px;
+  }
+
+  .index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .index-list li {
+    margin: 10px 0;
+  }
+
+  .index-list a {
+    color: #1b3b2b;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 8px 12px;
+    background: #f7f4ea;
+    border-radius: 6px;
+    border-right: 4px solid #d4af37;
+    transition: background 0.3s;
+  }
+
+  .index-list a:hover {
+    background: #eae3d2;
+  }
+
+  /* تنسيق محتوى الأبواب */
+  .book-section {
     background: #ffffff;
     padding: 35px;
     border-radius: 12px;
     border: 1px solid #e6dcce;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
   }
 
-  .book-page.active {
-    display: block;
-  }
-
-  .book-page h2 {
+  .book-section h2 {
     font-family: 'Amiri', serif;
     color: #1b3b2b;
-    font-size: 20pt;
-    text-align: center;
+    font-size: 18pt;
     margin-top: 0;
-    border-bottom: 2px dashed #d4af37;
-    padding-bottom: 15px;
-  }
-
-  .book-page h3 {
-    font-family: 'Amiri', serif;
-    color: #1b3b2b;
-    font-size: 15pt;
-    margin-top: 25px;
     border-right: 4px solid #d4af37;
     padding-right: 12px;
     background: #fdfbf7;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
-  .book-page p {
+  .book-section p {
     font-size: 13pt;
     text-align: justify;
     margin-bottom: 18px;
@@ -124,10 +144,17 @@
     font-weight: bold;
   }
 
-  .pagination-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
+  .top-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11pt;
+    color: #1b3b2b;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .top-link:hover {
+    color: #d4af37;
   }
 
   footer {
@@ -150,75 +177,60 @@
 
 <div class="container">
 
-  <div class="nav-top">
-    <a href="aqeedah.html" class="back">← العودة لقسم العقيدة</a>
-    <span id="page-indicator" style="font-weight: bold; color: #1b3b2b; align-self: center;">الصفحة 1 من 4</span>
+  <a href="aqeedah.html" class="back">← العودة لقسم العقيدة</a>
+
+  <!-- فهرس الأبواب التفاعلي -->
+  <div class="index-box" id="top-index">
+    <h3>فهرس أبواب الكتاب</h3>
+    <ul class="index-list">
+      <li><a href="#ch-1">1. مقدمة الكتاب وباب فضل التوحيد</a></li>
+      <li><a href="#ch-2">2. باب من حقق التوحيد دخل الجنة بغير حساب</a></li>
+      <li><a href="#ch-3">3. باب الخوف من الشرك</a></li>
+      <li><a href="#ch-4">4. باب الدعاء إلى شهادة أن لا إله إلا الله</a></li>
+      <li><a href="#ch-5">5. باب تفسير التوحيد وشهادة أن لا إله إلا الله</a></li>
+    </ul>
   </div>
 
-  <!-- الصفحة الأولى: المقدمة وفضل التوحيد -->
-  <div class="book-page active" id="page-1">
-    <h2>المقدمة وباب فضل التوحيد</h2>
+  <!-- الباب الأول -->
+  <div class="book-section" id="ch-1">
+    <h2>مقدمة الكتاب وباب فضل التوحيد</h2>
     <p>قال الله تعالى: <strong>(وَمَا خَلَقْتُ الْجِنَّ وَالإِنسَ إِلاَّ لِيَعْبُدُونِ)</strong>. واعلم رحمك الله أن الله سبحانه وتعالى خلقنا لعبادته وحدَه لا شريك له، وأن أصل الدين وأساسه هو توحيد الله إفراداً له بالعبادة.</p>
     
     <div class="highlight-box">باب: فضل التوحيد وما يكفر من الذنوب</div>
-    <h3>بيان فضل التوحيد</h3>
     <p>قوله تعالى: <strong>(الَّذِينَ آمَنُوا وَلَمْ يَلْبِسُوا إِيمَانَهُمْ بِظُلْمٍ أُولَئِكَ لَهُمُ الأَمْنُ وَهُمْ مُهْتَدُونَ)</strong>. وعن عبادة بن الصامت رضي الله عنه قال: قال رسول الله ﷺ: «من شهد أن لا إله إلا الله وحده لا شريك له، وأن محمداً عبده ورسوله... أدخله الله الجنة على ما كان من العمل».</p>
-    
-    <div class="pagination-footer">
-      <div></div>
-      <button class="page-btn" onclick="changePage(2)">الصفحة التالية ←</button>
-    </div>
+    <a href="#top-index" class="top-link">↑ العودة للفهرس</a>
   </div>
 
-  <!-- الصفحة الثانية: تحقيق التوحيد والخوف من الشرك -->
-  <div class="book-page" id="page-2">
-    <h2>تحقيق التوحيد والخوف من الشرك</h2>
-    <div class="highlight-box">باب: من حقق التوحيد دخل الجنة بغير حساب</div>
-    <h3>تحقيق التوحيد وتخليصه</h3>
-    <p>قال الله تعالى: <strong>(إِنَّ إِبْرَاهِيمَ كَانَ أُمَّةً قَانِتًا لِلَّهِ حَنِيفًا وَلَمْ يَكُ مِنَ الْمُشْرِكِينَ)</strong>. وتحقيق التوحيد يكون بتخليصه من شوائب الشرك الأكبر والأصغر.</p>
-
-    <div class="highlight-box">باب: الخوف من الشرك</div>
-    <h3>التحذير من الشرك الأصغر والأكبر</h3>
-    <p>قال الله تعالى: <strong>(إِنَّ اللَّهَ لا يَغْفِرُ أَنْ يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَلِكَ لِمَنْ يَشَاءُ)</strong>. وعن محمود بن لبيد رضي الله عنه أن رسول الله ﷺ قال: «أخوف ما أخاف عليكم الشرك الأصغر، فسئل عنه فقال: الرياء».</p>
-
-    <div class="pagination-footer">
-      <button class="page-btn" onclick="changePage(1)">→ الصفحة السابقة</button>
-      <button class="page-btn" onclick="changePage(3)">الصفحة التالية ←</button>
-    </div>
+  <!-- الباب الثاني -->
+  <div class="book-section" id="ch-2">
+    <h2>باب: من حقق التوحيد دخل الجنة بغير حساب</h2>
+    <p>قال الله تعالى: <strong>(إِنَّ إِبْرَاهِيمَ كَانَ أُمَّةً قَانِتًا لِلَّهِ حَنِيفًا وَلَمْ يَكُ مِنَ الْمُشْرِكِينَ)</strong> وقال تعالى: <strong>(وَالَّذِينَ هُمْ بِرَبِّهِمْ لا يُشْرِكُونَ)</strong>.</p>
+    <p>وتحقيق التوحيد يكون بتخليصه وتصفيتهم من شوائب الشرك الأكبر والأصغر، والبدع والمعاصي، حتى يستقيم القلب على الإخلاص التام لله وحده.</p>
+    <a href="#top-index" class="top-link">↑ العودة للفهرس</a>
   </div>
 
-  <!-- الصفحة الثالثة: الدعوة وتفسير التوحيد -->
-  <div class="book-page" id="page-3">
-    <h2>الدعوة إلى الله وتفسير شهادة التوحيد</h2>
-    <div class="highlight-box">باب: الدعاء إلى شهادة أن لا إله إلا الله</div>
-    <h3>وجوب الدعوة إلى توحيد الله</h3>
-    <p>قوله تعالى: <strong>(قُلْ هِذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي)</strong>. وعن ابن عباس رضي الله عنهما أن النبي ﷺ بعث معاذ رضي الله عنه إلى اليمن فقال: «فليكن أول ما تدعوهم إليه شهادة أن لا إله إلا الله».</p>
-
-    <div class="highlight-box">باب: تفسير التوحيد الشهادة</div>
-    <h3>معنى لا إله إلا الله وما تبطله</h3>
-    <p>قوله تعالى: <strong>(أُولَئِكَ الَّذِينَ يَدْعُونَ يَبْتَغُونَ إِلَى رَبِّهِمُ الْوَسِيلَةَ أَيُّهُمْ أَقْرَبُ)</strong>. وعن ابن عمر رضي الله عنهما أن رسول الله ﷺ قال: «بني الإسلام على خمس...».</p>
-
-    <div class="pagination-footer">
-      <button class="page-btn" onclick="changePage(2)">→ الصفحة السابقة</button>
-      <button class="page-btn" onclick="changePage(4)">الصفحة التالية ←</button>
-    </div>
+  <!-- الباب الثالث -->
+  <div class="book-section" id="ch-3">
+    <h2>باب: الخوف من الشرك</h2>
+    <p>قال الله تعالى: <strong>(إِنَّ اللَّهَ لا يَغْفِرُ أَنْ يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَلِكَ لِمَنْ يَشَاءُ)</strong>. وقال الخليل إبراهيم عليه السلام: <strong>(وَاجُنُبْنِي وَبَنِيَّ أَنْ نَعْبُدَ الأَصْنَامَ)</strong>.</p>
+    <p>وعن محمود بن لبيد رضي الله عنه أن رسول الله ﷺ قال: «أخوف ما أخاف عليكم الشرك الأصغر»، فسئل عنه فقال: «الرياء».</p>
+    <a href="#top-index" class="top-link">↑ العودة للفهرس</a>
   </div>
 
-  <!-- الصفحة الرابعة: باب ما جاء في السحر وغيره -->
-  <div class="book-page" id="page-4">
-    <h2>أبواب السحر وما يتعلق به</h2>
-    <div class="highlight-box">باب: ما جاء في السحر</div>
-    <h3>حكم السحر والتعامل به</h3>
-    <p>قال الله تعالى: <strong>(وَلَكِنَّ الشَّيَاطِينَ كَفَرُوا يُعَلِّمُونَ النَّاسَ السِّحْرَ)</strong>. وعن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: «اجتنبوا السبع الموبقات... الشرك بالله والسحر».</p>
+  <!-- الباب الرابع -->
+  <div class="book-section" id="ch-4">
+    <h2>باب: الدعاء إلى شهادة أن لا إله إلا الله</h2>
+    <p>قوله تعالى: <strong>(قُلْ هِذِهِ سَبِيلِي أَدْعُو إِلَى اللَّهِ عَلَى بَصِيرَةٍ أَنَا وَمَنِ اتَّبَعَنِي)</strong>.</p>
+    <p>وعن ابن عباس رضي الله عنهما أن النبي ﷺ بعث معاذ رضي الله عنه إلى اليمن فقال: «إنك تأتي قوماً من أهل الكتاب، فليكن أول ما تدعوهم إليه شهادة أن لا إله إلا الله» وفي رواية: «إلى أن يوحِدوا الله».</p>
+    <a href="#top-index" class="top-link">↑ العودة للفهرس</a>
+  </div>
 
-    <div class="highlight-box">خاتمة الكتاب</div>
-    <h3>تتمة ومراجعة</h3>
-    <p>تم بحمد الله جمع أبواب كتاب التوحيد للإمام محمد بن عبد الوهاب رحمه الله، نسأل الله أن ينفع به العباد والبلاد.</p>
-
-    <div class="pagination-footer">
-      <button class="page-btn" onclick="changePage(3)">→ الصفحة السابقة</button>
-      <div></div>
-    </div>
+  <!-- الباب الخامس -->
+  <div class="book-section" id="ch-5">
+    <h2>باب: تفسير التوحيد وشهادة أن لا إله إلا الله</h2>
+    <p>قوله تعالى: <strong>(أُولَئِكَ الَّذِينَ يَدْعُونَ يَبْتَغُونَ إِلَى رَبِّهِمُ الْوَسِيلَةَ أَيُّهُمْ أَقْرَبُ)</strong> وقوله: <strong>(وَاتَّخَذُوا مِنْ دُونِ اللَّهِ آلِهَةً لَعَلَّهُمْ يُنْصَرُونَ)</strong>.</p>
+    <p>وعن ابن عمر رضي الله عنهما أن رسول الله ﷺ قال: «بني الإسلام على خمس: شهادة أن لا إله إلا الله وأن محمداً رسول الله، وإقام الصلاة، وإتاء الزكاة، وحج البيت، وصوم رمضان».</p>
+    <a href="#top-index" class="top-link">↑ العودة للفهرس</a>
   </div>
 
 </div>
@@ -226,23 +238,6 @@
 <footer>
   المكتبة الإسلامية الرقمية - مكتبة حضري &copy; 2026
 </footer>
-
-<script>
-  function changePage(pageNum) {
-    // إخفاء كل الصفحات
-    const pages = document.querySelectorAll('.book-page');
-    pages.forEach(page => page.classList.remove('active'));
-    
-    // إظهار الصفحة المطلوبة
-    document.getElementById('page-' + pageNum).classList.add('active');
-    
-    // تحديث مؤشر الصفحة
-    document.getElementById('page-indicator').innerText = "الصفحة " + pageNum + " من 4";
-    
-    // التمرير لأعلى الصفحة بسلاسة
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
 
 </body>
 </html>
