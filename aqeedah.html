@@ -20,7 +20,7 @@ body {
 
 header {
   background: #0f5132;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 25px 15px;
 }
@@ -45,7 +45,7 @@ header p {
   display: inline-block;
   margin: 20px 0;
   padding: 10px 18px;
-  background: white;
+  background: #fff;
   color: #0f5132;
   text-decoration: none;
   border-radius: 8px;
@@ -68,7 +68,7 @@ header p {
 }
 
 .book {
-  background: white;
+  background: #fff;
   border-radius: 12px;
   padding: 25px;
   margin-bottom: 18px;
@@ -96,18 +96,36 @@ header p {
   display: inline-block;
   padding: 12px 25px;
   background: #0f5132;
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
 }
 
+.read:hover {
+  opacity: 0.9;
+}
+
 footer {
   margin-top: 40px;
   background: #0f5132;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 20px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 23px;
+  }
+
+  .book {
+    padding: 20px 15px;
+  }
+
+  .book h3 {
+    font-size: 20px;
+  }
 }
 </style>
 </head>
@@ -121,7 +139,9 @@ footer {
 
 <div class="container">
 
-  <a href="index.html" class="back">← الرئيسية</a>
+  <a href="index.html" class="back">
+    ← الرئيسية
+  </a>
 
   <div class="title">
     <h2>كتب العقيدة والتوحيد</h2>
@@ -134,14 +154,9 @@ footer {
 
     <h3>كتاب التوحيد</h3>
 
-    <p>
-      محمد بن عبد الوهاب
-    </p>
+    <p>محمد بن عبد الوهاب</p>
 
-    <a
-      href="كتاب_التوحيد.pdf"
-      target="_blank"
-      class="read">
+    <a href="tauheed.html" class="read">
       📖 قراءة الكتاب
     </a>
 
