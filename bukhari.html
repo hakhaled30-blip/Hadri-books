@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>صحيح البخاري | حضري للكتب الإسلامية</title>
+
+  <meta name="description" content="صحيح البخاري كاملًا - حضري للكتب الإسلامية">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f8f6;
+      color: #222;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #123b2a;
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #d7b56d;
+    }
+
+    .back {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 35px 15px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .title-icon {
+      font-size: 48px;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      color: #123b2a;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .title p {
+      color: #666;
+    }
+
+    .search {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+      margin-bottom: 25px;
+    }
+
+    .search input {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: #123b2a;
+    }
+
+    #status {
+      text-align: center;
+      color: #666;
+      margin: 20px 0;
+    }
+
+    .hadith {
+      background: white;
+      border: 1px solid #e3e6e4;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .hadith-number {
+      display: inline-block;
+      background: #123b2a;
+      color: white;
+      border-radius: 50%;
+      min-width: 38px;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+      margin-left: 8px;
+      font-size: 14px;
+    }
+
+    .hadith-text {
+      margin-top: 15px;
+      font-size: 18px;
+      line-height: 2.1;
+      color: #222;
+    }
+
+    .book-name {
+      color: #777;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .pagination button {
+      border: none;
+      background: #123b2a;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .pagination button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    #pageInfo {
+      color: #555;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #102f23;
+      color: #dce7e1;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 27px;
+      }
+
+      .hadith {
+        padding: 17px;
+      }
+
+      .hadith-text {
+        font-size: 17px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">
+      حضري <span>للكتب الإسلامية</span>
+    </a>
+
+    <a href="hadith.html" class="back">
+      ← الحديث الشريف
+    </a>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="title">
+
+    <div class="title-icon">📜</div>
+
+    <h1>صحيح البخاري</h1>
+
+    <p>
+      الجامع الصحيح للإمام محمد بن إسماعيل البخاري
+    </p>
+
+  </section>
+
+
+  <section class="search">
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="ابحث في أحاديث صحيح البخاري..."
+      aria-label="البحث في صحيح البخاري"
+    >
+
+  </section>
+
+
+  <div id="status">
+    جارٍ تحميل الأحاديث...
+  </div>
+
+
+  <section id="hadithContainer"></section>
+
+
+  <div class="pagination">
+
+    <button id="prevButton">
+      السابق
+    </button>
+
+    <span id="pageInfo">
+      الصفحة 1
+    </span>
+
+    <button id="nextButton">
+      التالي
+    </button>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © <span id="year"></span>
+  حضري للكتب الإسلامية
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+const container =
+  document.getElementById("hadithContainer");
+
+const status =
+  document.getElementById("status");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const prevButton =
+  document.getElementById("prevButton");
+
+const nextButton =
+  document.getElementById("nextButton");
+
+const pageInfo =
+  document.getElementById("pageInfo");
+
+
+let allHadith = [];
+
+let filteredHadith = [];
+
+let currentPage = 1;
+
+const perPage = 20;
+
+
+/* تحميل ملف البخاري */
+
+fetch("bukhari.json")
+  .then(function(response) {
+
+    if (!response.ok) {
+      throw new Error(
+        "تعذر تحميل ملف bukhari.json"
+      );
+    }
+
+    return response.json();
+
+  })
+  .then(function(data) {
+
+    allHadith = extractHadith(data);
+
+    filteredHadith = allHadith.slice();
+
+    status.textContent =
+      "تم تحميل " +
+      allHadith.length +
+      " حديث.";
+
+    render();
+
+  })
+  .catch(function(error) {
+
+    console.error(error);
+
+    status.innerHTML =
+      "تعذر تحميل الأحاديث.<br>" +
+      "تأكد من وجود ملف <b>bukhari.json</b> في نفس المجلد.";
+
+  });
+
+
+/* استخراج الأحاديث من صيغ JSON المختلفة */
+
+function extractHadith(data) {
+
+  let result = [];
+
+
+  if (Array.isArray(data)) {
+
+    data.forEach(function(item) {
+
+      addItem(item);
+
+    });
+
+  }
+
+
+  else if (data && Array.isArray(data.hadiths)) {
+
+    data.hadiths.forEach(function(item) {
+
+      addItem(item);
+
+    });
+
+  }
+
+
+  else if (data && Array.isArray(data.data)) {
+
+    data.data.forEach(function(item) {
+
+      addItem(item);
+
+    });
+
+  }
+
+
+  else if (data && typeof data === "object") {
+
+    Object.keys(data).forEach(function(key) {
+
+      const value = data[key];
+
+      if (Array.isArray(value)) {
+
+        value.forEach(function(item) {
+
+          addItem(item);
+
+        });
+
+      }
+
+    });
+
+  }
+
+
+  return result;
+
+
+  function addItem(item) {
+
+    if (!item || typeof item !== "object") {
+      return;
+    }
+
+
+    let text =
+      item.arabic ||
+      item.arabicText ||
+      item.textArabic ||
+      item.text ||
+      item.hadith ||
+      item.content ||
+      "";
+
+
+    if (
+      typeof text === "object" &&
+      text !== null
+    ) {
+
+      text =
+        text.ar ||
+        text.arabic ||
+        "";
+
+    }
+
+
+    if (
+      typeof text !== "string" ||
+      text.trim() === ""
+    ) {
+
+      return;
+
+    }
+
+
+    let number =
+      item.hadithnumber ||
+      item.hadithNumber ||
+      item.number ||
+      item.id ||
+      result.length + 1;
+
+
+    result.push({
+
+      number: number,
+
+      text: text.trim()
+
+    });
+
+  }
+
+}
+
+
+/* عرض الأحاديث */
+
+function render() {
+
+  container.innerHTML = "";
+
+
+  if (filteredHadith.length === 0) {
+
+    status.textContent =
+      "لم يتم العثور على أحاديث.";
+
+    pageInfo.textContent =
+      "لا توجد نتائج";
+
+    prevButton.disabled = true;
+    nextButton.disabled = true;
+
+    return;
+
+  }
+
+
+  const totalPages =
+    Math.ceil(
+      filteredHadith.length / perPage
+    );
+
+
+  if (currentPage > totalPages) {
+
+    currentPage = totalPages;
+
+  }
+
+
+  const start =
+    (currentPage - 1) * perPage;
+
+
+  const end =
+    start + perPage;
+
+
+  const pageHadith =
+    filteredHadith.slice(start, end);
+
+
+  pageHadith.forEach(function(hadith) {
+
+    const article =
+      document.createElement("article");
+
+    article.className = "hadith";
+
+
+    article.innerHTML =
+
+      '<div>' +
+
+        '<span class="hadith-number">' +
+          escapeHTML(hadith.number) +
+        '</span>' +
+
+        '<strong>حديث</strong>' +
+
+      '</div>' +
+
+      '<div class="hadith-text">' +
+        escapeHTML(hadith.text) +
+      '</div>' +
+
+      '<div class="book-name">' +
+        'صحيح البخاري' +
+      '</div>';
+
+
+    container.appendChild(article);
+
+  });
+
+
+  status.textContent =
+    "عرض " +
+    (start + 1) +
+    " إلى " +
+    Math.min(end, filteredHadith.length) +
+    " من " +
+    filteredHadith.length +
+    " حديث";
+
+
+  pageInfo.textContent =
+    "الصفحة " +
+    currentPage +
+    " من " +
+    totalPages;
+
+
+  prevButton.disabled =
+    currentPage === 1;
+
+
+  nextButton.disabled =
+    currentPage === totalPages;
+
+}
+
+
+/* البحث */
+
+searchInput.addEventListener(
+  "input",
+  function() {
+
+    const query =
+      searchInput.value
+        .trim()
+        .toLowerCase();
+
+
+    if (query === "") {
+
+      filteredHadith =
+        allHadith.slice();
+
+    }
+
+    else {
+
+      filteredHadith =
+        allHadith.filter(function(hadith) {
+
+          return hadith.text
+            .toLowerCase()
+            .includes(query);
+
+        });
+
+    }
+
+
+    currentPage = 1;
+
+    render();
+
+  }
+);
+
+
+/* السابق */
+
+prevButton.addEventListener(
+  "click",
+  function() {
+
+    if (currentPage > 1) {
+
+      currentPage--;
+
+      render();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+  }
+);
+
+
+/* التالي */
+
+nextButton.addEventListener(
+  "click",
+  function() {
+
+    const totalPages =
+      Math.ceil(
+        filteredHadith.length / perPage
+      );
+
+
+    if (currentPage < totalPages) {
+
+      currentPage++;
+
+      render();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+  }
+);
+
+
+/* حماية النص */
+
+function escapeHTML(value) {
+
+  return String(value)
+
+    .replace(/&/g, "&amp;")
+
+    .replace(/</g, "&lt;")
+
+    .replace(/>/g, "&gt;")
+
+    .replace(/"/g, "&quot;")
+
+    .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
