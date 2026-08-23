@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القرآن الكريم | حضري للكتب الإسلامية</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f5f7f6;
+    color:#222;
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+header{
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+header p{
+    margin:8px 0 0;
+}
+
+.top{
+    width:94%;
+    max-width:1000px;
+    margin:18px auto;
+}
+
+.back{
+    display:inline-block;
+    background:white;
+    color:#0f5132;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    font-weight:bold;
+}
+
+.title{
+    text-align:center;
+    margin:25px 0;
+}
+
+.title h2{
+    color:#0f5132;
+    margin-bottom:8px;
+}
+
+#loading{
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+
+#error{
+    display:none;
+    text-align:center;
+    margin:25px auto;
+    max-width:800px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    color:#a00;
+}
+
+.surah{
+    width:94%;
+    max-width:1000px;
+    margin:20px auto;
+    background:white;
+    border-radius:14px;
+    padding:25px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+
+.surah-title{
+    text-align:center;
+    color:#0f5132;
+    font-size:23px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.ayah{
+    font-size:21px;
+    line-height:2.4;
+    text-align:right;
+    margin:0;
+}
+
+.ayah-number{
+    display:inline-block;
+    color:#0f5132;
+    font-weight:bold;
+    margin-left:8px;
+}
+
+footer{
+    margin-top:40px;
+    background:#0f5132;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:24px;
+    }
+
+    .surah{
+        padding:17px;
+    }
+
+    .ayah{
+        font-size:18px;
+        line-height:2.2;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📖 القرآن الكريم</h1>
+    <p>المصحف الشريف بالرسم العثماني</p>
+</header>
+
+<div class="top">
+
+    <a href="index.html" class="back">
+        ← الصفحة الرئيسية
+    </a>
+
+    <div class="title">
+        <h2>القرآن الكريم</h2>
+        <p>الرسم العثماني</p>
+    </div>
+
+</div>
+
+<div id="loading">
+    جاري تحميل القرآن الكريم...
+</div>
+
+<div id="error">
+    تعذر تحميل ملف القرآن.
+    <br><br>
+    تأكد من وجود الملف:
+    <strong>quran-uthmani.txt</strong>
+</div>
+
+<div id="quran"></div>
+
+<footer>
+    © 2026 حضري للكتب الإسلامية
+</footer>
+
+<script>
+
+async function loadQuran(){
+
+    try{
+
+        const response =
+            await fetch("quran-uthmani.txt");
+
+        if(!response.ok){
+            throw new Error("Quran file not found");
+        }
+
+        const text =
+            await response.text();
+
+        document.getElementById("loading")
+            .style.display="none";
+
+        displayQuran(text);
+
+    }catch(error){
+
+        console.error(error);
+
+        document.getElementById("loading")
+            .style.display="none";
+
+        document.getElementById("error")
+            .style.display="block";
+
+    }
+
+}
+
+
+function displayQuran(text){
+
+    const container =
+        document.getElementById("quran");
+
+    const lines =
+        text.split(/\r?\n/);
+
+    let currentSurah = null;
+    let surahNumber = 0;
+
+    lines.forEach(function(line){
+
+        line = line.trim();
+
+        if(!line){
+            return;
+        }
+
+        /*
+         * ملف Tanzil غالبًا يحتوي على:
+         * اسم السورة|رقم الآية|النص
+         */
+
+        const parts =
+            line.split("|");
+
+        if(parts.length >= 3){
+
+            const surah =
+                parts[0];
+
+            const ayah =
+                parts[1];
+
+            const verse =
+                parts.slice(2).join("|");
+
+            if(surah !== currentSurah){
+
+                currentSurah = surah;
+                surahNumber++;
+
+                const box =
+                    document.createElement("section");
+
+                box.className="surah";
+
+                box.innerHTML =
+                    '<div class="surah-title">' +
+                    'سورة ' +
+                    escapeHTML(surah) +
+                    '</div>';
+
+                container.appendChild(box);
+            }
+
+            const boxes =
+                document.querySelectorAll(".surah");
+
+            const box =
+                boxes[boxes.length-1];
+
+            const p =
+                document.createElement("p");
+
+            p.className="ayah";
+
+            p.innerHTML =
+                escapeHTML(verse) +
+                ' <span class="ayah-number">﴿' +
+                escapeHTML(ayah) +
+                '﴾</span>';
+
+            box.appendChild(p);
+
+        }
+
+        else{
+
+            /*
+             * دعم الملفات التي تحتوي
+             * على النص فقط
+             */
+
+            if(!currentSurah){
+
+                currentSurah =
+                    "القرآن الكريم";
+
+                const box =
+                    document.createElement("section");
+
+                box.className="surah";
+
+                box.innerHTML =
+                    '<div class="surah-title">' +
+                    'القرآن الكريم' +
+                    '</div>';
+
+                container.appendChild(box);
+            }
+
+            const boxes =
+                document.querySelectorAll(".surah");
+
+            const box =
+                boxes[boxes.length-1];
+
+            const p =
+                document.createElement("p");
+
+            p.className="ayah";
+
+            p.textContent=line;
+
+            box.appendChild(p);
+
+        }
+
+    });
+
+}
+
+
+function escapeHTML(value){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(value);
+
+    return div.innerHTML;
+
+}
+
+
+loadQuran();
+
+</script>
+
+</body>
+</html>
