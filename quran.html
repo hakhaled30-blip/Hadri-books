@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>القرآن الكريم</title>
 
 <style>
+
+/* ==============================
+   التصميم العام
+============================== */
+
 * {
     box-sizing: border-box;
 }
@@ -14,31 +22,39 @@ body {
     margin: 0;
     background: #f7f5ef;
     color: #29251f;
-    font-family: "Tahoma", "Arial", sans-serif;
+    font-family: Tahoma, Arial, sans-serif;
 }
 
-/* رأس الصفحة */
+
+/* ==============================
+   رأس الموقع
+============================== */
+
 .header {
-    background: linear-gradient(135deg, #173f35, #24594b);
+    background: linear-gradient(135deg, #173f35, #285f50);
     color: white;
-    padding: 25px 15px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    padding: 25px 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
 }
 
 .header h1 {
     margin: 0;
     font-family: "Traditional Arabic", "Amiri", serif;
-    font-size: 34px;
+    font-size: 36px;
 }
 
 .header p {
-    margin: 8px 0 0;
-    opacity: .9;
+    margin: 7px 0 0;
     font-size: 14px;
+    opacity: .9;
 }
 
-/* البحث */
+
+/* ==============================
+   البحث
+============================== */
+
 .search-area {
     max-width: 850px;
     margin: 20px auto;
@@ -47,7 +63,7 @@ body {
 
 .search-box {
     width: 100%;
-    border: 1px solid #ddd6c9;
+    border: 1px solid #ddd7cb;
     background: white;
     border-radius: 14px;
     padding: 15px 18px;
@@ -57,21 +73,24 @@ body {
 }
 
 .search-box:focus {
-    border-color: #2d7561;
-    box-shadow: 0 0 0 3px rgba(45,117,97,.1);
+    border-color: #285f50;
 }
 
-/* قائمة السور */
+
+/* ==============================
+   قائمة السور
+============================== */
+
 .surah-list {
     max-width: 850px;
-    margin: 0 auto 25px;
+    margin: 0 auto 30px;
     padding: 0 15px;
 }
 
 .surah-list h2 {
-    font-size: 20px;
-    margin: 15px 0;
     color: #173f35;
+    font-size: 21px;
+    margin: 15px 0;
 }
 
 .surahs {
@@ -81,10 +100,10 @@ body {
 }
 
 .surah-button {
-    border: 1px solid #e2dccf;
+    border: 1px solid #e2ddd2;
     background: white;
-    border-radius: 12px;
-    padding: 14px 12px;
+    border-radius: 13px;
+    padding: 13px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -94,18 +113,18 @@ body {
 }
 
 .surah-button:hover {
+    border-color: #285f50;
     transform: translateY(-2px);
-    border-color: #2d7561;
-    box-shadow: 0 5px 15px rgba(0,0,0,.07);
+    box-shadow: 0 5px 14px rgba(0,0,0,.07);
 }
 
 .surah-number {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
     border-radius: 50%;
     background: #edf4f1;
-    color: #24594b;
+    color: #285f50;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,7 +136,11 @@ body {
     font-size: 21px;
 }
 
-/* منطقة القراءة */
+
+/* ==============================
+   قارئ القرآن
+============================== */
+
 .reader {
     display: none;
     max-width: 900px;
@@ -129,22 +152,43 @@ body {
     display: block;
 }
 
-/* رأس السورة */
+
+/* ==============================
+   زر العودة
+============================== */
+
+.back-button {
+    display: block;
+    margin: 0 auto 20px;
+    background: white;
+    color: #285f50;
+    border: 1px solid #d8d1c5;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+/* ==============================
+   عنوان السورة
+============================== */
+
 .surah-header {
     background: white;
+    border: 1px solid #e3ddd1;
     border-radius: 18px;
     padding: 25px 15px;
     text-align: center;
     margin-bottom: 20px;
-    border: 1px solid #e4ded2;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,.04);
 }
 
 .surah-header h2 {
     margin: 0;
     color: #173f35;
     font-family: "Traditional Arabic", "Amiri", serif;
-    font-size: 34px;
+    font-size: 35px;
 }
 
 .surah-header p {
@@ -153,51 +197,76 @@ body {
     font-size: 13px;
 }
 
-/* البسملة */
+
+/* ==============================
+   البسملة
+============================== */
+
 .basmala {
     text-align: center;
+    color: #285f50;
     font-family: "Traditional Arabic", "Amiri", serif;
     font-size: 29px;
     line-height: 2;
-    color: #24594b;
-    margin: 20px 5px 30px;
+    margin: 20px 5px 25px;
 }
 
-/* الآيات */
+
+/* ==============================
+   نص القرآن
+============================== */
+
 .quran-text {
     background: white;
+    border: 1px solid #e3ddd1;
     border-radius: 18px;
     padding: 30px 25px;
-    border: 1px solid #e4ded2;
     box-shadow: 0 4px 18px rgba(0,0,0,.04);
+
+    text-align: right;
 }
 
+
+/* الآية */
+
 .ayah {
-    display: inline;
     font-family: "Traditional Arabic", "Amiri", serif;
-    font-size: 29px;
+    font-size: 30px;
     line-height: 2.25;
 }
 
+
+/* رقم الآية */
+
 .ayah-number {
     display: inline-flex;
+
     width: 32px;
     height: 32px;
-    border: 1px solid #2d7561;
-    color: #24594b;
+
+    border: 1px solid #285f50;
     border-radius: 50%;
+
+    color: #285f50;
+
     align-items: center;
     justify-content: center;
+
     font-family: Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
+
     margin: 0 7px;
+
     vertical-align: middle;
 }
 
-/* أزرار التنقل */
+
+/* ==============================
+   أزرار التنقل
+============================== */
+
 .navigation {
     display: flex;
-    justify-content: space-between;
     gap: 10px;
     margin-top: 20px;
 }
@@ -205,7 +274,7 @@ body {
 .nav-button {
     flex: 1;
     border: none;
-    background: #24594b;
+    background: #285f50;
     color: white;
     padding: 13px;
     border-radius: 12px;
@@ -217,48 +286,32 @@ body {
     background: #173f35;
 }
 
-.back-button {
-    display: block;
-    margin: 0 auto 20px;
-    border: 1px solid #d8d1c5;
-    background: white;
-    color: #24594b;
-    padding: 10px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-}
 
-/* رسالة الخطأ */
+/* ==============================
+   رسالة الخطأ
+============================== */
+
 .error {
-    text-align: center;
-    background: #fff;
+    background: white;
     border-radius: 15px;
     padding: 25px;
+    text-align: center;
     color: #a33;
 }
 
-/* الهاتف */
+
+/* ==============================
+   الهاتف
+============================== */
+
 @media (max-width: 600px) {
 
-    .header {
-        padding: 20px 10px;
-    }
-
     .header h1 {
-        font-size: 29px;
+        font-size: 30px;
     }
 
     .surahs {
         grid-template-columns: 1fr;
-    }
-
-    .surah-button {
-        padding: 12px;
-    }
-
-    .surah-name {
-        font-size: 20px;
     }
 
     .quran-text {
@@ -267,8 +320,8 @@ body {
     }
 
     .ayah {
-        font-size: 25px;
-        line-height: 2.2;
+        font-size: 26px;
+        line-height: 2.25;
     }
 
     .basmala {
@@ -282,20 +335,40 @@ body {
     .ayah-number {
         width: 29px;
         height: 29px;
-        font-size: 12px;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ==============================
+     رأس الصفحة
+============================== -->
+
 <header class="header">
+
     <h1>القرآن الكريم</h1>
-    <p>تلاوة وقراءة القرآن الكريم</p>
+
+    <p>
+        قراءة القرآن الكريم بالرسم العثماني
+    </p>
+
 </header>
 
+
+
+<!-- ==============================
+     البحث
+============================== -->
+
 <section class="search-area">
+
     <input
         id="search"
         class="search-box"
@@ -303,51 +376,100 @@ body {
         placeholder="ابحث عن سورة..."
         oninput="searchSurah()"
     >
+
 </section>
 
+
+
+<!-- ==============================
+     قائمة السور
+============================== -->
+
 <section id="surahList" class="surah-list">
-    <h2>سور القرآن الكريم</h2>
+
+    <h2>
+        سور القرآن الكريم
+    </h2>
+
     <div id="surahs" class="surahs"></div>
+
 </section>
+
+
+
+<!-- ==============================
+     قارئ القرآن
+============================== -->
 
 <section id="reader" class="reader">
 
-    <button class="back-button" onclick="showSurahList()">
+
+    <button
+        class="back-button"
+        onclick="showSurahList()"
+    >
         ← العودة إلى قائمة السور
     </button>
 
+
+
     <div class="surah-header">
+
         <h2 id="surahTitle"></h2>
+
         <p id="surahInfo"></p>
+
     </div>
 
-    <div id="basmala" class="basmala">
+
+
+    <div
+        id="basmala"
+        class="basmala"
+    >
         بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
     </div>
 
-    <div id="quranText" class="quran-text"></div>
+
+
+    <div
+        id="quranText"
+        class="quran-text"
+    ></div>
+
+
 
     <div class="navigation">
-        <button class="nav-button" onclick="previousSurah()">
+
+        <button
+            class="nav-button"
+            onclick="previousSurah()"
+        >
             السورة السابقة
         </button>
 
-        <button class="nav-button" onclick="nextSurah()">
+        <button
+            class="nav-button"
+            onclick="nextSurah()"
+        >
             السورة التالية
         </button>
+
     </div>
+
 
 </section>
 
+
+
 <script>
 
-/*
-==================================================
-أسماء سور القرآن الكريم
-==================================================
-*/
+/* =========================================
+   أسماء السور
+========================================= */
 
 const surahNames = [
+
 "الفاتحة",
 "البقرة",
 "آل عمران",
@@ -462,16 +584,16 @@ const surahNames = [
 "الإخلاص",
 "الفلق",
 "الناس"
+
 ];
 
 
-/*
-==================================================
-عدد آيات كل سورة
-==================================================
-*/
+/* =========================================
+   عدد آيات كل سورة
+========================================= */
 
 const ayahCounts = [
+
 7,286,200,176,120,165,206,75,129,109,
 123,111,43,52,99,128,111,110,98,135,
 112,78,118,64,77,227,93,88,69,60,
@@ -484,60 +606,73 @@ const ayahCounts = [
 15,21,11,8,8,19,5,8,8,11,
 11,8,3,9,5,4,7,3,6,3,
 5,4,5,6
+
 ];
 
 
-/*
-==================================================
-بيانات القرآن
-==================================================
-*/
+/* =========================================
+   متغيرات
+========================================= */
 
 let quranData = [];
 
 let currentSurah = 0;
 
 
-/*
-==================================================
-قراءة ملف القرآن
-==================================================
-*/
+/* =========================================
+   تحميل ملف القرآن
+========================================= */
 
 async function loadQuran() {
 
     try {
 
-        /*
-        مهم:
-        يجب أن يكون quran-uthmani.txt
-        في نفس مجلد صفحة HTML
-        */
-
-        const response = await fetch("quran-uthmani.txt");
+        const response =
+            await fetch("quran-uthmani.txt");
 
         if (!response.ok) {
-            throw new Error("لم يتم العثور على ملف القرآن");
+
+            throw new Error(
+                "لم يتم العثور على الملف"
+            );
+
         }
 
-        const text = await response.text();
+        const text =
+            await response.text();
 
         parseQuran(text);
 
         createSurahList();
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         document.getElementById("surahs").innerHTML = `
+
             <div class="error">
-                <strong>تعذر تحميل القرآن</strong>
+
+                <strong>
+                    تعذر تحميل القرآن
+                </strong>
+
                 <br><br>
+
                 تأكد من وجود الملف:
+
                 <br>
-                <b>quran-uthmani.txt</b>
+
+                <b>
+                    quran-uthmani.txt
+                </b>
+
                 <br><br>
-                في نفس مجلد صفحة HTML.
+
+                في نفس مجلد صفحة الموقع.
+
             </div>
+
         `;
 
     }
@@ -545,303 +680,454 @@ async function loadQuran() {
 }
 
 
-/*
-==================================================
-تحليل ملف القرآن
-==================================================
-*/
+/* =========================================
+   قراءة ملف quran-uthmani.txt
+========================================= */
 
 function parseQuran(text) {
 
     /*
-    ملف Tanzil غالبًا يكون بالشكل:
+       مهم جدًا:
 
-    1|بِسْمِ اللَّهِ...
-    1|الْحَمْدُ لِلَّهِ...
-    1|...
-    2|الم...
-    
-    لذلك نحاول قراءة رقم السورة من بداية كل سطر.
+       ملفك يحتوي على:
+
+       1|الآية الأولى
+       2|الآية الثانية
+       3|الآية الثالثة
+
+       ثم تبدأ السورة التالية من جديد:
+
+       1|...
+       
+       لذلك الرقم قبل | هو رقم الآية،
+       وليس رقم السورة.
     */
 
-    const lines = text
+
+    const lines =
+        text
         .split(/\r?\n/)
         .map(line => line.trim())
         .filter(line => line.length > 0);
 
+
     quranData = [];
 
     let surahIndex = 0;
+
     let ayahIndex = 0;
+
 
     quranData.push([]);
 
+
     for (let line of lines) {
 
-        let parts = line.split("|");
 
-        if (parts.length >= 2) {
+        /*
+        تجاهل أسطر التعليقات وحقوق Tanzil
+        */
 
-            let surahNumber = parseInt(parts[0]);
+        if (
+            line.startsWith("#") ||
+            line.startsWith("COPYRIGHT") ||
+            line.includes("Tanzil Quran Text")
+        ) {
 
-            let ayahText = parts.slice(1).join("|").trim();
+            continue;
 
-            if (!isNaN(surahNumber)) {
-
-                while (surahNumber > quranData.length) {
-                    quranData.push([]);
-                }
-
-                quranData[surahNumber - 1].push(ayahText);
-
-            }
-
-        } else {
-
-            /*
-            إذا كان الملف لا يحتوي على أرقام السور،
-            نستخدم عدد الآيات المعروف لكل سورة.
-            */
-
-            if (!quranData[surahIndex]) {
-                quranData[surahIndex] = [];
-            }
-
-            quranData[surahIndex].push(line);
-
-            ayahIndex++;
-
-            if (
-                surahIndex < ayahCounts.length &&
-                ayahIndex >= ayahCounts[surahIndex]
-            ) {
-
-                surahIndex++;
-                ayahIndex = 0;
-
-                if (!quranData[surahIndex]) {
-                    quranData[surahIndex] = [];
-                }
-            }
         }
-    }
 
-    /*
-    إزالة أول عنصر فارغ إذا وجد
-    */
 
-    if (
-        quranData.length > 0 &&
-        quranData[0].length === 0
-    ) {
-        quranData.shift();
+        /*
+        قراءة الرقم الموجود قبل |
+        */
+
+        const separator =
+            line.indexOf("|");
+
+
+        if (separator === -1) {
+
+            continue;
+
+        }
+
+
+        const numberText =
+            line.substring(0, separator);
+
+
+        const ayahNumber =
+            parseInt(numberText);
+
+
+        if (
+            isNaN(ayahNumber) ||
+            ayahNumber < 1
+        ) {
+
+            continue;
+
+        }
+
+
+        /*
+        استخراج نص الآية فقط
+        */
+
+        const ayahText =
+            line.substring(separator + 1).trim();
+
+
+        if (!ayahText) {
+
+            continue;
+
+        }
+
+
+        /*
+        إذا وصلنا إلى عدد آيات السورة
+        ننتقل للسورة التالية
+        */
+
+        if (
+            ayahIndex >=
+            ayahCounts[surahIndex]
+        ) {
+
+            surahIndex++;
+
+            ayahIndex = 0;
+
+            quranData.push([]);
+
+        }
+
+
+        if (surahIndex >= 114) {
+
+            break;
+
+        }
+
+
+        quranData[surahIndex].push(
+            ayahText
+        );
+
+
+        ayahIndex++;
+
     }
 
 }
 
 
-/*
-==================================================
-إنشاء قائمة السور
-==================================================
-*/
+/* =========================================
+   إنشاء قائمة السور
+========================================= */
 
 function createSurahList(filter = "") {
 
-    const container = document.getElementById("surahs");
+    const container =
+        document.getElementById("surahs");
 
     container.innerHTML = "";
 
-    surahNames.forEach((name, index) => {
 
-        if (
-            filter &&
-            !name.includes(filter)
-        ) {
-            return;
+    surahNames.forEach(
+        (name, index) => {
+
+            if (
+                filter &&
+                !name.includes(filter)
+            ) {
+
+                return;
+
+            }
+
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "surah-button";
+
+
+            button.innerHTML = `
+
+                <span class="surah-number">
+
+                    ${index + 1}
+
+                </span>
+
+                <span class="surah-name">
+
+                    سورة ${name}
+
+                </span>
+
+            `;
+
+
+            button.onclick =
+                () => openSurah(index);
+
+
+            container.appendChild(button);
+
         }
-
-        const button = document.createElement("button");
-
-        button.className = "surah-button";
-
-        button.innerHTML = `
-            <span class="surah-number">
-                ${index + 1}
-            </span>
-
-            <span class="surah-name">
-                سورة ${name}
-            </span>
-        `;
-
-        button.onclick = () => openSurah(index);
-
-        container.appendChild(button);
-
-    });
+    );
 
 }
 
 
-/*
-==================================================
-فتح السورة
-==================================================
-*/
+/* =========================================
+   فتح السورة
+========================================= */
 
 function openSurah(index) {
 
-    if (!quranData[index]) {
-        alert("لم يتم العثور على بيانات هذه السورة.");
-        return;
-    }
-
     currentSurah = index;
 
-    document.getElementById("surahList").style.display = "none";
 
-    document.getElementById("search").style.display = "none";
+    const ayahs =
+        quranData[index];
 
-    document.getElementById("reader").classList.add("active");
 
-    document.getElementById("surahTitle").textContent =
+    if (
+        !ayahs ||
+        ayahs.length === 0
+    ) {
+
+        alert(
+            "لم يتم تحميل آيات هذه السورة."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "surahList"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "search"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "reader"
+    ).classList.add("active");
+
+
+    document.getElementById(
+        "surahTitle"
+    ).textContent =
         "سورة " + surahNames[index];
 
-    document.getElementById("surahInfo").textContent =
-        "السورة رقم " + (index + 1) +
+
+    document.getElementById(
+        "surahInfo"
+    ).textContent =
+
+        "السورة رقم " +
+        (index + 1) +
         " • " +
-        ayahCounts[index] +
+        ayahs.length +
         " آية";
 
+
     /*
-    البسملة لا تظهر في سورة التوبة
+    التوبة بدون بسملة
     */
 
     if (index === 8) {
-        document.getElementById("basmala").style.display = "none";
-    } else {
-        document.getElementById("basmala").style.display = "block";
+
+        document.getElementById(
+            "basmala"
+        ).style.display = "none";
+
     }
 
+    else {
+
+        document.getElementById(
+            "basmala"
+        ).style.display = "block";
+
+    }
+
+
     const quranText =
-        document.getElementById("quranText");
+        document.getElementById(
+            "quranText"
+        );
+
 
     quranText.innerHTML = "";
 
-    const ayahs = quranData[index];
 
-    ayahs.forEach((ayah, i) => {
+    /*
+    إنشاء الآيات
+    */
 
-        const span = document.createElement("span");
+    ayahs.forEach(
+        (ayah, i) => {
 
-        span.className = "ayah";
 
-        span.textContent = ayah + " ";
+            const span =
+                document.createElement(
+                    "span"
+                );
 
-        const number =
-            document.createElement("span");
 
-        number.className = "ayah-number";
+            span.className =
+                "ayah";
 
-        number.textContent = i + 1;
 
-        quranText.appendChild(span);
+            span.textContent =
+                ayah + " ";
 
-        quranText.appendChild(number);
 
-    });
+            quranText.appendChild(
+                span
+            );
+
+
+            const number =
+                document.createElement(
+                    "span"
+                );
+
+
+            number.className =
+                "ayah-number";
+
+
+            number.textContent =
+                i + 1;
+
+
+            quranText.appendChild(
+                number
+            );
+
+
+        }
+    );
+
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
 
 
-/*
-==================================================
-العودة إلى قائمة السور
-==================================================
-*/
+/* =========================================
+   العودة للقائمة
+========================================= */
 
 function showSurahList() {
 
-    document.getElementById("reader")
-        .classList.remove("active");
+    document.getElementById(
+        "reader"
+    ).classList.remove("active");
 
-    document.getElementById("surahList")
-        .style.display = "block";
 
-    document.getElementById("search")
-        .style.display = "block";
+    document.getElementById(
+        "surahList"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "search"
+    ).style.display = "block";
+
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
 
 
-/*
-==================================================
-السورة السابقة
-==================================================
-*/
+/* =========================================
+   السورة السابقة
+========================================= */
 
 function previousSurah() {
 
     if (currentSurah > 0) {
-        openSurah(currentSurah - 1);
+
+        openSurah(
+            currentSurah - 1
+        );
+
     }
 
 }
 
 
-/*
-==================================================
-السورة التالية
-==================================================
-*/
+/* =========================================
+   السورة التالية
+========================================= */
 
 function nextSurah() {
 
     if (currentSurah < 113) {
-        openSurah(currentSurah + 1);
+
+        openSurah(
+            currentSurah + 1
+        );
+
     }
 
 }
 
 
-/*
-==================================================
-البحث عن سورة
-==================================================
-*/
+/* =========================================
+   البحث
+========================================= */
 
 function searchSurah() {
 
     const value =
-        document.getElementById("search")
-        .value
-        .trim();
+        document.getElementById(
+            "search"
+        ).value.trim();
+
 
     createSurahList(value);
 
 }
 
 
-/*
-==================================================
-تشغيل البرنامج
-==================================================
-*/
+/* =========================================
+   تشغيل
+========================================= */
 
 loadQuran();
 
 </script>
 
 </body>
+
 </html>
