@@ -1,239 +1,297 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>حضري للكتب الإسلامية</title>
-
-<style>
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f5f7f6;
-    color:#222;
-}
-
-header{
-    background:#0f5132;
-    color:white;
-    text-align:center;
-    padding:35px 15px;
-}
-
-header h1{
-    margin:0 0 10px;
-    font-size:30px;
-}
-
-header p{
-    margin:0;
-    font-size:16px;
-    opacity:.9;
-}
-
-.container{
-    width:94%;
-    max-width:1100px;
-    margin:30px auto;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.section-title h2{
-    margin:0 0 8px;
-    color:#0f5132;
-}
-
-.section-title p{
-    margin:0;
-    color:#666;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-}
-
-.card{
-    background:white;
-    border-radius:14px;
-    padding:25px 18px;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-    border:1px solid #e5e5e5;
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 6px 18px rgba(0,0,0,.12);
-}
-
-.icon{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.card h3{
-    margin:8px 0;
-    color:#0f5132;
-    font-size:20px;
-}
-
-.card p{
-    color:#666;
-    line-height:1.7;
-    min-height:52px;
-}
-
-.button{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 22px;
-    background:#0f5132;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.button:hover{
-    background:#0b3d26;
-}
-
-.disabled{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 22px;
-    background:#ddd;
-    color:#777;
-    border-radius:8px;
-}
-
-footer{
-    margin-top:40px;
-    background:#0f5132;
-    color:white;
-    text-align:center;
-    padding:20px;
-    line-height:1.8;
-}
-
-@media(max-width:600px){
-    header h1{
-        font-size:25px;
+  <meta charset="UTF-8">
+  <title>حضري للكتب الإسلامية</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.8;
+      background-color: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    /* الهيدر العلوي */
+    header {
+      background-color: #1b3b2b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+    .hero {
+      background-color: #1b3b2b;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      color: #d4af37;
+    }
+    /* شريط البحث */
+    .search-box {
+      margin-top: 20px;
+    }
+    .search-box input {
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: none;
+      text-align: right;
+    }
+    .search-box button {
+      padding: 10px 15px;
+      background-color: #d4af37;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    /* الأقسام والشاشات */
+    .view {
+      display: none;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .active-view {
+      display: block;
+    }
+    /* شبكة البطاقات */
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #1b3b2b;
+    }
+    .cards-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid #e0e0e0;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: #1b3b2b;
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+    .card p {
+      color: #777;
+      font-size: 12px;
+      margin: 0;
+    }
+    /* زر قريباً والرجوع */
+    .badge-soon {
+      display: inline-block;
+      background-color: #1b3b2b;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .back-btn {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    /* محتوى الكتب */
+    .book-content {
+      background: white;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      display: none;
+      margin-top: 20px;
+      text-align: right;
+    }
+    .book-active {
+      display: block;
+    }
+    footer {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+  <script>
+    function showView(viewId) {
+      var views = document.getElementsByClassName('view');
+      for (var i = 0; i < views.length; i++) {
+        views[i].classList.remove('active-view');
+      }
+      document.getElementById(viewId).classList.add('active-view');
+      window.scrollTo(0, 0);
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    function showBook(bookId) {
+      var books = document.getElementsByClassName('book-content');
+      for (var i = 0; i < books.length; i++) {
+        books[i].classList.remove('book-active');
+      }
+      document.getElementById(bookId).classList.add('book-active');
     }
-}
-</style>
+  </script>
 </head>
-
 <body>
 
 <header>
-    <h1>📚 حضري للكتب الإسلامية</h1>
-    <p>مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية</p>
+  <div><strong>حضري للكتب الإسلامية</strong></div>
+  <nav style="margin-top: 10px;">
+    <a href="#" onclick="showView('home-view')">الرئيسية</a>
+    <a href="#" onclick="showView('home-view')">الأقسام</a>
+    <a href="#">الكتب</a>
+    <a href="#">عن المكتبة</a>
+  </nav>
 </header>
 
-<main class="container">
-
-    <div class="section-title">
-        <h2>أقسام المكتبة</h2>
-        <p>اختر القسم الذي تريد تصفحه</p>
-    </div>
-
-    <div class="cards">
-
-        <!-- القرآن الكريم -->
-        <div class="card">
-            <div class="icon">📖</div>
-            <h3>القرآن الكريم</h3>
-            <p>المصحف الشريف وعلوم القرآن</p>
-
-            <a class="button" href="quran.html">
-                تصفح القرآن
-            </a>
-        </div>
-
-        <!-- الحديث الشريف -->
-        <div class="card">
-            <div class="icon">📜</div>
-            <h3>الحديث الشريف</h3>
-            <p>صحيح البخاري وكتب الحديث وشروحه</p>
-
-            <a class="button" href="bukhari.html">
-                تصفح الحديث
-            </a>
-        </div>
-
-        <!-- العقيدة والتوحيد -->
-<div class="card">
-  <div class="icon">☪️</div>
-  <h3>العقيدة والتوحيد</h3>
-  <p>كتب العقيدة والتوحيد</p>
-  <a href="aqeedah.html" class="button">دخول القسم</a>
+<div class="hero">
+  <h1>حضري للكتب الإسلامية</h1>
+  <p>مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية.</p>
+  <div class="search-box">
+    <input type="text" placeholder="ابحث عن كتاب أو قسم...">
+    <button>بحث</button>
+  </div>
 </div>
 
-        <!-- الفقه -->
-        <div class="card">
-            <div class="icon">⚖️</div>
-            <h3>الفقه الإسلامي</h3>
-            <p>كتب الأحكام الفقهية والعبادات والمعاملات</p>
-            <span class="disabled">قريبًا</span>
-        </div>
-
-        <!-- السيرة -->
-        <div class="card">
-            <div class="icon">🕌</div>
-            <h3>السيرة النبوية</h3>
-            <p>كتب السيرة النبوية وحياة النبي ﷺ</p>
-            <span class="disabled">قريبًا</span>
-        </div>
-
-        <!-- الأذكار -->
-        <div class="card">
-            <div class="icon">🌙</div>
-            <h3>الأذكار والأدعية</h3>
-            <p>الأذكار والأدعية المأثورة</p>
-            <span class="disabled">قريبًا</span>
-        </div>
-
-        <!-- قصص الأنبياء -->
-        <div class="card">
-            <div class="icon">📚</div>
-            <h3>قصص الأنبياء</h3>
-            <p>قصص الأنبياء والرسل عليهم السلام</p>
-            <span class="disabled">قريبًا</span>
-        </div>
-
-        <!-- كتب الأسرة -->
-        <div class="card">
-            <div class="icon">👨‍👩‍👧‍👦</div>
-            <h3>كتب الأسرة</h3>
-            <p>كتب تربوية وأسرية مفيدة</p>
-            <span class="disabled">قريبًا</span>
-        </div>
-
+<!-- ================= الشاشة الرئيسية (كما في صورتك تماماً) ================= -->
+<div id="home-view" class="view active-view">
+  
+  <h2 class="section-title">أقسام المكتبة</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <h3>القرآن الكريم</h3>
+      <p>المصحف وعلوم القرآن</p>
     </div>
+    <div class="card" onclick="showView('aqeedah-section')">
+      <h3>العقيدة</h3>
+      <p>كتب العقيدة والتوحيد</p>
+    </div>
+    <div class="card">
+      <h3>الحديث الشريف</h3>
+      <p>كتب الحديث وشروحه</p>
+    </div>
+    <div class="card">
+      <h3>الفقه</h3>
+      <p>أحكام العادات والمعاملات</p>
+    </div>
+    <div class="card">
+      <h3>السيرة النبوية</h3>
+      <p>حياة النبي ﷺ</p>
+    </div>
+    <div class="card">
+      <h3>الأذكار والأدعية</h3>
+      <p>الأذكار والأدعية المأثورة</p>
+    </div>
+    <div class="card">
+      <h3>قصص الأنبياء</h3>
+      <p>قصص الأنبياء والرسل</p>
+    </div>
+    <div class="card">
+      <h3>كتب الأسرة</h3>
+      <p>كتب تربوية وأسرية</p>
+    </div>
+  </div>
 
-</main>
+  <h2 class="section-title">محتوى المكتبة</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <h3>القرآن الكريم</h3>
+      <p>تصفح القرآن الكريم كاملاً بالرسم العثماني.</p>
+      <div class="badge-soon" style="background-color: #1b3b2b;">تصفح القرآن</div>
+    </div>
+    <div class="card" onclick="showView('aqeedah-section')">
+      <h3>العقيدة والتوحيد</h3>
+      <p>كتب العقيدة والتوحيد.</p>
+      <div class="badge-soon">الدخول للقسم</div>
+    </div>
+    <div class="card">
+      <h3>الحديث الشريف</h3>
+      <p>قسم الحديث الشريف.</p>
+      <div class="badge-soon">قريباً</div>
+    </div>
+    <div class="card">
+      <h3>الفقه الإسلامي</h3>
+      <p>كتب الأحكام الفقهية.</p>
+      <div class="badge-soon">قريباً</div>
+    </div>
+    <div class="card">
+      <h3>السيرة النبوية</h3>
+      <p>كتب السيرة النبوية.</p>
+      <div class="badge-soon">قريباً</div>
+    </div>
+    <div class="card">
+      <h3>الأذكار والأدعية</h3>
+      <p>الأذكار والأدعية المأثورة.</p>
+      <div class="badge-soon">قريباً</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= شاشة قسم العقيدة والتوحيد (عند النقر عليها) ================= -->
+<div id="aqeedah-section" class="view">
+  <button class="back-btn" onclick="showView('home-view')">← رجوع إلى الرئيسية</button>
+  <h2>قسم العقيدة والتوحيد</h2>
+  <p>اختر الكتاب الذي تريد قراءته:</p>
+  
+  <div class="cards-grid" style="justify-content: flex-start;">
+    <div class="card" onclick="showBook('book-osol3')" style="cursor: pointer;">
+      <h3>الأصول الثلاثة</h3>
+      <p>للإمام محمد بن عبد الوهاب</p>
+    </div>
+    <div class="card" onclick="showBook('book-qawaid4')" style="cursor: pointer;">
+      <h3>القواعد الأربع</h3>
+      <p>للإمام محمد بن عبد الوهاب</p>
+    </div>
+  </div>
+
+  <!-- نص كتاب الأصول الثلاثة -->
+  <div id="book-osol3" class="book-content">
+    <h2>الأصول الثلاثة وأدلتها</h2>
+    <p><strong>بسم الله الرحمن الرحيم</strong></p>
+    <p>اعلم رحمك الله أنه يجب علينا تعلم أربع مسائل: الأولى: العلم؛ وهو معرفة الله، ومعرفة نبيه، ومعرفة دين الإسلام بالأدلة...</p>
+  </div>
+
+  <!-- نص كتاب القواعد الأربع -->
+  <div id="book-qawaid4" class="book-content">
+    <h2>القواعد الأربع</h2>
+    <p><strong>بسم الله الرحمن الرحيم</strong></p>
+    <p>أسأل الله الكريم رب العرش العظيم أن يتولاك في الدنيا والآخرة...</p>
+  </div>
+</div>
 
 <footer>
-    © 2026 حضري للكتب الإسلامية
-    <br>
-    مكتبة إلكترونية إسلامية
+  <p>عن حضري للكتب الإسلامية: مشروع مكتبة إلكترونية يهدف إلى تسهيل الوصول إلى مصادر المعرفة الإسلامية.</p>
 </footer>
 
 </body>
