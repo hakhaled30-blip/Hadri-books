@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عمدة الأحكام | مكتبة حضري للكتب الإسلامية</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f5f7f6;
+  color: #222;
+  line-height: 2;
+}
+
+header {
+  background: #0f5132;
+  color: #fff;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 27px;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+
+.container {
+  width: 94%;
+  max-width: 950px;
+  margin: auto;
+}
+
+.back {
+  display: inline-block;
+  margin: 22px 0;
+  padding: 10px 18px;
+  background: #fff;
+  color: #0f5132;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.book-header {
+  background: #fff;
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 14px;
+  border: 1px solid #e2e2e2;
+  margin-bottom: 25px;
+}
+
+.book-header h2 {
+  color: #0f5132;
+  margin: 0 0 10px;
+}
+
+.book-header p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.notice {
+  background: #fff8e1;
+  border-right: 4px solid #b8860b;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.book-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 3px 10px rgba(0,0,0,.05);
+  white-space: pre-wrap;
+  font-size: 18px;
+}
+
+footer {
+  margin-top: 40px;
+  background: #0f5132;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .book-content {
+    padding: 18px 14px;
+    font-size: 17px;
+  }
+
+  header h1 {
+    font-size: 23px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>☪️ مكتبة حضري للكتب الإسلامية</h1>
+  <p>كتب الفقه الإسلامي</p>
+</header>
+
+<div class="container">
+
+  <a href="fiqh.html" class="back">
+    ← العودة إلى كتب الفقه الإسلامي
+  </a>
+
+  <div class="book-header">
+    <h2>عمدة الأحكام من كلام خير الأنام</h2>
+    <p><strong>تأليف:</strong> الإمام عبد الغني المقدسي رحمه الله</p>
+    <p>من كتب أحاديث الأحكام</p>
+  </div>
+
+  <div class="notice">
+    📚 هذه الصفحة مخصصة لعرض متن الكتاب.
+    <br>
+    سيتم تحميل النص من ملف مستقل للحفاظ على تنظيم المكتبة وسهولة تحديثه.
+  </div>
+
+  <div id="bookContent" class="book-content">
+    جاري تحميل الكتاب...
+  </div>
+
+</div>
+
+<footer>
+  © 2026 مكتبة حضري للكتب الإسلامية
+</footer>
+
+<script>
+fetch("umdah-ahkam.txt")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("لم يتم العثور على ملف الكتاب");
+    }
+    return response.text();
+  })
+  .then(text => {
+    document.getElementById("bookContent").textContent = text;
+  })
+  .catch(error => {
+    document.getElementById("bookContent").innerHTML =
+      "تعذر تحميل نص الكتاب.<br><br>" +
+      "تأكد من وجود الملف:<br>" +
+      "<strong>umdah-ahkam.txt</strong><br><br>" +
+      "في نفس مجلد هذا الملف.";
+  });
+</script>
+
+</body>
+</html>
