@@ -100,7 +100,7 @@
       font-size: 12px;
       margin: 0;
     }
-    /* زر قريباً والرجوع */
+    /* الأزرار والرجوع */
     .badge-soon {
       display: inline-block;
       background-color: #1b3b2b;
@@ -119,8 +119,8 @@
       cursor: pointer;
       margin-bottom: 20px;
     }
-    /* محتوى الكتب */
-    .book-content {
+    /* محتوى الكتب أو الصفحات */
+    .content-box {
       background: white;
       padding: 35px;
       border-radius: 10px;
@@ -129,7 +129,7 @@
       margin-top: 20px;
       text-align: right;
     }
-    .book-active {
+    .content-active {
       display: block;
     }
     footer {
@@ -148,16 +148,21 @@
       for (var i = 0; i < views.length; i++) {
         views[i].classList.remove('active-view');
       }
+      // إخفاء جميع محتويات الكتب الفرعية عند التنقل الشامل
+      var contents = document.getElementsByClassName('content-box');
+      for (var j = 0; j < contents.length; j++) {
+        contents[j].classList.remove('content-active');
+      }
       document.getElementById(viewId).classList.add('active-view');
       window.scrollTo(0, 0);
     }
 
-    function showBook(bookId) {
-      var books = document.getElementsByClassName('book-content');
-      for (var i = 0; i < books.length; i++) {
-        books[i].classList.remove('book-active');
+    function showContent(contentId) {
+      var contents = document.getElementsByClassName('content-box');
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('content-active');
       }
-      document.getElementById(bookId).classList.add('book-active');
+      document.getElementById(contentId).classList.add('content-active');
     }
   </script>
 </head>
@@ -182,12 +187,12 @@
   </div>
 </div>
 
-<!-- ================= الشاشة الرئيسية (كما في صورتك تماماً) ================= -->
+<!-- ================= الشاشة الرئيسية ================= -->
 <div id="home-view" class="view active-view">
   
   <h2 class="section-title">أقسام المكتبة</h2>
   <div class="cards-grid">
-    <div class="card">
+    <div class="card" onclick="showView('quran-section')">
       <h3>القرآن الكريم</h3>
       <p>المصحف وعلوم القرآن</p>
     </div>
@@ -223,7 +228,7 @@
 
   <h2 class="section-title">محتوى المكتبة</h2>
   <div class="cards-grid">
-    <div class="card">
+    <div class="card" onclick="showView('quran-section')">
       <h3>القرآن الكريم</h3>
       <p>تصفح القرآن الكريم كاملاً بالرسم العثماني.</p>
       <div class="badge-soon" style="background-color: #1b3b2b;">تصفح القرآن</div>
@@ -258,32 +263,55 @@
 </div>
 
 
-<!-- ================= شاشة قسم العقيدة والتوحيد (عند النقر عليها) ================= -->
+<!-- ================= شاشة قسم القرآن الكريم ================= -->
+<div id="quran-section" class="view">
+  <button class="back-btn" onclick="showView('home-view')">← رجوع إلى الرئيسية</button>
+  <h2>قسم القرآن الكريم وعلومه</h2>
+  <p>اختر ما تريد تصفحه في قسم القرآن الكريم:</p>
+  
+  <div class="cards-grid" style="justify-content: flex-start;">
+    <div class="card" onclick="showContent('quran-text')" style="cursor: pointer;">
+      <h3>المصحف الشريف</h3>
+      <p>تصفح القرآن الكريم كاملاً</p>
+    </div>
+  </div>
+
+  <!-- عرض محتوى القرآن الكريم -->
+  <div id="quran-text" class="content-box">
+    <h2>القرآن الكريم بالرسم العثماني</h2>
+    <p><strong>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</strong></p>
+    <p>(1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَٰنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهhdِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)</p>
+    <p><em>(يمكنك إضافة بقية سور القرآن الكريم هنا تباعاً بكل مريحة).</em></p>
+  </div>
+</div>
+
+
+<!-- ================= شاشة قسم العقيدة والتوحيد ================= -->
 <div id="aqeedah-section" class="view">
   <button class="back-btn" onclick="showView('home-view')">← رجوع إلى الرئيسية</button>
   <h2>قسم العقيدة والتوحيد</h2>
   <p>اختر الكتاب الذي تريد قراءته:</p>
   
   <div class="cards-grid" style="justify-content: flex-start;">
-    <div class="card" onclick="showBook('book-osol3')" style="cursor: pointer;">
+    <div class="card" onclick="showContent('book-osol3')" style="cursor: pointer;">
       <h3>الأصول الثلاثة</h3>
       <p>للإمام محمد بن عبد الوهاب</p>
     </div>
-    <div class="card" onclick="showBook('book-qawaid4')" style="cursor: pointer;">
+    <div class="card" onclick="showContent('book-qawaid4')" style="cursor: pointer;">
       <h3>القواعد الأربع</h3>
       <p>للإمام محمد بن عبد الوهاب</p>
     </div>
   </div>
 
   <!-- نص كتاب الأصول الثلاثة -->
-  <div id="book-osol3" class="book-content">
+  <div id="book-osol3" class="content-box">
     <h2>الأصول الثلاثة وأدلتها</h2>
     <p><strong>بسم الله الرحمن الرحيم</strong></p>
     <p>اعلم رحمك الله أنه يجب علينا تعلم أربع مسائل: الأولى: العلم؛ وهو معرفة الله، ومعرفة نبيه، ومعرفة دين الإسلام بالأدلة...</p>
   </div>
 
   <!-- نص كتاب القواعد الأربع -->
-  <div id="book-qawaid4" class="book-content">
+  <div id="book-qawaid4" class="content-box">
     <h2>القواعد الأربع</h2>
     <p><strong>بسم الله الرحمن الرحيم</strong></p>
     <p>أسأل الله الكريم رب العرش العظيم أن يتولاك في الدنيا والآخرة...</p>
