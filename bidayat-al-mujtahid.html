@@ -1,20 +1,1225 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بداية المجتهد ونهاية المقتصد | مكتبة حضري</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+بداية المجتهد ونهاية المقتصد | مكتبة حضري
+</title>
+
+<meta name="description"
+content="قراءة كتاب بداية المجتهد ونهاية المقتصد لابن رشد في مكتبة حضري للكتب الإسلامية.">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f5f7f6;
+    color:#222;
+    transition:.25s;
+}
+
+/* الرأس */
+
+header{
+    background:linear-gradient(
+        135deg,
+        #173f35,
+        #286052
+    );
+
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.12);
+}
+
+header h1{
+    margin:0;
+    font-size:29px;
+    line-height:1.6;
+}
+
+header p{
+    margin:7px 0 0;
+    font-size:15px;
+    opacity:.9;
+}
+
+/* شريط الأدوات */
+
+.toolbar{
+
+    width:94%;
+    max-width:1000px;
+
+    margin:18px auto;
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:14px;
+
+    padding:10px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:8px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.05);
+
+}
+
+.toolbar button{
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#286052;
+
+    color:white;
+
+    padding:9px 13px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:13px;
+
+}
+
+.toolbar button:hover{
+    background:#173f35;
+}
+
+.toolbar .back{
+    background:#777;
+}
+
+/* البحث */
+
+.search{
+
+    width:94%;
+    max-width:850px;
+
+    margin:20px auto;
+
+}
+
+.search input{
+
+    width:100%;
+
+    height:50px;
+
+    padding:0 18px;
+
+    border:1px solid #ddd;
+
+    border-radius:11px;
+
+    background:white;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+    text-align:right;
+
+    outline:none;
+
+}
+
+.search input:focus{
+    border-color:#286052;
+}
+
+/* المحتوى */
+
+.container{
+
+    width:94%;
+
+    max-width:1000px;
+
+    margin:25px auto 60px;
+
+}
+
+/* معلومات الكتاب */
+
+.book-info{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:15px;
+
+    padding:22px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.05);
+
+}
+
+.book-info h2{
+
+    margin:0 0 10px;
+
+    color:#173f35;
+
+    font-size:25px;
+
+}
+
+.book-info p{
+
+    margin:6px 0;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+/* التنبيه */
+
+.notice{
+
+    background:#fffdf5;
+
+    border:1px solid #e4d7aa;
+
+    border-radius:12px;
+
+    padding:16px;
+
+    margin-bottom:20px;
+
+    color:#665b40;
+
+    line-height:1.9;
+
+    text-align:center;
+
+}
+
+/* الفهرس */
+
+.toc{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.05);
+
+}
+
+.toc h3{
+
+    margin:0 0 15px;
+
+    color:#173f35;
+
+}
+
+.toc button{
+
+    width:100%;
+
+    display:block;
+
+    margin:7px 0;
+
+    padding:11px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#eef3f1;
+
+    color:#286052;
+
+    font-family:inherit;
+
+    text-align:right;
+
+    cursor:pointer;
+
+}
+
+.toc button:hover{
+
+    background:#dfeae5;
+
+}
+
+/* القراءة */
+
+.reader{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:15px;
+
+    padding:32px 28px;
+
+    min-height:500px;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.05);
+
+}
+
+.chapter-title{
+
+    color:#173f35;
+
+    font-size:24px;
+
+    line-height:1.7;
+
+    margin:0 0 22px;
+
+    padding-bottom:12px;
+
+    border-bottom:2px solid #286052;
+
+}
+
+.page-number{
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+
+}
+
+.book-text{
+
+    font-size:18px;
+
+    line-height:2.25;
+
+}
+
+.book-text p{
+
+    margin:0 0 22px;
+
+    text-align:justify;
+
+}
+
+.book-text .heading{
+
+    color:#173f35;
+
+    font-weight:bold;
+
+    font-size:21px;
+
+    margin-top:30px;
+
+}
+
+/* التنقل */
+
+.navigation{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.navigation button{
+
+    flex:1;
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:13px;
+
+    background:#286052;
+
+    color:white;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}
+
+.navigation button:hover{
+    background:#173f35;
+}
+
+/* حالة التحميل */
+
+.loading{
+
+    text-align:center;
+
+    padding:50px 15px;
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+/* خطأ التحميل */
+
+.error{
+
+    background:#fff1f1;
+
+    border:1px solid #e3bcbc;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#8a3333;
+
+    line-height:1.9;
+
+}
+
+/* التذييل */
+
+footer{
+
+    background:#173f35;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    font-size:14px;
+
+}
+
+footer p{
+    margin:5px 0;
+}
+
+/* الوضع الليلي */
+
+body.dark{
+
+    background:#171b19;
+
+    color:#eee;
+}
+
+body.dark .toolbar,
+body.dark .search input,
+body.dark .book-info,
+body.dark .toc,
+body.dark .reader{
+
+    background:#222825;
+
+    border-color:#39433e;
+}
+
+body.dark .book-info h2,
+body.dark .toc h3,
+body.dark .chapter-title{
+
+    color:#b9d8cc;
+}
+
+body.dark .book-info p{
+    color:#bbb;
+}
+
+body.dark .toc button{
+
+    background:#303a35;
+
+    color:#c8e0d6;
+}
+
+body.dark .toc button:hover{
+    background:#39463f;
+}
+
+body.dark .book-text{
+    color:#eee;
+}
+
+body.dark .search input{
+    color:#eee;
+}
+
+body.dark .notice{
+
+    background:#29271d;
+
+    border-color:#665c38;
+
+    color:#ddd1a4;
+}
+
+/* الهاتف */
+
+@media(max-width:600px){
+
+    header{
+        padding:24px 12px;
+    }
+
+    header h1{
+        font-size:23px;
+    }
+
+    .toolbar button{
+        font-size:12px;
+        padding:8px 10px;
+    }
+
+    .reader{
+        padding:24px 16px;
+    }
+
+    .book-text{
+        font-size:17px;
+        line-height:2.15;
+    }
+
+    .chapter-title{
+        font-size:21px;
+    }
+
+    .navigation{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<h1>📖 بداية المجتهد ونهاية المقتصد</h1>
 
-<p>أبو الوليد محمد بن أحمد بن رشد القرطبي</p>
+<header>
 
-<p>سيتم تجهيز نص الكتاب وإضافته هنا بعد التحقق والمراجعة.</p>
+    <h1>
+        📖 بداية المجتهد ونهاية المقتصد
+    </h1>
 
-<a href="fiqh.html">← العودة إلى قسم الفقه</a>
+    <p>
+        أبو الوليد محمد بن أحمد بن رشد القرطبي
+    </p>
+
+</header>
+
+
+<!-- الأدوات -->
+
+<div class="toolbar">
+
+    <button onclick="increaseFont()">
+        🔠 تكبير الخط
+    </button>
+
+    <button onclick="decreaseFont()">
+        🔡 تصغير الخط
+    </button>
+
+    <button onclick="resetFont()">
+        🔄 الحجم الافتراضي
+    </button>
+
+    <button onclick="toggleDark()">
+        🌙 الوضع الليلي
+    </button>
+
+    <button
+        onclick="window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })">
+
+        ⬆️ أعلى الصفحة
+
+    </button>
+
+    <button
+        class="back"
+        onclick="location.href='fiqh.html'">
+
+        ← قسم الفقه
+
+    </button>
+
+</div>
+
+
+<!-- البحث -->
+
+<div class="search">
+
+    <input
+        type="search"
+        id="search"
+        placeholder="🔎 ابحث داخل الكتاب..."
+        autocomplete="off">
+
+</div>
+
+
+<main class="container">
+
+
+    <!-- معلومات الكتاب -->
+
+    <section class="book-info">
+
+        <h2>
+            بداية المجتهد ونهاية المقتصد
+        </h2>
+
+        <p>
+            المؤلف:
+            أبو الوليد محمد بن أحمد بن رشد القرطبي
+            المعروف بابن رشد الحفيد
+        </p>
+
+        <p>
+            التصنيف:
+            الفقه المقارن
+        </p>
+
+    </section>
+
+
+    <!-- تنبيه -->
+
+    <div class="notice">
+
+        📚 النص المعروض في هذه الصفحة يُقرأ من ملف
+        <strong>bidayat-al-mujtahid.txt</strong>.
+        سيتم إدخال النسخة النصية بعد التحقق والمراجعة.
+
+    </div>
+
+
+    <!-- الفهرس -->
+
+    <section class="toc">
+
+        <h3>
+            📑 فهرس الكتاب
+        </h3>
+
+        <button onclick="goToSection('الطهارة')">
+            كتاب الطهارة
+        </button>
+
+        <button onclick="goToSection('الصلاة')">
+            كتاب الصلاة
+        </button>
+
+        <button onclick="goToSection('الزكاة')">
+            كتاب الزكاة
+        </button>
+
+        <button onclick="goToSection('الصيام')">
+            كتاب الصيام
+        </button>
+
+        <button onclick="goToSection('الحج')">
+            كتاب الحج
+        </button>
+
+        <button onclick="goToSection('الجهاد')">
+            كتاب الجهاد
+        </button>
+
+        <button onclick="goToSection('النكاح')">
+            كتاب النكاح
+        </button>
+
+        <button onclick="goToSection('الطلاق')">
+            كتاب الطلاق
+        </button>
+
+        <button onclick="goToSection('البيوع')">
+            كتاب البيوع
+        </button>
+
+        <button onclick="goToSection('الوصايا')">
+            كتاب الوصايا
+        </button>
+
+        <button onclick="goToSection('الجنايات')">
+            كتاب الجنايات
+        </button>
+
+        <button onclick="goToSection('الأقضية')">
+            كتاب الأقضية
+        </button>
+
+    </section>
+
+
+    <!-- القارئ -->
+
+    <section class="reader">
+
+        <div
+            class="page-number"
+            id="status">
+
+            جاري تحميل الكتاب...
+
+        </div>
+
+        <h2
+            class="chapter-title"
+            id="chapterTitle">
+
+            بداية المجتهد ونهاية المقتصد
+
+        </h2>
+
+        <div
+            class="book-text"
+            id="bookText">
+
+            <div class="loading">
+
+                📚 جاري تحميل النص...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- التنقل -->
+
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+
+            ← السابق
+
+        </button>
+
+        <button onclick="nextPage()">
+
+            التالي →
+
+        </button>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        📚 حضري للكتب الإسلامية
+    </p>
+
+    <p>
+        مكتبة إلكترونية للمعرفة الإسلامية
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   إعدادات القارئ
+========================= */
+
+let fontSize = 18;
+
+let originalText = "";
+
+let paragraphs = [];
+
+let currentIndex = 0;
+
+
+/* =========================
+   تكبير الخط
+========================= */
+
+function increaseFont(){
+
+    if(fontSize < 30){
+
+        fontSize += 2;
+
+        applyFontSize();
+
+    }
+
+}
+
+
+/* =========================
+   تصغير الخط
+========================= */
+
+function decreaseFont(){
+
+    if(fontSize > 14){
+
+        fontSize -= 2;
+
+        applyFontSize();
+
+    }
+
+}
+
+
+/* =========================
+   الحجم الافتراضي
+========================= */
+
+function resetFont(){
+
+    fontSize = 18;
+
+    applyFontSize();
+
+}
+
+
+/* =========================
+   تطبيق حجم الخط
+========================= */
+
+function applyFontSize(){
+
+    document
+    .getElementById("bookText")
+    .style.fontSize =
+        fontSize + "px";
+
+}
+
+
+/* =========================
+   الوضع الليلي
+========================= */
+
+function toggleDark(){
+
+    document
+    .body
+    .classList
+    .toggle("dark");
+
+}
+
+
+/* =========================
+   تحميل النص
+========================= */
+
+fetch("bidayat-al-mujtahid.txt")
+
+.then(function(response){
+
+    if(!response.ok){
+
+        throw new Error(
+            "تعذر العثور على ملف الكتاب."
+        );
+
+    }
+
+    return response.text();
+
+})
+
+.then(function(text){
+
+    originalText = text;
+
+    processBook(text);
+
+})
+
+.catch(function(error){
+
+    document
+    .getElementById("status")
+    .textContent =
+        "تعذر تحميل الكتاب";
+
+    document
+    .getElementById("bookText")
+    .innerHTML =
+
+        '<div class="error">' +
+
+        '❌ لم يتم العثور على ملف ' +
+
+        '<strong>bidayat-al-mujtahid.txt</strong>' +
+
+        '<br><br>' +
+
+        'تأكد من وجود الملف في جذر مستودع GitHub Pages.' +
+
+        '</div>';
+
+});
+
+
+/* =========================
+   معالجة النص
+========================= */
+
+function processBook(text){
+
+    paragraphs =
+        text
+        .split(/\n\s*\n/)
+        .map(function(item){
+
+            return item.trim();
+
+        })
+        .filter(function(item){
+
+            return item.length > 0;
+
+        });
+
+
+    currentIndex = 0;
+
+    showCurrent();
+
+}
+
+
+/* =========================
+   عرض النص
+========================= */
+
+function showCurrent(){
+
+    const container =
+        document.getElementById("bookText");
+
+    container.innerHTML = "";
+
+    if(paragraphs.length === 0){
+
+        container.innerHTML =
+            "<p>لا يوجد نص في الملف.</p>";
+
+        return;
+
+    }
+
+
+    /*
+      نعرض مجموعة من الفقرات
+      حتى لا تصبح الصفحة ثقيلة.
+    */
+
+    const start =
+        currentIndex;
+
+    const end =
+        Math.min(
+            currentIndex + 15,
+            paragraphs.length
+        );
+
+
+    for(let i=start;i<end;i++){
+
+        const p =
+            document.createElement("p");
+
+        p.textContent =
+            paragraphs[i];
+
+        container.appendChild(p);
+
+    }
+
+
+    applyFontSize();
+
+
+    document
+    .getElementById("status")
+    .textContent =
+        "الفقرات " +
+        (start + 1) +
+        " - " +
+        end +
+        " من " +
+        paragraphs.length;
+
+}
+
+
+/* =========================
+   التالي
+========================= */
+
+function nextPage(){
+
+    if(
+        currentIndex + 15
+        <
+        paragraphs.length
+    ){
+
+        currentIndex += 15;
+
+        showCurrent();
+
+        window.scrollTo({
+            top:
+            document
+            .querySelector(".reader")
+            .offsetTop - 15,
+
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================
+   السابق
+========================= */
+
+function previousPage(){
+
+    if(currentIndex > 0){
+
+        currentIndex =
+            Math.max(
+                0,
+                currentIndex - 15
+            );
+
+        showCurrent();
+
+        window.scrollTo({
+            top:
+            document
+            .querySelector(".reader")
+            .offsetTop - 15,
+
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================
+   البحث
+========================= */
+
+document
+.getElementById("search")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value
+            .trim()
+            .toLowerCase();
+
+
+        if(value === ""){
+
+            showCurrent();
+
+            return;
+
+        }
+
+
+        const results =
+            paragraphs.filter(
+                function(paragraph){
+
+                    return paragraph
+                    .toLowerCase()
+                    .includes(value);
+
+                }
+            );
+
+
+        const container =
+            document
+            .getElementById("bookText");
+
+
+        container.innerHTML = "";
+
+
+        if(results.length === 0){
+
+            container.innerHTML =
+                "<p>لم يتم العثور على نتائج.</p>";
+
+        }else{
+
+            results
+            .slice(0,50)
+            .forEach(function(result){
+
+                const p =
+                    document
+                    .createElement("p");
+
+                p.textContent =
+                    result;
+
+                container
+                .appendChild(p);
+
+            });
+
+        }
+
+
+        document
+        .getElementById("status")
+        .textContent =
+            "نتائج البحث: " +
+            results.length;
+
+    }
+);
+
+
+/* =========================
+   الانتقال إلى باب
+========================= */
+
+function goToSection(section){
+
+    const index =
+        paragraphs.findIndex(
+            function(paragraph){
+
+                return paragraph
+                .includes("كتاب " + section);
+
+            }
+        );
+
+
+    if(index !== -1){
+
+        currentIndex =
+            Math.max(
+                0,
+                index - 3
+            );
+
+        showCurrent();
+
+        window.scrollTo({
+            top:
+            document
+            .querySelector(".reader")
+            .offsetTop - 15,
+
+            behavior:"smooth"
+        });
+
+    }else{
+
+        alert(
+            "لم يتم العثور على هذا الباب في النص الحالي."
+        );
+
+    }
+
+}
+
+</script>
+
 
 </body>
+
 </html>
