@@ -1,392 +1,440 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>كتب الفقه | مكتبة حضري للكتب الإسلامية</title>
-  <meta name="description" content="تصفح كتب الفقه الإسلامي في مكتبة حضري للكتب الإسلامية، واقرأ الكتب الفقهية بسهولة من الهاتف والكمبيوتر.">
-  <meta name="robots" content="index, follow">
+<title>الفقه الإسلامي | حضري للكتب الإسلامية</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<meta
+    name="description"
+    content="قسم الفقه الإسلامي في مكتبة حضري، ويضم كتب الفقه وأحكام العبادات والمعاملات."
+>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f5f7f6;
+    color:#222;
+}
+
+/* الرأس */
+
+header{
+    background:linear-gradient(135deg,#173f35,#286052);
+    color:white;
+    text-align:center;
+    padding:32px 15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+header h1{
+    margin:0;
+    font-size:32px;
+}
+
+header p{
+    margin:8px 0 0;
+    font-size:15px;
+    opacity:.9;
+}
+
+/* البحث */
+
+.search{
+    width:94%;
+    max-width:850px;
+    margin:25px auto;
+}
+
+.search input{
+    width:100%;
+    height:50px;
+    padding:0 18px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    background:white;
+    font-size:16px;
+    text-align:right;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#286052;
+}
+
+/* المحتوى */
+
+.container{
+    width:94%;
+    max-width:1100px;
+    margin:30px auto 60px;
+}
+
+/* العودة */
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    color:#286052;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.back:hover{
+    color:#173f35;
+}
+
+/* عنوان القسم */
+
+.section-title{
+    text-align:center;
+    margin:15px 0 30px;
+}
+
+.section-title .icon{
+    font-size:48px;
+    margin-bottom:8px;
+}
+
+.section-title h2{
+    margin:0 0 8px;
+    color:#173f35;
+    font-size:28px;
+}
+
+.section-title p{
+    margin:0;
+    color:#666;
+    font-size:15px;
+}
+
+/* البطاقات */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    display:block;
+    background:white;
+    border:1px solid #e2e2e2;
+    border-radius:14px;
+    padding:25px 18px;
+    text-align:center;
+    text-decoration:none;
+    color:#222;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#286052;
+    box-shadow:0 7px 18px rgba(0,0,0,.08);
+}
+
+/* أيقونة الكتاب */
+
+.book-icon{
+    font-size:50px;
+    margin-bottom:12px;
+}
+
+/* عنوان الكتاب */
+
+.card h3{
+    margin:8px 0 12px;
+    color:#173f35;
+    font-size:21px;
+    line-height:1.6;
+}
+
+/* وصف الكتاب */
+
+.card p{
+    margin:0;
+    color:#777;
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* معلومات الكتاب */
+
+.book-info{
+    margin-top:18px;
+    padding-top:15px;
+    border-top:1px solid #eee;
+    color:#666;
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* الزر */
+
+.badge{
+    display:inline-block;
+    margin-top:18px;
+    padding:9px 18px;
+    border-radius:8px;
+    background:#286052;
+    color:white;
+    font-size:13px;
+}
+
+.card:hover .badge{
+    background:#173f35;
+}
+
+/* رسالة المزيد */
+
+.info-box{
+    margin-top:30px;
+    background:white;
+    border:1px dashed #b9c8c2;
+    border-radius:14px;
+    padding:22px;
+    text-align:center;
+    color:#666;
+    line-height:1.9;
+}
+
+.info-box strong{
+    display:block;
+    color:#173f35;
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+/* التذييل */
+
+footer{
+    background:#173f35;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    font-size:14px;
+}
+
+footer p{
+    margin:5px 0;
+}
+
+/* الهاتف */
+
+@media(max-width:600px){
+
+    header{
+        padding:27px 12px;
     }
 
-    body {
-      font-family: "Amiri", "Traditional Arabic", Arial, sans-serif;
-      background: #f7f4ed;
-      color: #29251f;
-      line-height: 1.8;
+    header h1{
+        font-size:27px;
     }
 
-    /* رأس الصفحة */
-    header {
-      background: linear-gradient(135deg, #173f35, #245c4d);
-      color: white;
-      padding: 28px 20px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    .cards{
+        grid-template-columns:1fr;
+        gap:14px;
     }
 
-    .logo {
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 5px;
+    .card{
+        padding:22px 15px;
     }
 
-    .subtitle {
-      font-size: 15px;
-      opacity: 0.9;
+    .section-title h2{
+        font-size:24px;
     }
 
-    /* شريط التنقل */
-    nav {
-      background: #ffffff;
-      border-bottom: 1px solid #e3ded3;
-      padding: 12px 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .book-icon{
+        font-size:44px;
     }
 
-    nav a {
-      color: #245c4d;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-      font-size: 15px;
-    }
+}
 
-    nav a:hover {
-      color: #b48738;
-    }
-
-    /* المحتوى */
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 35px 18px 60px;
-    }
-
-    .breadcrumb {
-      font-size: 14px;
-      margin-bottom: 22px;
-      color: #777;
-    }
-
-    .breadcrumb a {
-      color: #245c4d;
-      text-decoration: none;
-    }
-
-    .page-title {
-      text-align: center;
-      margin-bottom: 12px;
-      color: #173f35;
-      font-size: 32px;
-    }
-
-    .page-description {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 35px;
-      color: #6d675d;
-      font-size: 17px;
-    }
-
-    /* بطاقة القسم */
-    .section-intro {
-      background: #fff;
-      border: 1px solid #e5dfd3;
-      border-radius: 16px;
-      padding: 25px;
-      margin-bottom: 30px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-
-    .section-icon {
-      font-size: 42px;
-      margin-bottom: 8px;
-    }
-
-    .section-intro h2 {
-      color: #245c4d;
-      margin-bottom: 8px;
-      font-size: 23px;
-    }
-
-    .section-intro p {
-      color: #777;
-      font-size: 15px;
-    }
-
-    /* شبكة الكتب */
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 22px;
-    }
-
-    .book-card {
-      background: #fff;
-      border: 1px solid #e4ded2;
-      border-radius: 16px;
-      padding: 25px 20px;
-      text-align: center;
-      transition: 0.25s ease;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-    }
-
-    .book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 9px 22px rgba(0,0,0,0.10);
-      border-color: #c6a15b;
-    }
-
-    .book-icon {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      background: #edf4f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-    }
-
-    .book-card h3 {
-      color: #173f35;
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    .book-card p {
-      color: #777;
-      font-size: 14px;
-      min-height: 50px;
-      margin-bottom: 18px;
-    }
-
-    .book-status {
-      display: inline-block;
-      background: #f1eee7;
-      color: #8a7550;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-
-    .book-button {
-      display: block;
-      background: #245c4d;
-      color: white;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 9px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .book-button:hover {
-      background: #173f35;
-    }
-
-    .book-button.disabled {
-      background: #d8d4ca;
-      color: #777;
-      cursor: not-allowed;
-    }
-
-    /* رسالة عدم وجود كتب */
-    .coming-soon {
-      text-align: center;
-      background: #fff;
-      border: 1px dashed #cdbb96;
-      border-radius: 15px;
-      padding: 30px 20px;
-      margin-top: 28px;
-      color: #766b59;
-    }
-
-    .coming-soon strong {
-      display: block;
-      color: #245c4d;
-      font-size: 19px;
-      margin-bottom: 5px;
-    }
-
-    /* التذييل */
-    footer {
-      background: #173f35;
-      color: #fff;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
-    }
-
-    footer p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .footer-links {
-      margin-top: 8px;
-    }
-
-    .footer-links a {
-      color: #e2c98e;
-      text-decoration: none;
-      margin: 0 7px;
-      font-size: 14px;
-    }
-
-    /* الهاتف */
-    @media (max-width: 600px) {
-      .logo {
-        font-size: 25px;
-      }
-
-      .page-title {
-        font-size: 27px;
-      }
-
-      .page-description {
-        font-size: 15px;
-      }
-
-      nav a {
-        margin: 0 5px;
-        font-size: 13px;
-      }
-
-      main {
-        padding: 25px 12px 45px;
-      }
-
-      .books-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
+
 <header>
-  <div class="logo">📚 مكتبة حضري</div>
-  <div class="subtitle">للكتب الإسلامية</div>
+
+    <h1>📚 حضري للكتب الإسلامية</h1>
+
+    <p>
+        مكتبة إلكترونية للقرآن الكريم والحديث الشريف وكتب العقيدة والفقه
+    </p>
+
 </header>
 
-<nav>
-  <a href="index.html">الرئيسية</a>
-  <a href="quran.html">القرآن الكريم</a>
-  <a href="hadith.html">الحديث الشريف</a>
-  <a href="fiqh.html">الفقه</a>
-</nav>
 
-<main>
+<main class="container">
 
-  <div class="breadcrumb">
-    <a href="index.html">الرئيسية</a>
-    <span> ← </span>
-    كتب الفقه
-  </div>
 
-  <h1 class="page-title">📚 كتب الفقه الإسلامي</h1>
+    <!-- العودة إلى الرئيسية -->
 
-  <p class="page-description">
-    مجموعة من الكتب الفقهية المختارة، مرتبة بطريقة سهلة
-    لتسهيل الوصول إلى الكتاب وقراءته.
-  </p>
+    <a href="index.html" class="back">
+        ← العودة إلى الرئيسية
+    </a>
 
-  <section class="section-intro">
-    <div class="section-icon">⚖️</div>
-    <h2>قسم الفقه</h2>
-    <p>
-      هنا ستجد كتب الفقه الإسلامي التي سيتم إضافتها إلى مكتبة حضري
-      تدريجيًا مع الحرص على سلامة النص وترتيبه.
-    </p>
-  </section>
 
-  <section class="books-grid">
+    <!-- عنوان القسم -->
 
-    <!-- الكتاب الأول -->
-    <article class="book-card">
-      <div class="book-icon">📖</div>
+    <div class="section-title">
 
-      <h3>كتاب في الفقه</h3>
+        <div class="icon">
+            ⚖️
+        </div>
 
-      <p>
-        سيتم إضافة أول كتاب فقهي إلى المكتبة قريبًا.
-      </p>
+        <h2>
+            كتب الفقه الإسلامي
+        </h2>
 
-      <span class="book-status">قريبًا</span>
+        <p>
+            كتب الفقه وأحكام العبادات والمعاملات
+        </p>
 
-      <a href="#" class="book-button disabled">
-        فتح الكتاب
-      </a>
-    </article>
+    </div>
 
-    <!-- الكتاب الثاني -->
-    <article class="book-card">
-      <div class="book-icon">📚</div>
 
-      <h3>كتاب فقهي آخر</h3>
+    <!-- الكتب -->
 
-      <p>
-        سيتم إضافة المزيد من كتب الفقه الإسلامي قريبًا.
-      </p>
+    <div class="cards" id="books">
 
-      <span class="book-status">قريبًا</span>
 
-      <a href="#" class="book-button disabled">
-        فتح الكتاب
-      </a>
-    </article>
+        <!-- بداية المجتهد -->
 
-    <!-- الكتاب الثالث -->
-    <article class="book-card">
-      <div class="book-icon">📘</div>
+        <a
+            href="books/bidayat-al-mujtahid.html"
+            class="card"
+            data-name="بداية المجتهد ونهاية المقتصد"
+        >
 
-      <h3>كتب الفقه</h3>
+            <div class="book-icon">
+                📖
+            </div>
 
-      <p>
-        قسم مخصص للكتب والمراجع الفقهية.
-      </p>
+            <h3>
+                بداية المجتهد ونهاية المقتصد
+            </h3>
 
-      <span class="book-status">قريبًا</span>
+            <p>
+                كتاب في الفقه المقارن، يعرض مسائل الفقه
+                وأقوال العلماء وأسباب اختلافهم وأدلتهم.
+            </p>
 
-      <a href="#" class="book-button disabled">
-        فتح الكتاب
-      </a>
-    </article>
+            <div class="book-info">
 
-  </section>
+                <strong>
+                    المؤلف:
+                </strong>
 
-  <div class="coming-soon">
-    <strong>📚 المزيد من الكتب قادم</strong>
-    سيتم توسيع قسم الفقه وإضافة الكتب تدريجيًا بعد تجهيز نصوصها ومراجعتها.
-  </div>
+                أبو الوليد محمد بن أحمد بن رشد القرطبي
+                المعروف بابن رشد الحفيد
+
+                <br>
+
+                <strong>
+                    التصنيف:
+                </strong>
+
+                الفقه المقارن
+
+            </div>
+
+            <span class="badge">
+                📖 قراءة الكتاب
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- معلومات القسم -->
+
+    <div class="info-box">
+
+        <strong>
+            📚 المزيد من كتب الفقه قادم
+        </strong>
+
+        سيتم إضافة كتب فقهية أخرى إلى المكتبة تدريجيًا،
+        مع الحرص على ترتيب النصوص والتحقق منها قبل نشرها.
+
+    </div>
+
 
 </main>
 
-<footer>
-  <p>© 2026 مكتبة حضري للكتب الإسلامية</p>
 
-  <div class="footer-links">
-    <a href="index.html">الرئيسية</a>
-    <a href="quran.html">القرآن الكريم</a>
-    <a href="hadith.html">الحديث الشريف</a>
-    <a href="fiqh.html">الفقه</a>
-  </div>
+<footer>
+
+    <p>
+        📚 حضري للكتب الإسلامية
+    </p>
+
+    <p>
+        مكتبة إلكترونية للمعرفة الإسلامية
+    </p>
+
 </footer>
+
+
+<script>
+
+const search =
+document.querySelector("#search");
+
+const books =
+document.querySelectorAll("#books .card");
+
+
+if(search){
+
+    search.addEventListener("input",function(){
+
+        const value =
+        this.value.trim().toLowerCase();
+
+        books.forEach(function(book){
+
+            const name =
+            book.dataset.name.toLowerCase();
+
+            if(name.includes(value)){
+
+                book.style.display="block";
+
+            }else{
+
+                book.style.display="none";
+
+            }
+
+        });
+
+    });
+
+}
+
+</script>
+
 
 </body>
 </html>
