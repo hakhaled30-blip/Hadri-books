@@ -1,1225 +1,397 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>بداية المجتهد ونهاية المقتصد | مكتبة حضري</title>
 
-<title>
-بداية المجتهد ونهاية المقتصد | مكتبة حضري
-</title>
-
-<meta name="description"
-content="قراءة كتاب بداية المجتهد ونهاية المقتصد لابن رشد في مكتبة حضري للكتب الإسلامية.">
+<meta name="description" content="قراءة كتاب بداية المجتهد ونهاية المقتصد للإمام ابن رشد، كتاب الطهارة، قراءة إلكترونية منظمة.">
 
 <style>
-
 *{
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     margin:0;
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f5f7f6;
-    color:#222;
-    transition:.25s;
+    font-family:"Tahoma","Arial",sans-serif;
+    background:#f5f7f9;
+    color:#263238;
+    line-height:1.9;
 }
 
-/* الرأس */
-
-header{
-    background:linear-gradient(
-        135deg,
-        #173f35,
-        #286052
-    );
-
+.header{
+    background:linear-gradient(135deg,#123b32,#1f6b59);
     color:white;
+    padding:35px 20px;
     text-align:center;
-    padding:28px 15px;
-
-    box-shadow:
-    0 3px 12px rgba(0,0,0,.12);
 }
 
-header h1{
+.header h1{
+    margin:0 0 8px;
+    font-size:30px;
+}
+
+.header p{
     margin:0;
-    font-size:29px;
-    line-height:1.6;
-}
-
-header p{
-    margin:7px 0 0;
-    font-size:15px;
     opacity:.9;
+    font-size:15px;
 }
-
-/* شريط الأدوات */
-
-.toolbar{
-
-    width:94%;
-    max-width:1000px;
-
-    margin:18px auto;
-
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:14px;
-
-    padding:10px;
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:8px;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,.05);
-
-}
-
-.toolbar button{
-
-    border:0;
-
-    border-radius:8px;
-
-    background:#286052;
-
-    color:white;
-
-    padding:9px 13px;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-    font-size:13px;
-
-}
-
-.toolbar button:hover{
-    background:#173f35;
-}
-
-.toolbar .back{
-    background:#777;
-}
-
-/* البحث */
-
-.search{
-
-    width:94%;
-    max-width:850px;
-
-    margin:20px auto;
-
-}
-
-.search input{
-
-    width:100%;
-
-    height:50px;
-
-    padding:0 18px;
-
-    border:1px solid #ddd;
-
-    border-radius:11px;
-
-    background:white;
-
-    font-family:inherit;
-
-    font-size:16px;
-
-    text-align:right;
-
-    outline:none;
-
-}
-
-.search input:focus{
-    border-color:#286052;
-}
-
-/* المحتوى */
 
 .container{
-
-    width:94%;
-
-    max-width:1000px;
-
-    margin:25px auto 60px;
-
+    max-width:900px;
+    margin:30px auto;
+    padding:0 15px;
 }
 
-/* معلومات الكتاب */
-
-.book-info{
-
+.book-card{
     background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:15px;
-
-    padding:22px;
-
-    margin-bottom:20px;
-
-    text-align:center;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,.05);
-
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
 }
 
-.book-info h2{
+.cover{
+    width:150px;
+    height:210px;
+    margin:0 auto 25px;
+    border-radius:10px;
+    background:linear-gradient(145deg,#173f35,#286f5d);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    padding:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
 
-    margin:0 0 10px;
+.info{
+    text-align:center;
+}
 
+.info h2{
+    margin:10px 0;
     color:#173f35;
-
-    font-size:25px;
-
+    font-size:27px;
 }
 
-.book-info p{
-
-    margin:6px 0;
-
+.author{
     color:#666;
-
-    font-size:14px;
-
-}
-
-/* التنبيه */
-
-.notice{
-
-    background:#fffdf5;
-
-    border:1px solid #e4d7aa;
-
-    border-radius:12px;
-
-    padding:16px;
-
     margin-bottom:20px;
-
-    color:#665b40;
-
-    line-height:1.9;
-
-    text-align:center;
-
 }
 
-/* الفهرس */
+.description{
+    background:#f0f6f4;
+    border-right:5px solid #1f6b59;
+    padding:15px 18px;
+    border-radius:8px;
+    text-align:right;
+    margin:25px 0;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.start{
+    background:#1f6b59;
+    color:white;
+}
+
+.back{
+    background:#e9eeee;
+    color:#173f35;
+}
 
 .toc{
-
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:15px;
-
-    padding:20px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,.05);
-
+    margin-top:35px;
 }
 
 .toc h3{
-
-    margin:0 0 15px;
-
     color:#173f35;
-
+    border-bottom:2px solid #dce7e3;
+    padding-bottom:10px;
 }
 
-.toc button{
-
-    width:100%;
-
-    display:block;
-
-    margin:7px 0;
-
-    padding:11px;
-
-    border:0;
-
-    border-radius:8px;
-
-    background:#eef3f1;
-
-    color:#286052;
-
-    font-family:inherit;
-
-    text-align:right;
-
-    cursor:pointer;
-
-}
-
-.toc button:hover{
-
-    background:#dfeae5;
-
-}
-
-/* القراءة */
-
-.reader{
-
-    background:white;
-
-    border:1px solid #ddd;
-
-    border-radius:15px;
-
-    padding:32px 28px;
-
-    min-height:500px;
-
-    box-shadow:
-    0 3px 12px rgba(0,0,0,.05);
-
-}
-
-.chapter-title{
-
-    color:#173f35;
-
-    font-size:24px;
-
-    line-height:1.7;
-
-    margin:0 0 22px;
-
-    padding-bottom:12px;
-
-    border-bottom:2px solid #286052;
-
-}
-
-.page-number{
-
-    text-align:center;
-
-    color:#777;
-
-    font-size:13px;
-
-    margin-bottom:20px;
-
-}
-
-.book-text{
-
-    font-size:18px;
-
-    line-height:2.25;
-
-}
-
-.book-text p{
-
-    margin:0 0 22px;
-
-    text-align:justify;
-
-}
-
-.book-text .heading{
-
-    color:#173f35;
-
-    font-weight:bold;
-
-    font-size:21px;
-
-    margin-top:30px;
-
-}
-
-/* التنقل */
-
-.navigation{
-
-    display:flex;
-
+.toc-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:10px;
-
     margin-top:20px;
-
 }
 
-.navigation button{
-
-    flex:1;
-
-    border:0;
-
-    border-radius:9px;
-
-    padding:13px;
-
-    background:#286052;
-
-    color:white;
-
-    font-family:inherit;
-
-    cursor:pointer;
-
+.toc a{
+    display:block;
+    background:#f7f9f9;
+    border:1px solid #e1e8e5;
+    border-radius:8px;
+    padding:10px 13px;
+    text-decoration:none;
+    color:#315b50;
+    transition:.2s;
 }
 
-.navigation button:hover{
-    background:#173f35;
+.toc a:hover{
+    background:#eaf3f0;
+    border-color:#1f6b59;
 }
 
-/* حالة التحميل */
-
-.loading{
-
-    text-align:center;
-
-    padding:50px 15px;
-
-    color:#666;
-
-    font-size:16px;
-
-}
-
-/* خطأ التحميل */
-
-.error{
-
-    background:#fff1f1;
-
-    border:1px solid #e3bcbc;
-
-    border-radius:12px;
-
-    padding:20px;
-
-    text-align:center;
-
-    color:#8a3333;
-
-    line-height:1.9;
-
-}
-
-/* التذييل */
-
-footer{
-
-    background:#173f35;
-
-    color:white;
-
-    text-align:center;
-
-    padding:25px 15px;
-
+.notice{
+    margin-top:25px;
+    padding:15px;
+    background:#fff8e6;
+    border-right:4px solid #d49b27;
+    border-radius:8px;
     font-size:14px;
-
 }
 
-footer p{
-    margin:5px 0;
+.footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#777;
+    font-size:13px;
 }
-
-/* الوضع الليلي */
-
-body.dark{
-
-    background:#171b19;
-
-    color:#eee;
-}
-
-body.dark .toolbar,
-body.dark .search input,
-body.dark .book-info,
-body.dark .toc,
-body.dark .reader{
-
-    background:#222825;
-
-    border-color:#39433e;
-}
-
-body.dark .book-info h2,
-body.dark .toc h3,
-body.dark .chapter-title{
-
-    color:#b9d8cc;
-}
-
-body.dark .book-info p{
-    color:#bbb;
-}
-
-body.dark .toc button{
-
-    background:#303a35;
-
-    color:#c8e0d6;
-}
-
-body.dark .toc button:hover{
-    background:#39463f;
-}
-
-body.dark .book-text{
-    color:#eee;
-}
-
-body.dark .search input{
-    color:#eee;
-}
-
-body.dark .notice{
-
-    background:#29271d;
-
-    border-color:#665c38;
-
-    color:#ddd1a4;
-}
-
-/* الهاتف */
 
 @media(max-width:600px){
-
-    header{
-        padding:24px 12px;
+    .header h1{
+        font-size:24px;
     }
 
-    header h1{
-        font-size:23px;
+    .book-card{
+        padding:20px 15px;
     }
 
-    .toolbar button{
-        font-size:12px;
-        padding:8px 10px;
+    .info h2{
+        font-size:22px;
     }
 
-    .reader{
-        padding:24px 16px;
+    .cover{
+        width:135px;
+        height:190px;
     }
-
-    .book-text{
-        font-size:17px;
-        line-height:2.15;
-    }
-
-    .chapter-title{
-        font-size:21px;
-    }
-
-    .navigation{
-        flex-direction:column;
-    }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<header>
-
-    <h1>
-        📖 بداية المجتهد ونهاية المقتصد
-    </h1>
-
-    <p>
-        أبو الوليد محمد بن أحمد بن رشد القرطبي
-    </p>
-
+<header class="header">
+    <h1>مكتبة حضري للكتب الإسلامية</h1>
+    <p>بداية المجتهد ونهاية المقتصد</p>
 </header>
-
-
-<!-- الأدوات -->
-
-<div class="toolbar">
-
-    <button onclick="increaseFont()">
-        🔠 تكبير الخط
-    </button>
-
-    <button onclick="decreaseFont()">
-        🔡 تصغير الخط
-    </button>
-
-    <button onclick="resetFont()">
-        🔄 الحجم الافتراضي
-    </button>
-
-    <button onclick="toggleDark()">
-        🌙 الوضع الليلي
-    </button>
-
-    <button
-        onclick="window.scrollTo({
-            top:0,
-            behavior:'smooth'
-        })">
-
-        ⬆️ أعلى الصفحة
-
-    </button>
-
-    <button
-        class="back"
-        onclick="location.href='fiqh.html'">
-
-        ← قسم الفقه
-
-    </button>
-
-</div>
-
-
-<!-- البحث -->
-
-<div class="search">
-
-    <input
-        type="search"
-        id="search"
-        placeholder="🔎 ابحث داخل الكتاب..."
-        autocomplete="off">
-
-</div>
-
 
 <main class="container">
 
+<section class="book-card">
 
-    <!-- معلومات الكتاب -->
-
-    <section class="book-info">
-
-        <h2>
-            بداية المجتهد ونهاية المقتصد
-        </h2>
-
-        <p>
-            المؤلف:
-            أبو الوليد محمد بن أحمد بن رشد القرطبي
-            المعروف بابن رشد الحفيد
-        </p>
-
-        <p>
-            التصنيف:
-            الفقه المقارن
-        </p>
-
-    </section>
-
-
-    <!-- تنبيه -->
-
-    <div class="notice">
-
-        📚 النص المعروض في هذه الصفحة يُقرأ من ملف
-        <strong>bidayat-al-mujtahid.txt</strong>.
-        سيتم إدخال النسخة النصية بعد التحقق والمراجعة.
-
+    <div class="cover">
+        بداية المجتهد<br>
+        ونهاية المقتصد
     </div>
 
+    <div class="info">
 
-    <!-- الفهرس -->
+        <h2>بداية المجتهد ونهاية المقتصد</h2>
+
+        <div class="author">
+            للإمام أبي الوليد محمد بن أحمد بن رشد القرطبي
+            <br>
+            <strong>ابن رشد</strong>
+        </div>
+
+        <div class="description">
+            كتاب فقهي مقارن للإمام ابن رشد، يعرض مسائل الفقه
+            ويذكر أقوال العلماء وأسباب اختلافهم وأدلتهم.
+            <br><br>
+            <strong>القسم المتاح حاليًا: كتاب الطهارة</strong>
+        </div>
+
+        <div class="buttons">
+            <a class="btn start" href="001.html">
+                📖 ابدأ القراءة
+            </a>
+
+            <a class="btn back" href="index.html">
+                🏠 العودة إلى المكتبة
+            </a>
+        </div>
+
+    </div>
 
     <section class="toc">
 
-        <h3>
-            📑 فهرس الكتاب
-        </h3>
+        <h3>📚 فهرس كتاب الطهارة</h3>
 
-        <button onclick="goToSection('الطهارة')">
-            كتاب الطهارة
-        </button>
+        <div class="toc-grid">
 
-        <button onclick="goToSection('الصلاة')">
-            كتاب الصلاة
-        </button>
+            <a href="001.html">1 — بداية كتاب الطهارة</a>
+            <a href="002.html">2 — الباب الأول</a>
+            <a href="003.html">3 — مسائل الطهارة</a>
+            <a href="004.html">4 — أنواع الطهارة</a>
+            <a href="005.html">5 — المياه</a>
+            <a href="006.html">6 — أحكام المياه</a>
+            <a href="007.html">7 — الوضوء</a>
+            <a href="008.html">8 — فرائض الوضوء</a>
+            <a href="009.html">9 — سنن الوضوء</a>
+            <a href="010.html">10 — صفة الوضوء</a>
 
-        <button onclick="goToSection('الزكاة')">
-            كتاب الزكاة
-        </button>
+            <a href="011.html">11 — نواقض الوضوء</a>
+            <a href="012.html">12 — أحكام نواقض الوضوء</a>
+            <a href="013.html">13 — الاستنجاء</a>
+            <a href="014.html">14 — الاستجمار</a>
+            <a href="015.html">15 — الغسل</a>
+            <a href="016.html">16 — موجبات الغسل</a>
+            <a href="017.html">17 — صفة الغسل</a>
+            <a href="018.html">18 — التيمم</a>
+            <a href="019.html">19 — أحكام التيمم</a>
+            <a href="020.html">20 — مسائل التيمم</a>
 
-        <button onclick="goToSection('الصيام')">
-            كتاب الصيام
-        </button>
+            <a href="021.html">21 — الحيض</a>
+            <a href="022.html">22 — أحكام الحيض</a>
+            <a href="023.html">23 — الاستحاضة</a>
+            <a href="024.html">24 — النفاس</a>
+            <a href="025.html">25 — أحكام النجاسة</a>
+            <a href="026.html">26 — إزالة النجاسة</a>
+            <a href="027.html">27 — مسائل متفرقة</a>
+            <a href="028.html">28 — اختلاف العلماء</a>
+            <a href="029.html">29 — أدلة الأحكام</a>
+            <a href="030.html">30 — مسائل فقهية</a>
 
-        <button onclick="goToSection('الحج')">
-            كتاب الحج
-        </button>
+            <a href="031.html">31 — بقية مسائل الطهارة</a>
+            <a href="032.html">32 — أحكام الوضوء</a>
+            <a href="033.html">33 — مسائل الماء</a>
+            <a href="034.html">34 — أحكام الغسل</a>
+            <a href="035.html">35 — مسائل التيمم</a>
+            <a href="036.html">36 — نواقض الطهارة</a>
+            <a href="037.html">37 — مسائل الصلاة والطهارة</a>
+            <a href="038.html">38 — مسائل الفقهاء</a>
+            <a href="039.html">39 — أقوال العلماء</a>
+            <a href="040.html">40 — تتمة الباب</a>
 
-        <button onclick="goToSection('الجهاد')">
-            كتاب الجهاد
-        </button>
+            <a href="041.html">41 — مسائل إضافية</a>
+            <a href="042.html">42 — أحكام الطهارة</a>
+            <a href="043.html">43 — فروع المسائل</a>
+            <a href="044.html">44 — الخلاف الفقهي</a>
+            <a href="045.html">45 — الأدلة</a>
+            <a href="046.html">46 — أقوال الفقهاء</a>
+            <a href="047.html">47 — تتمة المسائل</a>
+            <a href="048.html">48 — مسائل متنوعة</a>
+            <a href="049.html">49 — الطهارة والصلاة</a>
+            <a href="050.html">50 — أحكام متفرقة</a>
 
-        <button onclick="goToSection('النكاح')">
-            كتاب النكاح
-        </button>
+            <a href="051.html">51 — بقية الكتاب</a>
+            <a href="052.html">52 — مسائل فقهية</a>
+            <a href="053.html">53 — أحكام الطهارة</a>
+            <a href="054.html">54 — فروع فقهية</a>
+            <a href="055.html">55 — اختلاف العلماء</a>
+            <a href="056.html">56 — الأدلة والمسائل</a>
+            <a href="057.html">57 — مسائل متفرقة</a>
+            <a href="058.html">58 — تتمة البحث</a>
+            <a href="059.html">59 — أحكام متنوعة</a>
+            <a href="060.html">60 — مسائل الطهارة</a>
 
-        <button onclick="goToSection('الطلاق')">
-            كتاب الطلاق
-        </button>
+            <a href="061.html">61 — بقية المسائل</a>
+            <a href="062.html">62 — مسائل فقهية</a>
+            <a href="063.html">63 — الأحكام</a>
+            <a href="064.html">64 — فروع المسائل</a>
+            <a href="065.html">65 — أقوال الفقهاء</a>
+            <a href="066.html">66 — الأدلة</a>
+            <a href="067.html">67 — مسائل متنوعة</a>
+            <a href="068.html">68 — تتمة الكتاب</a>
+            <a href="069.html">69 — مسائل الطهارة</a>
+            <a href="070.html">70 — الأحكام الفقهية</a>
 
-        <button onclick="goToSection('البيوع')">
-            كتاب البيوع
-        </button>
+            <a href="071.html">71 — مسائل مختلفة</a>
+            <a href="072.html">72 — فروع فقهية</a>
+            <a href="073.html">73 — بقية المسائل</a>
+            <a href="074.html">74 — أحكام الطهارة</a>
+            <a href="075.html">75 — مسائل الفقه</a>
+            <a href="076.html">76 — أقوال العلماء</a>
+            <a href="077.html">77 — الأدلة</a>
+            <a href="078.html">78 — مسائل متنوعة</a>
+            <a href="079.html">79 — تتمة المسائل</a>
+            <a href="080.html">80 — أحكام مختلفة</a>
 
-        <button onclick="goToSection('الوصايا')">
-            كتاب الوصايا
-        </button>
+            <a href="081.html">81 — بقية الأحكام</a>
+            <a href="082.html">82 — مسائل فقهية</a>
+            <a href="083.html">83 — الطهارة</a>
+            <a href="084.html">84 — الوضوء</a>
+            <a href="085.html">85 — الغسل</a>
+            <a href="086.html">86 — التيمم</a>
+            <a href="087.html">87 — النجاسات</a>
+            <a href="088.html">88 — الحيض</a>
+            <a href="089.html">89 — مسائل متنوعة</a>
+            <a href="090.html">90 — تتمة الكتاب</a>
 
-        <button onclick="goToSection('الجنايات')">
-            كتاب الجنايات
-        </button>
+            <a href="091.html">91 — المسائل الأخيرة</a>
+            <a href="092.html">92 — الأحكام</a>
+            <a href="093.html">93 — الفروع</a>
+            <a href="094.html">94 — أقوال العلماء</a>
+            <a href="095.html">95 — الأدلة</a>
+            <a href="096.html">96 — مسائل الطهارة</a>
+            <a href="097.html">97 — مسائل فقهية</a>
+            <a href="098.html">98 — تتمة المسائل</a>
+            <a href="099.html">99 — بقية الأحكام</a>
+            <a href="100.html">100 — مسائل متنوعة</a>
 
-        <button onclick="goToSection('الأقضية')">
-            كتاب الأقضية
-        </button>
+            <a href="101.html">101 — الأحكام الفقهية</a>
+            <a href="102.html">102 — فروع المسائل</a>
+            <a href="103.html">103 — أقوال العلماء</a>
+            <a href="104.html">104 — الأدلة</a>
+            <a href="105.html">105 — مسائل الطهارة</a>
+            <a href="106.html">106 — أحكام الوضوء</a>
+            <a href="107.html">107 — أحكام الغسل</a>
+            <a href="108.html">108 — أحكام التيمم</a>
+            <a href="109.html">109 — مسائل متفرقة</a>
+            <a href="110.html">110 — تتمة الكتاب</a>
 
-    </section>
-
-
-    <!-- القارئ -->
-
-    <section class="reader">
-
-        <div
-            class="page-number"
-            id="status">
-
-            جاري تحميل الكتاب...
+            <a href="111.html">111 — المسائل الأخيرة</a>
+            <a href="112.html">112 — بقية الأحكام</a>
+            <a href="113.html">113 — مسائل فقهية</a>
+            <a href="114.html">114 — فروع المسائل</a>
+            <a href="115.html">115 — الأدلة والأقوال</a>
+            <a href="116.html">116 — خاتمة المسائل</a>
+            <a href="117.html">117 — تتمة كتاب الطهارة</a>
+            <a href="118.html">118 — نهاية كتاب الطهارة</a>
 
         </div>
 
-        <h2
-            class="chapter-title"
-            id="chapterTitle">
-
-            بداية المجتهد ونهاية المقتصد
-
-        </h2>
-
-        <div
-            class="book-text"
-            id="bookText">
-
-            <div class="loading">
-
-                📚 جاري تحميل النص...
-
-            </div>
-
-        </div>
-
     </section>
 
-
-    <!-- التنقل -->
-
-    <div class="navigation">
-
-        <button onclick="previousPage()">
-
-            ← السابق
-
-        </button>
-
-        <button onclick="nextPage()">
-
-            التالي →
-
-        </button>
-
+    <div class="notice">
+        📌 <strong>تنبيه:</strong>
+        هذا القسم مخصص لكتاب الطهارة من «بداية المجتهد ونهاية المقتصد».
+        يمكنك التنقل بين الصفحات باستخدام أزرار السابق والتالي داخل صفحات القراءة.
     </div>
 
+</section>
 
 </main>
 
-
-<footer>
-
-    <p>
-        📚 حضري للكتب الإسلامية
-    </p>
-
-    <p>
-        مكتبة إلكترونية للمعرفة الإسلامية
-    </p>
-
+<footer class="footer">
+    © مكتبة حضري للكتب الإسلامية
 </footer>
 
-
-<script>
-
-/* =========================
-   إعدادات القارئ
-========================= */
-
-let fontSize = 18;
-
-let originalText = "";
-
-let paragraphs = [];
-
-let currentIndex = 0;
-
-
-/* =========================
-   تكبير الخط
-========================= */
-
-function increaseFont(){
-
-    if(fontSize < 30){
-
-        fontSize += 2;
-
-        applyFontSize();
-
-    }
-
-}
-
-
-/* =========================
-   تصغير الخط
-========================= */
-
-function decreaseFont(){
-
-    if(fontSize > 14){
-
-        fontSize -= 2;
-
-        applyFontSize();
-
-    }
-
-}
-
-
-/* =========================
-   الحجم الافتراضي
-========================= */
-
-function resetFont(){
-
-    fontSize = 18;
-
-    applyFontSize();
-
-}
-
-
-/* =========================
-   تطبيق حجم الخط
-========================= */
-
-function applyFontSize(){
-
-    document
-    .getElementById("bookText")
-    .style.fontSize =
-        fontSize + "px";
-
-}
-
-
-/* =========================
-   الوضع الليلي
-========================= */
-
-function toggleDark(){
-
-    document
-    .body
-    .classList
-    .toggle("dark");
-
-}
-
-
-/* =========================
-   تحميل النص
-========================= */
-
-fetch("bidayat-al-mujtahid.txt")
-
-.then(function(response){
-
-    if(!response.ok){
-
-        throw new Error(
-            "تعذر العثور على ملف الكتاب."
-        );
-
-    }
-
-    return response.text();
-
-})
-
-.then(function(text){
-
-    originalText = text;
-
-    processBook(text);
-
-})
-
-.catch(function(error){
-
-    document
-    .getElementById("status")
-    .textContent =
-        "تعذر تحميل الكتاب";
-
-    document
-    .getElementById("bookText")
-    .innerHTML =
-
-        '<div class="error">' +
-
-        '❌ لم يتم العثور على ملف ' +
-
-        '<strong>bidayat-al-mujtahid.txt</strong>' +
-
-        '<br><br>' +
-
-        'تأكد من وجود الملف في جذر مستودع GitHub Pages.' +
-
-        '</div>';
-
-});
-
-
-/* =========================
-   معالجة النص
-========================= */
-
-function processBook(text){
-
-    paragraphs =
-        text
-        .split(/\n\s*\n/)
-        .map(function(item){
-
-            return item.trim();
-
-        })
-        .filter(function(item){
-
-            return item.length > 0;
-
-        });
-
-
-    currentIndex = 0;
-
-    showCurrent();
-
-}
-
-
-/* =========================
-   عرض النص
-========================= */
-
-function showCurrent(){
-
-    const container =
-        document.getElementById("bookText");
-
-    container.innerHTML = "";
-
-    if(paragraphs.length === 0){
-
-        container.innerHTML =
-            "<p>لا يوجد نص في الملف.</p>";
-
-        return;
-
-    }
-
-
-    /*
-      نعرض مجموعة من الفقرات
-      حتى لا تصبح الصفحة ثقيلة.
-    */
-
-    const start =
-        currentIndex;
-
-    const end =
-        Math.min(
-            currentIndex + 15,
-            paragraphs.length
-        );
-
-
-    for(let i=start;i<end;i++){
-
-        const p =
-            document.createElement("p");
-
-        p.textContent =
-            paragraphs[i];
-
-        container.appendChild(p);
-
-    }
-
-
-    applyFontSize();
-
-
-    document
-    .getElementById("status")
-    .textContent =
-        "الفقرات " +
-        (start + 1) +
-        " - " +
-        end +
-        " من " +
-        paragraphs.length;
-
-}
-
-
-/* =========================
-   التالي
-========================= */
-
-function nextPage(){
-
-    if(
-        currentIndex + 15
-        <
-        paragraphs.length
-    ){
-
-        currentIndex += 15;
-
-        showCurrent();
-
-        window.scrollTo({
-            top:
-            document
-            .querySelector(".reader")
-            .offsetTop - 15,
-
-            behavior:"smooth"
-        });
-
-    }
-
-}
-
-
-/* =========================
-   السابق
-========================= */
-
-function previousPage(){
-
-    if(currentIndex > 0){
-
-        currentIndex =
-            Math.max(
-                0,
-                currentIndex - 15
-            );
-
-        showCurrent();
-
-        window.scrollTo({
-            top:
-            document
-            .querySelector(".reader")
-            .offsetTop - 15,
-
-            behavior:"smooth"
-        });
-
-    }
-
-}
-
-
-/* =========================
-   البحث
-========================= */
-
-document
-.getElementById("search")
-.addEventListener(
-    "input",
-    function(){
-
-        const value =
-            this.value
-            .trim()
-            .toLowerCase();
-
-
-        if(value === ""){
-
-            showCurrent();
-
-            return;
-
-        }
-
-
-        const results =
-            paragraphs.filter(
-                function(paragraph){
-
-                    return paragraph
-                    .toLowerCase()
-                    .includes(value);
-
-                }
-            );
-
-
-        const container =
-            document
-            .getElementById("bookText");
-
-
-        container.innerHTML = "";
-
-
-        if(results.length === 0){
-
-            container.innerHTML =
-                "<p>لم يتم العثور على نتائج.</p>";
-
-        }else{
-
-            results
-            .slice(0,50)
-            .forEach(function(result){
-
-                const p =
-                    document
-                    .createElement("p");
-
-                p.textContent =
-                    result;
-
-                container
-                .appendChild(p);
-
-            });
-
-        }
-
-
-        document
-        .getElementById("status")
-        .textContent =
-            "نتائج البحث: " +
-            results.length;
-
-    }
-);
-
-
-/* =========================
-   الانتقال إلى باب
-========================= */
-
-function goToSection(section){
-
-    const index =
-        paragraphs.findIndex(
-            function(paragraph){
-
-                return paragraph
-                .includes("كتاب " + section);
-
-            }
-        );
-
-
-    if(index !== -1){
-
-        currentIndex =
-            Math.max(
-                0,
-                index - 3
-            );
-
-        showCurrent();
-
-        window.scrollTo({
-            top:
-            document
-            .querySelector(".reader")
-            .offsetTop - 15,
-
-            behavior:"smooth"
-        });
-
-    }else{
-
-        alert(
-            "لم يتم العثور على هذا الباب في النص الحالي."
-        );
-
-    }
-
-}
-
-</script>
-
-
 </body>
-
 </html>
