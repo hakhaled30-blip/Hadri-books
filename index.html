@@ -2,975 +2,821 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>مكتبة حضري للكتب الإسلامية</title>
-
-    <meta name="description"
-          content="مكتبة حضري للكتب الإسلامية، مكتبة إلكترونية للقرآن الكريم والحديث الشريف والفقه الإسلامي والعقيدة والتوحيد والأصول.">
-
-    <meta name="robots"
-          content="index, follow">
-
-    <link rel="canonical"
-          href="https://hakhaled30-blip.github.io/Hadri-books/">
-
-    <style>
-
-        /* =========================
-           الإعدادات العامة
-        ========================= */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Tahoma,
-                Arial,
-                sans-serif;
-
-            background: #f5f7f6;
-
-            color: #222;
-
-            line-height: 1.8;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           رأس الموقع
-        ========================= */
-
-        header {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0b3d2e,
-                    #198754
-                );
-
-            color: #ffffff;
-
-            text-align: center;
-
-            padding: 50px 20px 40px;
-        }
-
-        header h1 {
-            font-size: 34px;
-
-            margin-bottom: 10px;
-
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 17px;
-
-            opacity: 0.95;
-        }
-
-
-        /* =========================
-           القائمة الرئيسية
-        ========================= */
-
-        nav {
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            background: #ffffff;
-
-            border-bottom:
-                1px solid #dddddd;
-
-            box-shadow:
-                0 2px 10px
-                rgba(0, 0, 0, 0.06);
-        }
-
-        .nav-container {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 10px 15px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 6px;
-        }
-
-        .nav-container a {
-            color: #0b3d2e;
-
-            font-size: 15px;
-
-            font-weight: bold;
-
-            padding: 8px 13px;
-
-            border-radius: 8px;
-
-            transition:
-                background 0.2s,
-                color 0.2s;
-        }
-
-        .nav-container a:hover {
-            background: #e8f5ee;
-
-            color: #146c43;
-        }
-
-
-        /* =========================
-           المحتوى
-        ========================= */
-
-        main {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding:
-                35px 18px 50px;
-        }
-
-
-        /* =========================
-           رسالة الترحيب
-        ========================= */
-
-        .welcome {
-            background: #ffffff;
-
-            border-radius: 16px;
-
-            padding: 32px 25px;
-
-            margin-bottom: 40px;
-
-            text-align: center;
-
-            border:
-                1px solid #e5e5e5;
-
-            box-shadow:
-                0 4px 16px
-                rgba(0, 0, 0, 0.06);
-        }
-
-        .welcome h2 {
-            color: #0b3d2e;
-
-            font-size: 28px;
-
-            margin-bottom: 12px;
-        }
-
-        .welcome p {
-            color: #555555;
-
-            font-size: 16px;
-
-            max-width: 850px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           الأقسام
-        ========================= */
-
-        .section {
-            margin-bottom: 48px;
-
-            scroll-margin-top: 75px;
-        }
-
-        .section-title {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0b3d2e,
-                    #198754
-                );
-
-            color: #ffffff;
-
-            border-radius: 12px;
-
-            padding: 15px 20px;
-
-            margin-bottom: 14px;
-
-            font-size: 25px;
-
-            font-weight: bold;
-        }
-
-        .section-description {
-            background: #ffffff;
-
-            border-right:
-                4px solid #198754;
-
-            border-radius: 8px;
-
-            padding: 14px 18px;
-
-            margin-bottom: 20px;
-
-            color: #555555;
-
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           شبكة الكتب
-        ========================= */
-
-        .books {
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(260px, 1fr)
-                );
-
-            gap: 20px;
-        }
-
-
-        /* =========================
-           بطاقة الكتاب
-        ========================= */
-
-        .book {
-            background: #ffffff;
-
-            border:
-                1px solid #e3e3e3;
-
-            border-radius: 14px;
-
-            padding: 24px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            min-height: 250px;
-
-            box-shadow:
-                0 3px 14px
-                rgba(0, 0, 0, 0.06);
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
-
-        .book:hover {
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                0 8px 22px
-                rgba(0, 0, 0, 0.10);
-        }
-
-        .book-icon {
-            font-size: 38px;
-
-            margin-bottom: 8px;
-        }
-
-        .book h3 {
-            color: #0b3d2e;
-
-            font-size: 21px;
-
-            margin-bottom: 8px;
-        }
-
-        .book p {
-            color: #666666;
-
-            font-size: 15px;
-
-            margin-bottom: 20px;
-
-            flex-grow: 1;
-        }
-
-
-        /* =========================
-           الأزرار
-        ========================= */
-
-        .button {
-            display: block;
-
-            width: 100%;
-
-            text-align: center;
-
-            background: #198754;
-
-            color: #ffffff;
-
-            padding: 10px 15px;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            font-weight: bold;
-
-            transition:
-                background 0.2s;
-        }
-
-        .button:hover {
-            background: #146c43;
-        }
-
-        .button.pdf {
-            background: #6c757d;
-
-            margin-top: 8px;
-        }
-
-        .button.pdf:hover {
-            background: #565e64;
-        }
-
-
-        /* =========================
-           قسم الأصول - لا يوجد تكرار
-        ========================= */
-
-        .empty-section {
-            background: #ffffff;
-
-            border:
-                1px solid #e3e3e3;
-
-            border-radius: 14px;
-
-            padding: 25px;
-
-            text-align: center;
-
-            color: #666666;
-        }
-
-        .empty-section .icon {
-            font-size: 38px;
-
-            margin-bottom: 8px;
-        }
-
-        .empty-section h3 {
-            color: #0b3d2e;
-
-            margin-bottom: 7px;
-        }
-
-
-        /* =========================
-           الفوتر
-        ========================= */
-
-        footer {
-            background: #0b3d2e;
-
-            color: #ffffff;
-
-            text-align: center;
-
-            padding: 28px 15px;
-
-            margin-top: 10px;
-        }
-
-        footer p {
-            margin: 4px 0;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           الهاتف
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding:
-                    38px 15px 30px;
-            }
-
-            header h1 {
-                font-size: 27px;
-            }
-
-            header p {
-                font-size: 14px;
-            }
-
-            .nav-container {
-                padding: 8px;
-
-                gap: 3px;
-            }
-
-            .nav-container a {
-                font-size: 13px;
-
-                padding:
-                    6px 8px;
-            }
-
-            main {
-                padding:
-                    25px 12px 40px;
-            }
-
-            .welcome {
-                padding:
-                    24px 17px;
-            }
-
-            .welcome h2 {
-                font-size: 23px;
-            }
-
-            .section-title {
-                font-size: 21px;
-
-                padding:
-                    12px 15px;
-            }
-
-            .books {
-                grid-template-columns: 1fr;
-            }
-
-            .book {
-                min-height: auto;
-
-                padding: 21px;
-            }
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>مكتبة حضري للكتب الإسلامية</title>
+
+  <meta name="description"
+        content="مكتبة حضري للكتب الإسلامية: القرآن الكريم، الحديث الشريف، الفقه الإسلامي، العقيدة والتوحيد، وكتب العلم الشرعي.">
+
+  <meta name="robots"
+        content="index, follow">
+
+  <link rel="canonical"
+        href="https://hakhaled30-blip.github.io/Hadri-books/">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f5ef;
+      color: #222;
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: #0f5132;
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e2e2e2;
+      padding: 12px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      width: 94%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #0f5132;
+      background: #f7f5ef;
+      padding: 8px 13px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      background: #0f5132;
+      color: white;
+    }
+
+    /* =========================
+       CONTAINER
+    ========================== */
+
+    .container {
+      width: 94%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* =========================
+       WELCOME
+    ========================== */
+
+    .welcome {
+      background: white;
+      margin: 30px auto;
+      padding: 30px 22px;
+      border-radius: 16px;
+      border: 1px solid #e2e2e2;
+      text-align: center;
+    }
+
+    .welcome h2 {
+      margin: 0 0 12px;
+      color: #0f5132;
+      font-size: 25px;
+    }
+
+    .welcome p {
+      margin: 0;
+      color: #555;
+      font-size: 16px;
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    .library-section {
+      margin: 35px 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      background: #0f5132;
+      color: white;
+      border-radius: 12px;
+      padding: 15px 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 23px;
+    }
+
+    .section-title p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    /* =========================
+       BOOK GRID
+    ========================== */
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .book {
+      background: white;
+      border: 1px solid #e1e1e1;
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .book:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+    }
+
+    .book-icon {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .book h3 {
+      margin: 5px 0 8px;
+      color: #0f5132;
+      font-size: 20px;
+    }
+
+    .author {
+      color: #555;
+      font-size: 14px;
+      margin: 0 0 6px;
+    }
+
+    .description {
+      color: #666;
+      font-size: 14px;
+      margin: 0 0 17px;
+    }
+
+    .book-button {
+      display: inline-block;
+      background: #0f5132;
+      color: white;
+      padding: 9px 17px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .book-button:hover {
+      background: #0b3d26;
+    }
+
+    /* =========================
+       SPECIAL NOTE
+    ========================== */
+
+    .note {
+      background: #fff8df;
+      border-right: 4px solid #b8860b;
+      padding: 14px 17px;
+      border-radius: 8px;
+      margin: 25px 0;
+      color: #5d4b13;
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      margin-top: 50px;
+      background: #0f5132;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .books {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 28px 12px;
+      }
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
+
+      nav {
+        position: static;
+      }
+
+      .nav-container {
+        gap: 6px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 7px 9px;
+      }
+
+      .welcome {
+        margin: 22px auto;
+        padding: 23px 15px;
+      }
+
+      .welcome h2 {
+        font-size: 21px;
+      }
+
+      .section-title h2 {
+        font-size: 20px;
+      }
+
+      .books {
+        grid-template-columns: 1fr;
+      }
+
+      .book {
+        padding: 20px 15px;
+      }
+
+    }
+
+  </style>
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
-     رأس الموقع
-================================================== -->
+<!-- =========================
+     HEADER
+========================== -->
 
 <header>
 
-    <h1>
-        📚 مكتبة حضري للكتب الإسلامية
-    </h1>
+  <h1>
+    📚 مكتبة حضري للكتب الإسلامية
+  </h1>
 
-    <p>
-        مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية
-    </p>
+  <p>
+    مكتبة إلكترونية للقرآن الكريم والحديث الشريف والكتب الإسلامية
+  </p>
 
 </header>
 
 
-
-<!-- ==================================================
-     القائمة الرئيسية
-================================================== -->
+<!-- =========================
+     NAVIGATION
+========================== -->
 
 <nav>
 
-    <div class="nav-container">
+  <div class="nav-container">
 
-        <a href="#quran">
-            📖 القرآن الكريم
-        </a>
+    <a href="#quran">
+      📖 القرآن الكريم
+    </a>
 
-        <a href="#hadith">
-            📜 الحديث الشريف
-        </a>
+    <a href="#hadith">
+      📜 الحديث الشريف
+    </a>
 
-        <a href="#fiqh">
-            ⚖️ الفقه الإسلامي
-        </a>
+    <a href="#fiqh">
+      ⚖️ الفقه الإسلامي
+    </a>
 
-        <a href="#aqeedah">
-            ☝️ العقيدة والتوحيد
-        </a>
+    <a href="#aqeedah">
+      ☝️ العقيدة والتوحيد
+    </a>
 
-        <a href="#usul">
-            📚 الأصول
-        </a>
-
-    </div>
+  </div>
 
 </nav>
 
 
-
-<!-- ==================================================
-     المحتوى الرئيسي
-================================================== -->
-
-<main>
+<div class="container">
 
 
-    <!-- ==================================================
-         الترحيب
-    ================================================== -->
+  <!-- =========================
+       WELCOME
+  ========================== -->
 
-    <section class="welcome">
+  <section class="welcome">
 
-        <h2>
-            مرحبًا بكم في مكتبة حضري
-        </h2>
+    <h2>
+      مرحبًا بكم في مكتبة حضري
+    </h2>
 
-        <p>
-            مكتبة إسلامية إلكترونية تهدف إلى توفير
-            القرآن الكريم والحديث الشريف وكتب الفقه
-            والعقيدة والتوحيد وأصول العلم الشرعي
-            في مكان واحد، مع واجهة سهلة ومريحة
-            للقراءة والتصفح.
+    <p>
+      مكتبة إسلامية إلكترونية تهدف إلى جمع القرآن الكريم
+      والحديث الشريف وكتب الفقه والعقيدة والتوحيد
+      في مكان واحد، مع واجهة سهلة ومريحة للقراءة والتصفح.
+    </p>
+
+  </section>
+
+
+  <div class="note">
+
+    <strong>📌 تنبيه:</strong>
+    يتم تنظيم الكتب حسب تخصصها، وكل كتاب يظهر مرة واحدة فقط
+    لتجنب التكرار وتسهيل الوصول إلى المحتوى.
+
+  </div>
+
+
+  <!-- =========================
+       QURAN
+  ========================== -->
+
+  <section class="library-section"
+           id="quran">
+
+    <div class="section-title">
+
+      <h2>
+        📖 القرآن الكريم
+      </h2>
+
+      <p>
+        قراءة القرآن الكريم بالنص العربي.
+      </p>
+
+    </div>
+
+
+    <div class="books">
+
+
+      <article class="book">
+
+        <div class="book-icon">
+          📖
+        </div>
+
+        <h3>
+          القرآن الكريم
+        </h3>
+
+        <p class="author">
+          القرآن الكريم
         </p>
 
-    </section>
+        <p class="description">
+          القرآن الكريم بالنص العربي، مرتب حسب السور.
+        </p>
+
+        <a class="book-button"
+           href="quran.html">
+          📖 فتح القرآن
+        </a>
+
+      </article>
 
 
+    </div>
 
-    <!-- ==================================================
-         القرآن الكريم
-    ================================================== -->
+  </section>
 
-    <section
-        class="section"
-        id="quran">
 
-        <h2 class="section-title">
-            📖 القرآن الكريم
-        </h2>
+  <!-- =========================
+       HADITH
+  ========================== -->
 
-        <div class="section-description">
+  <section class="library-section"
+           id="hadith">
 
-            قراءة القرآن الكريم بالنص العربي،
-            مرتبًا حسب السور.
+    <div class="section-title">
 
+      <h2>
+        📜 الحديث الشريف
+      </h2>
+
+      <p>
+        كتب الحديث النبوي الشريف.
+      </p>
+
+    </div>
+
+
+    <div class="books">
+
+
+      <!-- BUKHARI -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          📚
         </div>
 
+        <h3>
+          صحيح البخاري
+        </h3>
 
-        <div class="books">
+        <p class="author">
+          الإمام محمد بن إسماعيل البخاري رحمه الله
+        </p>
 
+        <p class="description">
+          الجامع الصحيح لأحاديث رسول الله صلى الله عليه وسلم.
+        </p>
 
-            <article class="book">
+        <a class="book-button"
+           href="bukhari.html">
+          📖 قراءة الكتاب
+        </a>
 
-                <div class="book-icon">
-                    📖
-                </div>
-
-                <h3>
-                    القرآن الكريم
-                </h3>
-
-                <p>
-                    القرآن الكريم بالنص العربي،
-                    مرتب حسب السور للقراءة والتصفح.
-                </p>
-
-                <a
-                    class="button"
-                    href="quran.html">
-
-                    فتح القرآن
-
-                </a>
-
-            </article>
+      </article>
 
 
+      <!-- UMDAH -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          📜
         </div>
 
-    </section>
+        <h3>
+          عمدة الأحكام
+        </h3>
+
+        <p class="author">
+          الإمام عبد الغني المقدسي رحمه الله
+        </p>
+
+        <p class="description">
+          كتاب مختصر يجمع أحاديث الأحكام من الصحيحين.
+        </p>
+
+        <a class="book-button"
+           href="umdah-ahkam.html">
+          📖 قراءة الكتاب
+        </a>
+
+      </article>
 
 
+      <!-- ARBAEEN -->
 
-    <!-- ==================================================
-         الحديث الشريف
-    ================================================== -->
+      <article class="book">
 
-    <section
-        class="section"
-        id="hadith">
-
-        <h2 class="section-title">
-            📜 الحديث الشريف
-        </h2>
-
-        <div class="section-description">
-
-            مجموعة من كتب الحديث النبوي الشريف
-            المختارة.
-
+        <div class="book-icon">
+          📜
         </div>
 
+        <h3>
+          الأربعون النووية
+        </h3>
 
-        <div class="books">
+        <p class="author">
+          الإمام النووي رحمه الله
+        </p>
 
+        <p class="description">
+          مجموعة من الأحاديث النبوية الجامعة لأصول الدين.
+        </p>
 
-            <!-- صحيح البخاري -->
+        <a class="book-button"
+           href="arbaeen-nawawi.html">
+          📖 قراءة الكتاب
+        </a>
 
-            <article class="book">
-
-                <div class="book-icon">
-                    📚
-                </div>
-
-                <h3>
-                    صحيح البخاري
-                </h3>
-
-                <p>
-                    الجامع الصحيح للإمام محمد بن
-                    إسماعيل البخاري.
-                </p>
-
-                <a
-                    class="button"
-                    href="bukhari.html">
-
-                    فتح الكتاب
-
-                </a>
-
-            </article>
+      </article>
 
 
+    </div>
 
-            <!-- عمدة الأحكام -->
-
-            <article class="book">
-
-                <div class="book-icon">
-                    📜
-                </div>
-
-                <h3>
-                    عمدة الأحكام
-                </h3>
-
-                <p>
-                    كتاب يجمع أحاديث الأحكام
-                    من الصحيحين.
-                </p>
-
-                <a
-                    class="button"
-                    href="umdah-ahkam.html">
-
-                    فتح الكتاب
-
-                </a>
-
-            </article>
+  </section>
 
 
+  <!-- =========================
+       FIQH
+  ========================== -->
 
-            <!-- الأربعون النووية -->
+  <section class="library-section"
+           id="fiqh">
 
-            <article class="book">
+    <div class="section-title">
 
-                <div class="book-icon">
-                    📜
-                </div>
+      <h2>
+        ⚖️ الفقه الإسلامي
+      </h2>
 
-                <h3>
-                    الأربعون النووية
-                </h3>
+      <p>
+        كتب ومسائل الفقه الإسلامي في العبادات والمعاملات وغيرها.
+      </p>
 
-                <p>
-                    مجموعة من الأحاديث النبوية
-                    الجامعة لأصول الدين.
-                </p>
-
-                <a
-                    class="button"
-                    href="arbaeen-nawawi.html">
-
-                    فتح الكتاب
-
-                </a>
-
-            </article>
+    </div>
 
 
+    <div class="books">
+
+
+      <!-- BIDAYAT -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          ⚖️
         </div>
 
-    </section>
+        <h3>
+          بداية المجتهد ونهاية المقتصد
+        </h3>
+
+        <p class="author">
+          الإمام ابن رشد رحمه الله
+        </p>
+
+        <p class="description">
+          من أشهر كتب الفقه المقارن، يعرض المسائل الفقهية
+          وأسباب اختلاف العلماء.
+        </p>
+
+        <a class="book-button"
+           href="bidayat-al-mujtahid.html">
+          📖 قراءة الكتاب
+        </a>
+
+      </article>
 
 
+      <!-- TAHARA -->
 
-    <!-- ==================================================
-         الفقه الإسلامي
-    ================================================== -->
+      <article class="book">
 
-    <section
-        class="section"
-        id="fiqh">
-
-        <h2 class="section-title">
-            ⚖️ الفقه الإسلامي
-        </h2>
-
-        <div class="section-description">
-
-            كتب ومسائل الفقه الإسلامي في العبادات
-            والمعاملات وغيرها.
-
+        <div class="book-icon">
+          📘
         </div>
 
+        <h3>
+          كتاب الطهارة
+        </h3>
 
-        <div class="books">
+        <p class="author">
+          من كتاب بداية المجتهد
+        </p>
 
+        <p class="description">
+          مسائل وأحكام الطهارة من كتاب بداية المجتهد ونهاية المقتصد.
+        </p>
 
-            <!-- بداية المجتهد -->
+        <a class="book-button"
+           href="Al-tahara.html">
+          📖 قراءة الكتاب
+        </a>
 
-            <article class="book">
-
-                <div class="book-icon">
-                    ⚖️
-                </div>
-
-                <h3>
-                    بداية المجتهد ونهاية المقتصد
-                </h3>
-
-                <p>
-                    من أشهر كتب الفقه المقارن
-                    للإمام ابن رشد، ويعرض مسائل
-                    الفقه وأقوال العلماء وأدلتهم.
-                </p>
-
-                <a
-                    class="button"
-                    href="bidayat-al-mujtahid.html">
-
-                    فتح الكتاب
-
-                </a>
-
-            </article>
+      </article>
 
 
+      <!-- FIQH SECTION -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          📚
         </div>
 
-    </section>
+        <h3>
+          كتب الفقه الإسلامي
+        </h3>
+
+        <p class="author">
+          مكتبة الفقه
+        </p>
+
+        <p class="description">
+          قسم خاص بالكتب والمراجع الفقهية الموجودة في المكتبة.
+        </p>
+
+        <a class="book-button"
+           href="fiqh.html">
+          📚 دخول القسم
+        </a>
+
+      </article>
 
 
+    </div>
 
-    <!-- ==================================================
-         العقيدة والتوحيد
-    ================================================== -->
+  </section>
 
-    <section
-        class="section"
-        id="aqeedah">
 
-        <h2 class="section-title">
-            ☝️ العقيدة والتوحيد
-        </h2>
+  <!-- =========================
+       AQEEDAH
+  ========================== -->
 
-        <div class="section-description">
+  <section class="library-section"
+           id="aqeedah">
 
-            كتب مختارة في العقيدة الإسلامية
-            والتوحيد.
+    <div class="section-title">
 
+      <h2>
+        ☝️ العقيدة والتوحيد
+      </h2>
+
+      <p>
+        كتب العقيدة الإسلامية والتوحيد.
+      </p>
+
+    </div>
+
+
+    <div class="books">
+
+
+      <!-- TAUHEED -->
+
+      <article class="book">
+
+        <div class="book-icon">
+          ☝️
         </div>
 
+        <h3>
+          كتاب التوحيد
+        </h3>
 
-        <div class="books">
+        <p class="author">
+          الإمام محمد بن عبد الوهاب رحمه الله
+        </p>
 
+        <p class="description">
+          كتاب التوحيد الذي هو حق الله على العبيد.
+        </p>
 
-            <!-- كتاب التوحيد -->
+        <a class="book-button"
+           href="tauheed.html">
+          📖 قراءة الكتاب
+        </a>
 
-            <article class="book">
-
-                <div class="book-icon">
-                    ☝️
-                </div>
-
-                <h3>
-                    كتاب التوحيد
-                </h3>
-
-                <p>
-                    كتاب في توحيد الله تعالى
-                    وأصول العقيدة.
-                </p>
-
-                <a
-                    class="button"
-                    href="tauheed.html">
-
-                    فتح الكتاب
-
-                </a>
-
-                <a
-                    class="button pdf"
-                    href="كتاب_التوحيد_الرقمي.pdf">
-
-                    📄 نسخة PDF
-
-                </a>
-
-            </article>
+      </article>
 
 
+      <!-- USUL THALATHA -->
 
-            <!-- الأصول الثلاثة -->
+      <article class="book">
 
-            <article class="book">
-
-                <div class="book-icon">
-                    📖
-                </div>
-
-                <h3>
-                    الأصول الثلاثة وأدلتها
-                </h3>
-
-                <p>
-                    متن مختصر في أصول العقيدة
-                    ومعرفة العبد ربه ودينه ونبيه.
-                </p>
-
-                <a
-                    class="button"
-                    href="usul-thalatha.html">
-
-                    فتح الكتاب
-
-                </a>
-
-            </article>
-
-
+        <div class="book-icon">
+          📖
         </div>
 
-    </section>
+        <h3>
+          الأصول الثلاثة
+        </h3>
+
+        <p class="author">
+          الإمام محمد بن عبد الوهاب رحمه الله
+        </p>
+
+        <p class="description">
+          متن مختصر في معرفة العبد ربه ودينه ونبيه
+          محمدًا صلى الله عليه وسلم.
+        </p>
+
+        <a class="book-button"
+           href="usul-thalatha.html">
+          📖 قراءة الكتاب
+        </a>
+
+      </article>
 
 
+      <!-- AQEEDAH SECTION -->
 
-    <!-- ==================================================
-         الأصول
-         
-         ملاحظة:
-         الأصول الثلاثة لا تكرر هنا.
-         فهي موجودة في قسم العقيدة والتوحيد.
-    ================================================== -->
+      <article class="book">
 
-    <section
-        class="section"
-        id="usul">
-
-        <h2 class="section-title">
-            📚 الأصول
-        </h2>
-
-        <div class="section-description">
-
-            قسم مخصص لكتب الأصول والمتون العلمية.
-            سيتم إضافة كتب جديدة مستقبلًا.
-
+        <div class="book-icon">
+          📚
         </div>
 
+        <h3>
+          كتب العقيدة والتوحيد
+        </h3>
 
-        <div class="empty-section">
+        <p class="author">
+          مكتبة العقيدة
+        </p>
 
-            <div class="icon">
-                📚
-            </div>
+        <p class="description">
+          قسم خاص بكتب العقيدة والتوحيد والمراجع المتعلقة بها.
+        </p>
 
-            <h3>
-                كتب الأصول
-            </h3>
+        <a class="book-button"
+           href="aqeedah.html">
+          📚 دخول القسم
+        </a>
 
-            <p>
-                لا توجد كتب إضافية في هذا القسم حاليًا.
-                سيتم إضافة المزيد من الكتب والمتون
-                عند توفرها.
-            </p>
-
-        </div>
-
-    </section>
+      </article>
 
 
-</main>
+    </div>
+
+  </section>
 
 
+</div>
 
-<!-- ==================================================
-     تذييل الموقع
-================================================== -->
+
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
 
-    <p>
-        © 2026 مكتبة حضري للكتب الإسلامية
-    </p>
+  <p>
+    © 2026 مكتبة حضري للكتب الإسلامية
+  </p>
 
-    <p>
-        مكتبة إلكترونية مجانية للقراءة والتصفح
-    </p>
+  <p>
+    القرآن الكريم • الحديث الشريف • الفقه • العقيدة والتوحيد
+  </p>
 
 </footer>
 
 
 </body>
-
 </html>
