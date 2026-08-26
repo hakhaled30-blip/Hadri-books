@@ -1,328 +1,749 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>كتاب التوحيد | مكتبة حضري للكتب الإسلامية</title>
 
-<meta name="description" content="قراءة كتاب التوحيد الذي هو حق الله على العبيد للإمام محمد بن عبد الوهاب رحمه الله.">
+<meta name="description" content="قراءة كتاب التوحيد الذي هو حق الله على العبيد للإمام محمد بن عبد الوهاب رحمه الله، مع فهرس منظم لجميع أبواب الكتاب.">
+
+<meta name="robots" content="index, follow">
 
 <style>
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background: #f7f5ef;
-  color: #222;
-  font-family: Tahoma, Arial, sans-serif;
-  line-height: 2.2;
+    margin: 0;
+    background: #f7f5ef;
+    color: #252525;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 2.2;
 }
 
+/* ===== HEADER ===== */
+
 header {
-  background: #0f5132;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
+    background: #0f5132;
+    color: #fff;
+    text-align: center;
+    padding: 28px 15px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 27px;
+    margin: 0;
+    font-size: 28px;
 }
 
 header p {
-  margin: 7px 0 0;
-  font-size: 15px;
+    margin: 6px 0 0;
+    font-size: 15px;
 }
+
+/* ===== CONTAINER ===== */
 
 .container {
-  width: 94%;
-  max-width: 900px;
-  margin: auto;
+    width: 94%;
+    max-width: 950px;
+    margin: auto;
 }
 
-.back {
-  display: inline-block;
-  margin: 20px 0;
-  padding: 9px 16px;
-  background: white;
-  color: #0f5132;
-  text-decoration: none;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-weight: bold;
+/* ===== NAVIGATION ===== */
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
 }
+
+.navigation a {
+    display: inline-block;
+    background: #fff;
+    color: #0f5132;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+.navigation a:hover {
+    background: #0f5132;
+    color: #fff;
+}
+
+/* ===== BOOK HEADER ===== */
 
 .book-header {
-  background: white;
-  border-radius: 14px;
-  padding: 25px 18px;
-  text-align: center;
-  border: 1px solid #e2e2e2;
-  margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+    padding: 28px 20px;
+    text-align: center;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 
 .book-header h2 {
-  color: #0f5132;
-  margin: 0 0 10px;
-  font-size: 25px;
+    color: #0f5132;
+    margin: 0 0 10px;
+    font-size: 27px;
 }
 
 .book-header p {
-  margin: 5px 0;
-  color: #666;
+    margin: 6px 0;
+    color: #666;
 }
+
+/* ===== SEARCH ===== */
+
+.search-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #0f5132;
+}
+
+/* ===== TOC ===== */
+
+.toc {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.toc h3 {
+    color: #0f5132;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.toc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.toc-list li {
+    margin-bottom: 8px;
+}
+
+.toc-list a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 7px;
+}
+
+.toc-list a:hover {
+    background: #f1f5f2;
+    color: #0f5132;
+}
+
+/* ===== NOTICE ===== */
 
 .notice {
-  background: #fff8df;
-  border-right: 4px solid #b8860b;
-  padding: 12px 15px;
-  margin: 20px 0;
-  border-radius: 7px;
-  color: #5d4b13;
-  font-size: 14px;
+    background: #fff8df;
+    border-right: 4px solid #b8860b;
+    padding: 13px 16px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    color: #5d4b13;
 }
 
+/* ===== LOADING ===== */
+
+#loading {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ===== ERROR ===== */
+
+#error {
+    display: none;
+    background: #fff0f0;
+    color: #8b0000;
+    border-right: 4px solid #8b0000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+
 .chapter {
-  background: white;
-  margin-bottom: 22px;
-  padding: 24px;
-  border-radius: 12px;
-  border: 1px solid #e1e1e1;
-  box-shadow: 0 2px 7px rgba(0,0,0,.04);
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 13px;
+    padding: 25px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 
 .chapter h3 {
-  color: #0f5132;
-  font-size: 21px;
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+    color: #0f5132;
+    font-size: 22px;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
 }
 
 .chapter p {
-  margin: 14px 0;
-  text-align: justify;
+    margin: 15px 0;
+    text-align: justify;
 }
+
+/* ===== QURAN ===== */
 
 .quran {
-  background: #faf8f0;
-  border-right: 4px solid #b8860b;
-  padding: 14px 16px;
-  margin: 15px 0;
-  border-radius: 7px;
+    background: #faf8f0;
+    border-right: 4px solid #b8860b;
+    padding: 15px 17px;
+    margin: 16px 0;
+    border-radius: 8px;
+    color: #493d18;
 }
+
+/* ===== HADITH ===== */
 
 .hadith {
-  background: #f5f8f6;
-  border-right: 4px solid #0f5132;
-  padding: 14px 16px;
-  margin: 15px 0;
-  border-radius: 7px;
+    background: #f3f7f4;
+    border-right: 4px solid #0f5132;
+    padding: 15px 17px;
+    margin: 16px 0;
+    border-radius: 8px;
 }
+
+/* ===== SOURCE ===== */
 
 .source {
-  color: #777;
-  font-size: 14px;
+    color: #777;
+    font-size: 14px;
 }
 
-#loading {
-  text-align: center;
-  padding: 30px;
-  color: #666;
+/* ===== TOP BUTTON ===== */
+
+.top-button {
+    text-align: center;
+    margin: 30px 0;
 }
 
-#error {
-  display: none;
-  background: #fff0f0;
-  color: #8b0000;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
+.top-button a {
+    display: inline-block;
+    background: #0f5132;
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 8px;
 }
+
+/* ===== FOOTER ===== */
 
 footer {
-  margin-top: 40px;
-  background: #0f5132;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
+    margin-top: 45px;
+    background: #0f5132;
+    color: #fff;
+    text-align: center;
+    padding: 22px 15px;
+    font-size: 14px;
 }
+
+/* ===== MOBILE ===== */
 
 @media (max-width: 600px) {
 
-  header h1 {
-    font-size: 22px;
-  }
+    header h1 {
+        font-size: 22px;
+    }
 
-  .book-header h2 {
-    font-size: 21px;
-  }
+    .book-header h2 {
+        font-size: 21px;
+    }
 
-  .chapter {
-    padding: 18px 14px;
-  }
+    .chapter {
+        padding: 18px 14px;
+    }
 
-  .chapter h3 {
-    font-size: 19px;
-  }
+    .chapter h3 {
+        font-size: 19px;
+    }
 
-  .chapter p {
-    text-align: right;
-  }
+    .chapter p {
+        text-align: right;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .navigation a {
+        text-align: center;
+    }
+
 }
+
 </style>
 </head>
 
-<body>
+
+<body id="top">
 
 <header>
-  <h1>☪️ مكتبة حضري للكتب الإسلامية</h1>
-  <p>كتب العقيدة والتوحيد</p>
+
+    <h1>☪️ مكتبة حضري للكتب الإسلامية</h1>
+
+    <p>كتب العقيدة والتوحيد</p>
+
 </header>
+
 
 <div class="container">
 
-  <a href="aqeedah.html" class="back">
-    ← العودة إلى كتب العقيدة والتوحيد
-  </a>
 
-  <section class="book-header">
+    <!-- أزرار التنقل -->
 
-    <h2>
-      كتاب التوحيد الذي هو حق الله على العبيد
-    </h2>
+    <nav class="navigation">
 
-    <p>
-      <strong>تأليف:</strong>
-      الإمام محمد بن عبد الوهاب رحمه الله
-    </p>
+        <a href="index.html">
+            🏠 الرئيسية
+        </a>
 
-  </section>
+        <a href="aqeedah.html">
+            ← كتب العقيدة والتوحيد
+        </a>
 
-  <div class="notice">
-    <strong>تنبيه:</strong>
-    هذه الصفحة مخصصة لقراءة الكتاب، وسيتم عرض النص من ملف الكتاب المرفق بالمشروع.
-  </div>
+        <a href="fiqh.html">
+            ⚖️ الفقه الإسلامي
+        </a>
 
-  <div id="loading">
-    جارٍ تحميل الكتاب...
-  </div>
+        <a href="hadith.html">
+            📜 الحديث الشريف
+        </a>
 
-  <div id="error">
-    تعذر تحميل نص الكتاب.
-    <br>
-    تأكد من وجود الملف:
-    <strong>tauheed.txt</strong>
-    في نفس مجلد هذا الملف.
-  </div>
+    </nav>
 
-  <main id="book-content"></main>
+
+    <!-- معلومات الكتاب -->
+
+    <section class="book-header">
+
+        <h2>
+            كتاب التوحيد الذي هو حق الله على العبيد
+        </h2>
+
+        <p>
+            <strong>تأليف:</strong>
+            الإمام محمد بن عبد الوهاب بن سليمان التميمي رحمه الله
+        </p>
+
+        <p>
+            كتاب في توحيد الله تعالى والتحذير من الشرك ووسائله.
+        </p>
+
+    </section>
+
+
+    <!-- البحث -->
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 ابحث داخل كتاب التوحيد..."
+            aria-label="البحث داخل الكتاب">
+
+    </div>
+
+
+    <!-- الفهرس -->
+
+    <section class="toc" id="toc">
+
+        <h3>📑 فهرس أبواب الكتاب</h3>
+
+        <ul class="toc-list" id="tocList"></ul>
+
+    </section>
+
+
+    <!-- تنبيه -->
+
+    <div class="notice">
+
+        <strong>تنبيه:</strong>
+
+        النص المعروض في هذه الصفحة يتم تحميله من الملف
+        <strong>tauheed.txt</strong>
+        الموجود في نفس مجلد الموقع.
+
+    </div>
+
+
+    <!-- التحميل -->
+
+    <div id="loading">
+
+        جارٍ تحميل كتاب التوحيد...
+
+    </div>
+
+
+    <!-- الخطأ -->
+
+    <div id="error">
+
+        <strong>تعذر تحميل الكتاب.</strong>
+
+        <br><br>
+
+        تأكد من وجود الملف:
+
+        <strong>tauheed.txt</strong>
+
+        <br>
+
+        في نفس مجلد ملف:
+
+        <strong>tauheed.html</strong>
+
+    </div>
+
+
+    <!-- محتوى الكتاب -->
+
+    <main id="book-content"></main>
+
+
+    <div class="top-button">
+
+        <a href="#top">
+            ↑ العودة إلى أعلى الصفحة
+        </a>
+
+    </div>
+
 
 </div>
 
+
 <footer>
-  © 2026 مكتبة حضري للكتب الإسلامية
+
+    © 2026 مكتبة حضري للكتب الإسلامية
+
 </footer>
+
 
 <script>
 
+/* ==========================================
+   تحميل كتاب التوحيد
+   ========================================== */
+
 fetch("tauheed.txt")
-  .then(function(response) {
+
+.then(function(response) {
 
     if (!response.ok) {
-      throw new Error("File not found");
+        throw new Error("تعذر العثور على tauheed.txt");
     }
 
     return response.text();
 
-  })
+})
 
-  .then(function(text) {
+.then(function(text) {
 
     document.getElementById("loading").style.display = "none";
 
-    const content = document.getElementById("book-content");
+    const content =
+        document.getElementById("book-content");
 
-    const chapters = text
-      .split(/\n\s*\n/)
-      .filter(function(part) {
-        return part.trim() !== "";
-      });
+    const tocList =
+        document.getElementById("tocList");
 
-    chapters.forEach(function(part, index) {
 
-      const chapter = document.createElement("section");
+    /*
+     * تنظيف بداية ونهاية الملف
+     */
 
-      chapter.className = "chapter";
+    text = text.trim();
 
-      const lines = part
-        .trim()
-        .split("\n");
 
-      if (
-        lines[0] &&
-        (
-          lines[0].startsWith("باب") ||
-          lines[0].startsWith("كتاب")
-        )
-      ) {
+    /*
+     * تقسيم الكتاب إلى أبواب.
+     *
+     * كل باب يبدأ بكلمة "باب:"
+     */
 
-        const title = document.createElement("h3");
+    const parts =
+        text.split(/(?=باب\s*:)/);
 
-        title.textContent = lines[0].trim();
 
-        chapter.appendChild(title);
+    let chapterNumber = 0;
 
-        lines.slice(1).forEach(function(line) {
 
-          if (line.trim()) {
+    parts.forEach(function(part) {
 
-            const p = document.createElement("p");
+        part = part.trim();
 
-            p.textContent = line.trim();
+        if (!part) {
+            return;
+        }
 
-            chapter.appendChild(p);
 
-          }
+        chapterNumber++;
+
+
+        const lines =
+            part.split(/\r?\n/);
+
+
+        let title = "";
+
+        let bodyLines = [];
+
+
+        /*
+         * إذا كان الجزء يبدأ بعنوان باب
+         */
+
+        if (
+            lines.length > 0 &&
+            /^باب\s*:/.test(lines[0].trim())
+        ) {
+
+            title = lines[0].trim();
+
+            bodyLines = lines.slice(1);
+
+        } else {
+
+            /*
+             * مقدمة الكتاب
+             */
+
+            title = "مقدمة الكتاب";
+
+            bodyLines = lines;
+
+        }
+
+
+        /*
+         * إنشاء القسم
+         */
+
+        const chapter =
+            document.createElement("section");
+
+        chapter.className = "chapter";
+
+        chapter.id =
+            "chapter-" + chapterNumber;
+
+
+        /*
+         * إنشاء عنوان الباب
+         */
+
+        const heading =
+            document.createElement("h3");
+
+        heading.textContent = title;
+
+
+        chapter.appendChild(heading);
+
+
+        /*
+         * إضافة الباب إلى الفهرس
+         */
+
+        const tocItem =
+            document.createElement("li");
+
+        const tocLink =
+            document.createElement("a");
+
+        tocLink.href =
+            "#" + chapter.id;
+
+        tocLink.textContent =
+            chapterNumber + ". " + title.replace(/^باب\s*:\s*/, "");
+
+        tocItem.appendChild(tocLink);
+
+        tocList.appendChild(tocItem);
+
+
+        /*
+         * معالجة نص الباب
+         */
+
+        bodyLines.forEach(function(line) {
+
+            line = line.trim();
+
+
+            if (!line) {
+                return;
+            }
+
+
+            const paragraph =
+                document.createElement("p");
+
+
+            /*
+             * الآيات القرآنية
+             */
+
+            if (
+                line.includes("﴿") &&
+                line.includes("﴾")
+            ) {
+
+                paragraph.className = "quran";
+
+                paragraph.textContent = line;
+
+            }
+
+
+            /*
+             * الأحاديث
+             */
+
+            else if (
+                line.includes("قال رسول الله") ||
+                line.includes("عن ") ||
+                line.includes("رواه ") ||
+                line.includes("أخرجه ") ||
+                line.includes("متفق عليه") ||
+                line.includes("أخرجاه")
+            ) {
+
+                paragraph.className = "hadith";
+
+                paragraph.textContent = line;
+
+            }
+
+
+            /*
+             * النص العادي
+             */
+
+            else {
+
+                paragraph.textContent = line;
+
+            }
+
+
+            chapter.appendChild(paragraph);
 
         });
 
-      } else {
 
-        lines.forEach(function(line) {
-
-          if (line.trim()) {
-
-            const p = document.createElement("p");
-
-            p.textContent = line.trim();
-
-            chapter.appendChild(p);
-
-          }
-
-        });
-
-      }
-
-      content.appendChild(chapter);
+        content.appendChild(chapter);
 
     });
 
-  })
 
-  .catch(function() {
+    /*
+     * ==========================================
+     * البحث داخل الكتاب
+     * ==========================================
+     */
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+
+    searchInput.addEventListener("input", function() {
+
+        const query =
+            this.value.trim().toLowerCase();
+
+
+        const chapters =
+            document.querySelectorAll(".chapter");
+
+
+        chapters.forEach(function(chapter) {
+
+            if (!query) {
+
+                chapter.style.display = "";
+
+                return;
+
+            }
+
+
+            const text =
+                chapter.textContent.toLowerCase();
+
+
+            if (text.includes(query)) {
+
+                chapter.style.display = "";
+
+            } else {
+
+                chapter.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+})
+
+.catch(function(error) {
 
     document.getElementById("loading").style.display = "none";
 
     document.getElementById("error").style.display = "block";
 
-  });
+    console.error(error);
+
+});
 
 </script>
 
