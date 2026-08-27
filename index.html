@@ -5,342 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتبة حضري للكتب الإسلامية | منصة القراءة الرقمية</title>
     
-    <!-- استيراد الخطوط العربية الفاخرة بشكل آمن -->
+    <!-- منع المتصفح من كتم الكاش القديم -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* إعدادات المصنع العامة */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #f4f7f5;
-            color: #111c18;
-            line-height: 1.8;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* القائمة العلوية الفاخرة */
-        .navbar {
-            background-color: #071b15;
-            border-bottom: 3px solid #caa43c;
-            padding: 20px 0;
-            width: 100%;
-        }
-        .nav-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #ffffff;
-        }
-        .logo-icon {
-            font-size: 24px;
-            background: #caa43c;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-        .logo-text strong {
-            display: block;
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 20px;
-            color: #ffffff;
-        }
-        .logo-text span {
-            display: block;
-            font-size: 11px;
-            color: #caa43c;
-        }
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 12px;
-            font-size: 14px;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #caa43c;
-        }
-
-        /* الواجهة الترحيبية الهيدر */
-        .header {
-            background: linear-gradient(135deg, #04120e 0%, #071b15 100%);
-            color: #ffffff;
-            padding: 80px 0;
-            text-align: center;
-            width: 100%;
-        }
-        .hero {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero-label {
-            display: inline-block;
-            background: rgba(202, 164, 60, 0.1);
-            color: #caa43c;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            border: 1px solid rgba(202, 164, 60, 0.3);
-            margin-bottom: 20px;
-        }
-        .hero h1 {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 38px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-        .hero h1 span {
-            font-family: 'Amiri', serif;
-            color: #caa43c;
-        }
-        .hero-description {
-            color: #dddddd;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .btn {
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-        .btn-primary {
-            background-color: #caa43c;
-            color: #071b15;
-        }
-        .btn-secondary {
-            border: 1px solid #ffffff;
-            color: #ffffff;
-        }
-
-        /* صندوق البحث */
-        .search-section {
-            width: 90%;
-            max-width: 700px;
-            margin: -30px auto 50px;
-            position: relative;
-            z-index: 10;
-        }
-        .search-card {
-            background: #ffffff;
-            padding: 8px;
-            border-radius: 10px;
-            display: flex;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 1px solid #e1e1e1;
-        }
-        .search-card input {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 12px;
-            font-size: 15px;
-            font-family: 'Tajawal', sans-serif;
-        }
-        .search-btn {
-            background: #071b15;
-            color: #ffffff;
-            border: none;
-            padding: 0 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        /* الأقسام والمحتوى */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section {
-            margin-bottom: 70px;
-        }
-        .section-header {
-            border-bottom: 2px solid #071b15;
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .section-header h2 {
-            font-family: 'Reem Kufi', sans-serif;
-            color: #071b15;
-            font-size: 26px;
-        }
-        .section-link {
-            color: #caa43c;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-        }
-
-        /* شبكة عرض الكتب */
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .book-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        .book-card:hover {
-            transform: translateY(-5px);
-            border-color: #caa43c;
-        }
-        .book-badge {
-            align-self: flex-start;
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f4f7f5; color: #111c18; line-height: 1.8; }
+        .navbar { background-color: #071b15; border-bottom: 3px solid #caa43c; padding: 20px 0; }
+        .nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; }
+        .logo-icon { font-size: 24px; background: #caa43c; padding: 4px 10px; border-radius: 6px; }
+        .logo-text strong { display: block; font-family: 'Reem Kufi', sans-serif; font-size: 20px; color: #ffffff; }
+        .logo-text span { display: block; font-size: 11px; color: #caa43c; }
+        .nav-links a { color: #ffffff; text-decoration: none; padding: 8px 12px; font-size: 14px; }
+        .nav-links a:hover, .nav-links a.active { color: #caa43c; }
+        .header { background: linear-gradient(135deg, #04120e 0%, #071b15 100%); color: #ffffff; padding: 80px 0; text-align: center; }
+        .hero { width: 90%; max-width: 800px; margin: 0 auto; }
+        .hero-label { display: inline-block; background: rgba(202, 164, 60, 0.1); color: #caa43c; padding: 6px 16px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(202, 164, 60, 0.3); margin-bottom: 20px; }
+        .hero h1 { font-family: 'Reem Kufi', sans-serif; font-size: 38px; margin-bottom: 15px; line-height: 1.4; }
+        .hero h1 span { font-family: 'Amiri', serif; color: #caa43c; }
+        .hero-description { color: #dddddd; font-size: 16px; margin-bottom: 30px; }
+        .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; background-color: #caa43c; color: #071b15; }
+        .search-section { width: 90%; max-width: 700px; margin: -30px auto 50px; position: relative; z-index: 10; }
+        .search-card { background: #ffffff; padding: 8px; border-radius: 10px; display: flex; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e1e1e1; }
+        .search-card input { flex: 1; border: none; outline: none; padding: 12px; font-size: 15px; font-family: 'Tajawal', sans-serif; }
+        .search-btn { background: #071b15; color: #ffffff; border: none; padding: 0 24px; border-radius: 8px; cursor: pointer; font-weight: bold; font-family: 'Tajawal', sans-serif; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .section { margin-bottom: 70px; }
+        .section-header { border-bottom: 2px solid #071b15; padding-bottom: 12px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .section-header h2 { font-family: 'Reem Kufi', sans-serif; color: #071b15; font-size: 26px; }
+        .section-link { color: #caa43c; text-decoration: none; font-weight: bold; font-size: 15px; }
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .book-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform 0.3s; }
+        .book-card:hover { transform: translateY(-5px); }
+        .book-badge { align-self: flex-start; font-size: 12px; padding: 4px 12px; border-radius: 6px; margin-bottom: 15px; font-weight: bold; }
         .badge-quran { background: #e8f5e9; color: #1b5e20; }
         .badge-hadith { background: #e3f2fd; color: #0d47a1; }
         .badge-fiqh { background: #fff3e0; color: #e65100; }
-
-        .book-title {
-            font-family: 'Amiri', serif;
-            font-size: 24px;
-            color: #071b15;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        .book-author {
-            font-size: 14px;
-            color: #4a5568;
-            margin-bottom: 20px;
-        }
-        .book-meta {
-            background: #f7fafc;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            margin-top: auto;
-            border: 1px solid #edf2f7;
-        }
-        .book-card-btn {
-            background: #071b15;
-            color: #ffffff;
-            text-align: center;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .book-card:hover .book-card-btn {
-            background: #caa43c;
-            color: #071b15;
-        }
-
-        /* التذييل السفلي */
-        .footer {
-            background: #04120e;
-            color: #ffffff;
-            padding: 40px 0;
-            border-top: 4px solid #caa43c;
-            margin-top: 80px;
-            width: 100%;
-        }
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer-brand h3 {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 20px;
-        }
-        .footer-brand p {
-            font-size: 13px;
-            color: #a0aec0;
-            margin-top: 5px;
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 13px;
-            color: #a0aec0;
-        }
-
-        /* شاشات الهواتف والتابلت */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .search-card {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .search-btn {
-                padding: 12px;
-                width: 100%;
-            }
-            .footer-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+        .book-title { font-family: 'Amiri', serif; font-size: 24px; color: #071b15; margin-bottom: 8px; font-weight: 700; }
+        .book-author { font-size: 14px; color: #4a5568; margin-bottom: 20px; }
+        .book-meta { background: #f7fafc; padding: 10px 14px; border-radius: 8px; font-size: 13px; display: flex; justify-content: space-between; margin-bottom: 20px; margin-top: auto; border: 1px solid #edf2f7; }
+        .book-card-btn { background: #071b15; color: #ffffff; text-align: center; text-decoration: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: bold; }
+        .footer { background: #04120e; color: #ffffff; padding: 40px 0; border-top: 4px solid #caa43c; margin-top: 80px; width: 100%; text-align: center; }
+        @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 15px; } .search-card { flex-direction: column; gap: 10px; } .search-btn { padding: 12px; width: 100%; } }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
                 <div class="logo-icon">🕌</div>
-                <div class="logo-text">
-                    <strong>مكتبة حَضَري</strong>
-                    <span>المنصة الإسلامية الرقمية</span>
-                </div>
+                <div class="logo-text"><strong>مكتبة حَضَري</strong><span>المنصة الإسلامية الرقمية</span></div>
             </a>
             <div class="nav-links">
                 <a href="#quran">القرآن والتفسير</a>
@@ -350,5 +72,47 @@
         </div>
     </nav>
 
-    <!-- الواجهة الرئيسية الترحيبية -->
     <header class="header">
+        <div class="hero">
+            <div class="hero-label">✨ تراث إسلامي عريق بين يديك</div>
+            <h1>بوابتك الرقمية لتصفح وقراءة <span>أمهات الكتب الإسلامية</span></h1>
+            <p class="hero-description">أهلاً بك في مكتبة حضري الرقمية. منصة متطورة صُممت خصيصاً لتيسير قراءة وتصفح المصاحف الشريفة، كتب السنّة النبوية، المتون الفقهية، والمراجع العقائدية.</p>
+            <a href="#explore" class="btn">ابدأ القراءة الآن</a>
+        </div>
+    </header>
+
+    <div class="search-section">
+        <div class="search-card">
+            <input type="text" placeholder="ابحث عن كتاب، مؤلف، أو موضوع شرعي...">
+            <button class="search-btn">ابحث</button>
+        </div>
+    </div>
+
+    <main class="container" id="explore">
+        <section class="section" id="quran">
+            <div class="section-header"><h2>القرآن الكريم وعلوم التفسير</h2><a href="#" class="section-link">عرض الكل</a></div>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-badge badge-quran">القرآن الكريم</div>
+                    <h3 class="book-title">القرآن الكريم برواية حفص عن عاصم</h3>
+                    <p class="book-author">كلام الله عز وجل</p>
+                    <div class="book-meta"><span>الصفحات: <strong>604</strong></span><span>النوع: <strong>مصحف المدينة</strong></span></div>
+                    <a href="#" class="book-card-btn">تصفح المصحف</a>
+                </div>
+                <div class="book-card">
+                    <div class="book-badge badge-quran">كتب التفسير</div>
+                    <h3 class="book-title">تفسير القرآن العظيم</h3>
+                    <p class="book-author">الإمام ابن كثير</p>
+                    <div class="book-meta"><span>المجلدات: <strong>8 مجلدات</strong></span><span>النوع: <strong>تفسير بالمأثور</strong></span></div>
+                    <a href="#" class="book-card-btn">اقرأ التفسير</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 مكتبة حضري الرقمية للكتب الإسلامية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
