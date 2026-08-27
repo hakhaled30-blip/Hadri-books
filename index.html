@@ -6,15 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>مكتبة حضري للكتب الإسلامية | منصة القراءة الرقمية</title>
+
 <meta name="description" content="مكتبة حضري للكتب الإسلامية، منصة إلكترونية لقراءة القرآن الكريم والحديث الشريف وكتب العقيدة والفقه وغيرها من الكتب الإسلامية.">
+
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0d2e24">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -27,850 +34,1403 @@ html{
 }
 
 :root{
+
     --primary:#0d2e24;
     --primary-light:#164e3d;
+
     --accent:#d4af37;
     --accent-light:#f7efd2;
+
     --text-main:#111827;
     --text-muted:#4b5563;
+
     --bg-body:#f8fafc;
     --white:#ffffff;
+
     --border:#e2e8f0;
-    --shadow-soft:0 10px 25px -5px rgba(13,46,36,0.08);
-    --shadow-hover:0 20px 35px -10px rgba(13,46,36,0.15);
+
+    --shadow-soft:0 10px 25px -5px rgba(13,46,36,.08);
+
+    --shadow-hover:0 20px 35px -10px rgba(13,46,36,.15);
+
     --radius:20px;
+
     --card-bg:#ffffff;
+
     --base-font-size:16px;
 }
 
 [data-theme="dark"]{
+
     --primary:#134233;
     --primary-light:#1b5c46;
+
     --accent:#e5c158;
-    --accent-light:rgba(229,193,88,0.15);
+    --accent-light:rgba(229,193,88,.15);
+
     --text-main:#f1f5f9;
     --text-muted:#94a3b8;
+
     --bg-body:#07110e;
     --white:#0d1b17;
+
     --border:#1e332c;
-    --shadow-soft:0 10px 25px -5px rgba(0,0,0,0.4);
-    --shadow-hover:0 20px 35px -10px rgba(0,0,0,0.6);
+
+    --shadow-soft:0 10px 25px -5px rgba(0,0,0,.4);
+
+    --shadow-hover:0 20px 35px -10px rgba(0,0,0,.6);
+
     --card-bg:#0d1b17;
 }
 
 body{
+
     font-family:'Tajawal',sans-serif;
+
     background:var(--bg-body);
+
     color:var(--text-main);
+
     font-size:var(--base-font-size);
+
     line-height:1.8;
-    transition:background .3s ease,color .3s ease;
+
+    transition:
+    background .3s ease,
+    color .3s ease;
 }
 
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+
 #progressBar{
+
     position:fixed;
+
     top:0;
     left:0;
+
     height:3px;
+
     background:var(--accent);
+
     width:0%;
+
     z-index:1000;
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 .header{
-    background:linear-gradient(135deg,#071f18 0%,#0d2e24 60%,#134233 100%);
+
+    background:
+    linear-gradient(
+        135deg,
+        #071f18 0%,
+        #0d2e24 60%,
+        #134233 100%
+    );
+
     color:white;
+
     position:relative;
+
     overflow:hidden;
 }
 
 .header::before{
+
     content:"";
+
     position:absolute;
+
     top:-50%;
     left:-20%;
+
     width:600px;
     height:600px;
-    background:radial-gradient(circle,rgba(212,175,55,.08) 0%,transparent 70%);
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.08) 0%,
+        transparent 70%
+    );
+
     border-radius:50%;
+
     pointer-events:none;
 }
 
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
 .navbar{
+
     position:sticky;
+
     top:0;
+
     z-index:100;
+
     background:rgba(13,46,36,.88);
+
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .nav-container{
+
     width:90%;
+
     max-width:1280px;
+
     margin:auto;
+
     min-height:80px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:14px;
+
     text-decoration:none;
+
     color:white;
 }
 
 .logo-icon{
+
     width:48px;
+
     height:48px;
-    background:linear-gradient(135deg,var(--accent),#aa8220);
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--accent),
+        #aa8220
+    );
+
     border-radius:14px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     font-size:24px;
 }
 
 .logo-text strong{
+
     display:block;
+
     font-size:18px;
 }
 
 .logo-text span{
+
     display:block;
+
     font-size:11px;
+
     color:var(--accent);
+
     letter-spacing:1px;
 }
 
 .nav-controls{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
 }
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 }
 
 .nav-links a{
+
     color:rgba(255,255,255,.85);
+
     text-decoration:none;
+
     font-size:14px;
-    font-weight:500;
+
     padding:8px 16px;
+
     border-radius:10px;
+
+    transition:.3s;
 }
 
 .nav-links a:hover{
+
     background:rgba(255,255,255,.1);
+
     color:var(--accent);
 }
 
+
+/* =====================================================
+   ICON BUTTONS
+===================================================== */
+
 .icon-btn{
+
     background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.15);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
+
     color:white;
+
     width:40px;
+
     height:40px;
+
     border-radius:10px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     cursor:pointer;
+
     font-size:16px;
 }
 
-.icon-btn:hover{
-    background:rgba(255,255,255,.2);
-    border-color:var(--accent);
-}
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
+
     width:90%;
+
     max-width:1280px;
+
     margin:auto;
+
     padding:70px 0 100px;
+
     display:grid;
+
     grid-template-columns:1.2fr .8fr;
+
     gap:50px;
+
     align-items:center;
+
     position:relative;
+
     z-index:2;
 }
 
 .hero-label{
+
     display:inline-flex;
+
     padding:6px 16px;
+
     background:rgba(212,175,55,.12);
-    border:1px solid rgba(212,175,55,.3);
+
+    border:
+    1px solid
+    rgba(212,175,55,.3);
+
     border-radius:30px;
+
     color:var(--accent);
+
     font-size:13px;
-    font-weight:600;
+
     margin-bottom:20px;
 }
 
 .hero h1{
+
     font-size:clamp(28px,3.8vw,46px);
+
     line-height:1.5;
+
     font-weight:900;
+
     margin-bottom:20px;
 }
 
 .hero h1 span{
+
     font-family:'Amiri',serif;
+
     color:var(--accent);
+
     display:block;
+
     margin-top:10px;
+
     font-size:clamp(24px,3.2vw,40px);
 }
 
 .hero-description{
+
     color:rgba(255,255,255,.75);
+
     font-size:16px;
+
     line-height:1.9;
+
     margin-bottom:30px;
 }
 
 .hero-actions{
+
     display:flex;
+
     gap:14px;
 }
 
 .btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:8px;
+
     padding:14px 28px;
+
     border-radius:14px;
+
     font-size:15px;
+
     font-weight:700;
+
     text-decoration:none;
+
+    transition:.3s;
 }
 
 .btn-primary{
+
     background:var(--accent);
+
     color:#071f18;
 }
 
 .btn-secondary{
+
     background:rgba(255,255,255,.08);
+
     color:white;
-    border:1px solid rgba(255,255,255,.15);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
 }
 
+
+/* =====================================================
+   HERO BOOK
+===================================================== */
+
 .hero-book{
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 }
 
 .floating-book{
+
     width:260px;
+
     height:340px;
-    background:linear-gradient(135deg,#114232,#071f18);
-    border-radius:12px 20px 20px 12px;
-    border:2px solid rgba(212,175,55,.4);
-    box-shadow:0 25px 50px rgba(0,0,0,.5);
+
+    background:
+    linear-gradient(
+        135deg,
+        #114232,
+        #071f18
+    );
+
+    border-radius:
+    12px 20px 20px 12px;
+
+    border:
+    2px solid
+    rgba(212,175,55,.4);
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.5);
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:30px;
+
     color:white;
+
     animation:floatAnimation 4s ease-in-out infinite;
 }
 
 @keyframes floatAnimation{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
 }
 
 .floating-book span{
+
     font-size:55px;
+
     margin-bottom:15px;
 }
 
 .floating-book h3{
+
     font-family:'Amiri',serif;
+
     color:var(--accent);
+
     font-size:24px;
 }
 
-.floating-book p{
-    font-size:12px;
-    color:rgba(255,255,255,.6);
-}
+
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .search-section{
+
     width:90%;
+
     max-width:960px;
+
     margin:-40px auto 0;
+
     position:relative;
+
     z-index:50;
 }
 
 .search-card{
+
     background:var(--card-bg);
+
     border-radius:18px;
+
     padding:12px;
+
     display:flex;
+
     align-items:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-    border:1px solid var(--border);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    border:
+    1px solid
+    var(--border);
 }
 
 .search-card span{
+
     padding:0 15px;
+
     font-size:20px;
 }
 
 .search-card input{
+
     flex:1;
+
     border:none;
+
     outline:none;
+
     font-family:inherit;
+
     font-size:16px;
+
     color:var(--text-main);
+
     background:transparent;
 }
 
 .search-btn{
+
     background:var(--primary);
+
     color:white;
+
     border:none;
+
     padding:12px 24px;
+
     border-radius:12px;
+
     font-family:inherit;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .container{
+
     width:90%;
+
     max-width:1280px;
+
     margin:auto;
 }
 
 .section{
+
     padding-top:80px;
 }
 
 .section-title{
+
     margin-bottom:25px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-end;
-    border-bottom:2px solid var(--border);
+
+    border-bottom:
+    2px solid
+    var(--border);
+
     padding-bottom:12px;
 }
 
 .section-title h2{
+
     font-size:26px;
+
     color:var(--text-main);
+
+    font-weight:800;
 }
 
 .section-title p{
+
     font-size:14px;
+
     color:var(--text-muted);
 }
+
 
 /* =====================================================
-   الأقسام الرئيسية
+   CATEGORIES
 ===================================================== */
 
-#categories{
-    scroll-margin-top:100px;
-}
+.categories-grid{
 
-.categories-title{
-    text-align:center;
-    margin:80px 0 40px;
-}
-
-.categories-title h2{
-    font-size:28px;
-    font-weight:800;
-    margin-bottom:8px;
-}
-
-.categories-title p{
-    color:var(--text-muted);
-    font-size:14px;
-}
-
-/* القرآن في الأعلى */
-.quran-category{
-    max-width:430px;
-    margin:0 auto 55px;
-    padding:28px 20px;
-    text-align:center;
-    background:var(--card-bg);
-    border:2px solid var(--accent);
-    border-radius:24px;
-    box-shadow:var(--shadow-soft);
-    transition:.3s;
-}
-
-.quran-category:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow-hover);
-}
-
-.quran-category .category-icon{
-    display:block;
-    font-size:50px;
-    margin-bottom:5px;
-}
-
-.quran-category h2{
-    font-family:'Amiri',serif;
-    color:var(--text-main);
-    font-size:32px;
-}
-
-.quran-arrow{
-    display:block;
-    font-size:25px;
-    color:var(--accent);
-    margin-top:8px;
-}
-
-/* باقي الأقسام بجانب بعضها */
-.other-categories{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    max-width:1000px;
-    margin:0 auto 70px;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:20px;
 }
 
 .category-card{
+
     background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:30px 20px;
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:var(--radius);
+
+    padding:25px 20px;
+
     text-align:center;
+
     text-decoration:none;
+
     color:var(--text-main);
+
     box-shadow:var(--shadow-soft);
+
     transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:170px;
 }
 
 .category-card:hover{
-    transform:translateY(-6px);
+
+    transform:translateY(-5px);
+
     border-color:var(--accent);
+
     box-shadow:var(--shadow-hover);
 }
 
-.category-card .category-icon{
-    display:block;
-    font-size:38px;
+.category-icon{
+
+    font-size:40px;
+
     margin-bottom:10px;
 }
 
 .category-card h3{
+
     font-size:19px;
+
+    margin-bottom:5px;
+
     font-weight:800;
 }
 
-.category-card p{
-    color:var(--text-muted);
+.category-card span{
+
     font-size:13px;
-    margin-top:6px;
-}
 
-/* =====================================================
-   FILTER
-===================================================== */
-
-.filter-tabs{
-    display:flex;
-    gap:10px;
-    margin-bottom:25px;
-    flex-wrap:wrap;
-}
-
-.filter-btn{
-    background:var(--card-bg);
-    border:1px solid var(--border);
     color:var(--text-muted);
-    padding:8px 18px;
-    border-radius:12px;
-    font-family:inherit;
-    font-size:13px;
-    font-weight:600;
-    cursor:pointer;
 }
 
-.filter-btn.active,
-.filter-btn:hover{
-    background:var(--primary);
-    color:white;
-    border-color:var(--primary);
+
+/* القرآن في الأعلى */
+
+.quran-category{
+
+    grid-column:1 / -1;
+
+    min-height:190px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--card-bg),
+        var(--accent-light)
+    );
+
+    border:
+    2px solid
+    var(--accent);
 }
+
+.quran-category .category-icon{
+
+    font-size:55px;
+}
+
+.quran-category h3{
+
+    font-size:26px;
+
+    color:var(--primary);
+}
+
+[data-theme="dark"]
+.quran-category h3{
+
+    color:var(--accent);
+}
+
 
 /* =====================================================
    BOOKS
 ===================================================== */
 
 .books-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:25px;
 }
 
 .book-item{
+
     background:var(--card-bg);
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
+
     border-radius:var(--radius);
+
     overflow:hidden;
+
     box-shadow:var(--shadow-soft);
+
     transition:.3s;
+
     display:flex;
+
     flex-direction:column;
 }
 
 .book-item:hover{
+
     transform:translateY(-6px);
+
     box-shadow:var(--shadow-hover);
+
     border-color:var(--accent);
 }
 
 .book-header-img{
+
     height:180px;
-    background:linear-gradient(135deg,rgba(13,46,36,.04),rgba(13,46,36,.09));
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(13,46,36,.04),
+        rgba(13,46,36,.09)
+    );
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     position:relative;
 }
 
 .book-badge{
+
     position:absolute;
+
     top:15px;
+
     right:15px;
+
     background:var(--card-bg);
+
     color:var(--text-main);
+
     padding:5px 12px;
+
     border-radius:8px;
+
     font-size:11px;
+
     font-weight:700;
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
 }
 
 .bookmark-toggle{
+
     position:absolute;
+
     top:15px;
+
     left:15px;
+
     background:var(--card-bg);
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
+
     color:var(--text-muted);
+
     width:34px;
+
     height:34px;
+
     border-radius:8px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     cursor:pointer;
 }
 
 .bookmark-toggle.active{
+
     color:var(--accent);
+
     border-color:var(--accent);
 }
 
 .book-icon-3d{
+
     width:75px;
+
     height:95px;
-    background:linear-gradient(135deg,var(--primary),#071f18);
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        #071f18
+    );
+
     color:var(--accent);
-    border-radius:6px 10px 10px 6px;
+
+    border-radius:
+    6px 10px 10px 6px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     font-size:34px;
+
+    box-shadow:
+    8px 8px 15px rgba(0,0,0,.15);
 }
 
 .book-content{
+
     padding:24px;
+
     display:flex;
+
     flex-direction:column;
+
     flex:1;
 }
 
 .book-content h3{
+
     font-size:20px;
+
+    color:var(--text-main);
+
     margin-bottom:6px;
+
     font-weight:800;
 }
 
 .book-author{
+
     font-size:13px;
+
     color:var(--text-muted);
+
     margin-bottom:12px;
+
     font-weight:600;
 }
 
 .book-desc{
+
     font-size:14px;
+
     color:var(--text-muted);
+
     line-height:1.8;
+
     margin-bottom:20px;
+
     flex:1;
 }
 
 .book-actions{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    border-top:1px solid var(--border);
+
+    border-top:
+    1px solid
+    var(--border);
+
     padding-top:16px;
 }
 
 .read-link{
+
     background:var(--primary);
+
     color:white;
+
     text-decoration:none;
+
     padding:10px 18px;
+
     border-radius:10px;
+
     font-size:13px;
+
     font-weight:700;
 }
 
 .book-format{
+
     font-size:12px;
+
     color:var(--text-muted);
 }
+
 
 /* =====================================================
    STATS
 ===================================================== */
 
 .stats-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:20px;
+
     margin-top:60px;
 }
 
 .stat-box{
+
     background:var(--card-bg);
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
+
     border-radius:var(--radius);
+
     padding:25px;
+
     text-align:center;
+
     box-shadow:var(--shadow-soft);
 }
 
 .stat-box strong{
+
     font-size:32px;
+
     color:var(--accent);
+
+    font-weight:900;
+
     display:block;
 }
 
 .stat-box span{
+
     font-size:13px;
+
     color:var(--text-muted);
 }
+
 
 /* =====================================================
    ABOUT
 ===================================================== */
 
 .about-section{
+
     margin:80px 0;
+
     background:var(--card-bg);
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
+
     border-radius:var(--radius);
+
     padding:45px;
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:40px;
+
+    align-items:center;
+
     box-shadow:var(--shadow-soft);
 }
 
 .about-section h2{
+
+    color:var(--text-main);
+
     font-size:26px;
+
+    font-weight:800;
+
     margin-bottom:15px;
 }
 
 .about-section p{
+
     color:var(--text-muted);
+
     font-size:15px;
+
     line-height:2;
 }
 
 .about-features{
+
     background:var(--accent-light);
-    border:1px solid rgba(212,175,55,.2);
+
+    border:
+    1px solid
+    rgba(212,175,55,.2);
+
     border-radius:14px;
+
     padding:25px;
 }
 
 .about-features strong{
+
+    color:var(--text-main);
+
+    font-size:17px;
+
     display:block;
+
     margin-bottom:12px;
 }
 
 .about-features ul{
+
     padding-right:18px;
+
     color:var(--text-muted);
+
     font-size:14px;
+
     line-height:2.2;
 }
+
 
 /* =====================================================
    MODAL
 ===================================================== */
 
 .modal-overlay{
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.6);
+
     backdrop-filter:blur(4px);
+
     z-index:2000;
+
     display:none;
+
     align-items:center;
+
     justify-content:center;
 }
 
 .modal-card{
+
     background:var(--card-bg);
+
     width:90%;
+
     max-width:500px;
+
     border-radius:var(--radius);
-    border:1px solid var(--border);
+
+    border:
+    1px solid
+    var(--border);
+
     padding:30px;
+
     max-height:80vh;
+
     display:flex;
+
     flex-direction:column;
 }
 
 .modal-header{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     margin-bottom:20px;
-    border-bottom:1px solid var(--border);
+
+    border-bottom:
+    1px solid
+    var(--border);
+
     padding-bottom:12px;
 }
 
 .modal-header h3{
+
     font-size:20px;
+
+    color:var(--text-main);
 }
 
 .close-modal{
+
     background:none;
+
     border:none;
+
     font-size:20px;
+
     color:var(--text-muted);
+
     cursor:pointer;
 }
 
 .modal-body{
+
     overflow-y:auto;
+
     flex:1;
 }
 
 .saved-book-item{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     padding:12px;
-    border-bottom:1px solid var(--border);
+
+    border-bottom:
+    1px solid
+    var(--border);
 }
+
 
 /* =====================================================
    TOAST
 ===================================================== */
 
 #toast{
+
     position:fixed;
+
     bottom:30px;
+
     right:30px;
+
     background:var(--primary);
+
     color:white;
+
     padding:12px 24px;
+
     border-radius:12px;
+
+    box-shadow:var(--shadow-hover);
+
     z-index:3000;
+
     font-size:14px;
+
     font-weight:600;
+
     transform:translateY(100px);
+
     opacity:0;
+
     transition:.3s;
 }
 
 #toast.show{
+
     transform:translateY(0);
+
     opacity:1;
 }
+
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
+
     background:#041410;
+
     color:white;
+
     margin-top:60px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .footer-container{
+
     width:90%;
+
     max-width:1280px;
+
     margin:auto;
+
     padding:60px 0 30px;
+
     display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr;
+
     gap:40px;
 }
 
 .footer-brand h3{
+
     font-family:'Amiri',serif;
+
     color:var(--accent);
+
     font-size:22px;
+
     margin-bottom:12px;
 }
 
 .footer-brand p{
+
     color:rgba(255,255,255,.6);
+
     font-size:13px;
+
     line-height:1.9;
 }
 
 .footer-col h4{
+
     font-size:15px;
+
     margin-bottom:16px;
 }
 
 .footer-col a{
+
     display:block;
+
     color:rgba(255,255,255,.6);
+
     text-decoration:none;
+
     font-size:13px;
+
     margin-bottom:10px;
 }
 
 .footer-col a:hover{
+
     color:var(--accent);
 }
 
 .footer-copy{
+
     width:90%;
+
     max-width:1280px;
+
     margin:auto;
+
     padding:25px 0;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
     text-align:center;
+
     color:rgba(255,255,255,.4);
+
     font-size:12px;
 }
+
 
 /* =====================================================
    RESPONSIVE
@@ -879,88 +1439,123 @@ footer{
 @media(max-width:1024px){
 
     .books-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .stats-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 
+        grid-template-columns:
+        repeat(2,1fr);
+    }
 }
 
 @media(max-width:900px){
 
     .hero{
+
         grid-template-columns:1fr;
+
         text-align:center;
+
         padding-top:40px;
     }
 
     .hero-actions{
+
         justify-content:center;
     }
 
     .hero-book{
+
         display:none;
     }
 
     .about-section{
+
         grid-template-columns:1fr;
+
         padding:30px;
     }
 
     .footer-container{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+        1fr 1fr;
     }
 
-}
+    .categories-grid{
 
-@media(max-width:700px){
-
-    .other-categories{
-        grid-template-columns:1fr;
-        max-width:430px;
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
+    .quran-category{
+
+        grid-column:1 / -1;
+    }
 }
 
 @media(max-width:600px){
 
     .nav-links{
+
         display:none;
     }
 
     .books-grid{
+
         grid-template-columns:1fr;
     }
 
     .stats-grid{
+
         grid-template-columns:1fr;
     }
 
     .footer-container{
+
         grid-template-columns:1fr;
     }
 
+    .categories-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .quran-category{
+
+        grid-column:auto;
+    }
+
     .search-card{
+
         padding:8px;
     }
 
     .search-btn{
+
         padding:10px 16px;
+
         font-size:13px;
     }
-
 }
 
 </style>
 </head>
+
 
 <body>
 
 <div id="progressBar"></div>
 
 <div id="toast">رسالة إشعار</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -973,27 +1568,57 @@ footer{
 <div class="logo-icon">📚</div>
 
 <div class="logo-text">
+
 <strong>مكتبة حضري</strong>
+
 <span>الرقمية للإسلاميات</span>
+
 </div>
 
 </a>
+
 
 <div class="nav-controls">
 
 <div class="nav-links">
 
 <a href="#library">المكتبة</a>
+
 <a href="#categories">الأقسام</a>
+
 <a href="#about">عن المشروع</a>
 
 </div>
 
-<button class="icon-btn" id="openBookmarksBtn" title="المفضلة">⭐</button>
 
-<button class="icon-btn" id="fontSizeBtn" title="تغيير حجم الخط">🔤</button>
+<button
+class="icon-btn"
+id="openBookmarksBtn"
+title="المفضلة">
 
-<button class="icon-btn" id="themeToggleBtn" title="الوضع الليلي">🌙</button>
+⭐
+
+</button>
+
+
+<button
+class="icon-btn"
+id="fontSizeBtn"
+title="تغيير حجم الخط">
+
+🔤
+
+</button>
+
+
+<button
+class="icon-btn"
+id="themeToggleBtn"
+title="الوضع الليلي">
+
+🌙
+
+</button>
 
 </div>
 
@@ -1001,23 +1626,32 @@ footer{
 
 </nav>
 
+
+<!-- HERO -->
+
 <div class="hero">
 
 <div class="hero-content">
 
 <div class="hero-label">
+
 ✨ واجهة عصرية ومطورة خصيصاً للقارئ
+
 </div>
+
 
 <h1>
 
 اقرأ وتعلّم بفضل الله:
 
 <span>
+
 يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنْكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+
 </span>
 
 </h1>
+
 
 <p class="hero-description">
 
@@ -1025,19 +1659,26 @@ footer{
 
 </p>
 
+
 <div class="hero-actions">
 
 <a href="#library" class="btn btn-primary">
+
 📖 تصفح الكتب الآن
+
 </a>
+
 
 <a href="#categories" class="btn btn-secondary">
+
 استكشف الأقسام
+
 </a>
 
 </div>
 
 </div>
+
 
 <div class="hero-book">
 
@@ -1058,6 +1699,10 @@ footer{
 </header>
 
 
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
 <div class="search-section">
 
 <div class="search-card">
@@ -1070,8 +1715,12 @@ id="searchInput"
 placeholder="ابحث عن كتاب، موضوع، أو مؤلف..."
 >
 
-<button class="search-btn" type="button">
+<button
+class="search-btn"
+type="button">
+
 بحث فوري
+
 </button>
 
 </div>
@@ -1083,81 +1732,139 @@ placeholder="ابحث عن كتاب، موضوع، أو مؤلف..."
 
 
 <!-- =====================================================
-     الأقسام الرئيسية
+     CATEGORIES
 ===================================================== -->
 
-<section id="categories">
+<section
+class="section"
+id="categories">
 
-<div class="categories-title">
+<div class="section-title">
 
-<h2>أقسام المكتبة</h2>
+<div>
+
+<h2>🕌 أقسام المكتبة</h2>
 
 <p>
-اختر القسم الذي تريد استكشافه
+اختر القسم الذي تريد القراءة فيه
 </p>
 
 </div>
 
-
-<!-- القرآن الكريم وحده في الأعلى -->
-
-<div class="quran-category">
-
-<span class="category-icon">🕌</span>
-
-<h2>القرآن الكريم</h2>
-
-<span class="quran-arrow">⬇️</span>
-
 </div>
 
 
-<!-- باقي الأقسام بجانب بعضها -->
-
-<div class="other-categories">
+<div class="categories-grid">
 
 
-<a href="#library"
+<!-- القرآن الكريم -->
+
+<a
+href="#library"
+class="category-card quran-category"
+onclick="selectCategory('القرآن الكريم')">
+
+<div class="category-icon">
+
+🕌
+
+</div>
+
+<h3>
+
+القرآن الكريم
+
+</h3>
+
+<span>
+
+القراءة والتدبر
+
+</span>
+
+</a>
+
+
+<!-- الحديث -->
+
+<a
+href="#library"
 class="category-card"
-onclick="setCategory('الحديث الشريف')">
+onclick="selectCategory('الحديث الشريف')">
 
-<span class="category-icon">📜</span>
+<div class="category-icon">
 
-<h3>الحديث الشريف</h3>
+📜
 
-<p>
+</div>
+
+<h3>
+
+الحديث الشريف
+
+</h3>
+
+<span>
+
 كتب السنة النبوية
-</p>
+
+</span>
 
 </a>
 
 
-<a href="#library"
+<!-- الفقه -->
+
+<a
+href="#library"
 class="category-card"
-onclick="setCategory('الفقه الإسلامي')">
+onclick="selectCategory('الفقه الإسلامي')">
 
-<span class="category-icon">⚖️</span>
+<div class="category-icon">
 
-<h3>الفقه الإسلامي</h3>
+⚖️
 
-<p>
+</div>
+
+<h3>
+
+الفقه الإسلامي
+
+</h3>
+
+<span>
+
 كتب الفقه وأحكامه
-</p>
+
+</span>
 
 </a>
 
 
-<a href="#library"
+<!-- العقيدة -->
+
+<a
+href="#library"
 class="category-card"
-onclick="setCategory('العقيدة والتوحيد')">
+onclick="selectCategory('العقيدة والتوحيد')">
 
-<span class="category-icon">☝️</span>
+<div class="category-icon">
 
-<h3>العقيدة والتوحيد</h3>
+☝️
 
-<p>
+</div>
+
+<h3>
+
+العقيدة والتوحيد
+
+</h3>
+
+<span>
+
 كتب العقيدة والتوحيد
-</p>
+
+</span>
 
 </a>
 
@@ -1167,20 +1874,29 @@ onclick="setCategory('العقيدة والتوحيد')">
 </section>
 
 
+
 <!-- =====================================================
-     الكتب
+     BOOKS
 ===================================================== -->
 
-<section class="section" id="library">
+<section
+class="section"
+id="library">
 
 <div class="section-title">
 
 <div>
 
-<h2>الكتب المتاحة</h2>
+<h2>
+
+الكتب المتاحة
+
+</h2>
 
 <p>
+
 المؤلفات المتاحة للقراءة المباشرة داخل المنصة
+
 </p>
 
 </div>
@@ -1190,68 +1906,101 @@ onclick="setCategory('العقيدة والتوحيد')">
 
 <div class="filter-tabs">
 
-<button class="filter-btn active" data-filter="all">
+<button
+class="filter-btn active"
+data-filter="all">
+
 جميع الكتب
+
 </button>
 
-<button class="filter-btn" data-filter="القرآن الكريم">
+<button
+class="filter-btn"
+data-filter="القرآن الكريم">
+
 القرآن الكريم
+
 </button>
 
-<button class="filter-btn" data-filter="الحديث الشريف">
+<button
+class="filter-btn"
+data-filter="الحديث الشريف">
+
 الحديث الشريف
+
 </button>
 
-<button class="filter-btn" data-filter="الفقه الإسلامي">
+<button
+class="filter-btn"
+data-filter="الفقه الإسلامي">
+
 الفقه الإسلامي
+
 </button>
 
-<button class="filter-btn" data-filter="العقيدة والتوحيد">
+<button
+class="filter-btn"
+data-filter="العقيدة والتوحيد">
+
 العقيدة والتوحيد
+
 </button>
 
 </div>
 
 
-<div class="books-grid" id="books">
+<div
+class="books-grid"
+id="books">
 
 
-<!-- القرآن الكريم -->
+<!-- القرآن -->
 
 <article
 class="book-item"
 data-category="القرآن الكريم"
-data-search="القرآن الكريم قرآن"
->
+data-search="القرآن الكريم قرآن">
 
 <div class="book-header-img">
 
 <span class="book-badge">
+
 القرآن الكريم
+
 </span>
+
 
 <button
 class="bookmark-toggle"
 data-title="القرآن الكريم"
-title="إضافة للمفضلة"
->
+title="إضافة للمفضلة">
+
 ⭐
+
 </button>
 
+
 <div class="book-icon-3d">
+
 📖
+
 </div>
 
 </div>
+
 
 <div class="book-content">
 
 <h3>
+
 القرآن الكريم
+
 </h3>
 
 <div class="book-author">
+
 بالنص العربي العثماني
+
 </div>
 
 <div class="book-desc">
@@ -1260,14 +2009,21 @@ title="إضافة للمفضلة"
 
 </div>
 
+
 <div class="book-actions">
 
-<a href="quran.html" class="read-link">
+<a
+href="quran.html"
+class="read-link">
+
 📖 قراءة الآن
+
 </a>
 
 <span class="book-format">
+
 نص إلكتروني
+
 </span>
 
 </div>
@@ -1277,42 +2033,54 @@ title="إضافة للمفضلة"
 </article>
 
 
-<!-- صحيح البخاري -->
+
+<!-- البخاري -->
 
 <article
 class="book-item"
 data-category="الحديث الشريف"
-data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث"
->
+data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث">
 
 <div class="book-header-img">
 
 <span class="book-badge">
+
 الحديث الشريف
+
 </span>
+
 
 <button
 class="bookmark-toggle"
 data-title="صحيح البخاري"
-title="إضافة للمفضلة"
->
+title="إضافة للمفضلة">
+
 ⭐
+
 </button>
 
+
 <div class="book-icon-3d">
+
 📜
+
 </div>
 
 </div>
+
 
 <div class="book-content">
 
 <h3>
+
 صحيح البخاري
+
 </h3>
 
 <div class="book-author">
+
 الإمام محمد بن إسماعيل البخاري
+
 </div>
 
 <div class="book-desc">
@@ -1321,14 +2089,21 @@ title="إضافة للمفضلة"
 
 </div>
 
+
 <div class="book-actions">
 
-<a href="bukhari.html" class="read-link">
+<a
+href="bukhari.html"
+class="read-link">
+
 📖 قراءة الآن
+
 </a>
 
 <span class="book-format">
+
 كتاب حديث
+
 </span>
 
 </div>
@@ -1338,42 +2113,54 @@ title="إضافة للمفضلة"
 </article>
 
 
-<!-- كتاب الطهارة -->
+
+<!-- الطهارة -->
 
 <article
 class="book-item"
 data-category="الفقه الإسلامي"
-data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه"
->
+data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه">
 
 <div class="book-header-img">
 
 <span class="book-badge">
+
 الفقه الإسلامي
+
 </span>
+
 
 <button
 class="bookmark-toggle"
 data-title="كتاب الطهارة"
-title="إضافة للمفضلة"
->
+title="إضافة للمفضلة">
+
 ⭐
+
 </button>
 
+
 <div class="book-icon-3d">
+
 ⚖️
+
 </div>
 
 </div>
+
 
 <div class="book-content">
 
 <h3>
+
 كتاب الطهارة
+
 </h3>
 
 <div class="book-author">
+
 من بداية المجتهد — ابن رشد
+
 </div>
 
 <div class="book-desc">
@@ -1382,14 +2169,21 @@ title="إضافة للمفضلة"
 
 </div>
 
+
 <div class="book-actions">
 
-<a href="Al-tahara.html" class="read-link">
+<a
+href="Al-tahara.html"
+class="read-link">
+
 📖 قراءة الآن
+
 </a>
 
 <span class="book-format">
+
 كتاب فقه
+
 </span>
 
 </div>
@@ -1399,42 +2193,54 @@ title="إضافة للمفضلة"
 </article>
 
 
-<!-- كتاب التوحيد -->
+
+<!-- التوحيد -->
 
 <article
 class="book-item"
 data-category="العقيدة والتوحيد"
-data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد"
->
+data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد">
 
 <div class="book-header-img">
 
 <span class="book-badge">
+
 العقيدة والتوحيد
+
 </span>
+
 
 <button
 class="bookmark-toggle"
 data-title="كتاب التوحيد"
-title="إضافة للمفضلة"
->
+title="إضافة للمفضلة">
+
 ⭐
+
 </button>
 
+
 <div class="book-icon-3d">
+
 ☝️
+
 </div>
 
 </div>
+
 
 <div class="book-content">
 
 <h3>
+
 كتاب التوحيد
+
 </h3>
 
 <div class="book-author">
+
 الإمام محمد بن عبد الوهاب
+
 </div>
 
 <div class="book-desc">
@@ -1443,14 +2249,21 @@ title="إضافة للمفضلة"
 
 </div>
 
+
 <div class="book-actions">
 
-<a href="tauheed.html" class="read-link">
+<a
+href="tauheed.html"
+class="read-link">
+
 📖 قراءة الآن
+
 </a>
 
 <span class="book-format">
+
 كتاب عقيدة
+
 </span>
 
 </div>
@@ -1465,8 +2278,17 @@ title="إضافة للمفضلة"
 
 <div
 id="noResults"
-style="display:none;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:40px;text-align:center;color:var(--text-muted);margin-top:25px;"
->
+style="
+display:none;
+background:var(--card-bg);
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:40px;
+text-align:center;
+color:var(--text-muted);
+margin-top:25px;
+font-size:16px;
+">
 
 🔎 عذراً، لا توجد نتائج مطابقة لبحثك أو التصنيف المحدد.
 
@@ -1475,7 +2297,10 @@ style="display:none;background:var(--card-bg);border:1px solid var(--border);bor
 </section>
 
 
-<!-- الإحصائيات -->
+
+<!-- =====================================================
+     STATS
+===================================================== -->
 
 <section class="stats-grid">
 
@@ -1484,37 +2309,48 @@ style="display:none;background:var(--card-bg);border:1px solid var(--border);bor
 <strong>4</strong>
 
 <span>
+
 أمهات الكتب
+
 </span>
 
 </div>
+
 
 <div class="stat-box">
 
 <strong>4</strong>
 
 <span>
+
 أقسام رئيسية
+
 </span>
 
 </div>
+
 
 <div class="stat-box">
 
 <strong>100%</strong>
 
 <span>
+
 تصفح سلس
+
 </span>
 
 </div>
+
 
 <div class="stat-box">
 
 <strong>2026</strong>
 
 <span>
+
 عام التحديث
+
 </span>
 
 </div>
@@ -1522,46 +2358,64 @@ style="display:none;background:var(--card-bg);border:1px solid var(--border);bor
 </section>
 
 
-<!-- عن المكتبة -->
 
-<section class="about-section" id="about">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+class="about-section"
+id="about">
 
 <div>
 
 <h2>
+
 عن مكتبة حضري
+
 </h2>
 
 <p>
 
-منصة رقمية رائدة تهدف إلى إتاحة المصادر وكتب التراث الإسلامي الأصيل بتصميم عصري فائق الجودة، لتمكين الباحثين وطلبة العلم من القراءة السريعة والمباشرة عبر مختلف الأجهزة دون أي إعلانات مزعجة.
+منصة رقمية تهدف إلى إتاحة المصادر وكتب التراث الإسلامي الأصيل بتصميم عصري فائق الجودة، لتمكين الباحثين وطلبة العلم من القراءة السريعة والمباشرة عبر مختلف الأجهزة دون أي إعلانات مزعجة.
 
 </p>
 
 </div>
 
+
 <div class="about-features">
 
 <strong>
+
 مميزات المنصة:
+
 </strong>
 
 <ul>
 
 <li>
+
 واجهة بصرية راقية ومريحة للعين مع دعم الثيم الليلي
+
 </li>
 
 <li>
-بحث فوري وذكي ونظام حفظ الكتب المفضلة
+
+بحث فوري ونظام حفظ الكتب المفضلة
+
 </li>
 
 <li>
+
 متجاوبة كلياً مع الهواتف الذكية والأجهزة اللوحية
+
 </li>
 
 <li>
+
 تحديثات مستمرة لإضافة المزيد من العلوم الشرعية
+
 </li>
 
 </ul>
@@ -1573,52 +2427,69 @@ style="display:none;background:var(--card-bg);border:1px solid var(--border);bor
 </main>
 
 
-<!-- المفضلة -->
 
-<div class="modal-overlay" id="bookmarksModal">
+<!-- =====================================================
+     BOOKMARK MODAL
+===================================================== -->
+
+<div
+class="modal-overlay"
+id="bookmarksModal">
 
 <div class="modal-card">
 
 <div class="modal-header">
 
 <h3>
-⭐ كتب المفضلة المحفوظة
+
+⭐ الكتب المفضلة المحفوظة
+
 </h3>
 
 <button
 class="close-modal"
-id="closeModalBtn"
->
+id="closeModalBtn">
+
 &times;
+
 </button>
 
 </div>
 
+
 <div
 class="modal-body"
-id="savedBooksList"
->
-</div>
+id="savedBooksList">
 
 </div>
 
 </div>
 
+</div>
 
-<!-- FOOTER -->
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
 <div class="footer-container">
 
+
 <div class="footer-brand">
 
 <h3>
+
 📚 مكتبة حضري
+
 </h3>
 
 <p>
-المرجع الرقمي الأمثل لقراءة القرآن الكريم، السنة النبوية، وكتب العقيدة والفقه بأسلوب عصري سلس.
+
+المرجع الرقمي لقراءة القرآن الكريم، السنة النبوية، وكتب العقيدة والفقه بأسلوب عصري سلس.
+
 </p>
 
 </div>
@@ -1627,25 +2498,33 @@ id="savedBooksList"
 <div class="footer-col">
 
 <h4>
+
 أقسام المكتبة
+
 </h4>
 
 <a href="quran.html">
+
 القرآن الكريم
+
 </a>
 
-<a href="bukhari.html">
+<a href="hadith.html">
+
 الحديث الشريف
+
 </a>
 
-<a href="#library"
-onclick="setCategory('الفقه الإسلامي')"
->
+<a href="fiqh.html">
+
 الفقه الإسلامي
+
 </a>
 
 <a href="tauheed.html">
+
 العقيدة والتوحيد
+
 </a>
 
 </div>
@@ -1654,19 +2533,27 @@ onclick="setCategory('الفقه الإسلامي')"
 <div class="footer-col">
 
 <h4>
+
 روابط سريعة
+
 </h4>
 
 <a href="#library">
+
 الكتب المتاحة
+
 </a>
 
 <a href="#categories">
+
 الأقسام العلمية
+
 </a>
 
 <a href="#about">
+
 عن المشروع
+
 </a>
 
 </div>
@@ -1683,28 +2570,42 @@ onclick="setCategory('الفقه الإسلامي')"
 </footer>
 
 
+
 <script>
 
-/* شريط التقدم */
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
 
 window.addEventListener('scroll',()=>{
 
-const winScroll=document.documentElement.scrollTop;
+const winScroll =
+document.documentElement.scrollTop;
 
-const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+const height =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
 
-const scrolled=(winScroll/height)*100;
+const scrolled =
+(winScroll / height) * 100;
 
-document.getElementById('progressBar').style.width=scrolled+'%';
+document.getElementById(
+'progressBar'
+).style.width =
+scrolled + '%';
 
 });
 
 
-/* الإشعارات */
+
+/* =====================================================
+   TOAST
+===================================================== */
 
 function showToast(message){
 
-const toast=document.getElementById('toast');
+const toast =
+document.getElementById('toast');
 
 toast.textContent=message;
 
@@ -1719,111 +2620,221 @@ toast.classList.remove('show');
 }
 
 
-/* الوضع الليلي */
 
-const themeToggleBtn=document.getElementById('themeToggleBtn');
+/* =====================================================
+   DARK MODE
+===================================================== */
 
-const currentTheme=localStorage.getItem('theme')||'light';
+const themeToggleBtn =
+document.getElementById(
+'themeToggleBtn'
+);
+
+const currentTheme =
+localStorage.getItem('theme')
+|| 'light';
+
 
 if(currentTheme==='dark'){
 
-document.documentElement.setAttribute('data-theme','dark');
+document.documentElement
+.setAttribute(
+'data-theme',
+'dark'
+);
 
 themeToggleBtn.textContent='☀️';
 
 }
 
-themeToggleBtn.addEventListener('click',()=>{
 
-let theme=document.documentElement.getAttribute('data-theme');
+themeToggleBtn.addEventListener(
+'click',
+()=>{
+
+let theme =
+document.documentElement
+.getAttribute('data-theme');
+
 
 if(theme==='dark'){
 
-document.documentElement.removeAttribute('data-theme');
+document.documentElement
+.removeAttribute('data-theme');
 
-localStorage.setItem('theme','light');
+localStorage.setItem(
+'theme',
+'light'
+);
 
 themeToggleBtn.textContent='🌙';
 
-showToast('تم التفعيل إلى الوضع الفاتح');
+showToast(
+'تم التفعيل إلى الوضع الفاتح'
+);
 
 }else{
 
-document.documentElement.setAttribute('data-theme','dark');
+document.documentElement
+.setAttribute(
+'data-theme',
+'dark'
+);
 
-localStorage.setItem('theme','dark');
+localStorage.setItem(
+'theme',
+'dark'
+);
 
 themeToggleBtn.textContent='☀️';
 
-showToast('تم التفعيل إلى الوضع الليلي');
+showToast(
+'تم التفعيل إلى الوضع الليلي'
+);
 
 }
 
 });
 
 
-/* حجم الخط */
 
-const fontSizeBtn=document.getElementById('fontSizeBtn');
+/* =====================================================
+   FONT SIZE
+===================================================== */
 
-const fontSizes=['16px','18px','20px'];
+const fontSizeBtn =
+document.getElementById(
+'fontSizeBtn'
+);
 
-let currentFontIdx=parseInt(localStorage.getItem('fontIdx')||'0');
+const fontSizes=[
+'16px',
+'18px',
+'20px'
+];
+
+let currentFontIdx =
+parseInt(
+localStorage.getItem(
+'fontIdx'
+)||'0'
+);
+
 
 function applyFontSize(idx){
 
-document.documentElement.style.setProperty('--base-font-size',fontSizes[idx]);
+document.documentElement
+.style
+.setProperty(
+'--base-font-size',
+fontSizes[idx]
+);
 
-localStorage.setItem('fontIdx',idx);
+localStorage.setItem(
+'fontIdx',
+idx
+);
 
 }
 
-applyFontSize(currentFontIdx);
+applyFontSize(
+currentFontIdx
+);
 
-fontSizeBtn.addEventListener('click',()=>{
 
-currentFontIdx=(currentFontIdx+1)%fontSizes.length;
+fontSizeBtn.addEventListener(
+'click',
+()=>{
 
-applyFontSize(currentFontIdx);
+currentFontIdx =
+(currentFontIdx+1)
+% fontSizes.length;
 
-showToast('تم تغيير حجم الخط إلى: '+fontSizes[currentFontIdx]);
+applyFontSize(
+currentFontIdx
+);
+
+showToast(
+'تم تغيير حجم الخط إلى: '
++
+fontSizes[currentFontIdx]
+);
 
 });
 
 
-/* البحث والتصفية */
 
-const searchInput=document.getElementById('searchInput');
+/* =====================================================
+   SEARCH & FILTER
+===================================================== */
 
-const books=document.querySelectorAll('.book-item');
+const searchInput =
+document.getElementById(
+'searchInput'
+);
 
-const noResults=document.getElementById('noResults');
+const books =
+document.querySelectorAll(
+'.book-item'
+);
 
-const filterBtns=document.querySelectorAll('.filter-btn');
+const noResults =
+document.getElementById(
+'noResults'
+);
+
+const filterBtns =
+document.querySelectorAll(
+'.filter-btn'
+);
+
 
 let activeCategory='all';
 
 let currentSearchQuery='';
 
+
 function filterAndSearchBooks(){
 
 let found=0;
 
+
 books.forEach(book=>{
 
-const text=book.getAttribute('data-search').toLowerCase();
+const text =
+book.getAttribute(
+'data-search'
+).toLowerCase();
 
-const category=book.getAttribute('data-category');
+const category =
+book.getAttribute(
+'data-category'
+);
 
-const matchesCategory=
-activeCategory==='all' ||
-category===activeCategory;
 
-const matchesSearch=
-currentSearchQuery==='' ||
-text.includes(currentSearchQuery);
+const matchesCategory =
+(
+activeCategory==='all'
+||
+category===activeCategory
+);
 
-if(matchesCategory && matchesSearch){
+
+const matchesSearch =
+(
+currentSearchQuery===''
+||
+text.includes(
+currentSearchQuery
+)
+);
+
+
+if(
+matchesCategory
+&&
+matchesSearch
+){
 
 book.style.display='';
 
@@ -1837,14 +2848,28 @@ book.style.display='none';
 
 });
 
-noResults.style.display=
-found===0?'block':'none';
+
+if(found===0){
+
+noResults.style.display='block';
+
+}else{
+
+noResults.style.display='none';
 
 }
 
-searchInput.addEventListener('input',function(){
+}
 
-currentSearchQuery=this.value.trim().toLowerCase();
+
+searchInput.addEventListener(
+'input',
+function(){
+
+currentSearchQuery =
+this.value
+.trim()
+.toLowerCase();
 
 filterAndSearchBooks();
 
@@ -1853,13 +2878,23 @@ filterAndSearchBooks();
 
 filterBtns.forEach(btn=>{
 
-btn.addEventListener('click',()=>{
+btn.addEventListener(
+'click',
+()=>{
 
-filterBtns.forEach(b=>b.classList.remove('active'));
+filterBtns.forEach(
+b=>
+b.classList.remove(
+'active'
+)
+);
 
 btn.classList.add('active');
 
-activeCategory=btn.getAttribute('data-filter');
+activeCategory =
+btn.getAttribute(
+'data-filter'
+);
 
 filterAndSearchBooks();
 
@@ -1868,51 +2903,78 @@ filterAndSearchBooks();
 });
 
 
-/* الضغط على بطاقات الأقسام */
 
-function setCategory(category){
+/* =====================================================
+   CATEGORY BUTTONS
+===================================================== */
+
+function selectCategory(category){
 
 activeCategory=category;
 
 filterBtns.forEach(btn=>{
 
-btn.classList.remove('active');
+btn.classList.remove(
+'active'
+);
 
-if(btn.getAttribute('data-filter')===category){
+if(
+btn.getAttribute(
+'data-filter'
+)===category
+){
 
-btn.classList.add('active');
+btn.classList.add(
+'active'
+);
 
 }
 
 });
+
 
 filterAndSearchBooks();
 
 }
 
 
-/* المفضلة */
 
-const bookmarkBtns=
-document.querySelectorAll('.bookmark-toggle');
+/* =====================================================
+   BOOKMARKS
+===================================================== */
 
-const openBookmarksBtn=
-document.getElementById('openBookmarksBtn');
+const bookmarkBtns =
+document.querySelectorAll(
+'.bookmark-toggle'
+);
 
-const bookmarksModal=
-document.getElementById('bookmarksModal');
+const openBookmarksBtn =
+document.getElementById(
+'openBookmarksBtn'
+);
 
-const closeModalBtn=
-document.getElementById('closeModalBtn');
+const bookmarksModal =
+document.getElementById(
+'bookmarksModal'
+);
 
-const savedBooksList=
-document.getElementById('savedBooksList');
+const closeModalBtn =
+document.getElementById(
+'closeModalBtn'
+);
+
+const savedBooksList =
+document.getElementById(
+'savedBooksList'
+);
 
 
 function getBookmarks(){
 
 return JSON.parse(
-localStorage.getItem('bookmarks')||'[]'
+localStorage.getItem(
+'bookmarks'
+)||'[]'
 );
 
 }
@@ -1920,22 +2982,35 @@ localStorage.getItem('bookmarks')||'[]'
 
 function updateBookmarkButtonsUI(){
 
-const bookmarks=getBookmarks();
+const bookmarks =
+getBookmarks();
+
 
 bookmarkBtns.forEach(btn=>{
 
-const bookTitle=
-btn.getAttribute('data-title');
+const bookTitle =
+btn.getAttribute(
+'data-title'
+);
 
-if(bookmarks.includes(bookTitle)){
 
-btn.classList.add('active');
+if(
+bookmarks.includes(
+bookTitle
+)
+){
+
+btn.classList.add(
+'active'
+);
 
 btn.textContent='★';
 
 }else{
 
-btn.classList.remove('active');
+btn.classList.remove(
+'active'
+);
 
 btn.textContent='⭐';
 
@@ -1948,31 +3023,52 @@ btn.textContent='⭐';
 
 bookmarkBtns.forEach(btn=>{
 
-btn.addEventListener('click',()=>{
+btn.addEventListener(
+'click',
+()=>{
 
-const bookTitle=
-btn.getAttribute('data-title');
+const bookTitle =
+btn.getAttribute(
+'data-title'
+);
 
-let bookmarks=getBookmarks();
+let bookmarks =
+getBookmarks();
 
-if(bookmarks.includes(bookTitle)){
 
-bookmarks=
-bookmarks.filter(t=>t!==bookTitle);
+if(
+bookmarks.includes(
+bookTitle
+)
+){
 
-showToast('تمت إزالة الكتاب من المفضلة');
+bookmarks =
+bookmarks.filter(
+t=>t!==bookTitle
+);
+
+showToast(
+'تمت إزالة الكتاب من المفضلة'
+);
 
 }else{
 
-bookmarks.push(bookTitle);
+bookmarks.push(
+bookTitle
+);
 
-showToast('تمت إضافة الكتاب إلى المفضلة بنجاح');
+showToast(
+'تمت إضافة الكتاب إلى المفضلة بنجاح'
+);
 
 }
 
+
 localStorage.setItem(
 'bookmarks',
-JSON.stringify(bookmarks)
+JSON.stringify(
+bookmarks
+)
 );
 
 updateBookmarkButtonsUI();
@@ -1982,51 +3078,81 @@ updateBookmarkButtonsUI();
 });
 
 
-openBookmarksBtn.addEventListener('click',()=>{
 
-const bookmarks=getBookmarks();
+/* =====================================================
+   OPEN BOOKMARKS
+===================================================== */
+
+openBookmarksBtn.addEventListener(
+'click',
+()=>{
+
+const bookmarks =
+getBookmarks();
 
 savedBooksList.innerHTML='';
 
-if(bookmarks.length===0){
+
+if(
+bookmarks.length===0
+){
 
 savedBooksList.innerHTML=
+
 '<p style="text-align:center;color:var(--text-muted);padding:20px;">لا توجد كتب محفوظة في المفضلة حالياً.</p>';
 
 }else{
 
 bookmarks.forEach(title=>{
 
-const div=document.createElement('div');
+const div =
+document.createElement(
+'div'
+);
 
-div.className='saved-book-item';
+div.className=
+'saved-book-item';
 
 div.innerHTML=
 `<span>📖 ${title}</span>`;
 
-savedBooksList.appendChild(div);
+savedBooksList.appendChild(
+div
+);
 
 });
 
 }
 
-bookmarksModal.style.display='flex';
+
+bookmarksModal.style.display=
+'flex';
 
 });
 
 
-closeModalBtn.addEventListener('click',()=>{
+/* CLOSE MODAL */
 
-bookmarksModal.style.display='none';
+closeModalBtn.addEventListener(
+'click',
+()=>{
+
+bookmarksModal.style.display=
+'none';
 
 });
 
 
-window.addEventListener('click',(e)=>{
+window.addEventListener(
+'click',
+e=>{
 
-if(e.target===bookmarksModal){
+if(
+e.target===bookmarksModal
+){
 
-bookmarksModal.style.display='none';
+bookmarksModal.style.display=
+'none';
 
 }
 
@@ -2038,4 +3164,5 @@ updateBookmarkButtonsUI();
 </script>
 
 </body>
+
 </html>
