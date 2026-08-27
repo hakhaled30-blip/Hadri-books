@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>سياسة الخصوصية | مكتبة حضري للكتب الإسلامية</title>
+
+<meta name="description" content="سياسة الخصوصية لمكتبة حضري للكتب الإسلامية، توضح كيفية التعامل مع بيانات زوار الموقع وملفات تعريف الارتباط والخدمات المستخدمة.">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d2e24">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#0d2e24;
+    --primary-light:#164e3d;
+    --accent:#d4af37;
+    --text-main:#111827;
+    --text-muted:#4b5563;
+    --bg:#f8fafc;
+    --white:#ffffff;
+    --border:#e2e8f0;
+    --shadow:0 10px 25px -5px rgba(13,46,36,.08);
+}
+
+body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--bg);
+    color:var(--text-main);
+    line-height:1.9;
+}
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #071f18 0%,
+        #0d2e24 60%,
+        #134233 100%
+    );
+    color:white;
+}
+
+.navbar{
+    min-height:80px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:white;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        #aa8220
+    );
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:18px;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--accent);
+    font-size:11px;
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:rgba(255,255,255,.85);
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:10px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:rgba(255,255,255,.1);
+    color:var(--accent);
+}
+
+.hero{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    padding:60px 0 75px;
+}
+
+.hero-icon{
+    font-size:52px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-family:'Amiri',serif;
+    font-size:42px;
+    color:var(--accent);
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:rgba(255,255,255,.75);
+    max-width:750px;
+    margin:auto;
+    font-size:16px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.content{
+    margin-top:-35px;
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:40px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+    font-size:24px;
+    color:var(--primary);
+    margin-bottom:15px;
+    font-weight:800;
+}
+
+.card h2::before{
+    content:"";
+    display:inline-block;
+    width:5px;
+    height:25px;
+    background:var(--accent);
+    border-radius:5px;
+    margin-left:10px;
+    vertical-align:-4px;
+}
+
+.card h3{
+    color:var(--primary);
+    font-size:18px;
+    margin:20px 0 8px;
+}
+
+.card p{
+    color:var(--text-muted);
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+.card ul{
+    padding-right:25px;
+    color:var(--text-muted);
+    font-size:15px;
+}
+
+.card li{
+    margin-bottom:8px;
+}
+
+.update-box{
+    background:#f7efd2;
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:25px;
+    color:var(--primary);
+    font-size:14px;
+}
+
+.back-home{
+    text-align:center;
+    margin:35px 0 60px;
+}
+
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back-home a:hover{
+    background:var(--primary-light);
+    transform:translateY(-2px);
+}
+
+footer{
+    background:#041410;
+    color:white;
+    margin-top:30px;
+}
+
+.footer-container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:45px 0 25px;
+    text-align:center;
+}
+
+.footer-brand h3{
+    font-family:'Amiri',serif;
+    color:var(--accent);
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,.6);
+    font-size:13px;
+    max-width:600px;
+    margin:auto;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.65);
+    text-decoration:none;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:var(--accent);
+}
+
+.footer-copy{
+    border-top:1px solid rgba(255,255,255,.06);
+    margin-top:25px;
+    padding-top:20px;
+    color:rgba(255,255,255,.4);
+    font-size:12px;
+}
+
+@media(max-width:700px){
+
+    .nav-container{
+        flex-direction:column;
+        justify-content:center;
+        padding:15px 0;
+    }
+
+    .nav-links{
+        justify-content:center;
+    }
+
+    .hero{
+        padding:45px 0 65px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .card{
+        padding:25px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+
+<div class="logo-icon">
+📚
+</div>
+
+<div class="logo-text">
+
+<strong
