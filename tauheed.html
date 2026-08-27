@@ -7,7 +7,8 @@
 
 <title>كتاب التوحيد | مكتبة حضري للكتب الإسلامية</title>
 
-<meta name="description" content="قراءة كتاب التوحيد الذي هو حق الله على العبيد للإمام محمد بن عبد الوهاب رحمه الله، مع فهرس منظم لجميع أبواب الكتاب.">
+<meta name="description"
+content="قراءة كتاب التوحيد الذي هو حق الله على العبيد للإمام محمد بن عبد الوهاب رحمه الله، مع فهرس منظم لأبواب الكتاب.">
 
 <meta name="robots" content="index, follow">
 
@@ -29,13 +30,15 @@ body {
     line-height: 2.2;
 }
 
-/* ===== HEADER ===== */
+/* =========================
+   HEADER
+========================= */
 
 header {
     background: #0f5132;
     color: #fff;
     text-align: center;
-    padding: 28px 15px;
+    padding: 30px 15px;
 }
 
 header h1 {
@@ -44,11 +47,14 @@ header h1 {
 }
 
 header p {
-    margin: 6px 0 0;
+    margin: 7px 0 0;
     font-size: 15px;
+    opacity: .92;
 }
 
-/* ===== CONTAINER ===== */
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
     width: 94%;
@@ -56,32 +62,34 @@ header p {
     margin: auto;
 }
 
-/* ===== NAVIGATION ===== */
+/* =========================
+   HOME BUTTON
+========================= */
 
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
+.home-navigation {
+    text-align: center;
+    margin: 25px 0;
 }
 
-.navigation a {
+.home-navigation a {
     display: inline-block;
-    background: #fff;
-    color: #0f5132;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-weight: bold;
-}
-
-.navigation a:hover {
     background: #0f5132;
     color: #fff;
+    text-decoration: none;
+    border-radius: 9px;
+    padding: 10px 22px;
+    font-weight: bold;
+    transition: .2s ease;
 }
 
-/* ===== BOOK HEADER ===== */
+.home-navigation a:hover {
+    background: #0b3d26;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   BOOK HEADER
+========================= */
 
 .book-header {
     background: #fff;
@@ -100,11 +108,13 @@ header p {
 }
 
 .book-header p {
-    margin: 6px 0;
+    margin: 7px 0;
     color: #666;
 }
 
-/* ===== SEARCH ===== */
+/* =========================
+   SEARCH
+========================= */
 
 .search-box {
     background: #fff;
@@ -128,7 +138,9 @@ header p {
     border-color: #0f5132;
 }
 
-/* ===== TOC ===== */
+/* =========================
+   TABLE OF CONTENTS
+========================= */
 
 .toc {
     background: #fff;
@@ -167,7 +179,9 @@ header p {
     color: #0f5132;
 }
 
-/* ===== NOTICE ===== */
+/* =========================
+   NOTICE
+========================= */
 
 .notice {
     background: #fff8df;
@@ -178,7 +192,9 @@ header p {
     color: #5d4b13;
 }
 
-/* ===== LOADING ===== */
+/* =========================
+   LOADING
+========================= */
 
 #loading {
     background: #fff;
@@ -189,7 +205,9 @@ header p {
     margin-bottom: 20px;
 }
 
-/* ===== ERROR ===== */
+/* =========================
+   ERROR
+========================= */
 
 #error {
     display: none;
@@ -201,7 +219,9 @@ header p {
     margin-bottom: 20px;
 }
 
-/* ===== CHAPTER ===== */
+/* =========================
+   CHAPTER
+========================= */
 
 .chapter {
     background: #fff;
@@ -225,7 +245,9 @@ header p {
     text-align: justify;
 }
 
-/* ===== QURAN ===== */
+/* =========================
+   QURAN
+========================= */
 
 .quran {
     background: #faf8f0;
@@ -236,7 +258,9 @@ header p {
     color: #493d18;
 }
 
-/* ===== HADITH ===== */
+/* =========================
+   HADITH
+========================= */
 
 .hadith {
     background: #f3f7f4;
@@ -246,14 +270,9 @@ header p {
     border-radius: 8px;
 }
 
-/* ===== SOURCE ===== */
-
-.source {
-    color: #777;
-    font-size: 14px;
-}
-
-/* ===== TOP BUTTON ===== */
+/* =========================
+   TOP BUTTON
+========================= */
 
 .top-button {
     text-align: center;
@@ -269,7 +288,9 @@ header p {
     border-radius: 8px;
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     margin-top: 45px;
@@ -280,7 +301,9 @@ footer {
     font-size: 14px;
 }
 
-/* ===== MOBILE ===== */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -304,12 +327,9 @@ footer {
         text-align: right;
     }
 
-    .navigation {
-        flex-direction: column;
-    }
-
-    .navigation a {
-        text-align: center;
+    .home-navigation a {
+        width: 100%;
+        max-width: 300px;
     }
 
 }
@@ -320,11 +340,18 @@ footer {
 
 <body id="top">
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-    <h1>☪️ مكتبة حضري للكتب الإسلامية</h1>
+    <h1>📚 مكتبة حضري للكتب الإسلامية</h1>
 
-    <p>كتب العقيدة والتوحيد</p>
+    <p>
+        كتب العقيدة والتوحيد
+    </p>
 
 </header>
 
@@ -332,30 +359,22 @@ footer {
 <div class="container">
 
 
-    <!-- أزرار التنقل -->
+    <!-- =========================
+         الصفحة الرئيسية فقط
+    ========================= -->
 
-    <nav class="navigation">
+    <nav class="home-navigation">
 
         <a href="index.html">
-            🏠 الرئيسية
-        </a>
-
-        <a href="index.html" class="back">
-  ← العودة إلى المكتبة الرئيسية
-</a>
-
-        <a href="fiqh.html">
-            ⚖️ الفقه الإسلامي
-        </a>
-
-        <a href="hadith.html">
-            📜 الحديث الشريف
+            🏠 الصفحة الرئيسية
         </a>
 
     </nav>
 
 
-    <!-- معلومات الكتاب -->
+    <!-- =========================
+         معلومات الكتاب
+    ========================= -->
 
     <section class="book-header">
 
@@ -375,7 +394,9 @@ footer {
     </section>
 
 
-    <!-- البحث -->
+    <!-- =========================
+         البحث
+    ========================= -->
 
     <div class="search-box">
 
@@ -388,18 +409,24 @@ footer {
     </div>
 
 
-    <!-- الفهرس -->
+    <!-- =========================
+         الفهرس
+    ========================= -->
 
     <section class="toc" id="toc">
 
-        <h3>📑 فهرس أبواب الكتاب</h3>
+        <h3>
+            📑 فهرس أبواب الكتاب
+        </h3>
 
         <ul class="toc-list" id="tocList"></ul>
 
     </section>
 
 
-    <!-- تنبيه -->
+    <!-- =========================
+         التنبيه
+    ========================= -->
 
     <div class="notice">
 
@@ -412,7 +439,9 @@ footer {
     </div>
 
 
-    <!-- التحميل -->
+    <!-- =========================
+         التحميل
+    ========================= -->
 
     <div id="loading">
 
@@ -421,7 +450,9 @@ footer {
     </div>
 
 
-    <!-- الخطأ -->
+    <!-- =========================
+         الخطأ
+    ========================= -->
 
     <div id="error">
 
@@ -442,10 +473,16 @@ footer {
     </div>
 
 
-    <!-- محتوى الكتاب -->
+    <!-- =========================
+         محتوى الكتاب
+    ========================= -->
 
     <main id="book-content"></main>
 
+
+    <!-- =========================
+         العودة إلى الأعلى
+    ========================= -->
 
     <div class="top-button">
 
@@ -459,6 +496,10 @@ footer {
 </div>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     © 2026 مكتبة حضري للكتب الإسلامية
@@ -470,7 +511,7 @@ footer {
 
 /* ==========================================
    تحميل كتاب التوحيد
-   ========================================== */
+========================================== */
 
 fetch("tauheed.txt")
 
@@ -494,23 +535,14 @@ fetch("tauheed.txt")
     const tocList =
         document.getElementById("tocList");
 
-
-    /*
-     * تنظيف بداية ونهاية الملف
-     */
-
     text = text.trim();
 
-
     /*
-     * تقسيم الكتاب إلى أبواب.
-     *
-     * كل باب يبدأ بكلمة "باب:"
+     * تقسيم الكتاب إلى أبواب
      */
 
     const parts =
         text.split(/(?=باب\s*:)/);
-
 
     let chapterNumber = 0;
 
@@ -523,13 +555,10 @@ fetch("tauheed.txt")
             return;
         }
 
-
         chapterNumber++;
-
 
         const lines =
             part.split(/\r?\n/);
-
 
         let title = "";
 
@@ -550,10 +579,6 @@ fetch("tauheed.txt")
             bodyLines = lines.slice(1);
 
         } else {
-
-            /*
-             * مقدمة الكتاب
-             */
 
             title = "مقدمة الكتاب";
 
@@ -576,14 +601,13 @@ fetch("tauheed.txt")
 
 
         /*
-         * إنشاء عنوان الباب
+         * عنوان الباب
          */
 
         const heading =
             document.createElement("h3");
 
         heading.textContent = title;
-
 
         chapter.appendChild(heading);
 
@@ -602,7 +626,9 @@ fetch("tauheed.txt")
             "#" + chapter.id;
 
         tocLink.textContent =
-            chapterNumber + ". " + title.replace(/^باب\s*:\s*/, "");
+            chapterNumber +
+            ". " +
+            title.replace(/^باب\s*:\s*/, "");
 
         tocItem.appendChild(tocLink);
 
@@ -617,11 +643,9 @@ fetch("tauheed.txt")
 
             line = line.trim();
 
-
             if (!line) {
                 return;
             }
-
 
             const paragraph =
                 document.createElement("p");
@@ -735,6 +759,7 @@ fetch("tauheed.txt")
 
 })
 
+
 .catch(function(error) {
 
     document.getElementById("loading").style.display = "none";
@@ -748,4 +773,5 @@ fetch("tauheed.txt")
 </script>
 
 </body>
+
 </html>
