@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>الصفحة غير موجودة | مكتبة حضري للكتب الإسلامية</title><meta name="description" content="عذرًا، الصفحة التي تبحث عنها غير موجودة في مكتبة حضري للكتب الإسلامية."><meta name="robots" content="noindex, follow"><meta name="theme-color" content="#0d2e24"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet"><style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#0d2e24;
+    --primary-light:#164e3d;
+    --accent:#d4af37;
+    --accent-light:#f7efd2;
+    --text-main:#111827;
+    --text-muted:#4b5563;
+    --bg-body:#f8fafc;
+    --white:#ffffff;
+    --border:#e2e8f0;
+    --shadow:0 20px 50px rgba(13,46,36,.12);
+}
+
+[data-theme="dark"]{
+    --primary:#134233;
+    --primary-light:#1b5c46;
+    --accent:#e5c158;
+    --accent-light:rgba(229,193,88,.12);
+    --text-main:#f1f5f9;
+    --text-muted:#94a3b8;
+    --bg-body:#07110e;
+    --white:#0d1b17;
+    --border:#1e332c;
+    --shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:'Tajawal',sans-serif;
+    background:var(--bg-body);
+    color:var(--text-main);
+    display:flex;
+    flex-direction:column;
+    transition:.3s;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+header{
+    background:linear-gradient(
+        135deg,
+        #071f18,
+        #0d2e24,
+        #134233
+    );
+    color:white;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    width:90%;
+    max-width:1280px;
+    min-height:80px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    color:white;
+    text-decoration:none;
+}
+
+.logo-icon{
+    width:46px;
+    height:46px;
+    background:linear-gradient(
+        135deg,
+        #d4af37,
+        #aa8220
+    );
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:18px;
+}
+
+.logo-text span{
+    display:block;
+    color:#d4af37;
+    font-size:11px;
+}
+
+.theme-btn{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ==============================
+   MAIN
+============================== */
+
+main{
+    flex:1;
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding:70px 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.error-card{
+    width:100%;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:55px 35px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.error-icon{
+    width:95px;
+    height:95px;
+    margin:0 auto 25px;
+    border-radius:50%;
+    background:var(--accent-light);
+    border:1px solid rgba(212,175,55,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.error-number{
+    font-size:clamp(60px,12vw,110px);
+    line-height:1;
+    font-weight:900;
+    color:var(--primary);
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+[data-theme="dark"] .error-number{
+    color:var(--accent);
+}
+
+.error-card h1{
+    font-family:'Amiri',serif;
+    font-size:30px;
+    color:var(--text-main);
+    margin-bottom:15px;
+}
+
+.error-card p{
+    max-width:600px;
+    margin:0 auto 30px;
+    color:var(--text-muted);
+    font-size:15px;
+    line-height:2;
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-width:190px;
+    padding:13px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-light);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:var(--accent-light);
+    color:var(--primary);
+    border:1px solid rgba(212,175,55,.3);
+}
+
+.btn-secondary:hover{
+    border-color:var(--accent);
+    transform:translateY(-2px);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+    background:#041410;
+    color:white;
+    text-align:center;
+    padding:25px 20px;
+}
+
+footer p{
+    color:rgba(255,255,255,.55);
+    font-size:12px;
+    line-height:1.8;
+}
+
+footer a{
+    color:#d4af37;
+    text-decoration:none;
+}
+
+footer a:hover{
+    text-decoration:underline;
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:600px){
+
+    .navbar{
+        min-height:70px;
+    }
+
+    .logo-text strong{
+        font-size:16px;
+    }
+
+    main{
+        padding:45px 0;
+    }
+
+    .error-card{
+        padding:40px 20px;
+        border-radius:20px;
+    }
+
+    .error-card h1{
+        font-size:26px;
+    }
+
+    .error-card p{
+        font-size:14px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
+</style></head><body><header><nav class="navbar"><a href="index.html" class="logo"><div class="logo-icon">
+📚
+</div><div class="logo-text"><strong>
+مكتبة حضري
+</strong><span>
+الرقمية للكتب الإسلامية
+</span></div></a><button
+class="theme-btn"
+id="themeToggle"
+type="button"
+title="الوضع الليلي">
+
+🌙
+
+</button></nav></header><main><section class="error-card"><div class="error-icon">
+📖
+</div><div class="error-number">
+404
+</div><h1>
+الصفحة غير موجودة
+</h1><p>عذرًا، الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها أو حذفها.
+يمكنك العودة إلى الصفحة الرئيسية ومتابعة تصفح مكتبة حضري للكتب الإسلامية.
+
+</p><div class="actions"><a
+href="index.html"
+class="btn btn-primary">
+
+🏠 العودة إلى الرئيسية
+
+</a><a
+href="index.html#library"
+class="btn btn-secondary">
+
+📚 تصفح المكتبة
+
+</a></div></section></main><footer><p>© 2026 مكتبة حضري للكتب الإسلامية — جميع الحقوق محفوظة.
+
+<br><a href="about.html">
+من نحن
+</a>  •  
+
+<a href="contact.html">
+تواصل معنا
+</a>  •  
+
+<a href="privacy.html">
+سياسة الخصوصية
+</a>  •  
+
+<a href="copyright.html">
+حقوق النشر
+</a></p></footer><script>
+
+/* ==============================
+   THEME
+============================== */
+
+const themeToggle =
+document.getElementById('themeToggle');
+
+const savedTheme =
+localStorage.getItem('theme') || 'light';
+
+if(savedTheme === 'dark'){
+
+document.documentElement.setAttribute(
+'data-theme',
+'dark'
+);
+
+themeToggle.textContent = '☀️';
+
+}
+
+themeToggle.addEventListener('click',function(){
+
+const current =
+document.documentElement.getAttribute(
+'data-theme'
+);
+
+if(current === 'dark'){
+
+document.documentElement.removeAttribute(
+'data-theme'
+);
+
+localStorage.setItem(
+'theme',
+'light'
+);
+
+themeToggle.textContent = '🌙';
+
+}else{
+
+document.documentElement.setAttribute(
+'data-theme',
+'dark'
+);
+
+localStorage.setItem(
+'theme',
+'dark'
+);
+
+themeToggle.textContent = '☀️';
+
+}
+
+});
+
+</script></body>
+</html>
