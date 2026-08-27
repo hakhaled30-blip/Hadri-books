@@ -1,203 +1,344 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>العقيدة والتوحيد | مكتبة حضري</title>
+<title>كتب العقيدة والتوحيد | مكتبة حضري للكتب الإسلامية</title>
+
+<meta name="description"
+content="قسم العقيدة والتوحيد في مكتبة حضري للكتب الإسلامية، ويضم كتاب التوحيد للإمام محمد بن عبد الوهاب رحمه الله.">
+
+<meta name="robots" content="index, follow">
 
 <style>
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Tahoma, Arial, sans-serif;
-  background: #f5f7f6;
-  color: #222;
+    margin: 0;
+    background: #f6f5f0;
+    color: #222;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.9;
 }
 
+/* HEADER */
+
 header {
-  background: #0f5132;
-  color: #fff;
-  text-align: center;
-  padding: 25px 15px;
+    background: #0f5132;
+    color: white;
+    text-align: center;
+    padding: 32px 15px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 28px;
+    margin: 0;
+    font-size: 28px;
 }
 
 header p {
-  margin: 8px 0 0;
-  font-size: 15px;
+    margin: 8px 0 0;
+    font-size: 15px;
 }
+
+/* CONTAINER */
 
 .container {
-  width: 94%;
-  max-width: 1000px;
-  margin: auto;
+    width: 94%;
+    max-width: 1000px;
+    margin: auto;
 }
+
+/* BACK BUTTON */
 
 .back {
-  display: inline-block;
-  margin: 20px 0;
-  padding: 10px 18px;
-  background: #fff;
-  color: #0f5132;
-  text-decoration: none;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-weight: bold;
+    display: inline-block;
+
+    margin: 25px 0 20px;
+
+    padding: 10px 17px;
+
+    background: white;
+
+    color: #0f5132;
+
+    text-decoration: none;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    font-weight: bold;
 }
 
-.title {
-  text-align: center;
-  margin: 10px 0 25px;
+.back:hover {
+    background: #eef5f1;
 }
 
-.title h2 {
-  color: #0f5132;
-  margin-bottom: 8px;
+/* PAGE TITLE */
+
+.page-title {
+    background: white;
+
+    border: 1px solid #e1e1e1;
+
+    border-radius: 14px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
 }
 
-.title p {
-  color: #666;
+.page-title h2 {
+    color: #0f5132;
+
+    margin: 0 0 8px;
+
+    font-size: 25px;
 }
+
+.page-title p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+}
+
+/* BOOK GRID */
+
+.books {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 20px;
+}
+
+/* BOOK CARD */
 
 .book {
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 18px;
-  text-align: center;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: white;
+
+    border: 1px solid #e1e1e1;
+
+    border-radius: 14px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 
 .book-icon {
-  font-size: 45px;
+    font-size: 45px;
+
+    margin-bottom: 8px;
 }
 
 .book h3 {
-  color: #0f5132;
-  margin: 12px 0 8px;
-  font-size: 22px;
+    color: #0f5132;
+
+    margin: 5px 0 10px;
+
+    font-size: 21px;
 }
 
-.book p {
-  color: #666;
-  margin-bottom: 20px;
+.author {
+    color: #555;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
 }
 
-.read {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #0f5132;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+.description {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
 }
 
-.read:hover {
-  opacity: 0.9;
+.button {
+    display: inline-block;
+
+    background: #0f5132;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
 }
+
+.button:hover {
+    background: #0b3d26;
+}
+
+/* NOTICE */
+
+.notice {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #fffdf3;
+
+    border-right: 4px solid #b8860b;
+
+    border-radius: 8px;
+
+    color: #5d4b13;
+
+    font-size: 14px;
+}
+
+/* FOOTER */
 
 footer {
-  margin-top: 40px;
-  background: #0f5132;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
+    margin-top: 60px;
+
+    background: #0f5132;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 22px 15px;
+
+    font-size: 14px;
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 23px;
-  }
 
-  .book {
-    padding: 20px 15px;
-  }
+    header h1 {
+        font-size: 22px;
+    }
 
-  .book h3 {
-    font-size: 20px;
-  }
+    .page-title h2 {
+        font-size: 21px;
+    }
+
+    .book {
+        padding: 22px 15px;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-  <h1>☪️ العقيدة والتوحيد</h1>
-  <p>مكتبة حضري للكتب الإسلامية</p>
+
+    <h1>☪️ مكتبة حضري للكتب الإسلامية</h1>
+
+    <p>كتب العقيدة والتوحيد</p>
+
 </header>
 
-<div class="container">
 
-  <a href="index.html" class="back">
-    ← الرئيسية
-  </a>
+<main class="container">
 
-  <div class="title">
-    <h2>كتب العقيدة والتوحيد</h2>
-    <p>فهرس كتب العقيدة والتوحيد</p>
-  </div>
 
-  <!-- كتاب التوحيد -->
-  <div class="book">
+<!-- العودة مباشرة إلى الصفحة الرئيسية -->
 
-    <div class="book-icon">📖</div>
+<a href="index.html" class="back">
+    ← العودة إلى الصفحة الرئيسية
+</a>
 
-    <h3>كتاب التوحيد</h3>
 
-    <p>الإمام محمد بن عبد الوهاب رحمه الله</p>
+<!-- عنوان القسم -->
 
-    <a href="tauheed.html" class="read">
-      📖 قراءة الكتاب
-    </a>
+<section class="page-title">
 
-  </div>
+    <h2>☝️ كتب العقيدة والتوحيد</h2>
 
-  <!-- الأصول الثلاثة -->
-  <div class="book">
+    <p>
+        فهرس كتب العقيدة والتوحيد
+    </p>
 
-    <div class="book-icon">📖</div>
+</section>
 
-    <h3>الأصول الثلاثة</h3>
 
-    <p>الإمام محمد بن عبد الوهاب رحمه الله</p>
+<!-- الكتب الموجودة في هذا القسم -->
 
-    <a href="usul-thalatha.html" class="read">
-      📖 قراءة الكتاب
-    </a>
+<section class="books">
 
-  </div>
 
-  <!-- الأربعون النووية -->
-  <div class="book">
+    <!-- كتاب التوحيد فقط -->
 
-    <div class="book-icon">📖</div>
+    <article class="book">
 
-    <h3>الأربعون النووية</h3>
+        <div class="book-icon">
+            ☝️
+        </div>
 
-    <p>الإمام النووي رحمه الله</p>
+        <h3>
+            كتاب التوحيد
+        </h3>
 
-    <a href="arbaeen-nawawi.html" class="read">
-      📖 قراءة الكتاب
-    </a>
+        <div class="author">
+            الإمام محمد بن عبد الوهاب رحمه الله
+        </div>
 
-  </div>
+        <div class="description">
+            كتاب التوحيد الذي هو حق الله على العبيد،
+            في بيان توحيد الله والتحذير من الشرك.
+        </div>
+
+        <a
+            href="tauheed.html"
+            class="button">
+            📖 قراءة الكتاب
+        </a>
+
+    </article>
+
+
+</section>
+
+
+<div class="notice">
+
+    📌 هذا القسم مخصص لكتب العقيدة والتوحيد فقط.
+    <br>
+    الأصول الثلاثة موجودة في قسم <strong>الأصول</strong>،
+    والأربعون النووية موجودة في قسم <strong>الحديث الشريف</strong>.
 
 </div>
 
+
+</main>
+
+
 <footer>
-  © 2026 مكتبة حضري للكتب الإسلامية
+
+    © 2026 مكتبة حضري للكتب الإسلامية
+
 </footer>
 
+
 </body>
+
 </html>
