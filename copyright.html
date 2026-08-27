@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حقوق النشر | مكتبة حضري للكتب الإسلامية</title>
+
+<meta name="description" content="صفحة حقوق النشر والاستخدام في مكتبة حضري للكتب الإسلامية.">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d2e24">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#0d2e24;
+    --primary-light:#164e3d;
+    --accent:#d4af37;
+    --text-main:#111827;
+    --text-muted:#4b5563;
+    --bg:#f8fafc;
+    --white:#ffffff;
+    --border:#e2e8f0;
+    --shadow:0 10px 25px rgba(13,46,36,.08);
+}
+
+body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--bg);
+    color:var(--text-main);
+    line-height:1.9;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(
+        135deg,
+        #071f18,
+        #0d2e24,
+        #134233
+    );
+    color:white;
+    padding:0 20px;
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    min-height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    text-decoration:none;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        #aa8220
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.logo strong{
+    display:block;
+    font-size:18px;
+}
+
+.logo span{
+    display:block;
+    font-size:11px;
+    color:var(--accent);
+}
+
+/* HERO */
+
+.hero{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:65px 20px;
+}
+
+.hero-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-family:'Amiri',serif;
+    font-size:42px;
+    color:var(--accent);
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:rgba(255,255,255,.75);
+    font-size:15px;
+}
+
+/* CONTENT */
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:50px auto;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+    font-size:23px;
+    color:var(--primary);
+    margin-bottom:15px;
+    border-right:4px solid var(--accent);
+    padding-right:12px;
+}
+
+.card p{
+    color:var(--text-muted);
+    font-size:15px;
+    margin-bottom:12px;
+}
+
+.card ul{
+    padding-right:25px;
+    color:var(--text-muted);
+}
+
+.card li{
+    margin-bottom:8px;
+}
+
+/* NOTICE */
+
+.notice{
+    background:#fffaf0;
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:15px;
+    padding:20px;
+    margin-top:20px;
+    color:#5f511f;
+}
+
+/* BACK */
+
+.back{
+    text-align:center;
+    margin:40px 0;
+}
+
+.back a{
+    display:inline-block;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back a:hover{
+    background:var(--primary-light);
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+footer{
+    background:#041410;
+    color:white;
+    margin-top:70px;
+    padding:35px 20px;
+    text-align:center;
+}
+
+footer h3{
+    font-family:'Amiri',serif;
+    color:var(--accent);
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+footer p{
+    color:rgba(255,255,255,.55);
+    font-size:12px;
+}
+
+footer .links{
+    margin:15px 0;
+}
+
+footer a{
+    color:rgba(255,255,255,.65);
+    text-decoration:none;
+    margin:0 8px;
+    font-size:12px;
+}
+
+footer a:hover{
+    color:var(--accent);
+}
+
+.copy{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:rgba(255,255,255,.4);
+    font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .hero{
+        padding:45px 15px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .card{
+        padding:25px 20px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-icon">
+                📚
+            </div>
+
+            <div>
+                <strong>مكتبة حضري</strong>
+                <span>الرقمية للكتب الإسلامية</span>
+            </div>
+
+        </a>
+
+    </nav>
+
+    <div class="hero">
+
+        <div class="hero-icon">
+            ©️
+        </div>
+
+        <h1>
+            حقوق النشر
+        </h1>
+
+        <p>
+            سياسة استخدام المحتوى وحقوق النشر في مكتبة حضري للكتب الإسلامية
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- CONTENT -->
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            حقوق مكتبة حضري
+        </h2>
+
+        <p>
+            تحترم مكتبة حضري للكتب الإسلامية حقوق المؤلفين والناشرين وأصحاب الحقوق الفكرية، وتسعى إلى تقديم المحتوى بطريقة مسؤولة تخدم القراء وطلبة العلم.
+        </p>
+
+        <p>
+            جميع الحقوق المتعلقة بتصميم الموقع والواجهة البرمجية والهوية البصرية والتنظيم الخاص بمكتبة حضري محفوظة لأصحابها.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            استخدام الكتب والمصادر
+        </h2>
+
+        <p>
+            تهدف المكتبة إلى إتاحة الكتب والمصادر الإسلامية للقراءة والاستفادة العلمية، مع احترام الحقوق الخاصة بكل محتوى.
+        </p>
+
+        <ul>
+
+            <li>
+                لا تدعي المكتبة ملكية حقوق التأليف الخاصة بالكتب التي تعود حقوقها إلى مؤلفين أو ناشرين آخرين.
+            </li>
+
+            <li>
+                قد تكون بعض المؤلفات من كتب التراث الإسلامي القديمة والمتاحة للاستفادة العامة، بحسب حالتها وحقوقها في بلد المستخدم.
+            </li>
+
+            <li>
+                يجب على المستخدم احترام حقوق النشر الخاصة بأي محتوى يخضع لحقوق ملكية فكرية.
+            </li>
+
+            <li>
+                لا يجوز استخدام محتوى الموقع بطريقة تخالف القوانين أو حقوق أصحابها.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            حقوق المحتوى الأصلي للموقع
+        </h2>
+
+        <p>
+            النصوص التعريفية، تصميم الصفحات، طريقة تنظيم المكتبة، الأكواد البرمجية، الهوية البصرية والعناصر الخاصة بالموقع هي من محتوى مكتبة حضري، ولا يجوز نسخها أو إعادة نشرها بالكامل بهدف إنشاء موقع مماثل دون إذن.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            طلب إزالة محتوى
+        </h2>
+
+        <p>
+            إذا كنت صاحب حقوق نشر أو ممثلاً قانونياً لصاحب حقوق وتعتقد أن مادة منشورة في المكتبة تنتهك حقوقك، يمكنك التواصل معنا وتقديم معلومات واضحة حول المحتوى المعني.
+        </p>
+
+        <p>
+            سيتم النظر في الطلب ومراجعته واتخاذ الإجراء المناسب عند ثبوت وجود انتهاك للحقوق.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            مسؤولية المستخدم
+        </h2>
+
+        <p>
+            يتحمل المستخدم مسؤولية استخدام المواد التي يجدها في الموقع وفق القوانين المعمول بها وحقوق أصحاب المحتوى.
+        </p>
+
+        <div class="notice">
+
+            <strong>
+                تنبيه:
+            </strong>
+
+            <br>
+
+            المكتبة منصة للقراءة والاستفادة العلمية، ولا يُقصد من توفير أي مادة تجاوز حقوق المؤلفين أو الناشرين.
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            تحديث سياسة حقوق النشر
+        </h2>
+
+        <p>
+            قد يتم تحديث هذه الصفحة من وقت إلى آخر بما يتناسب مع تطور المكتبة أو تغير المحتوى أو المتطلبات القانونية.
+        </p>
+
+        <p>
+            آخر تحديث: أغسطس 2026
+        </p>
+
+    </section>
+
+
+    <div class="back">
+
+        <a href="index.html">
+            ← العودة إلى المكتبة
+        </a>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        📚 مكتبة حضري
+    </h3>
+
+    <p>
+        منصة رقمية للقرآن الكريم والحديث الشريف والكتب الإسلامية
+    </p>
+
+    <div class="links">
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="about.html">
+            من نحن
+        </a>
+
+        <a href="contact.html">
+            تواصل معنا
+        </a>
+
+        <a href="privacy.html">
+            سياسة الخصوصية
+        </a>
+
+        <a href="copyright.html">
+            حقوق النشر
+        </a>
+
+    </div>
+
+    <div class="copy">
+
+        © 2026 مكتبة حضري للكتب الإسلامية — جميع الحقوق محفوظة.
+
+    </div>
+
+</footer>
+
+</body>
+</html>
