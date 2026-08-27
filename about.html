@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>من نحن | مكتبة حضري للكتب الإسلامية</title>
+
+<meta name="description" content="تعرف على مكتبة حضري للكتب الإسلامية، منصة رقمية تهدف إلى توفير القرآن الكريم والحديث الشريف وكتب العقيدة والفقه للقراءة الإلكترونية بطريقة منظمة ومريحة.">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d2e24">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#0d2e24;
+    --primary-light:#164e3d;
+    --accent:#d4af37;
+    --accent-light:#f7efd2;
+    --text-main:#111827;
+    --text-muted:#4b5563;
+    --bg:#f8fafc;
+    --white:#ffffff;
+    --border:#e2e8f0;
+    --shadow:0 10px 25px -5px rgba(13,46,36,.08);
+}
+
+body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--bg);
+    color:var(--text-main);
+    line-height:1.9;
+}
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #071f18 0%,
+        #0d2e24 60%,
+        #134233 100%
+    );
+    color:white;
+}
+
+.navbar{
+    min-height:80px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:white;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        #aa8220
+    );
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:18px;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--accent);
+    font-size:11px;
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:rgba(255,255,255,.85);
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:10px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:rgba(255,255,255,.1);
+    color:var(--accent);
+}
+
+.hero{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    padding:65px 0 75px;
+}
+
+.hero-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-family:'Amiri',serif;
+    font-size:42px;
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:rgba(255,255,255,.75);
+    max-width:750px;
+    margin:auto;
+    font-size:16px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.content{
+    margin-top:-35px;
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:40px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+    font-size:24px;
+    color:var(--primary);
+    margin-bottom:15px;
+    font-weight:800;
+}
+
+.card h2::before{
+    content:"";
+    display:inline-block;
+    width:5px;
+    height:25px;
+    background:var(--accent);
+    border-radius:5px;
+    margin-left:10px;
+    vertical-align:-4px;
+}
+
+.card p{
+    color:var(--text-muted);
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+.card p:last-child{
+    margin-bottom:0;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.feature{
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.feature h3{
+    color:var(--primary);
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.feature p{
+    font-size:13px;
+    margin:0;
+}
+
+.quote{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.quote p{
+    color:rgba(255,255,255,.9);
+    font-family:'Amiri',serif;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.quote span{
+    color:var(--accent);
+    font-size:13px;
+}
+
+.back-home{
+    text-align:center;
+    margin:35px 0 60px;
+}
+
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back-home a:hover{
+    background:var(--primary-light);
+    transform:translateY(-2px);
+}
+
+footer{
+    background:#041410;
+    color:white;
+    margin-top:30px;
+}
+
+.footer-container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:45px 0 25px;
+    text-align:center;
+}
+
+.footer-brand h3{
+    font-family:'Amiri',serif;
+    color:var(--accent);
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,.6);
+    font-size:13px;
+    max-width:600px;
+    margin:auto;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.65);
+    text-decoration:none;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:var(--accent);
+}
+
+.footer-copy{
+    border-top:1px solid rgba(255,255,255,.06);
+    margin-top:25px;
+    padding-top:20px;
+    color:rgba(255,255,255,.4);
+    font-size:12px;
+}
+
+@media(max-width:700px){
+
+    .nav-container{
+        flex-direction:column;
+        justify-content:center;
+        padding:15px 0;
+    }
+
+    .nav-links{
+        justify-content:center;
+    }
+
+    .hero{
+        padding:45px 0 65px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .card{
+        padding:25px 20px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+
+<div class="logo-icon">
+📚
+</div>
+
+<div class="logo-text">
+
+<strong>
+مكتبة حضري
+</strong>
+
+<span>
+الرقمية للإسلاميات
+</span>
+
+</div>
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="quran.html">
+القرآن الكريم
+</a>
+
+<a href="hadith.html">
+الحديث الشريف
+</a>
+
+<a href="fiqh.html">
+الفقه الإسلامي
+</a>
+
+<a href="tauheed.html">
+العقيدة والتوحيد
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-icon">
+📚
+</div>
+
+<h1>
+من نحن
+</h1>
+
+<p>
+مكتبة حضري للكتب الإسلامية هي منصة رقمية تهدف إلى تسهيل الوصول إلى مصادر العلم الشرعي وقراءتها بطريقة منظمة ومريحة على مختلف الأجهزة.
+</p>
+
+</section>
+
+</header>
+
+
+<main class="container">
+
+<div class="content">
+
+
+<section class="card">
+
+<h2>
+عن مكتبة حضري
+</h2>
+
+<p>
+مكتبة حضري للكتب الإسلامية مشروع رقمي يسعى إلى جمع وتنظيم مجموعة من المصادر الإسلامية في مكان واحد، بما يساعد القارئ والباحث وطالب العلم على الوصول إلى الكتب والمصادر المتاحة بسهولة.
+</p>
+
+<p>
+نحرص في تصميم المكتبة على تقديم تجربة قراءة بسيطة وواضحة، مع تنظيم المحتوى حسب الأقسام العلمية، مثل القرآن الكريم والحديث الشريف والفقه الإسلامي والعقيدة والتوحيد.
+</p>
+
+<p>
+هدفنا هو إنشاء مكتبة إلكترونية منظمة يمكن تطويرها باستمرار وإضافة المزيد من الكتب والمصادر إليها مع مرور الوقت.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>
+رؤيتنا
+</h2>
+
+<p>
+نسعى إلى بناء مكتبة إسلامية رقمية سهلة الاستخدام، تساعد على نشر المعرفة الشرعية وإتاحة الوصول إلى الكتب والمصادر الإسلامية بصورة واضحة ومنظمة.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>
+ماذا نقدم؟
+</h2>
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">
+📖
+</div>
+
+<h3>
+القرآن الكريم
+</h3>
+
+<p>
+تصفح القرآن الكريم بطريقة واضحة ومريحة للقارئ.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📜
+</div>
+
+<h3>
+الحديث الشريف
+</h3>
+
+<p>
+قسم مخصص للكتب والمصادر المتعلقة بالسنة النبوية.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚖️
+</div>
+
+<h3>
+الفقه الإسلامي
+</h3>
+
+<p>
+كتب ومؤلفات في الفقه والأحكام الشرعية.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+☝️
+</div>
+
+<h3>
+العقيدة والتوحيد
+</h3>
+
+<p>
+مصادر ومؤلفات متعلقة بالعقيدة والتوحيد.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="quote">
+
+<p>
+وَقُلْ رَبِّ زِدْنِي عِلْمًا
+</p>
+
+<span>
+سورة طه — الآية 114
+</span>
+
+</div>
+
+
+<section class="card">
+
+<h2>
+هدف المكتبة
+</h2>
+
+<p>
+نؤمن بأن التقنية يمكن أن تكون وسيلة نافعة في خدمة العلم والمعرفة. لذلك نعمل على تطوير مكتبة حضري بصورة تدريجية، مع الاهتمام بسهولة الاستخدام وسرعة الوصول إلى المحتوى وتنظيم الأقسام والكتب.
+</p>
+
+<p>
+كما نهدف إلى إضافة المزيد من الكتب والمصادر الإسلامية مستقبلاً، لتصبح المكتبة مساحة رقمية أوسع للقراءة والاستفادة.
+</p>
+
+</section>
+
+
+<div class="back-home">
+
+<a href="index.html">
+← العودة إلى الصفحة الرئيسية
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-brand">
+
+<h3>
+📚 مكتبة حضري
+</h3
