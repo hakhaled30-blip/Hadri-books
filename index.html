@@ -6,1552 +6,1038 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>مكتبة حضري للكتب الإسلامية | منصة القراءة الرقمية</title>
-
 <meta name="description" content="مكتبة حضري للكتب الإسلامية، منصة إلكترونية لقراءة القرآن الكريم والحديث الشريف وكتب العقيدة والفقه وغيرها من الكتب الإسلامية.">
-
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0d2e24">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
 /* =====================================================
-   RESET
+   RESET & CSS VARIABLES
 ===================================================== */
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html{
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 }
 
-:root{
-
-    --primary:#0d2e24;
-    --primary-light:#164e3d;
-
-    --accent:#d4af37;
-    --accent-light:#f7efd2;
-
-    --text-main:#111827;
-    --text-muted:#4b5563;
-
-    --bg-body:#f8fafc;
-    --white:#ffffff;
-
-    --border:#e2e8f0;
-
-    --shadow-soft:0 10px 25px -5px rgba(13,46,36,.08);
-
-    --shadow-hover:0 20px 35px -10px rgba(13,46,36,.15);
-
-    --radius:20px;
-
-    --card-bg:#ffffff;
-
-    --base-font-size:16px;
+:root {
+    --primary: #0d2e24;
+    --primary-light: #164e3d;
+    --accent: #d4af37;
+    --accent-light: #f7efd2;
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --bg-body: #f8fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --shadow-soft: 0 10px 25px -5px rgba(13, 46, 36, 0.08);
+    --shadow-hover: 0 20px 35px -10px rgba(13, 46, 36, 0.15);
+    --radius: 20px;
+    --card-bg: #ffffff;
+    --base-font-size: 16px;
 }
 
-[data-theme="dark"]{
-
-    --primary:#134233;
-    --primary-light:#1b5c46;
-
-    --accent:#e5c158;
-    --accent-light:rgba(229,193,88,.15);
-
-    --text-main:#f1f5f9;
-    --text-muted:#94a3b8;
-
-    --bg-body:#07110e;
-    --white:#0d1b17;
-
-    --border:#1e332c;
-
-    --shadow-soft:0 10px 25px -5px rgba(0,0,0,.4);
-
-    --shadow-hover:0 20px 35px -10px rgba(0,0,0,.6);
-
-    --card-bg:#0d1b17;
+[data-theme="dark"] {
+    --primary: #134233;
+    --primary-light: #1b5c46;
+    --accent: #e5c158;
+    --accent-light: rgba(229, 193, 88, 0.15);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --bg-body: #07110e;
+    --white: #0d1b17;
+    --border: #1e332c;
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+    --card-bg: #0d1b17;
 }
 
 body{
-
-    font-family:'Tajawal',sans-serif;
-
-    background:var(--bg-body);
-
-    color:var(--text-main);
-
-    font-size:var(--base-font-size);
-
-    line-height:1.8;
-
-    transition:
-    background .3s ease,
-    color .3s ease;
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+    font-size: var(--base-font-size);
+    line-height: 1.8;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-
 /* =====================================================
-   PROGRESS BAR
+   READING PROGRESS BAR
 ===================================================== */
 
-#progressBar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    height:3px;
-
-    background:var(--accent);
-
-    width:0%;
-
-    z-index:1000;
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s ease;
 }
 
-
 /* =====================================================
-   HEADER
+   HEADER & NAVBAR
 ===================================================== */
 
 .header{
-
-    background:
-    linear-gradient(
-        135deg,
-        #071f18 0%,
-        #0d2e24 60%,
-        #134233 100%
-    );
-
-    color:white;
-
-    position:relative;
-
-    overflow:hidden;
+    background: linear-gradient(135deg, #071f18 0%, #0d2e24 60%, #134233 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-.header::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-50%;
-    left:-20%;
-
-    width:600px;
-    height:600px;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(212,175,55,.08) 0%,
-        transparent 70%
-    );
-
-    border-radius:50%;
-
-    pointer-events:none;
+.header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
-
-
-/* =====================================================
-   NAVBAR
-===================================================== */
 
 .navbar{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:100;
-
-    background:rgba(13,46,36,.88);
-
-    backdrop-filter:blur(12px);
-
-    border-bottom:
-    1px solid
-    rgba(255,255,255,.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13, 46, 36, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-container{
-
-    width:90%;
-
-    max-width:1280px;
-
-    margin:auto;
-
-    min-height:80px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    text-decoration:none;
-
-    color:white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: white;
 }
 
 .logo-icon{
-
-    width:48px;
-
-    height:48px;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--accent),
-        #aa8220
-    );
-
-    border-radius:14px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:24px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent), #aa8220);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 .logo-text strong{
-
-    display:block;
-
-    font-size:18px;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .logo-text span{
-
-    display:block;
-
-    font-size:11px;
-
-    color:var(--accent);
-
-    letter-spacing:1px;
+    display: block;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
 }
 
-.nav-controls{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .nav-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-links a{
-
-    color:rgba(255,255,255,.85);
-
-    text-decoration:none;
-
-    font-size:14px;
-
-    padding:8px 16px;
-
-    border-radius:10px;
-
-    transition:.3s;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover{
-
-    background:rgba(255,255,255,.1);
-
-    color:var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
 }
 
-
-/* =====================================================
-   ICON BUTTONS
-===================================================== */
-
-.icon-btn{
-
-    background:rgba(255,255,255,.1);
-
-    border:
-    1px solid
-    rgba(255,255,255,.15);
-
-    color:white;
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:10px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
-
-    font-size:16px;
+.icon-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
 }
 
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+}
 
 /* =====================================================
-   HERO
+   HERO SECTION
 ===================================================== */
 
 .hero{
-
-    width:90%;
-
-    max-width:1280px;
-
-    margin:auto;
-
-    padding:70px 0 100px;
-
-    display:grid;
-
-    grid-template-columns:1.2fr .8fr;
-
-    gap:50px;
-
-    align-items:center;
-
-    position:relative;
-
-    z-index:2;
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 70px 0 100px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-label{
-
-    display:inline-flex;
-
-    padding:6px 16px;
-
-    background:rgba(212,175,55,.12);
-
-    border:
-    1px solid
-    rgba(212,175,55,.3);
-
-    border-radius:30px;
-
-    color:var(--accent);
-
-    font-size:13px;
-
-    margin-bottom:20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 30px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .hero h1{
-
-    font-size:clamp(28px,3.8vw,46px);
-
-    line-height:1.5;
-
-    font-weight:900;
-
-    margin-bottom:20px;
+    font-size: clamp(28px, 3.8vw, 46px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin-bottom: 20px;
 }
 
 .hero h1 span{
-
-    font-family:'Amiri',serif;
-
-    color:var(--accent);
-
-    display:block;
-
-    margin-top:10px;
-
-    font-size:clamp(24px,3.2vw,40px);
+    font-family: 'Amiri', serif;
+    color: var(--accent);
+    display: block;
+    margin-top: 10px;
+    font-size: clamp(24px, 3.2vw, 40px);
 }
 
 .hero-description{
-
-    color:rgba(255,255,255,.75);
-
-    font-size:16px;
-
-    line-height:1.9;
-
-    margin-bottom:30px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 30px;
 }
 
 .hero-actions{
-
-    display:flex;
-
-    gap:14px;
+    display: flex;
+    gap: 14px;
 }
 
 .btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    padding:14px 28px;
-
-    border-radius:14px;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    text-decoration:none;
-
-    transition:.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-primary{
+    background: var(--accent);
+    color: #071f18;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
 
-    background:var(--accent);
-
-    color:#071f18;
+.btn-primary:hover{
+    background: #e6bf45;
+    transform: translateY(-3px);
 }
 
 .btn-secondary{
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    border:
-    1px solid
-    rgba(255,255,255,.15);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.btn-secondary:hover{
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
 
 /* =====================================================
    HERO BOOK
 ===================================================== */
 
 .hero-book{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .floating-book{
-
-    width:260px;
-
-    height:340px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #114232,
-        #071f18
-    );
-
-    border-radius:
-    12px 20px 20px 12px;
-
-    border:
-    2px solid
-    rgba(212,175,55,.4);
-
-    box-shadow:
-    0 25px 50px rgba(0,0,0,.5);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:30px;
-
-    color:white;
-
-    animation:floatAnimation 4s ease-in-out infinite;
+    width: 260px;
+    height: 340px;
+    background: linear-gradient(135deg, #114232, #071f18);
+    border-radius: 12px 20px 20px 12px;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    color: white;
+    position: relative;
+    transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+    animation: floatAnimation 4s ease-in-out infinite;
 }
 
-@keyframes floatAnimation{
+.floating-book::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+}
 
-    0%,100%{
-        transform:translateY(0);
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0);
     }
-
-    50%{
-        transform:translateY(-10px);
+    50% {
+        transform: perspective(1000px) rotateY(-10deg) rotateX(2deg) translateY(-10px);
     }
 }
 
-.floating-book span{
-
-    font-size:55px;
-
-    margin-bottom:15px;
+.floating-book span {
+    font-size: 55px;
+    margin-bottom: 15px;
 }
 
-.floating-book h3{
-
-    font-family:'Amiri',serif;
-
-    color:var(--accent);
-
-    font-size:24px;
+.floating-book h3 {
+    font-family: 'Amiri', serif;
+    color: var(--accent);
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
+.floating-book p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+}
 
 /* =====================================================
-   SEARCH
+   SEARCH BOX
 ===================================================== */
 
 .search-section{
-
-    width:90%;
-
-    max-width:960px;
-
-    margin:-40px auto 0;
-
-    position:relative;
-
-    z-index:50;
+    width: 90%;
+    max-width: 960px;
+    margin: -40px auto 0;
+    position: relative;
+    z-index: 50;
 }
 
 .search-card{
-
-    background:var(--card-bg);
-
-    border-radius:18px;
-
-    padding:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
-    border:
-    1px solid
-    var(--border);
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
 }
 
-.search-card span{
-
-    padding:0 15px;
-
-    font-size:20px;
+.search-card span {
+    padding: 0 15px;
+    font-size: 20px;
 }
 
-.search-card input{
-
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    font-family:inherit;
-
-    font-size:16px;
-
-    color:var(--text-main);
-
-    background:transparent;
+.search-card input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--text-main);
+    background: transparent;
 }
 
-.search-btn{
-
-    background:var(--primary);
-
-    color:white;
-
-    border:none;
-
-    padding:12px 24px;
-
-    border-radius:12px;
-
-    font-family:inherit;
-
-    font-weight:700;
-
-    cursor:pointer;
+.search-card input::placeholder {
+    color: #9ca3af;
 }
 
+.search-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background: var(--primary-light);
+}
 
 /* =====================================================
-   CONTAINER
+   CONTAINER & SECTIONS
 ===================================================== */
 
 .container{
-
-    width:90%;
-
-    max-width:1280px;
-
-    margin:auto;
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
 }
 
 .section{
-
-    padding-top:80px;
+    padding-top: 80px;
 }
 
 .section-title{
-
-    margin-bottom:25px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    border-bottom:
-    2px solid
-    var(--border);
-
-    padding-bottom:12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
 }
 
 .section-title h2{
-
-    font-size:26px;
-
-    color:var(--text-main);
-
-    font-weight:800;
+    font-size: 26px;
+    color: var(--text-main);
+    font-weight: 800;
 }
 
 .section-title p{
-
-    font-size:14px;
-
-    color:var(--text-muted);
+    font-size: 14px;
+    color: var(--text-muted);
 }
 
-
 /* =====================================================
-   CATEGORIES
+   الأقسام الرئيسية - التعديل الجديد
 ===================================================== */
 
-.categories-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:20px;
-
-    margin-bottom:20px;
+.library-categories {
+    margin: 10px 0 45px;
 }
 
-.category-card{
+/* القرآن الكريم في الأعلى */
 
-    background:var(--card-bg);
-
-    border:
-    1px solid
-    var(--border);
-
-    border-radius:var(--radius);
-
-    padding:25px 20px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:var(--text-main);
-
-    box-shadow:var(--shadow-soft);
-
-    transition:.3s;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    min-height:170px;
+.main-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 30px 20px;
+    max-width: 420px;
+    margin: 0 auto 25px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
 }
 
-.category-card:hover{
-
-    transform:translateY(-5px);
-
-    border-color:var(--accent);
-
-    box-shadow:var(--shadow-hover);
+.main-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
 }
 
-.category-icon{
-
-    font-size:40px;
-
-    margin-bottom:10px;
+.main-category .category-icon {
+    font-size: 45px;
+    margin-bottom: 8px;
 }
 
-.category-card h3{
-
-    font-size:19px;
-
-    margin-bottom:5px;
-
-    font-weight:800;
+.main-category .category-title {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--text-main);
 }
 
-.category-card span{
-
-    font-size:13px;
-
-    color:var(--text-muted);
+.main-category .category-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 5px;
 }
 
+/* باقي الأقسام بجانب بعضها */
 
-/* القرآن في الأعلى */
-
-.quran-category{
-
-    grid-column:1 / -1;
-
-    min-height:190px;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--card-bg),
-        var(--accent-light)
-    );
-
-    border:
-    2px solid
-    var(--accent);
+.other-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.quran-category .category-icon{
-
-    font-size:55px;
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px 15px;
+    min-height: 150px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
 }
 
-.quran-category h3{
-
-    font-size:26px;
-
-    color:var(--primary);
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
 }
 
-[data-theme="dark"]
-.quran-category h3{
-
-    color:var(--accent);
+.category-card .category-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
 }
 
+.category-card .category-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.category-card .category-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
 
 /* =====================================================
-   BOOKS
+   BOOKS GRID
 ===================================================== */
 
 .books-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .book-item{
-
-    background:var(--card-bg);
-
-    border:
-    1px solid
-    var(--border);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    box-shadow:var(--shadow-soft);
-
-    transition:.3s;
-
-    display:flex;
-
-    flex-direction:column;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
 }
 
 .book-item:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:var(--shadow-hover);
-
-    border-color:var(--accent);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
 }
 
 .book-header-img{
-
-    height:180px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(13,46,36,.04),
-        rgba(13,46,36,.09)
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
+    height: 180px;
+    background: linear-gradient(135deg, rgba(13,46,36,0.04), rgba(13,46,36,0.09));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .book-badge{
-
-    position:absolute;
-
-    top:15px;
-
-    right:15px;
-
-    background:var(--card-bg);
-
-    color:var(--text-main);
-
-    padding:5px 12px;
-
-    border-radius:8px;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    border:
-    1px solid
-    var(--border);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--card-bg);
+    color: var(--text-main);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
 }
 
-.bookmark-toggle{
-
-    position:absolute;
-
-    top:15px;
-
-    left:15px;
-
-    background:var(--card-bg);
-
-    border:
-    1px solid
-    var(--border);
-
-    color:var(--text-muted);
-
-    width:34px;
-
-    height:34px;
-
-    border-radius:8px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
+.bookmark-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
 }
 
-.bookmark-toggle.active{
-
-    color:var(--accent);
-
-    border-color:var(--accent);
+.bookmark-toggle:hover,
+.bookmark-toggle.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.1);
 }
 
 .book-icon-3d{
+    width: 75px;
+    height: 95px;
+    background: linear-gradient(135deg, var(--primary), #071f18);
+    color: var(--accent);
+    border-radius: 6px 10px 10px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
 
-    width:75px;
-
-    height:95px;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        #071f18
-    );
-
-    color:var(--accent);
-
-    border-radius:
-    6px 10px 10px 6px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:34px;
-
-    box-shadow:
-    8px 8px 15px rgba(0,0,0,.15);
+.book-item:hover .book-icon-3d{
+    transform: scale(1.05) rotate(-3deg);
 }
 
 .book-content{
-
-    padding:24px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    flex:1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .book-content h3{
-
-    font-size:20px;
-
-    color:var(--text-main);
-
-    margin-bottom:6px;
-
-    font-weight:800;
+    font-size: 20px;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    font-weight: 800;
 }
 
 .book-author{
-
-    font-size:13px;
-
-    color:var(--text-muted);
-
-    margin-bottom:12px;
-
-    font-weight:600;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .book-desc{
-
-    font-size:14px;
-
-    color:var(--text-muted);
-
-    line-height:1.8;
-
-    margin-bottom:20px;
-
-    flex:1;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    flex: 1;
 }
 
 .book-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    border-top:
-    1px solid
-    var(--border);
-
-    padding-top:16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
 }
 
 .read-link{
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+}
 
-    background:var(--primary);
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:10px 18px;
-
-    border-radius:10px;
-
-    font-size:13px;
-
-    font-weight:700;
+.read-link:hover{
+    background: var(--primary-light);
+    transform: translateY(-2px);
 }
 
 .book-format{
-
-    font-size:12px;
-
-    color:var(--text-muted);
+    font-size: 12px;
+    color: var(--text-muted);
 }
 
-
 /* =====================================================
-   STATS
+   STATS & ABOUT
 ===================================================== */
 
 .stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:20px;
-
-    margin-top:60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 60px;
 }
 
 .stat-box{
-
-    background:var(--card-bg);
-
-    border:
-    1px solid
-    var(--border);
-
-    border-radius:var(--radius);
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow-soft);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
 }
 
 .stat-box strong{
-
-    font-size:32px;
-
-    color:var(--accent);
-
-    font-weight:900;
-
-    display:block;
+    font-size: 32px;
+    color: var(--accent);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .stat-box span{
-
-    font-size:13px;
-
-    color:var(--text-muted);
+    font-size: 13px;
+    color: var(--text-muted);
 }
 
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
 .about-section{
-
-    margin:80px 0;
-
-    background:var(--card-bg);
-
-    border:
-    1px solid
-    var(--border);
-
-    border-radius:var(--radius);
-
-    padding:45px;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:40px;
-
-    align-items:center;
-
-    box-shadow:var(--shadow-soft);
+    margin: 80px 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
 }
 
 .about-section h2{
-
-    color:var(--text-main);
-
-    font-size:26px;
-
-    font-weight:800;
-
-    margin-bottom:15px;
+    color: var(--text-main);
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
 .about-section p{
-
-    color:var(--text-muted);
-
-    font-size:15px;
-
-    line-height:2;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 2;
 }
 
 .about-features{
-
-    background:var(--accent-light);
-
-    border:
-    1px solid
-    rgba(212,175,55,.2);
-
-    border-radius:14px;
-
-    padding:25px;
+    background: var(--accent-light);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 14px;
+    padding: 25px;
 }
 
 .about-features strong{
-
-    color:var(--text-main);
-
-    font-size:17px;
-
-    display:block;
-
-    margin-bottom:12px;
+    color: var(--text-main);
+    font-size: 17px;
+    display: block;
+    margin-bottom: 12px;
 }
 
 .about-features ul{
-
-    padding-right:18px;
-
-    color:var(--text-muted);
-
-    font-size:14px;
-
-    line-height:2.2;
+    padding-right: 18px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 2.2;
 }
-
 
 /* =====================================================
-   MODAL
+   BOOKMARKS MODAL
 ===================================================== */
 
-.modal-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.6);
-
-    backdrop-filter:blur(4px);
-
-    z-index:2000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-.modal-card{
-
-    background:var(--card-bg);
-
-    width:90%;
-
-    max-width:500px;
-
-    border-radius:var(--radius);
-
-    border:
-    1px solid
-    var(--border);
-
-    padding:30px;
-
-    max-height:80vh;
-
-    display:flex;
-
-    flex-direction:column;
+.modal-card {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 30px;
+    box-shadow: var(--shadow-hover);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.modal-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-    border-bottom:
-    1px solid
-    var(--border);
-
-    padding-bottom:12px;
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
 }
 
-.modal-header h3{
-
-    font-size:20px;
-
-    color:var(--text-main);
+.modal-header h3 {
+    font-size: 20px;
+    color: var(--text-main);
 }
 
-.close-modal{
-
-    background:none;
-
-    border:none;
-
-    font-size:20px;
-
-    color:var(--text-muted);
-
-    cursor:pointer;
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
 }
 
-.modal-body{
-
-    overflow-y:auto;
-
-    flex:1;
+.modal-body {
+    overflow-y: auto;
+    flex: 1;
 }
 
-.saved-book-item{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:12px;
-
-    border-bottom:
-    1px solid
-    var(--border);
+.saved-book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
 }
 
+.saved-book-item:last-child {
+    border-bottom: none;
+}
 
 /* =====================================================
    TOAST
 ===================================================== */
 
-#toast{
-
-    position:fixed;
-
-    bottom:30px;
-
-    right:30px;
-
-    background:var(--primary);
-
-    color:white;
-
-    padding:12px 24px;
-
-    border-radius:12px;
-
-    box-shadow:var(--shadow-hover);
-
-    z-index:3000;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    transform:translateY(100px);
-
-    opacity:0;
-
-    transition:.3s;
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+    z-index: 3000;
+    font-size: 14px;
+    font-weight: 600;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-#toast.show{
-
-    transform:translateY(0);
-
-    opacity:1;
+#toast.show {
+    transform: translateY(0);
+    opacity: 1;
 }
-
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
-
-    background:#041410;
-
-    color:white;
-
-    margin-top:60px;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.05);
+    background: #041410;
+    color: white;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-container{
-
-    width:90%;
-
-    max-width:1280px;
-
-    margin:auto;
-
-    padding:60px 0 30px;
-
-    display:grid;
-
-    grid-template-columns:
-    1.5fr 1fr 1fr;
-
-    gap:40px;
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 60px 0 30px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
 }
 
 .footer-brand h3{
-
-    font-family:'Amiri',serif;
-
-    color:var(--accent);
-
-    font-size:22px;
-
-    margin-bottom:12px;
+    font-family: 'Amiri', serif;
+    color: var(--accent);
+    font-size: 22px;
+    margin-bottom: 12px;
 }
 
 .footer-brand p{
-
-    color:rgba(255,255,255,.6);
-
-    font-size:13px;
-
-    line-height:1.9;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 360px;
 }
 
 .footer-col h4{
-
-    font-size:15px;
-
-    margin-bottom:16px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #e2e8f0;
 }
 
 .footer-col a{
-
-    display:block;
-
-    color:rgba(255,255,255,.6);
-
-    text-decoration:none;
-
-    font-size:13px;
-
-    margin-bottom:10px;
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
 }
 
 .footer-col a:hover{
-
-    color:var(--accent);
+    color: var(--accent);
+    transform: translateX(-3px);
 }
 
 .footer-copy{
-
-    width:90%;
-
-    max-width:1280px;
-
-    margin:auto;
-
-    padding:25px 0;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
-    text-align:center;
-
-    color:rgba(255,255,255,.4);
-
-    font-size:12px;
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
 }
-
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ===================================================== */
 
-@media(max-width:1024px){
+@media(max-width: 1024px){
 
-    .books-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .stats-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media(max-width:900px){
+@media(max-width: 900px){
 
-    .hero{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
-
-        padding-top:40px;
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
     }
 
-    .hero-actions{
-
-        justify-content:center;
+    .hero-actions {
+        justify-content: center;
     }
 
-    .hero-book{
-
-        display:none;
+    .hero-book {
+        display: none;
     }
 
-    .about-section{
-
-        grid-template-columns:1fr;
-
-        padding:30px;
+    .about-section {
+        grid-template-columns: 1fr;
+        padding: 30px;
     }
 
-    .footer-container{
-
-        grid-template-columns:
-        1fr 1fr;
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .categories-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .quran-category{
-
-        grid-column:1 / -1;
+    .other-categories {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media(max-width:600px){
+@media(max-width: 600px){
 
-    .nav-links{
-
-        display:none;
+    .nav-links {
+        display: none;
     }
 
-    .books-grid{
-
-        grid-template-columns:1fr;
+    .books-grid {
+        grid-template-columns: 1fr;
     }
 
-    .stats-grid{
-
-        grid-template-columns:1fr;
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
 
-    .footer-container{
-
-        grid-template-columns:1fr;
+    .footer-container {
+        grid-template-columns: 1fr;
     }
 
-    .categories-grid{
-
-        grid-template-columns:1fr;
+    .search-card {
+        padding: 8px;
     }
 
-    .quran-category{
-
-        grid-column:auto;
+    .search-btn {
+        padding: 10px 16px;
+        font-size: 13px;
     }
 
-    .search-card{
-
-        padding:8px;
+    .other-categories {
+        grid-template-columns: 1fr;
     }
 
-    .search-btn{
-
-        padding:10px 16px;
-
-        font-size:13px;
+    .main-category {
+        max-width: 100%;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
+<!-- READING PROGRESS BAR -->
 <div id="progressBar"></div>
 
+<!-- TOAST NOTIFICATION -->
 <div id="toast">رسالة إشعار</div>
-
 
 <!-- =====================================================
      HEADER
@@ -1559,145 +1045,129 @@ footer{
 
 <header class="header">
 
-<nav class="navbar">
+    <nav class="navbar">
 
-<div class="nav-container">
+        <div class="nav-container">
 
-<a href="#" class="logo">
+            <a href="#" class="logo">
 
-<div class="logo-icon">📚</div>
+                <div class="logo-icon">📚</div>
 
-<div class="logo-text">
+                <div class="logo-text">
+                    <strong>مكتبة حضري</strong>
+                    <span>الرقمية للإسلاميات</span>
+                </div>
 
-<strong>مكتبة حضري</strong>
+            </a>
 
-<span>الرقمية للإسلاميات</span>
+            <div class="nav-controls">
 
-</div>
+                <div class="nav-links">
 
-</a>
+                    <a href="#library">المكتبة</a>
 
+                    <a href="#categories">الأقسام</a>
 
-<div class="nav-controls">
+                    <a href="#about">عن المشروع</a>
 
-<div class="nav-links">
+                </div>
 
-<a href="#library">المكتبة</a>
+                <!-- زر المفضلة -->
 
-<a href="#categories">الأقسام</a>
+                <button
+                    class="icon-btn"
+                    id="openBookmarksBtn"
+                    title="المفضلة">
+                    ⭐
+                </button>
 
-<a href="#about">عن المشروع</a>
+                <!-- زر حجم الخط -->
 
-</div>
+                <button
+                    class="icon-btn"
+                    id="fontSizeBtn"
+                    title="تغيير حجم الخط">
+                    🔤
+                </button>
 
+                <!-- زر الوضع الليلي -->
 
-<button
-class="icon-btn"
-id="openBookmarksBtn"
-title="المفضلة">
+                <button
+                    class="icon-btn"
+                    id="themeToggleBtn"
+                    title="تغيير الثيم">
+                    🌙
+                </button>
 
-⭐
+            </div>
 
-</button>
+        </div>
 
+    </nav>
 
-<button
-class="icon-btn"
-id="fontSizeBtn"
-title="تغيير حجم الخط">
+    <!-- =================================================
+         HERO
+    ================================================= -->
 
-🔤
+    <div class="hero">
 
-</button>
+        <div class="hero-content">
 
+            <div class="hero-label">
+                ✨ واجهة عصرية ومطورة خصيصاً للقارئ
+            </div>
 
-<button
-class="icon-btn"
-id="themeToggleBtn"
-title="الوضع الليلي">
+            <h1>
 
-🌙
+                اقرأ وتعلّم بفضل الله:
 
-</button>
+                <span>
+                    يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنْكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+                </span>
 
-</div>
+            </h1>
 
-</div>
+            <p class="hero-description">
 
-</nav>
+                مكتبة حضري الرقمية تجمع لك أصالة المعرفة الشرعية مع أحدث تقنيات التصميم لتوفر لك تجربة قراءة مريحة، منظمة، وخالية من أي تشتت بصري.
 
+            </p>
 
-<!-- HERO -->
+            <div class="hero-actions">
 
-<div class="hero">
+                <a href="#library" class="btn btn-primary">
+                    📖 تصفح الكتب الآن
+                </a>
 
-<div class="hero-content">
+                <a href="#categories" class="btn btn-secondary">
+                    استكشف الأقسام
+                </a>
 
-<div class="hero-label">
+            </div>
 
-✨ واجهة عصرية ومطورة خصيصاً للقارئ
+        </div>
 
-</div>
+        <div class="hero-book">
 
+            <div class="floating-book">
 
-<h1>
+                <span>📖</span>
 
-اقرأ وتعلّم بفضل الله:
+                <h3>
+                    مكتبة حضري
+                </h3>
 
-<span>
+                <p>
+                    القرآن والسنة والفقه
+                </p>
 
-يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنْكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+            </div>
 
-</span>
+        </div>
 
-</h1>
-
-
-<p class="hero-description">
-
-مكتبة حضري الرقمية تجمع لك أصالة المعرفة الشرعية مع أحدث تقنيات التصميم لتوفر لك تجربة قراءة مريحة، منظمة، وخالية من أي تشتت بصري.
-
-</p>
-
-
-<div class="hero-actions">
-
-<a href="#library" class="btn btn-primary">
-
-📖 تصفح الكتب الآن
-
-</a>
-
-
-<a href="#categories" class="btn btn-secondary">
-
-استكشف الأقسام
-
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-book">
-
-<div class="floating-book">
-
-<span>📖</span>
-
-<h3>مكتبة حضري</h3>
-
-<p>القرآن والسنة والفقه</p>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </header>
-
 
 <!-- =====================================================
      SEARCH
@@ -1705,598 +1175,404 @@ title="الوضع الليلي">
 
 <div class="search-section">
 
-<div class="search-card">
+    <div class="search-card">
 
-<span>🔍</span>
+        <span>🔍</span>
 
-<input
-type="search"
-id="searchInput"
-placeholder="ابحث عن كتاب، موضوع، أو مؤلف..."
->
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="ابحث عن كتاب، موضوع، أو مؤلف...">
 
-<button
-class="search-btn"
-type="button">
+        <button
+            class="search-btn"
+            type="button">
+            بحث فوري
+        </button>
 
-بحث فوري
-
-</button>
-
-</div>
+    </div>
 
 </div>
-
 
 <main class="container">
 
-
 <!-- =====================================================
-     CATEGORIES
+     LIBRARY
 ===================================================== -->
 
-<section
-class="section"
-id="categories">
+<section class="section" id="library">
 
-<div class="section-title">
+    <div class="section-title">
 
-<div>
+        <div>
 
-<h2>🕌 أقسام المكتبة</h2>
+            <h2>
+                الكتب المتاحة
+            </h2>
 
-<p>
-اختر القسم الذي تريد القراءة فيه
-</p>
+            <p>
+                المؤلفات المتاحة للقراءة المباشرة داخل المنصة
+            </p>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
+    <!-- =================================================
+         الأقسام الرئيسية
+    ================================================= -->
 
-<div class="categories-grid">
+    <div
+        class="library-categories"
+        id="categories">
 
+        <!-- القرآن الكريم -->
 
-<!-- القرآن الكريم -->
+        <a
+            href="quran.html"
+            class="main-category">
 
-<a
-href="#library"
-class="category-card quran-category"
-onclick="selectCategory('القرآن الكريم')">
+            <div class="category-icon">
+                🕌
+            </div>
 
-<div class="category-icon">
+            <div class="category-title">
+                القرآن الكريم
+            </div>
 
-🕌
+            <div class="category-desc">
+                تصفح سور القرآن الكريم
+            </div>
 
-</div>
+        </a>
 
-<h3>
+        <!-- باقي الأقسام -->
 
-القرآن الكريم
+        <div class="other-categories">
 
-</h3>
+            <!-- الحديث الشريف -->
 
-<span>
+            <a
+                href="hadith.html"
+                class="category-card">
 
-القراءة والتدبر
+                <div class="category-icon">
+                    📜
+                </div>
 
-</span>
+                <div class="category-title">
+                    الحديث الشريف
+                </div>
 
-</a>
+                <div class="category-desc">
+                    كتب السنة النبوية
+                </div>
 
+            </a>
 
-<!-- الحديث -->
+            <!-- الفقه الإسلامي -->
 
-<a
-href="#library"
-class="category-card"
-onclick="selectCategory('الحديث الشريف')">
+            <a
+                href="fiqh.html"
+                class="category-card">
 
-<div class="category-icon">
+                <div class="category-icon">
+                    ⚖️
+                </div>
 
-📜
+                <div class="category-title">
+                    الفقه الإسلامي
+                </div>
 
-</div>
+                <div class="category-desc">
+                    كتب الفقه وأحكامه
+                </div>
 
-<h3>
+            </a>
 
-الحديث الشريف
+            <!-- العقيدة والتوحيد -->
 
-</h3>
+            <a
+                href="tauheed.html"
+                class="category-card">
 
-<span>
+                <div class="category-icon">
+                    ☝️
+                </div>
 
-كتب السنة النبوية
+                <div class="category-title">
+                    العقيدة والتوحيد
+                </div>
 
-</span>
+                <div class="category-desc">
+                    كتب العقيدة والتوحيد
+                </div>
 
-</a>
+            </a>
 
+        </div>
 
-<!-- الفقه -->
+    </div>
 
-<a
-href="#library"
-class="category-card"
-onclick="selectCategory('الفقه الإسلامي')">
+    <!-- =================================================
+         الكتب
+    ================================================= -->
 
-<div class="category-icon">
+    <div class="books-grid" id="books">
 
-⚖️
+        <!-- القرآن الكريم -->
 
-</div>
+        <article
+            class="book-item"
+            data-category="القرآن الكريم"
+            data-search="القرآن الكريم قرآن">
 
-<h3>
+            <div class="book-header-img">
 
-الفقه الإسلامي
+                <span class="book-badge">
+                    القرآن الكريم
+                </span>
 
-</h3>
+                <button
+                    class="bookmark-toggle"
+                    data-title="القرآن الكريم"
+                    title="إضافة للمفضلة">
+                    ⭐
+                </button>
 
-<span>
+                <div class="book-icon-3d">
+                    📖
+                </div>
 
-كتب الفقه وأحكامه
+            </div>
 
-</span>
+            <div class="book-content">
 
-</a>
+                <h3>
+                    القرآن الكريم
+                </h3>
 
+                <div class="book-author">
+                    بالنص العربي العثماني
+                </div>
 
-<!-- العقيدة -->
+                <div class="book-desc">
 
-<a
-href="#library"
-class="category-card"
-onclick="selectCategory('العقيدة والتوحيد')">
+                    تلاوة وتصفح سور القرآن الكريم بوضوح تام وتصميم مريح للعين يخدم القارئ في كل وقت.
 
-<div class="category-icon">
+                </div>
 
-☝️
+                <div class="book-actions">
 
-</div>
+                    <a
+                        href="quran.html"
+                        class="read-link">
+                        📖 قراءة الآن
+                    </a>
 
-<h3>
+                    <span class="book-format">
+                        نص إلكتروني
+                    </span>
 
-العقيدة والتوحيد
+                </div>
 
-</h3>
+            </div>
 
-<span>
+        </article>
 
-كتب العقيدة والتوحيد
+        <!-- صحيح البخاري -->
 
-</span>
+        <article
+            class="book-item"
+            data-category="الحديث الشريف"
+            data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث">
 
-</a>
+            <div class="book-header-img">
 
+                <span class="book-badge">
+                    الحديث الشريف
+                </span>
 
-</div>
+                <button
+                    class="bookmark-toggle"
+                    data-title="صحيح البخاري"
+                    title="إضافة للمفضلة">
+                    ⭐
+                </button>
+
+                <div class="book-icon-3d">
+                    📜
+                </div>
+
+            </div>
+
+            <div class="book-content">
+
+                <h3>
+                    صحيح البخاري
+                </h3>
+
+                <div class="book-author">
+                    الإمام محمد بن إسماعيل البخاري
+                </div>
+
+                <div class="book-desc">
+
+                    الجامع الصحيح المسند لأحاديث رسول الله صلى الله عليه وسلم، من أصح كتب السنة النبوية.
+
+                </div>
+
+                <div class="book-actions">
+
+                    <a
+                        href="bukhari.html"
+                        class="read-link">
+                        📖 قراءة الآن
+                    </a>
+
+                    <span class="book-format">
+                        كتاب حديث
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- كتاب الطهارة -->
+
+        <article
+            class="book-item"
+            data-category="الفقه الإسلامي"
+            data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه">
+
+            <div class="book-header-img">
+
+                <span class="book-badge">
+                    الفقه الإسلامي
+                </span>
+
+                <button
+                    class="bookmark-toggle"
+                    data-title="كتاب الطهارة"
+                    title="إضافة للمفضلة">
+                    ⭐
+                </button>
+
+                <div class="book-icon-3d">
+                    ⚖️
+                </div>
+
+            </div>
+
+            <div class="book-content">
+
+                <h3>
+                    كتاب الطهارة
+                </h3>
+
+                <div class="book-author">
+                    من بداية المجتهد — ابن رشد
+                </div>
+
+                <div class="book-desc">
+
+                    دراسة فقهية مقارنة لأحكام الطهارة وأدلتها، مرتبة بأسلوب سلس ومبسط للقارئ.
+
+                </div>
+
+                <div class="book-actions">
+
+                    <a
+                        href="Al-tahara.html"
+                        class="read-link">
+                        📖 قراءة الآن
+                    </a>
+
+                    <span class="book-format">
+                        كتاب فقه
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- كتاب التوحيد -->
+
+        <article
+            class="book-item"
+            data-category="العقيدة والتوحيد"
+            data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد">
+
+            <div class="book-header-img">
+
+                <span class="book-badge">
+                    العقيدة والتوحيد
+                </span>
+
+                <button
+                    class="bookmark-toggle"
+                    data-title="كتاب التوحيد"
+                    title="إضافة للمفضلة">
+                    ⭐
+                </button>
+
+                <div class="book-icon-3d">
+                    ☝️
+                </div>
+
+            </div>
+
+            <div class="book-content">
+
+                <h3>
+                    كتاب التوحيد
+                </h3>
+
+                <div class="book-author">
+                    الإمام محمد بن عبد الوهاب
+                </div>
+
+                <div class="book-desc">
+
+                    كتاب التوحيد الذي هو حق الله على العبيد، في تقرير توحيد العبادة وبيان ما ينافيه.
+
+                </div>
+
+                <div class="book-actions">
+
+                    <a
+                        href="tauheed.html"
+                        class="read-link">
+                        📖 قراءة الآن
+                    </a>
+
+                    <span class="book-format">
+                        كتاب عقيدة
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- رسالة عدم وجود نتائج -->
+
+    <div
+        id="noResults"
+        style="display:none; background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); padding:40px; text-align:center; color:var(--text-muted); margin-top:25px; font-size:16px;">
+
+        🔎 عذراً، لا توجد نتائج مطابقة لبحثك.
+
+    </div>
 
 </section>
-
-
-
-<!-- =====================================================
-     BOOKS
-===================================================== -->
-
-<section
-class="section"
-id="library">
-
-<div class="section-title">
-
-<div>
-
-<h2>
-
-الكتب المتاحة
-
-</h2>
-
-<p>
-
-المؤلفات المتاحة للقراءة المباشرة داخل المنصة
-
-</p>
-
-</div>
-
-</div>
-
-
-<div class="filter-tabs">
-
-<button
-class="filter-btn active"
-data-filter="all">
-
-جميع الكتب
-
-</button>
-
-<button
-class="filter-btn"
-data-filter="القرآن الكريم">
-
-القرآن الكريم
-
-</button>
-
-<button
-class="filter-btn"
-data-filter="الحديث الشريف">
-
-الحديث الشريف
-
-</button>
-
-<button
-class="filter-btn"
-data-filter="الفقه الإسلامي">
-
-الفقه الإسلامي
-
-</button>
-
-<button
-class="filter-btn"
-data-filter="العقيدة والتوحيد">
-
-العقيدة والتوحيد
-
-</button>
-
-</div>
-
-
-<div
-class="books-grid"
-id="books">
-
-
-<!-- القرآن -->
-
-<article
-class="book-item"
-data-category="القرآن الكريم"
-data-search="القرآن الكريم قرآن">
-
-<div class="book-header-img">
-
-<span class="book-badge">
-
-القرآن الكريم
-
-</span>
-
-
-<button
-class="bookmark-toggle"
-data-title="القرآن الكريم"
-title="إضافة للمفضلة">
-
-⭐
-
-</button>
-
-
-<div class="book-icon-3d">
-
-📖
-
-</div>
-
-</div>
-
-
-<div class="book-content">
-
-<h3>
-
-القرآن الكريم
-
-</h3>
-
-<div class="book-author">
-
-بالنص العربي العثماني
-
-</div>
-
-<div class="book-desc">
-
-تلاوة وتصفح سور القرآن الكريم بوضوح تام وتصميم مريح للعين يخدم القارئ في كل وقت.
-
-</div>
-
-
-<div class="book-actions">
-
-<a
-href="quran.html"
-class="read-link">
-
-📖 قراءة الآن
-
-</a>
-
-<span class="book-format">
-
-نص إلكتروني
-
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- البخاري -->
-
-<article
-class="book-item"
-data-category="الحديث الشريف"
-data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث">
-
-<div class="book-header-img">
-
-<span class="book-badge">
-
-الحديث الشريف
-
-</span>
-
-
-<button
-class="bookmark-toggle"
-data-title="صحيح البخاري"
-title="إضافة للمفضلة">
-
-⭐
-
-</button>
-
-
-<div class="book-icon-3d">
-
-📜
-
-</div>
-
-</div>
-
-
-<div class="book-content">
-
-<h3>
-
-صحيح البخاري
-
-</h3>
-
-<div class="book-author">
-
-الإمام محمد بن إسماعيل البخاري
-
-</div>
-
-<div class="book-desc">
-
-الجامع الصحيح المسند لأحاديث رسول الله صلى الله عليه وسلم، من أصح كتب السنة النبوية.
-
-</div>
-
-
-<div class="book-actions">
-
-<a
-href="bukhari.html"
-class="read-link">
-
-📖 قراءة الآن
-
-</a>
-
-<span class="book-format">
-
-كتاب حديث
-
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- الطهارة -->
-
-<article
-class="book-item"
-data-category="الفقه الإسلامي"
-data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه">
-
-<div class="book-header-img">
-
-<span class="book-badge">
-
-الفقه الإسلامي
-
-</span>
-
-
-<button
-class="bookmark-toggle"
-data-title="كتاب الطهارة"
-title="إضافة للمفضلة">
-
-⭐
-
-</button>
-
-
-<div class="book-icon-3d">
-
-⚖️
-
-</div>
-
-</div>
-
-
-<div class="book-content">
-
-<h3>
-
-كتاب الطهارة
-
-</h3>
-
-<div class="book-author">
-
-من بداية المجتهد — ابن رشد
-
-</div>
-
-<div class="book-desc">
-
-دراسة فقهية مقارنة لأحكام الطهارة وأدلتها، مرتبة بأسلوب سلس ومبسط للقارئ.
-
-</div>
-
-
-<div class="book-actions">
-
-<a
-href="Al-tahara.html"
-class="read-link">
-
-📖 قراءة الآن
-
-</a>
-
-<span class="book-format">
-
-كتاب فقه
-
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- التوحيد -->
-
-<article
-class="book-item"
-data-category="العقيدة والتوحيد"
-data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد">
-
-<div class="book-header-img">
-
-<span class="book-badge">
-
-العقيدة والتوحيد
-
-</span>
-
-
-<button
-class="bookmark-toggle"
-data-title="كتاب التوحيد"
-title="إضافة للمفضلة">
-
-⭐
-
-</button>
-
-
-<div class="book-icon-3d">
-
-☝️
-
-</div>
-
-</div>
-
-
-<div class="book-content">
-
-<h3>
-
-كتاب التوحيد
-
-</h3>
-
-<div class="book-author">
-
-الإمام محمد بن عبد الوهاب
-
-</div>
-
-<div class="book-desc">
-
-كتاب التوحيد الذي هو حق الله على العبيد، في تقرير توحيد العبادة وبيان ما ينافيه.
-
-</div>
-
-
-<div class="book-actions">
-
-<a
-href="tauheed.html"
-class="read-link">
-
-📖 قراءة الآن
-
-</a>
-
-<span class="book-format">
-
-كتاب عقيدة
-
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-</div>
-
-
-<div
-id="noResults"
-style="
-display:none;
-background:var(--card-bg);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:40px;
-text-align:center;
-color:var(--text-muted);
-margin-top:25px;
-font-size:16px;
-">
-
-🔎 عذراً، لا توجد نتائج مطابقة لبحثك أو التصنيف المحدد.
-
-</div>
-
-</section>
-
-
 
 <!-- =====================================================
      STATS
@@ -2304,170 +1580,143 @@ font-size:16px;
 
 <section class="stats-grid">
 
-<div class="stat-box">
+    <div class="stat-box">
 
-<strong>4</strong>
+        <strong>
+            4
+        </strong>
 
-<span>
+        <span>
+            أمهات الكتب
+        </span>
 
-أمهات الكتب
+    </div>
 
-</span>
+    <div class="stat-box">
 
-</div>
+        <strong>
+            4
+        </strong>
 
+        <span>
+            أقسام رئيسية
+        </span>
 
-<div class="stat-box">
+    </div>
 
-<strong>4</strong>
+    <div class="stat-box">
 
-<span>
+        <strong>
+            100%
+        </strong>
 
-أقسام رئيسية
+        <span>
+            تصفح سلس
+        </span>
 
-</span>
+    </div>
 
-</div>
+    <div class="stat-box">
 
+        <strong>
+            2026
+        </strong>
 
-<div class="stat-box">
+        <span>
+            عام التحديث
+        </span>
 
-<strong>100%</strong>
-
-<span>
-
-تصفح سلس
-
-</span>
-
-</div>
-
-
-<div class="stat-box">
-
-<strong>2026</strong>
-
-<span>
-
-عام التحديث
-
-</span>
-
-</div>
+    </div>
 
 </section>
-
-
 
 <!-- =====================================================
      ABOUT
 ===================================================== -->
 
 <section
-class="about-section"
-id="about">
+    class="about-section"
+    id="about">
 
-<div>
+    <div>
 
-<h2>
+        <h2>
+            عن مكتبة حضري
+        </h2>
 
-عن مكتبة حضري
+        <p>
 
-</h2>
+            منصة رقمية رائدة تهدف إلى إتاحة المصادر وكتب التراث الإسلامي الأصيل بتصميم عصري فائق الجودة، لتمكين الباحثين وطلبة العلم من القراءة السريعة والمباشرة عبر مختلف الأجهزة دون أي إعلانات مزعجة.
 
-<p>
+        </p>
 
-منصة رقمية تهدف إلى إتاحة المصادر وكتب التراث الإسلامي الأصيل بتصميم عصري فائق الجودة، لتمكين الباحثين وطلبة العلم من القراءة السريعة والمباشرة عبر مختلف الأجهزة دون أي إعلانات مزعجة.
+    </div>
 
-</p>
+    <div class="about-features">
 
-</div>
+        <strong>
+            مميزات المنصة:
+        </strong>
 
+        <ul>
 
-<div class="about-features">
+            <li>
+                واجهة بصرية راقية ومريحة للعين مع دعم الثيم الليلي
+            </li>
 
-<strong>
+            <li>
+                بحث فوري وذكي ونظام حفظ الكتب المفضلة
+            </li>
 
-مميزات المنصة:
+            <li>
+                متجاوبة كلياً مع الهواتف الذكية والأجهزة اللوحية
+            </li>
 
-</strong>
+            <li>
+                تحديثات مستمرة لإضافة المزيد من العلوم الشرعية
+            </li>
 
-<ul>
+        </ul>
 
-<li>
-
-واجهة بصرية راقية ومريحة للعين مع دعم الثيم الليلي
-
-</li>
-
-<li>
-
-بحث فوري ونظام حفظ الكتب المفضلة
-
-</li>
-
-<li>
-
-متجاوبة كلياً مع الهواتف الذكية والأجهزة اللوحية
-
-</li>
-
-<li>
-
-تحديثات مستمرة لإضافة المزيد من العلوم الشرعية
-
-</li>
-
-</ul>
-
-</div>
+    </div>
 
 </section>
 
 </main>
 
-
-
 <!-- =====================================================
-     BOOKMARK MODAL
+     BOOKMARKS MODAL
 ===================================================== -->
 
 <div
-class="modal-overlay"
-id="bookmarksModal">
+    class="modal-overlay"
+    id="bookmarksModal">
 
-<div class="modal-card">
+    <div class="modal-card">
 
-<div class="modal-header">
+        <div class="modal-header">
 
-<h3>
+            <h3>
+                ⭐ كتب المفضلة المحفوظة
+            </h3>
 
-⭐ الكتب المفضلة المحفوظة
+            <button
+                class="close-modal"
+                id="closeModalBtn">
+                &times;
+            </button>
 
-</h3>
+        </div>
 
-<button
-class="close-modal"
-id="closeModalBtn">
+        <div
+            class="modal-body"
+            id="savedBooksList">
 
-&times;
+        </div>
 
-</button>
-
-</div>
-
-
-<div
-class="modal-body"
-id="savedBooksList">
-
-</div>
+    </div>
 
 </div>
-
-</div>
-
-
 
 <!-- =====================================================
      FOOTER
@@ -2475,688 +1724,551 @@ id="savedBooksList">
 
 <footer>
 
-<div class="footer-container">
+    <div class="footer-container">
 
+        <div class="footer-brand">
 
-<div class="footer-brand">
+            <h3>
+                📚 مكتبة حضري
+            </h3>
 
-<h3>
+            <p>
 
-📚 مكتبة حضري
+                المرجع الرقمي الأمثل لقراءة القرآن الكريم، السنة النبوية، وكتب العقيدة والفقه بأسلوب عصري سلس.
 
-</h3>
+            </p>
 
-<p>
+        </div>
 
-المرجع الرقمي لقراءة القرآن الكريم، السنة النبوية، وكتب العقيدة والفقه بأسلوب عصري سلس.
+        <div class="footer-col">
 
-</p>
+            <h4>
+                أقسام المكتبة
+            </h4>
 
-</div>
+            <a href="quran.html">
+                القرآن الكريم
+            </a>
 
+            <a href="hadith.html">
+                الحديث الشريف
+            </a>
 
-<div class="footer-col">
+            <a href="fiqh.html">
+                الفقه الإسلامي
+            </a>
 
-<h4>
+            <a href="tauheed.html">
+                العقيدة والتوحيد
+            </a>
 
-أقسام المكتبة
+        </div>
 
-</h4>
+        <div class="footer-col">
 
-<a href="quran.html">
+            <h4>
+                روابط سريعة
+            </h4>
 
-القرآن الكريم
+            <a href="#library">
+                الكتب المتاحة
+            </a>
 
-</a>
+            <a href="#categories">
+                الأقسام العلمية
+            </a>
 
-<a href="hadith.html">
+            <a href="#about">
+                عن المشروع
+            </a>
 
-الحديث الشريف
+        </div>
 
-</a>
+    </div>
 
-<a href="fiqh.html">
+    <div class="footer-copy">
 
-الفقه الإسلامي
+        © 2026 مكتبة حضري للكتب الإسلامية — جميع الحقوق محفوظة لخدمة ونشر العلم الشرعي.
 
-</a>
-
-<a href="tauheed.html">
-
-العقيدة والتوحيد
-
-</a>
-
-</div>
-
-
-<div class="footer-col">
-
-<h4>
-
-روابط سريعة
-
-</h4>
-
-<a href="#library">
-
-الكتب المتاحة
-
-</a>
-
-<a href="#categories">
-
-الأقسام العلمية
-
-</a>
-
-<a href="#about">
-
-عن المشروع
-
-</a>
-
-</div>
-
-</div>
-
-
-<div class="footer-copy">
-
-© 2026 مكتبة حضري للكتب الإسلامية — جميع الحقوق محفوظة لخدمة ونشر العلم الشرعي.
-
-</div>
+    </div>
 
 </footer>
 
-
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
 /* =====================================================
-   PROGRESS BAR
+   1. Reading Progress Bar
 ===================================================== */
 
-window.addEventListener('scroll',()=>{
+window.addEventListener('scroll', () => {
 
-const winScroll =
-document.documentElement.scrollTop;
+    const winScroll = document.documentElement.scrollTop;
 
-const height =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-const scrolled =
-(winScroll / height) * 100;
+    const scrolled =
+        height > 0
+        ? (winScroll / height) * 100
+        : 0;
 
-document.getElementById(
-'progressBar'
-).style.width =
-scrolled + '%';
+    document.getElementById('progressBar').style.width =
+        scrolled + '%';
 
 });
 
 
-
 /* =====================================================
-   TOAST
+   Toast Notification
 ===================================================== */
 
-function showToast(message){
+function showToast(message) {
 
-const toast =
-document.getElementById('toast');
+    const toast =
+        document.getElementById('toast');
 
-toast.textContent=message;
+    toast.textContent = message;
 
-toast.classList.add('show');
+    toast.classList.add('show');
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-toast.classList.remove('show');
+        toast.classList.remove('show');
 
-},3000);
+    }, 3000);
 
 }
 
 
-
 /* =====================================================
-   DARK MODE
+   2. Theme Toggle
 ===================================================== */
 
 const themeToggleBtn =
-document.getElementById(
-'themeToggleBtn'
-);
+    document.getElementById('themeToggleBtn');
 
 const currentTheme =
-localStorage.getItem('theme')
-|| 'light';
+    localStorage.getItem('theme') || 'light';
 
+if (currentTheme === 'dark') {
 
-if(currentTheme==='dark'){
+    document.documentElement.setAttribute(
+        'data-theme',
+        'dark'
+    );
 
-document.documentElement
-.setAttribute(
-'data-theme',
-'dark'
-);
-
-themeToggleBtn.textContent='☀️';
+    themeToggleBtn.textContent = '☀️';
 
 }
 
+themeToggleBtn.addEventListener('click', () => {
 
-themeToggleBtn.addEventListener(
-'click',
-()=>{
+    let theme =
+        document.documentElement.getAttribute(
+            'data-theme'
+        );
 
-let theme =
-document.documentElement
-.getAttribute('data-theme');
+    if (theme === 'dark') {
 
+        document.documentElement.removeAttribute(
+            'data-theme'
+        );
 
-if(theme==='dark'){
+        localStorage.setItem(
+            'theme',
+            'light'
+        );
 
-document.documentElement
-.removeAttribute('data-theme');
+        themeToggleBtn.textContent = '🌙';
 
-localStorage.setItem(
-'theme',
-'light'
-);
+        showToast(
+            'تم التفعيل إلى الوضع الفاتح'
+        );
 
-themeToggleBtn.textContent='🌙';
+    } else {
 
-showToast(
-'تم التفعيل إلى الوضع الفاتح'
-);
+        document.documentElement.setAttribute(
+            'data-theme',
+            'dark'
+        );
 
-}else{
+        localStorage.setItem(
+            'theme',
+            'dark'
+        );
 
-document.documentElement
-.setAttribute(
-'data-theme',
-'dark'
-);
+        themeToggleBtn.textContent = '☀️';
 
-localStorage.setItem(
-'theme',
-'dark'
-);
+        showToast(
+            'تم التفعيل إلى الوضع الليلي'
+        );
 
-themeToggleBtn.textContent='☀️';
-
-showToast(
-'تم التفعيل إلى الوضع الليلي'
-);
-
-}
+    }
 
 });
 
 
-
 /* =====================================================
-   FONT SIZE
+   3. Font Size Resizer
 ===================================================== */
 
 const fontSizeBtn =
-document.getElementById(
-'fontSizeBtn'
-);
+    document.getElementById('fontSizeBtn');
 
-const fontSizes=[
-'16px',
-'18px',
-'20px'
+const fontSizes = [
+    '16px',
+    '18px',
+    '20px'
 ];
 
 let currentFontIdx =
-parseInt(
-localStorage.getItem(
-'fontIdx'
-)||'0'
-);
+    parseInt(
+        localStorage.getItem('fontIdx') || '0'
+    );
 
+function applyFontSize(idx) {
 
-function applyFontSize(idx){
+    document.documentElement.style.setProperty(
+        '--base-font-size',
+        fontSizes[idx]
+    );
 
-document.documentElement
-.style
-.setProperty(
-'--base-font-size',
-fontSizes[idx]
-);
-
-localStorage.setItem(
-'fontIdx',
-idx
-);
+    localStorage.setItem(
+        'fontIdx',
+        idx
+    );
 
 }
 
-applyFontSize(
-currentFontIdx
-);
+applyFontSize(currentFontIdx);
 
+fontSizeBtn.addEventListener('click', () => {
 
-fontSizeBtn.addEventListener(
-'click',
-()=>{
+    currentFontIdx =
+        (currentFontIdx + 1) %
+        fontSizes.length;
 
-currentFontIdx =
-(currentFontIdx+1)
-% fontSizes.length;
+    applyFontSize(currentFontIdx);
 
-applyFontSize(
-currentFontIdx
-);
-
-showToast(
-'تم تغيير حجم الخط إلى: '
-+
-fontSizes[currentFontIdx]
-);
+    showToast(
+        `تم تغيير حجم الخط إلى: ${fontSizes[currentFontIdx]}`
+    );
 
 });
 
 
-
 /* =====================================================
-   SEARCH & FILTER
+   4. Instant Search
 ===================================================== */
 
 const searchInput =
-document.getElementById(
-'searchInput'
-);
+    document.getElementById(
+        "searchInput"
+    );
 
 const books =
-document.querySelectorAll(
-'.book-item'
-);
+    document.querySelectorAll(
+        ".book-item"
+    );
 
 const noResults =
-document.getElementById(
-'noResults'
-);
+    document.getElementById(
+        "noResults"
+    );
 
-const filterBtns =
-document.querySelectorAll(
-'.filter-btn'
-);
+let currentSearchQuery = '';
 
+function filterAndSearchBooks() {
 
-let activeCategory='all';
+    let found = 0;
 
-let currentSearchQuery='';
+    books.forEach(book => {
 
+        const text =
+            book.getAttribute(
+                "data-search"
+            ).toLowerCase();
 
-function filterAndSearchBooks(){
+        const matchesSearch =
+            (
+                currentSearchQuery === '' ||
+                text.includes(currentSearchQuery)
+            );
 
-let found=0;
+        if (matchesSearch) {
 
+            book.style.display = "";
 
-books.forEach(book=>{
+            found++;
 
-const text =
-book.getAttribute(
-'data-search'
-).toLowerCase();
+        } else {
 
-const category =
-book.getAttribute(
-'data-category'
-);
+            book.style.display = "none";
 
+        }
 
-const matchesCategory =
-(
-activeCategory==='all'
-||
-category===activeCategory
-);
+    });
 
+    if (found === 0) {
 
-const matchesSearch =
-(
-currentSearchQuery===''
-||
-text.includes(
-currentSearchQuery
-)
-);
+        noResults.style.display =
+            "block";
 
+    } else {
 
-if(
-matchesCategory
-&&
-matchesSearch
-){
+        noResults.style.display =
+            "none";
 
-book.style.display='';
-
-found++;
-
-}else{
-
-book.style.display='none';
+    }
 
 }
-
-});
-
-
-if(found===0){
-
-noResults.style.display='block';
-
-}else{
-
-noResults.style.display='none';
-
-}
-
-}
-
 
 searchInput.addEventListener(
-'input',
-function(){
+    "input",
+    function() {
 
-currentSearchQuery =
-this.value
-.trim()
-.toLowerCase();
+        currentSearchQuery =
+            this.value
+                .trim()
+                .toLowerCase();
 
-filterAndSearchBooks();
+        filterAndSearchBooks();
 
-});
-
-
-filterBtns.forEach(btn=>{
-
-btn.addEventListener(
-'click',
-()=>{
-
-filterBtns.forEach(
-b=>
-b.classList.remove(
-'active'
-)
+    }
 );
-
-btn.classList.add('active');
-
-activeCategory =
-btn.getAttribute(
-'data-filter'
-);
-
-filterAndSearchBooks();
-
-});
-
-});
-
 
 
 /* =====================================================
-   CATEGORY BUTTONS
-===================================================== */
-
-function selectCategory(category){
-
-activeCategory=category;
-
-filterBtns.forEach(btn=>{
-
-btn.classList.remove(
-'active'
-);
-
-if(
-btn.getAttribute(
-'data-filter'
-)===category
-){
-
-btn.classList.add(
-'active'
-);
-
-}
-
-});
-
-
-filterAndSearchBooks();
-
-}
-
-
-
-/* =====================================================
-   BOOKMARKS
+   5. Bookmarks LocalStorage
 ===================================================== */
 
 const bookmarkBtns =
-document.querySelectorAll(
-'.bookmark-toggle'
-);
+    document.querySelectorAll(
+        '.bookmark-toggle'
+    );
 
 const openBookmarksBtn =
-document.getElementById(
-'openBookmarksBtn'
-);
+    document.getElementById(
+        'openBookmarksBtn'
+    );
 
 const bookmarksModal =
-document.getElementById(
-'bookmarksModal'
-);
+    document.getElementById(
+        'bookmarksModal'
+    );
 
 const closeModalBtn =
-document.getElementById(
-'closeModalBtn'
-);
+    document.getElementById(
+        'closeModalBtn'
+    );
 
 const savedBooksList =
-document.getElementById(
-'savedBooksList'
-);
+    document.getElementById(
+        'savedBooksList'
+    );
 
 
-function getBookmarks(){
+function getBookmarks() {
 
-return JSON.parse(
-localStorage.getItem(
-'bookmarks'
-)||'[]'
-);
+    return JSON.parse(
+        localStorage.getItem(
+            'bookmarks'
+        ) || '[]'
+    );
+
+}
+
+
+function updateBookmarkButtonsUI() {
+
+    const bookmarks =
+        getBookmarks();
+
+    bookmarkBtns.forEach(btn => {
+
+        const bookTitle =
+            btn.getAttribute(
+                'data-title'
+            );
+
+        if (
+            bookmarks.includes(
+                bookTitle
+            )
+        ) {
+
+            btn.classList.add(
+                'active'
+            );
+
+            btn.textContent = '★';
+
+        } else {
+
+            btn.classList.remove(
+                'active'
+            );
+
+            btn.textContent = '⭐';
+
+        }
+
+    });
 
 }
 
 
-function updateBookmarkButtonsUI(){
+bookmarkBtns.forEach(btn => {
 
-const bookmarks =
-getBookmarks();
+    btn.addEventListener(
+        'click',
+        () => {
 
+            const bookTitle =
+                btn.getAttribute(
+                    'data-title'
+                );
 
-bookmarkBtns.forEach(btn=>{
+            let bookmarks =
+                getBookmarks();
 
-const bookTitle =
-btn.getAttribute(
-'data-title'
-);
+            if (
+                bookmarks.includes(
+                    bookTitle
+                )
+            ) {
 
+                bookmarks =
+                    bookmarks.filter(
+                        t => t !== bookTitle
+                    );
 
-if(
-bookmarks.includes(
-bookTitle
-)
-){
+                showToast(
+                    'تمت إزالة الكتاب من المفضلة'
+                );
 
-btn.classList.add(
-'active'
-);
+            } else {
 
-btn.textContent='★';
+                bookmarks.push(
+                    bookTitle
+                );
 
-}else{
+                showToast(
+                    'تمت إضافة الكتاب إلى المفضلة بنجاح'
+                );
 
-btn.classList.remove(
-'active'
-);
+            }
 
-btn.textContent='⭐';
+            localStorage.setItem(
+                'bookmarks',
+                JSON.stringify(
+                    bookmarks
+                )
+            );
 
-}
+            updateBookmarkButtonsUI();
+
+        }
+    );
 
 });
-
-}
-
-
-bookmarkBtns.forEach(btn=>{
-
-btn.addEventListener(
-'click',
-()=>{
-
-const bookTitle =
-btn.getAttribute(
-'data-title'
-);
-
-let bookmarks =
-getBookmarks();
-
-
-if(
-bookmarks.includes(
-bookTitle
-)
-){
-
-bookmarks =
-bookmarks.filter(
-t=>t!==bookTitle
-);
-
-showToast(
-'تمت إزالة الكتاب من المفضلة'
-);
-
-}else{
-
-bookmarks.push(
-bookTitle
-);
-
-showToast(
-'تمت إضافة الكتاب إلى المفضلة بنجاح'
-);
-
-}
-
-
-localStorage.setItem(
-'bookmarks',
-JSON.stringify(
-bookmarks
-)
-);
-
-updateBookmarkButtonsUI();
-
-});
-
-});
-
 
 
 /* =====================================================
-   OPEN BOOKMARKS
+   فتح المفضلة
 ===================================================== */
 
 openBookmarksBtn.addEventListener(
-'click',
-()=>{
+    'click',
+    () => {
 
-const bookmarks =
-getBookmarks();
+        const bookmarks =
+            getBookmarks();
 
-savedBooksList.innerHTML='';
+        savedBooksList.innerHTML =
+            '';
 
+        if (
+            bookmarks.length === 0
+        ) {
 
-if(
-bookmarks.length===0
-){
+            savedBooksList.innerHTML = `
+                <p style="
+                    text-align:center;
+                    color:var(--text-muted);
+                    padding:20px;
+                ">
+                    لا توجد كتب محفوظة في المفضلة حالياً.
+                </p>
+            `;
 
-savedBooksList.innerHTML=
+        } else {
 
-'<p style="text-align:center;color:var(--text-muted);padding:20px;">لا توجد كتب محفوظة في المفضلة حالياً.</p>';
+            bookmarks.forEach(
+                title => {
 
-}else{
+                    const div =
+                        document.createElement(
+                            'div'
+                        );
 
-bookmarks.forEach(title=>{
+                    div.className =
+                        'saved-book-item';
 
-const div =
-document.createElement(
-'div'
+                    div.innerHTML =
+                        `<span>📖 ${title}</span>`;
+
+                    savedBooksList.appendChild(
+                        div
+                    );
+
+                }
+            );
+
+        }
+
+        bookmarksModal.style.display =
+            'flex';
+
+    }
 );
 
-div.className=
-'saved-book-item';
 
-div.innerHTML=
-`<span>📖 ${title}</span>`;
-
-savedBooksList.appendChild(
-div
-);
-
-});
-
-}
-
-
-bookmarksModal.style.display=
-'flex';
-
-});
-
-
-/* CLOSE MODAL */
+/* =====================================================
+   إغلاق المفضلة
+===================================================== */
 
 closeModalBtn.addEventListener(
-'click',
-()=>{
+    'click',
+    () => {
 
-bookmarksModal.style.display=
-'none';
+        bookmarksModal.style.display =
+            'none';
 
-});
+    }
+);
 
 
 window.addEventListener(
-'click',
-e=>{
+    'click',
+    (e) => {
 
-if(
-e.target===bookmarksModal
-){
+        if (
+            e.target === bookmarksModal
+        ) {
 
-bookmarksModal.style.display=
-'none';
+            bookmarksModal.style.display =
+                'none';
 
-}
+        }
 
-});
+    }
+);
 
 
 updateBookmarkButtonsUI();
@@ -3164,5 +2276,4 @@ updateBookmarkButtonsUI();
 </script>
 
 </body>
-
 </html>
