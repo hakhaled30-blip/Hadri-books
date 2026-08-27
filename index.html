@@ -16,7 +16,7 @@
 
 <style>
 /* =====================================================
-   RESET & VARIABLES
+   RESET & CSS VARIABLES (Light & Dark Themes)
 ===================================================== */
 *{
     box-sizing: border-box;
@@ -28,7 +28,7 @@ html{
     scroll-behavior: smooth;
 }
 
-:root{
+:root {
     --primary: #0d2e24;
     --primary-light: #164e3d;
     --accent: #d4af37;
@@ -41,17 +41,50 @@ html{
     --shadow-soft: 0 10px 25px -5px rgba(13, 46, 36, 0.08);
     --shadow-hover: 0 20px 35px -10px rgba(13, 46, 36, 0.15);
     --radius: 20px;
+    --card-bg: #ffffff;
+    --base-font-size: 16px;
+}
+
+[data-theme="dark"] {
+    --primary: #134233;
+    --primary-light: #1b5c46;
+    --accent: #e5c158;
+    --accent-light: rgba(229, 193, 88, 0.15);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --bg-body: #07110e;
+    --white: #0d1b17;
+    --border: #1e332c;
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+    --card-bg: #0d1b17;
 }
 
 body{
     font-family: 'Tajawal', sans-serif;
     background: var(--bg-body);
     color: var(--text-main);
+    font-size: var(--base-font-size);
     line-height: 1.8;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* =====================================================
-   HEADER & NAVBAR (Sticky & Glassmorphism)
+   READING PROGRESS BAR
+===================================================== */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+/* =====================================================
+   HEADER & NAVBAR
 ===================================================== */
 .header{
     background: linear-gradient(135deg, #071f18 0%, #0d2e24 60%, #134233 100%);
@@ -76,7 +109,7 @@ body{
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(13, 46, 36, 0.85);
+    background: rgba(13, 46, 36, 0.88);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -125,6 +158,12 @@ body{
     letter-spacing: 1px;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .nav-links{
     display: flex;
     align-items: center;
@@ -144,6 +183,27 @@ body{
 .nav-links a:hover{
     background: rgba(255, 255, 255, 0.1);
     color: var(--accent);
+}
+
+/* Control Buttons (Theme, Font Size, Bookmark drawer) */
+.icon-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
 }
 
 /* =====================================================
@@ -293,7 +353,7 @@ body{
 }
 
 /* =====================================================
-   SEARCH BOX (Floating Design)
+   SEARCH BOX
 ===================================================== */
 .search-section{
     width: 90%;
@@ -304,7 +364,7 @@ body{
 }
 
 .search-card{
-    background: white;
+    background: var(--card-bg);
     border-radius: 18px;
     padding: 12px;
     display: flex;
@@ -362,7 +422,7 @@ body{
 }
 
 .section-title{
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -372,7 +432,7 @@ body{
 
 .section-title h2{
     font-size: 26px;
-    color: var(--primary);
+    color: var(--text-main);
     font-weight: 800;
 }
 
@@ -382,61 +442,32 @@ body{
 }
 
 /* =====================================================
-   CATEGORIES GRID
+   CATEGORY FILTER TABS
 ===================================================== */
-.categories-grid{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-}
-
-.category-card{
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 25px 15px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text-main);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.category-card:hover{
-    transform: translateY(-6px);
-    border-color: var(--accent);
-    box-shadow: var(--shadow-hover);
-    background: linear-gradient(to bottom, #ffffff, #fcfbf7);
-}
-
-.category-icon{
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 15px;
-    background: rgba(13, 46, 36, 0.05);
-    border-radius: 16px;
+.filter-tabs {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    transition: transform 0.3s;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
-.category-card:hover .category-icon{
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(212, 175, 55, 0.15);
-}
-
-.category-card h3{
-    font-size: 16px;
-    color: var(--primary);
-    margin-bottom: 4px;
-    font-weight: 700;
-}
-
-.category-card span{
-    font-size: 12px;
+.filter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     color: var(--text-muted);
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
 /* =====================================================
@@ -449,7 +480,7 @@ body{
 }
 
 .book-item{
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
@@ -462,12 +493,12 @@ body{
 .book-item:hover{
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
-    border-color: #cbd5e1;
+    border-color: var(--accent);
 }
 
 .book-header-img{
     height: 180px;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    background: linear-gradient(135deg, rgba(13,46,36,0.04), rgba(13,46,36,0.09));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -478,13 +509,38 @@ body{
     position: absolute;
     top: 15px;
     right: 15px;
-    background: white;
-    color: var(--primary);
+    background: var(--card-bg);
+    color: var(--text-main);
     padding: 5px 12px;
     border-radius: 8px;
     font-size: 11px;
     font-weight: 700;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+}
+
+.bookmark-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.bookmark-toggle:hover, .bookmark-toggle.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.1);
 }
 
 .book-icon-3d{
@@ -497,7 +553,7 @@ body{
     align-items: center;
     justify-content: center;
     font-size: 34px;
-    box-shadow: 8px 8px 15px rgba(13, 46, 36, 0.2);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s;
 }
 
@@ -514,14 +570,14 @@ body{
 
 .book-content h3{
     font-size: 20px;
-    color: var(--primary);
+    color: var(--text-main);
     margin-bottom: 6px;
     font-weight: 800;
 }
 
 .book-author{
     font-size: 13px;
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 12px;
     font-weight: 600;
 }
@@ -560,7 +616,7 @@ body{
 
 .book-format{
     font-size: 12px;
-    color: #94a3b8;
+    color: var(--text-muted);
 }
 
 /* =====================================================
@@ -574,7 +630,7 @@ body{
 }
 
 .stat-box{
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 25px;
@@ -584,7 +640,7 @@ body{
 
 .stat-box strong{
     font-size: 32px;
-    color: var(--primary);
+    color: var(--accent);
     font-weight: 900;
     display: block;
     margin-bottom: 4px;
@@ -597,7 +653,7 @@ body{
 
 .about-section{
     margin: 80px 0;
-    background: white;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 45px;
@@ -609,7 +665,7 @@ body{
 }
 
 .about-section h2{
-    color: var(--primary);
+    color: var(--text-main);
     font-size: 26px;
     font-weight: 800;
     margin-bottom: 15px;
@@ -622,14 +678,14 @@ body{
 }
 
 .about-features{
-    background: rgba(13, 46, 36, 0.03);
-    border: 1px solid rgba(13, 46, 36, 0.08);
+    background: var(--accent-light);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 14px;
     padding: 25px;
 }
 
 .about-features strong{
-    color: var(--primary);
+    color: var(--text-main);
     font-size: 17px;
     display: block;
     margin-bottom: 12px;
@@ -640,6 +696,97 @@ body{
     color: var(--text-muted);
     font-size: 14px;
     line-height: 2.2;
+}
+
+/* =====================================================
+   BOOKMARKS MODAL / DRAWER
+===================================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 30px;
+    box-shadow: var(--shadow-hover);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    color: var(--text-main);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.modal-body {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.saved-book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.saved-book-item:last-child {
+    border-bottom: none;
+}
+
+/* =====================================================
+   TOAST NOTIFICATION
+===================================================== */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+    z-index: 3000;
+    font-size: 14px;
+    font-weight: 600;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#toast.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* =====================================================
@@ -712,7 +859,6 @@ footer{
    RESPONSIVE DESIGN
 ===================================================== */
 @media(max-width: 1024px){
-    .categories-grid { grid-template-columns: repeat(3, 1fr); }
     .books-grid { grid-template-columns: repeat(2, 1fr); }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -727,7 +873,6 @@ footer{
 
 @media(max-width: 600px){
     .nav-links { display: none; }
-    .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .books-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr; }
     .footer-container { grid-template-columns: 1fr; }
@@ -738,6 +883,12 @@ footer{
 </head>
 
 <body>
+
+<!-- READING PROGRESS BAR -->
+<div id="progressBar"></div>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast">رسالة إشعار</div>
 
 <!-- HEADER -->
 <header class="header">
@@ -750,10 +901,19 @@ footer{
                     <span>الرقمية للإسلاميات</span>
                 </div>
             </a>
-            <div class="nav-links">
-                <a href="#library">المكتبة</a>
-                <a href="#categories">الأقسام</a>
-                <a href="#about">عن المشروع</a>
+            
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="#library">المكتبة</a>
+                    <a href="#categories">الأقسام</a>
+                    <a href="#about">عن المشروع</a>
+                </div>
+                <!-- زر المفضلة -->
+                <button class="icon-btn" id="openBookmarksBtn" title="المفضلة">⭐</button>
+                <!-- زر حجم الخط -->
+                <button class="icon-btn" id="fontSizeBtn" title="تغيير حجم الخط">🔤</button>
+                <!-- زر الوضع الليلي -->
+                <button class="icon-btn" id="themeToggleBtn" title="تغيير الثيم">🌙</button>
             </div>
         </div>
     </nav>
@@ -796,45 +956,7 @@ footer{
 
 <main class="container">
 
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-    <div class="section-title">
-        <div>
-            <h2>تصفح حسب القسم</h2>
-            <p>اختر المجال العلمي للوصول السريع إلى مصادره</p>
-        </div>
-    </div>
-
-    <div class="categories-grid">
-        <a href="quran.html" class="category-card">
-            <div class="category-icon">📖</div>
-            <h3>القرآن الكريم</h3>
-            <span>النص الشريف</span>
-        </a>
-        <a href="hadith.html" class="category-card">
-            <div class="category-icon">📜</div>
-            <h3>الحديث الشريف</h3>
-            <span>كتب السنة</span>
-        </a>
-        <a href="fiqh.html" class="category-card">
-            <div class="category-icon">⚖️</div>
-            <h3>الفقه الإسلامي</h3>
-            <span>أحكام ومسائل</span>
-        </a>
-        <a href="tauheed.html" class="category-card">
-            <div class="category-icon">☝️</div>
-            <h3>العقيدة والتوحيد</h3>
-            <span>أصول الاعتقاد</span>
-        </a>
-        <div class="category-card">
-            <div class="category-icon">📚</div>
-            <h3>كتب متنوعة</h3>
-            <span>قريباً</span>
-        </div>
-    </div>
-</section>
-
-<!-- BOOKS LIST -->
+<!-- BOOKS LIST & FILTER SECTION -->
 <section class="section" id="library">
     <div class="section-title">
         <div>
@@ -843,11 +965,21 @@ footer{
         </div>
     </div>
 
+    <!-- أزرار الفلترة السريعة -->
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">جميع الكتب</button>
+        <button class="filter-btn" data-filter="القرآن الكريم">القرآن الكريم</button>
+        <button class="filter-btn" data-filter="الحديث الشريف">الحديث الشريف</button>
+        <button class="filter-btn" data-filter="الفقه الإسلامي">الفقه الإسلامي</button>
+        <button class="filter-btn" data-filter="العقيدة والتوحيد">العقيدة والتوحيد</button>
+    </div>
+
     <div class="books-grid" id="books">
         <!-- القرآن الكريم -->
-        <article class="book-item" data-search="القرآن الكريم قرآن">
+        <article class="book-item" data-category="القرآن الكريم" data-search="القرآن الكريم قرآن">
             <div class="book-header-img">
                 <span class="book-badge">القرآن الكريم</span>
+                <button class="bookmark-toggle" data-title="القرآن الكريم" title="إضافة للمفضلة">⭐</button>
                 <div class="book-icon-3d">📖</div>
             </div>
             <div class="book-content">
@@ -864,9 +996,10 @@ footer{
         </article>
 
         <!-- صحيح البخاري -->
-        <article class="book-item" data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث">
+        <article class="book-item" data-category="الحديث الشريف" data-search="صحيح البخاري محمد بن إسماعيل البخاري حديث">
             <div class="book-header-img">
                 <span class="book-badge">الحديث الشريف</span>
+                <button class="bookmark-toggle" data-title="صحيح البخاري" title="إضافة للمفضلة">⭐</button>
                 <div class="book-icon-3d">📜</div>
             </div>
             <div class="book-content">
@@ -883,9 +1016,10 @@ footer{
         </article>
 
         <!-- كتاب الطهارة -->
-        <article class="book-item" data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه">
+        <article class="book-item" data-category="الفقه الإسلامي" data-search="كتاب الطهارة بداية المجتهد ابن رشد فقه">
             <div class="book-header-img">
                 <span class="book-badge">الفقه الإسلامي</span>
+                <button class="bookmark-toggle" data-title="كتاب الطهارة" title="إضافة للمفضلة">⭐</button>
                 <div class="book-icon-3d">⚖️</div>
             </div>
             <div class="book-content">
@@ -902,9 +1036,10 @@ footer{
         </article>
 
         <!-- كتاب التوحيد -->
-        <article class="book-item" data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد">
+        <article class="book-item" data-category="العقيدة والتوحيد" data-search="كتاب التوحيد محمد بن عبد الوهاب عقيدة توحيد">
             <div class="book-header-img">
                 <span class="book-badge">العقيدة والتوحيد</span>
+                <button class="bookmark-toggle" data-title="كتاب التوحيد" title="إضافة للمفضلة">⭐</button>
                 <div class="book-icon-3d">☝️</div>
             </div>
             <div class="book-content">
@@ -922,8 +1057,8 @@ footer{
     </div>
 
     <!-- رسالة عدم وجود نتائج -->
-    <div id="noResults" style="display:none; background:white; border:1px solid var(--border); border-radius:var(--radius); padding:40px; text-align:center; color:var(--text-muted); margin-top:25px; font-size:16px;">
-        🔎 عذراً، لا توجد نتائج مطابقة لبحثك. جرب كلمات أخرى.
+    <div id="noResults" style="display:none; background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); padding:40px; text-align:center; color:var(--text-muted); margin-top:25px; font-size:16px;">
+        🔎 عذراً، لا توجد نتائج مطابقة لبحثك أو التصنيف المحدد.
     </div>
 </section>
 
@@ -958,8 +1093,8 @@ footer{
     <div class="about-features">
         <strong>مميزات المنصة:</strong>
         <ul>
-            <li>واجهة بصرية راقية ومريحة للعين</li>
-            <li>بحث فوري وذكي داخل محتوى المكتبة</li>
+            <li>واجهة بصرية راقية ومريحة للعين مع دعم الثيم الليلي</li>
+            <li>بحث فوري وذكي ونظام حفظ الكتب المفضلة</li>
             <li>متجاوبة كلياً مع الهواتف الذكية والأجهزة اللوحية</li>
             <li>تحديثات مستمرة لإضافة المزيد من العلوم الشرعية</li>
         </ul>
@@ -967,6 +1102,19 @@ footer{
 </section>
 
 </main>
+
+<!-- BOOKMARKS MODAL -->
+<div class="modal-overlay" id="bookmarksModal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>⭐ كتب المفضلة المحفوظة</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="savedBooksList">
+            <!-- ستظهر هنا الكتب المحفوظة تلقائياً -->
+        </div>
+    </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -994,19 +1142,86 @@ footer{
     </div>
 </footer>
 
-<!-- SEARCH SCRIPT -->
+<!-- JAVASCRIPT LOGIC FOR ALL FEATURES -->
 <script>
+// 1. Reading Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// Toast Notification Helper
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// 2. Theme Toggle (Dark / Light)
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggleBtn.textContent = '☀️';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggleBtn.textContent = '🌙';
+        showToast('تم التفعيل إلى الوضع الفاتح');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggleBtn.textContent = '☀️';
+        showToast('تم التفعيل إلى الوضع الليلي');
+    }
+});
+
+// 3. Font Size Resizer
+const fontSizeBtn = document.getElementById('fontSizeBtn');
+const fontSizes = ['16px', '18px', '20px'];
+let currentFontIdx = parseInt(localStorage.getItem('fontIdx') || '0');
+
+function applyFontSize(idx) {
+    document.documentElement.style.setProperty('--base-font-size', fontSizes[idx]);
+    localStorage.setItem('fontIdx', idx);
+}
+applyFontSize(currentFontIdx);
+
+fontSizeBtn.addEventListener('click', () => {
+    currentFontIdx = (currentFontIdx + 1) % fontSizes.length;
+    applyFontSize(currentFontIdx);
+    showToast(`تم تغيير حجم الخط إلى: ${fontSizes[currentFontIdx]}`);
+});
+
+// 4. Instant Search & Category Filtering
 const searchInput = document.getElementById("searchInput");
 const books = document.querySelectorAll(".book-item");
 const noResults = document.getElementById("noResults");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
-searchInput.addEventListener("input", function(){
-    const query = this.value.trim().toLowerCase();
+let activeCategory = 'all';
+let currentSearchQuery = '';
+
+function filterAndSearchBooks() {
     let found = 0;
-
-    books.forEach(function(book){
+    books.forEach(book => {
         const text = book.getAttribute("data-search").toLowerCase();
-        if(query === "" || text.includes(query)){
+        const category = book.getAttribute("data-category");
+        
+        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+        const matchesSearch = (currentSearchQuery === '' || text.includes(currentSearchQuery));
+
+        if (matchesCategory && matchesSearch) {
             book.style.display = "";
             found++;
         } else {
@@ -1014,12 +1229,99 @@ searchInput.addEventListener("input", function(){
         }
     });
 
-    if(found === 0){
+    if (found === 0) {
         noResults.style.display = "block";
     } else {
         noResults.style.display = "none";
     }
+}
+
+searchInput.addEventListener("input", function() {
+    currentSearchQuery = this.value.trim().toLowerCase();
+    filterAndSearchBooks();
 });
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.getAttribute('data-filter');
+        filterAndSearchBooks();
+    });
+});
+
+// 5. Bookmarks (LocalStorage System)
+const bookmarkBtns = document.querySelectorAll('.bookmark-toggle');
+const openBookmarksBtn = document.getElementById('openBookmarksBtn');
+const bookmarksModal = document.getElementById('bookmarksModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const savedBooksList = document.getElementById('savedBooksList');
+
+function getBookmarks() {
+    return JSON.parse(localStorage.getItem('bookmarks') || '[]');
+}
+
+function updateBookmarkButtonsUI() {
+    const bookmarks = getBookmarks();
+    bookmarkBtns.forEach(btn => {
+        const bookTitle = btn.getAttribute('data-title');
+        if (bookmarks.includes(bookTitle)) {
+            btn.classList.add('active');
+            btn.textContent = '★';
+        } else {
+            btn.classList.remove('active');
+            btn.textContent = '⭐';
+        }
+    });
+}
+
+bookmarkBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const bookTitle = btn.getAttribute('data-title');
+        let bookmarks = getBookmarks();
+        
+        if (bookmarks.includes(bookTitle)) {
+            bookmarks = bookmarks.filter(t => t !== bookTitle);
+            showToast('تمت إزالة الكتاب من المفضلة');
+        } else {
+            bookmarks.push(bookTitle);
+            showToast('تمت إضافة الكتاب إلى المفضلة بنجاح');
+        }
+        
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        updateBookmarkButtonsUI();
+    });
+});
+
+openBookmarksBtn.addEventListener('click', () => {
+    const bookmarks = getBookmarks();
+    savedBooksList.innerHTML = '';
+    
+    if (bookmarks.length === 0) {
+        savedBooksList.innerHTML = '<p style="text-align:center; color:var(--text-muted); padding:20px;">لا توجد كتب محفوظة في المفضلة حالياً.</p>';
+    } else {
+        bookmarks.forEach(title => {
+            const div = document.createElement('div');
+            div.className = 'saved-book-item';
+            div.innerHTML = `<span>📖 ${title}</span>`;
+            savedBooksList.appendChild(div);
+        });
+    }
+    bookmarksModal.style.display = 'flex';
+});
+
+closeModalBtn.addEventListener('click', () => {
+    bookmarksModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === bookmarksModal) {
+        bookmarksModal.style.display = 'none';
+    }
+});
+
+// تهيئة حالة الأيقونات عند التحميل
+updateBookmarkButtonsUI();
 </script>
 
 </body>
